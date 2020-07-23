@@ -1,0 +1,31 @@
+---
+title: "Week 2: Exploring Data"
+output:
+  html_document:
+    number_sections: false
+    toc: no
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+rm(list=objects()) # start with a clean workspace
+source("knitr_setup.R")
+```
+
+This week, we will learn some strategies for exploring data sets to gain a greater understanding of the variable types and their relationships.
+
+# Data types & descriptive statistics
+
+To get started, open up a notebook (physical, digital...whatever you take notes in best), and **take notes** while you watch [this 20 minute video](https://www.youtube.com/watch?v=zHcQPKP6NpM) to learn about some basic data types and descriptive statistics:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zHcQPKP6NpM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+# Readings!
+
+After watching the above video, read through the following chapters and **take notes**.
+
+- [R4DS - 7: Exploratory data analysis](https://r4ds.had.co.nz/exploratory-data-analysis.html): Provides some more "hands on" strategies for exploring data using R and the **ggplot2** library.
+- [Wilke - 5: Directory of visualizations](https://serialmentor.com/dataviz/directory-of-visualizations.html): Provides a quick overview of many common plot types.
+
+# Choosing the right chart
+
+You will want to choose different chart types depending on the relationship or message you want to convey. Fortunately, there are lots of great guides to help you make those choices. View them [here](ref-visualizing-data.html#2_choosing_the_right_chart).

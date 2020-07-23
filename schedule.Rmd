@@ -1,0 +1,55 @@
+---
+title: "Course Schedule"
+output:
+  html_document:
+    number_sections: false
+    toc: no
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+rm(list=objects()) # start with a clean workspace
+source("knitr_setup.R")
+```
+
+Here's your roadmap for the semester!
+
+Readings legend:
+
+- Healy == Healy, Kieran. "Data Visualization: A practical introduction" [[free online](http://socviz.co/)], [[buy on amazon](https://www.amazon.com/Data-Visualization-Introduction-Kieran-Healy/dp/0691181624)]
+- R4DS == Grolemund, Garrett and Wickham, Hadley. "R for Data Science" [[free online](https://r4ds.had.co.nz/)], [[buy on amazon](https://www.amazon.com/Data-Science-Transform-Visualize-Model/dp/1491910399)]
+- Wilke == Wilke, Claus O. "Fundamentals of Data Visualization" [[free online](https://serialmentor.com/dataviz/)], [[buy on amazon](https://www.amazon.com/Fundamentals-Data-Visualization-Informative-Compelling/dp/1492031089)]
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(knitr)
+library(kableExtra)
+library(gsheet)
+options(knitr.kable.NA = '')
+html_table_width <- function(kable_output, width){
+  width_html <- paste0(paste0('<col width="', width, '">'), collapse = "\n")
+  width_html <- paste0('<table class="table">\n', width_html)
+  return(sub('<table>', width_html, kable_output))
+}
+
+# Read the schedule from the google sheet
+schedule <- gsheet2tbl('https://docs.google.com/spreadsheets/d/1GkCv6FGzn7kNU4yC5QyCVAt2OnfS3yK1UVNeG2u0z4g/edit?usp=sharing')
+# Define the first and last of class and finals start date
+start  <- as.Date("2020/01/15")
+end    <- as.Date("2020/04/22")
+makeup <- as.Date("2020/04/29")
+finals <- as.Date("2020/05/06")
+# Format the dates
+dates <- format(seq(start, end, by = "week"), format="%m/%d")
+dates <- c(dates, format(c(makeup, finals), format="%m/%d"))
+# Make the schedule data frame
+schedule$Date <- dates
+# Define the week
+schedule$Week <- seq(length(dates))
+schedule <- schedule[c('Week', 'Date', 'Topics', 'Readings',
+                       'Class', 'Quizzes', 'Assignments')]
+# Render the schedule as markdown
+kable(schedule, format = 'html', escape = FALSE, 
+      align = c('c', 'c', 'l', 'l', 'l', 'l', 'l')) %>% 
+    kable_styling(full_width = F) %>% 
+    column_spec(column = 3, width = '18em') %>% 
+    column_spec(column = c(5, 7), width = '10em')
+```

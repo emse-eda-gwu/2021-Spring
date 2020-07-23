@@ -1,0 +1,100 @@
+---
+title: "Week 1: Course Introduction"
+output: html_document
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+rm(list=objects()) # start with a clean workspace
+source("knitr_setup.R")
+```
+
+# Teaching Team
+
+## Meet your instructor!
+
+Dr. John Helveston, Assistant Professor in Engineering Management & Systems Engineering
+
+![](images/helveston.jpg){ width=250 }
+
+Background:
+
+- 2016 PhD in Engineering & Public Policy at Carnegie Mellon University
+- 2015 MS in Engineering & Public Policy at Carnegie Mellon University
+- 2010 BS in Engineering Science & Mechanics at Virginia Tech
+
+## Meet your tutors!
+
+Yanjie He, Masters student in Data Analytics | Lingmei Zhao, Masters student in Statistics
+---|---
+![](images/yanjie.jpg){ width=250 } | ![](images/lingmei.jpg){ width=250 }
+
+# For new students
+
+```{r child = '_prerequisites.Rmd'}
+```
+
+# Course prep
+
+For this class, you'll need to install some software and register for some websites. Go to the [course prep](L0-course-prep.html) page to get setup.
+
+# What's new?
+
+Students taking this course should have already taken [Programming for Analytics](https://emse-p4a-gwu.github.io/). If you haven't, I **strongly** recommend you review the lessons and assignments on the [previous semester website](https://emse6574-gwu.github.io/2019-Fall/). You can also get up to speed by completing [Assignment 0](assignment0.html).
+
+While this course follows a similar structure as P4A, there will be several key distinctions:
+
+1. Whereas in P4A we worked with nice, tidy data sets, in this course we will be working more with messier, "raw" data that often needs to be significantly processed before being able to explore it.
+2. Rather than solve puzzles (e.g. write the function `isPrime()`), assignments will involve more real-world data problems that often have multiple, subjective solutions.
+3. Style and aesthetics will matter - consider your assignments and your final project to be professional data products that you would want to show off to future employers.
+
+# Course mantras
+
+Here are some philosophies that will get you far in data analytic work. We will be revisiting these over and over again.
+
+**1) Embrace plain text**
+
+You will write code to produce rich outputs that include text and graphics. While your output may have lots of different formatting, your code will be written in [**plain text**](https://en.wikipedia.org/wiki/Plain_text).
+
+**2) Embrace reproducibility**
+
+Everything you produce in this course will be a [reproducible](https://en.wikipedia.org/wiki/Reproducibility) output. That is, you should be able to reproduce your output from the raw data and code. For example, This webpage was generated from [this markdown source file](https://raw.githubusercontent.com/emse-eda-gwu/2020-Spring/master/L1.1-course-introduction.Rmd) on GitHub.
+
+If you want to generate this very HTML page, download the `.Rmd` file, then open it in RStudio and run the following code:
+
+```{r eval=FALSE}
+rmarkdown::render('L1.1-course-introduction.Rmd')
+```
+
+# The syllabus
+
+The [syllabus](syllabus.html) is lengthy, but I do expect you to look through each section. If any changes need to be made, you'll be notified through Slack.
+
+# The schedule
+
+The course [schedule](schedule.html) is your roadmap for the semester. Visit it often to make sure you are well-prepared for class and aware of upcoming assignment / quiz dates.
+
+# Communication & Help
+
+This can be a challenging class - don't suffer in silence! Look at the ["Getting Help"](ref-getting-help.html) page, come to office hours, send me a message on Slack.
+
+# Readings!
+
+## Workflow
+
+Now that you've got R and RStudio installed, read the ["Getting Started"](http://socviz.co/gettingstarted.html) lesson in [Healy](http://socviz.co/). We will follow the conventions laid out in this chapter throughout the class, including:
+
+- Using [RStudio Projects](https://r4ds.had.co.nz/workflow-projects.html) to stay organized.
+- Working in plain text.
+- Using RMarkdown to conduct and report on our analyses.
+
+## Reading in Data
+
+Check out the [**readr**](https://readr.tidyverse.org/articles/readr.html) and [**readxl**](https://readxl.tidyverse.org/) packages - we'll be using these throughout the semester to import data into R.
+
+## Tidy Data
+
+We'll cover the concept of "tidy" data in class on day 1. To get familiar with it, read [Chapter 12](https://r4ds.had.co.nz/tidy-data.html) in R4DS, and take a look at these [Tidy data explanations](https://github.com/gadenbuie/tidyexplain#tidy-data).
+
+## Writing a research question
+
+Read through [this guide](https://writingcenter.gmu.edu/guides/how-to-write-a-research-question) from GMU on how to write a research question. We'll come back to these ideas again later when you start working on your [final projects](a-project.html), but it's a good idea to start thinking about your research question early.

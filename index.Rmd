@@ -1,0 +1,42 @@
+---
+title: "EMSE 4197: Exploratory Data Analysis - Spring 2020"
+output:
+  html_document:
+    number_sections: false
+    toc: no
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+rm(list=objects()) # start with a clean workspace
+source("knitr_setup.R")
+```
+
+<div class = "row">
+
+<div class = "col-md-3">
+<img src="images/eda_hex_sticker.png" width="200">
+</div>
+
+<div class = "col-md-9">
+
+**Department**: [Engineering Management and Systems Engineering](https://www.emse.seas.gwu.edu/) @ [GWU](https://www.gwu.edu/)
+
+**Credits**: 3
+
+**Description**:
+
+```{r child = '_description.Rmd'}
+```
+
+**Learning Objectives**:
+
+```{r child = '_learning-objectives.Rmd'}
+```
+
+**Prerequisites**:
+
+```{r child = '_prerequisites.Rmd'}
+```
+
+</div>
+</div>

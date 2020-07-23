@@ -1,0 +1,285 @@
+---
+title: "Final Project"
+output:
+  html_document:
+    number_sections: false
+    toc: true
+---
+
+For your final project, you will take a dataset, explore it, tinker with it, and tell a nuanced story about it using at least three charts. I want this project to be as useful for you and your future career as possible - you'll hopefully want to show off your final project in a portfolio or during job interviews. Accordingly, you get to choose what data you will use for your project. Choose whatever one you are most interested in or will have the most fun with.
+
+# Overview
+
+For the final project, you will:
+
+- Write a research question.
+- Conduct an exploratory data analysis of one or more data sources to address your research question.
+- Create visualizations to effectively communicate the results of your analysis using the principles of information visualization covered in this course.
+- Document your entire analysis in a reproducible format, including a detailed curation of the data used, analysis conducted, and results produced.
+
+**Click [here](a-project-template.html) for a template to use for your analysis**.
+
+To make the overall project more manageable, it is broken down into separate "milestone" deliverables due throughout the semester, starting with a proposal due just before spring break.
+
+**Summary of Deliverables**:
+
+<div style="width:400px">
+Item            | Weight towards<br>final grade | Due Date<br>(by 11pm)
+----------------|----------------------------|--------------------
+Proposal        | 6 %    | March 13
+Progress Report | 8 %    | April 22
+Peer Review     | 5 %    | April 29
+Final Report    | 16 %   | May 04
+Presentation    | 8 %    | May 06
+</div>
+
+**Purpose**: The skills covered in this course are rooted in design rules and principles rather than formulas and equations. As such, the _application_ of these principles to a real data problem is one of the best ways to learn and assess mastery of these skills. I guarantee you one day you will need to apply these principles to communicate an idea to colleagues, so let's make sure you have at least one chance to practice before the [stakes are higher](https://emse6574-gwu.github.io/2019-Fall/challengerExplosion.html).
+
+**Skills & Knowledge**: Your final project should illustrate your ability to transform raw data into insights by making the non-visible visible, showing clear trends or patterns, and / or identifying outliers or missing information. The specific skills involved in achieving this goal include all of the course learning objectives listed on the course [home page](index.html).
+
+**Teams**: You may work on an individual project or in teams of 2 to 3 students of your choosing. If you choose to work in a team, you must finalize your team members at the time of submitting your proposal.
+
+---
+
+# Proposal
+
+**Due**: March 13 by 11:00 pm
+
+**Weight**: This assignment is worth 6% of your final grade.
+
+**Submission Details**: You may write your proposal using any tool you wish (e.g. Microsoft Word, RMarkdown), but you must submit your proposal as a **PDF document** on Blackboard by the due date.
+
+**Assessment**: We will use [this rubric](assignments/project/proposal_rubric.pdf) to grade your proposal.
+
+**Tasks**:
+
+Write a 1-2 page proposal of an exploratory data analysis that you plan to conduct for your final project. The instructors will review and grade your proposal and provide feedback upon returning from spring break. If your proposal is approved, you're done and can move on towards the next project task. Otherwise, the instructors may ask you to submit a revised proposal, most likely by focusing / adjusting the proposal scope and / or research question. Below is a list of specific items your proposal should include (check the rubric to see their relative weighting).
+
+1. Follow these formatting guidelines:
+
+    - Be between 1 and 2 pages in length.
+    - 12 point font, 1 inch margins.
+    - Write your project title at the top of the document (e.g. **Title**: `<insert title>`).
+    - List the name(s) of student(s) involved in the project below the project title (e.g. **Authors**: `<insert list of names>`). You cannot change your teammates once you've submitted your proposal.
+
+2. State a clear research question. Follow [these guidelines](https://writingcenter.gmu.edu/guides/how-to-write-a-research-question). Your question should be:
+
+    - **Clear**: it provides enough specifics that your audience can easily understand its purpose without needing additional explanation.
+    - **Focused**: it is narrow enough that it can be addressed thoroughly with the data available and within the limits of the final project report.
+    - **Concise**: it is expressed in the fewest possible words.
+    - **Complex**: it is not answerable with a simple "yes" or "no," but rather requires synthesis and analysis of data.
+    - **Arguable**: its potential answers are open to debate rather than accepted facts.
+
+3. Discuss the data source(s) you plan to use for your analysis:
+
+    - If you have already identified the source(s), describe them and include urls and / or references to the sources. If you have not identified a source yet, describe the data you hope to use, and give at least one plausible source that may have the data (regardless of whether the source makes it available or not).
+    - Discuss the validity of the source(s). For each data source, is the data available the _original_ data, or has it been processed? How was the original data collected and by whom? If you do not yet have a source, discuss what concerns you have about a plausible source that might have the data.
+
+4. Describe some anticipated results:
+
+    - Choose two variables that you expect to find in your data and are relevant to your research question. Describe how you would expect each to be distributed (e.g. unimodal, multimodel, tightly-group, widely-spread, etc.), regardless of whether those variables actually exist. For example, you might expect the price of gasoline over a particular period to be rather tightly-grouped around a mean, whereas the stock price of a particular company might vary much more widely over the same period.
+    - Choose two or more variables that you expect to find in your data and are relevant to your research question. Describe two relationships you expect to find these variables, regardless of whether actually exist in your data. For example, you might expect sales of hybrid vehicles to increase when gas prices increase, or sales of SUVs to increase when gas prices decrease.
+    - Describe at least two charts that you expect will help you visualize the relationships that you expect to find. For example, a scatterplot of gasoline prices and SUV sales over a particular time period might be useful for visualizing the level of correlation between these two variables.
+    - Discuss how your expectations about the variables you chose will help inform you about your research question.
+
+---
+
+# Progress Report
+
+**Due**: April 22 by 11:00 pm
+
+**Weight**: This assignment is worth 8% of your final grade.
+
+**Submission Details**: **Use [this template](a-project-template.html) for your analysis and report.** Your progress report should be written as a .Rmd file that compiles to a html webpage. Submit your entire project folder (including your .Rmd file, data files, .RProj file, etc.) as a single .zip file on Blackboard by the due date. For students in teams, **only one person from your team should submit the report.**
+
+**Assessment**: We will use [this rubric](assignments/project/progress_report_rubric.pdf) to grade your progress report.
+
+**Tasks**:
+
+Write a report summarizing progress you have made towards your project thus far, including summary statistics of your data and preliminary charts. You should have already identified data source(s) for your project and begun exploring the data. **Students working in teams must submit individual short reviews of their teammates' contributions** to help ensure that the workload and grading for team members are equitable (see task 6 below). Below is a list of specific items your progress report should include (check the rubric to see their relative weighting).
+
+1. Follow these formatting rules:
+
+    - As the report will compile to a html webpage, there is no length requirement; your report should be sufficiently detailed to address the requirements listed below and sufficiently concise such that it is expressed in the fewest necessary words.
+    - In your markdown YAML header, include the project title and the name(s) of student(s) involved in the project such that they appear at the top of the rendered html page.
+    - Your report should be written in a narrative format (i.e. using coherent pargraphs rather than a series of bullet points). You may use headings where appropriate to break up your report into sections.
+
+2. State a clear research question. This can (and almost certainly should) be a revised question from your proposal. Again, follow [these guidelines](https://writingcenter.gmu.edu/guides/how-to-write-a-research-question).
+
+3. Discuss the data source(s) you are using for your analysis:
+
+    - Describe them and include urls or references to the sources.
+    - Discuss the validity of the source(s) - for each data source, is the data available the _original_ data, or has it been processed? If not, what is the original source? How was the data collected?
+    - For each dataset, provide a data dictionary in an appendix at the end of your report that contains a table of each the name, type, and description of each variable. The appendix does not count towards your page limit.
+
+4. Evaluate your proposal expectations:
+
+    - Do you find support for your original proposal expectation about how one variable might be distributed? Show it by looking at summaries of the variable. If that variable doesn't exist in your data, discuss another key variable instead and how it is distributed.
+    - Do you find support for your original proposal expectation about how the variables you chose are related? Show it. If those variables don't exist in your data, discuss one key relationship that you have identified between two or more variables.
+
+5. Include at least two preliminary charts:
+
+    - Your charts should either support or oppose your research question, or they should illustrate what else you might need to address your research question.
+    - You may choose whatever chart types you wish, but your choices should highlight the point you want to make or should clearly show the relationship you want to emphasize. Consider [these resources](ref-visualizing-data.html) when choosing your charts.
+    - Your charts should follow the design principles we have covered in class. They do not have to be fully polished yet, but at a minimum they should be accurate (i.e. not misleading) and they should not include distracting non-data ink.
+
+6. **For students working in teams**: On Blackboard under the assignment titled `"Team Member Review [Progress Report]"`, submit a short description of the specific contributions of each team member in your team. For example, "Student A identified the data source and wrote the documentation for it. Student B led the data cleaning process and did much of the initial data exploration. Student C helped write code for the main visualizations." These reviews will be kept confidential and compared to assess that the workload and grading for team members are equitable. Team members who do not make meaningful contributions to their projects will receive a lower grade than that of their team mates. **If you are having any disputes amongst team members, please contact Professor Helveston so we can find a resolution.**
+
+---
+
+# Peer Review
+
+**Due**: April 29 by 11:00 pm
+
+**Weight**: This assignment is worth 5% of your final grade.
+
+**Submission Details**: Submit your peer reviews as a PDF document on Blackboard by the due date.
+
+**Assessment**: Your peer review will be graded for completion.
+
+**Tasks**:
+
+Each student will be randomly assigned one progress report of their classmate's projects to review. This is an **individual assignment**, so students in teams must individually write their own reviews. Students in teams will each be assigned different projects to review. The reviews will be returned to the project teams as further feedback to consider as they revise their analyses and prepare for their final report and presentation. Below is a list of specific items your peer review should include (check the rubric to see their relative weighting).
+
+1. Follow these formatting rules:
+
+    - Be between 1 and 3 pages in length, including all images.
+    - 12 point font, 1 inch margins.
+    - Write the title of the project being reviewed from the progress report (e.g. **Review of**: `<insert project title>`)
+    - Do **not** put your name on your review - these will be anonymous reviews returned to each team.
+
+2. Evaluate their research question according to these qualities:
+
+    - **Clear**: it provides enough specifics that your audience can easily understand its purpose without needing additional explanation.
+    - **Focused**: it is narrow enough that it can be addressed thoroughly with the data available and within the limits of the final project report.
+    - **Concise**: it is expressed in the fewest possible words.
+    - **Complex**: it is not answerable with a simple "yes" or "no," but rather requires synthesis and analysis of data.
+    - **Arguable**: its potential answers are open to debate rather than accepted facts.
+
+3. Evaluate the description of their data source(s):
+
+    - Are the data appropriate for the research question?
+    - Are the data sources well-described? Do you know the source and the original source?
+    - Can you follow the information in the report to obtain the data yourself?
+    - Is there a data dictionary available in an appendix for each data set?
+    - Provide one suggestion to help further clarify any questions you have about the data source(s).
+
+4. Evaluate their preliminary results:
+
+    - Are there at least two charts provided in the analysis?
+    - Are the charts relevant to the research question posed?
+    - Do the charts support or oppose the research question or illustrate what else might be needed to address the research question?
+    - Do the charts follow the design principles (to a reasonable degree) that we have covered in class (i.e. they are not misleading, and they do not include distracting non-data ink)?
+    - Provide at least two suggestions to improve the charts.
+
+---
+
+# Final Report
+
+**Due**: May 04 by 11:00 pm
+
+**Weight**: This assignment is worth 16% of your final grade.
+
+**Submission Details**: **Use [this template](a-project-template.html) for your final analysis and report.** Your progress report should be written as a .Rmd file that compiles to a html webpage. Publish your compiled page online (e.g. via RPubs, Github, etc.), then submit your entire project folder (including your .Rmd file, data files, .RProj file, etc.) as a single .zip file on Blackboard by the due date. Also include a link to the published report page in your Blackboard submission. For students in teams, **only one person from your team should submit the report.**
+
+**Assessment**: We will use [this rubric](assignments/project/final_report_rubric.pdf) to grade your report.
+
+**Tasks**:
+
+Your final report should be a fully reproducible product and available online as a html webpage. It should include text, data, code, and plots. **Students working in teams must submit a short review of their teammates' contributions** to help ensure that the workload and grading for team members are equitable (see task 6 below). Below is a list of specific items your report should include (check the rubric to see their relative weighting).
+
+1. Follow these formatting rules:
+
+    - As the report will compile to a html webpage, there is no length requirement; your report should be sufficiently detailed to address the requirements listed below and sufficiently concise such that it is expressed in the fewest necessary words.
+    - In your markdown YAML header, include the project title and the name(s) of student(s) involved in the project such that they appear at the top of the rendered html page.
+    - Your report should be **fully reproducible** - all data formatting and charts should be written in code chunks and rendered when you compile your .Rmd file to a html webpage.
+    - Your report should be written in a narrative format (i.e. using coherent pargraphs rather than a series of bullet points). You may use headings where appropriate to break up your report into sections.
+    - Proofread your html webpage before you submit - double check for spelling and formatting errors, especially rendered charts and tables!
+
+2. State your research question and motivate why it is important / why the reader should care.
+
+3. Describe your data source(s) you used for your analysis:
+
+    - Describe them and include urls or references to the sources.
+    - Discuss the validity of the source(s) - for each data source, is the data available the _original_ data, or has it been processed? If not, what is the original source? How was the data collected?
+    - Provide a data dictionary in an appendix at the end of your report that contains a table of each the name, type, and description of each variable in your data. Include a dictionary for each dataset used.
+
+4. Describe your data:
+
+    - Articulate the main variables of interest in your project, and justify your choice of variables.
+    - Provide descriptive statistics for your relevant variables. These can be a mix of graphs and summary tables.
+    - You don't have to summarize everything in every data set - just the variables that are relevant to your analysis.
+
+5. Describe your results:
+
+    - Display charts that either support or oppose your research question or illustrate what else you might need to address your research question.
+    - Write narrative text around your charts to explain what the charts show and their significance towards addressing your research question. This should read as a continuous story rather than as a reply to each of the requirements described here.
+    - Your plot type choices should highlight the main point(s) you want to make or clearly show the relationship you want to emphasize. Basically, they should answer the question "what do the data say about my research question?"
+    - Your charts should be polished, following the design principles we have covered in class.
+    - You must include at least three polished charts / animations; alternatively, you can build an interactive shiny app with at least two dynamic charts. If you build a shiny app, include a link to your app and screenshots of your app in your final report.
+
+6. **For students working in teams**: On Blackboard under the assignment titled `"Team Member Review [Final Report]"`, submit a short description of the specific contributions of each team member in your team. For example, "Student A identified the data source and wrote the documentation for it. Student B led the data cleaning process and did much of the initial data exploration. Student C helped write code for the main visualizations." These reviews will be kept confidential and compared to assess that the workload and grading for team members are equitable. Team members who do not make meaningful contributions to their projects will receive a lower grade than that of their team mates.
+
+---
+
+# Presentation
+
+**Due**: Slides due by May 05 by 11:00 pm; presentations will be in class on May 06.
+
+**Weight**: This assignment is worth 8% of your final grade: 4% for your slides & slide design, and 4% for effectively presenting them in class.
+
+**Submission Details**: Submit your slides as a PDF or .pptx file (whichever you feel most comfortable presenting with) on Blackboard by the due date.
+
+**Assessment**: We will use [this rubric](assignments/project/presentation_rubric.pdf) to grade your presentation.
+
+**Tasks**:
+
+You will present your analysis with your teammates in class on May 06. Your slides do not need to include the code used to conduct your analysis (that should be able to be obtained from your report). Instead, your presentation should be a short explanation of 1) what you studied and why it matters, 2) what data you used, and 3) what you found. Below is a list of specific items your presentation should include (check the rubric to see their relative weighting).
+
+1. Follow these formatting rules:
+
+    - Your presentation should be no longer than 10 minutes in length (practice! time yourself!)
+    - Each team member must present at least one slide.
+    - You should have between 6 and 8 slides total, including your title slide.
+    - Your title slide should include the project title, team member names, and the presentation date (May 06, 2020).
+    - All slides should be numbered in the bottom-left or bottom-right corners.
+
+2. State your research question and explain why we should care (you don't necessarily need a slide with the question written out on it).
+
+3. Discuss the data source(s) you used for your analysis:
+
+    - Describe them and display the names of the sources on your slide. You do not need the full urls to the raw data files, just the organization name (e.g. `"**Data source**: U.S. Centers for Disease Control and Prevention"`).
+    - Discuss the validity of your source(s) - for each data source, was the data available the _original_ data, or has it been processed? If not, what is the original source? How was the data collected?
+
+4. Describe your data:
+
+    - Articulate the main variables of interest in your project, and justify your choice of variables.
+    - Provide descriptive statistics for all your relevant variables. These can be a mix of graphs and summary tables.
+
+5. Describe your results:
+
+    - Display charts that either support or oppose your research question, or illustrate what else you might need to address your research question.
+    - Your plot type choices should highlight the point you want to make or clearly show the relationship you want to emphasize - basically, what do the data say about your research question?
+    - Your charts should be polished, following the design principles we have covered in class.
+
+---
+
+# Examples
+
+Here are some examples of exploratory data analyses:
+
+- [Is Usain Bolt really the fastest man on earth?](https://radmuzom.com/2019/05/18/fun-with-statistics-is-usain-bolt-really-the-fastest-man-on-earth/), by [Anindya Mozumdar](https://radmuzom.com/about/). This analysis uses some statistical modeling (which won't cover), but the use of visualizations alone are effective for addressing the research questions posed.
+- [F1 racing data analysis](https://www.kaggle.com/jonathanbouchet/f1-data-analysis), by Jonathan Bouchet. This is an extensive exploratory data analysis of a variety of data on races, drivers, and constructors across the history of [Formula 1](https://www.formula1.com/) racing. This would probably be overkill for a course project, but sections of it (e.g. section 3 on the races, or sections 4 and 5 together on the drivers and constructors) would make a nice project. It involves mutliple data sets, some not-so-simple data cleaning, and a wide variety of nice visualizations.
+- [Increasing Intensity of Strong Atlantic Hurricanes](http://myweb.fsu.edu/jelsner/stronger-hur.html), by James B. Elsner. This is a short analysis with the goal of validating the predictions of [this study](https://www.nature.com/articles/nature07234) published in Nature in 2008, which predicted that Atlantic tropical cyclones would continue to get stronger on average over time. While this analysis is too short to be considered adequate for a final project, it is still a good example of good data source documentation and one effective visualization. An expanded inquiry into the questions addressed here would make a good course project.
+- [Death: Reality vs Reported](https://owenshen24.github.io/charting-death/), by Owen Shen: This is an interesting original analysis in which the author collected the data himself. The analysis compares whether the proportion of actual causes of death is consistent with the proportion of death causes that the media reports. This analysis also uses some interactive graphics so that the reader can view different versions of the same plot, such as scrolling through the plot over time.
+- [Are first babies more likely to be late?](https://towardsdatascience.com/are-first-babies-more-likely-to-be-late-1b099b5796b6), by Allen Downey. This is another relatively short analysis, but the author does a good job of documenting his data sources, stating the assumptions he makes, and also describes what data were dropped from the analysis (i.e. babies born via C-section).
+
+---
+
+**Page sources**:
+
+Some of the content on this page is inspired by and / or modified from other sources, including:
+
+- Prof. Marti Hearst's Fall 2005 course [SIMS 247: Information Visualization and Presentation](http://courses.ischool.berkeley.edu/i247/f05/assignments/fp.html)
+- The [How to Write a Research Question](https://writingcenter.gmu.edu/guides/how-to-write-a-research-question) article by the GMU writing center.
+- The [final project assignment](https://datavizf17.classes.andrewheiss.com/assignment/final-project/) in Andrew Heiss's course [MPA 635: Data Visualization](https://datavizf17.classes.andrewheiss.com/).
