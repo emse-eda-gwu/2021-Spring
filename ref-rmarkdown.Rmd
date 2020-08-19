@@ -26,7 +26,4 @@ Finally, here are a few more links for help with specific issues / customization
 - [Pimp my RMD](https://holtzy.github.io/Pimp-my-rmd/): a guide for lots of cool features and customization options
 - [RStudio R Markdown documentation](http://rmarkdown.rstudio.com/)
 - [Producing html documents from `.R` scripts using `knitr::spin`](http://deanattali.com/2015/03/24/knitrs-best-hidden-gem-spin/)
-
-
-
-
+- [Advanced RMD tips and tricks](https://docs.google.com/presentation/d/e/2PACX-1vRo1eXJtiwo6aTA8KZ2E-bUbv2GOonC2RIVk_5eWQ5y-ADXbRamBhHaa3w1vMW6BkEPOMJ13ZahSo8Q/embed?start=false&loop=true&delayms=30000&slide=id.p)
