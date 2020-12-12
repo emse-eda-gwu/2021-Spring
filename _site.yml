@@ -58,53 +58,54 @@ navbar:
           href: a6-geo-spatial.html
         - text: "7: Redesign 2"
           href: a7-redesign-trends.html
-        - text: "Final project"
-          href: a-project.html
-    - text: "Project Showcase"
-      href: http://eda.seas.gwu.edu/showcase-2020-spring.html
-    - text: "Resources"
+    - text: "Final project"
+      href: a-project.html
+    - text: "References"
+      icon: far fa-bookmark
       menu:
         - text: "Getting Help"
-          icon: fa-question-circle
+          icon: fa fa-question-circle
           href: ref-getting-help.html
-        - text: "Finding Data"
-          icon: fa-database
-          href: ref-finding-data.html
-        - text: "Visualizing Data"
-          icon: fa-chart-bar
-          href: ref-visualizing-data.html
         - text: "Programming in R"
-          icon: fa-terminal
+          icon: fa fa-terminal
           href: ref-programming.html
+        - text: "Visualizing Data"
+          icon: fa fa-chart-bar
+          href: ref-visualizing-data.html
         - text: "R Markdown"
-          icon: fa-feather-alt
+          icon: fa fa-feather-alt
           href: ref-rmarkdown.html
         - text: "Other"
-          icon: fa-ellipsis-h
+          icon: fa fa-expand
           href: ref-other.html
-    - text: "About"
+    - text: "Tools"
+      icon: fas fa-tools
       menu:
-        - text: About
-          icon: fa-info-circle
-          href: about.html
-        - text: License
-          icon: fa-gavel
-          href: LICENSE.html
-        - text: DataCamp
-          icon: fa-graduation-cap
-          href: datacamp.html
-    - text: Slack
-      icon: fa-slack
-      href: https://emse-eda-s20.slack.com
+        - text: "Slack"
+          icon: fab fa-slack
+          href: https://emse-eda-s20.slack.com
+        - text: "RStudio Server"
+          icon: fab fa-r-project
+          href: https://rstudio.seas.gwu.edu/
+        - text: "Schedule a meeting w/Prof. Helveston"
+          icon: fas fa-user-clock
+          href: https://jhelvy.appointlet.com/b/professor-helveston
+
   right:
-  - icon: fa-bars
+  - icon: fa fa-bars
     menu:
+    - text: About
+      icon: fa fa-info-circle
+      href: about.html
+    - text: License
+      icon: fa fa-gavel
+      href: LICENSE.html
     - text: Contact
-      icon: fa-envelope
+      icon: fa fa-envelope
       href: mailto:jph@gwu.edu
-    - text: GitHub
-      icon: fa-github
-      href: https://github.com/emse-eda-gwu/2020-Spring
+    - text: Source files
+      icon: fa fa-github
+      href: https://github.com/emse-eda-gwu/2021-Spring/
 
 output:
   html_document:
@@ -120,6 +121,6 @@ output:
       - _includes/header.html
       - _includes/style.html
       after_body: _includes/footer.html
-    theme: cosmo
+    theme: paper
     highlight: textmate
     number_sections: true
