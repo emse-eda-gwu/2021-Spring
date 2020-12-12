@@ -29,7 +29,7 @@ Imports:
     kableExtra,
     cowplot,
     janitor,
-    HistData
+    HistData,
     GGally,
     ggthemes,
     hrbrthemes,
@@ -45,5 +45,4 @@ Remotes:
     haozhu233/kableExtra,
     hadley/emo,
     hrbrmstr/hrbrthemes,
-    jrnold/ggthemes,
-    ggobi/GGally
+    jrnold/ggthemes
