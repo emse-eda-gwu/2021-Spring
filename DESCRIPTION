@@ -45,4 +45,5 @@ Remotes:
     haozhu233/kableExtra,
     hadley/emo,
     hrbrmstr/hrbrthemes,
-    jrnold/ggthemes
+    jrnold/ggthemes,
+    jhelvy/rmarkdown

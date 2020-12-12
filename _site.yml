@@ -121,6 +121,6 @@ output:
       - _includes/header.html
       - _includes/style.html
       after_body: _includes/footer.html
-    theme: paper
+    theme: cosmo
     highlight: textmate
     number_sections: true
