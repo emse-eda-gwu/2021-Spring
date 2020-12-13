@@ -12,19 +12,29 @@ source("knitr_setup.R")
 library(cowplot)
 ```
 
----
+> ### COVID-19 Considerations
+>
+> This semester is going to be weird.
 
 # Course Information
 
 <div style="width:550px">
 Instructor | Course
 ---|---
-<i class="fas fa-user"></i> John Paul Helveston | <i class="far fa-calendar"></i> Wednesdays
-<i class="fas fa-university"></i> Science & Engineering Hall, Office 2830 | <i class="fas fa-university"></i> District House B205
-<i class="fas fa-phone"></i> +1 (202) 994-7173 | <i class="far fa-calendar-alt"></i> January 13 - April 27, 2020
-<i class="fas fa-envelope"></i> [jpg@gwu.edu](mailto:jph@gwu.edu) | <i class="far fa-clock"></i> 12:45 - 3:15 PM
-<i class="fab fa-twitter"></i> [\@JohnHelveston](https://twitter.com/JohnHelveston) | <i class="fab fa-slack"></i> [Slack](https://emse-eda-s20.slack.com)
+<i class="fas fa-user"></i> John Paul Helveston | <i class="far fa-calendar"></i> Tuesdays
+<i class="fas fa-university"></i> Science & Engineering Hall, Office 2830 | <i class="fa fa-map-marker-alt"></i> Anywhere!
+<i class="fas fa-phone"></i> +1 (202) 994-7173 | <i class="far fa-calendar-alt"></i> Jan. 12 - Apr. 27, 2020
+<i class="fas fa-envelope"></i> [jpg@gwu.edu](mailto:jph@gwu.edu) | <i class="far fa-clock"></i> 12:45PM - 03:15PM EST
+<i class="fab fa-twitter"></i> [\@JohnHelveston](https://twitter.com/JohnHelveston) | <i class="fab fa-slack"></i> [Slack](https://emse-eda-s21.slack.com)
 </div>
+
+**Overview of online mode**
+
+- All synchronous class periods will be held online during the designated class time: Tuesdays from 12:45PM - 03:15PM EST.
+- All class periods will be recorded and posted on blackboard.
+- Students are encouraged to stream or download the recordings for personal use only and are not permitted to post or share the recordings.
+- We will hold multiple online study sessions every week.
+- All quizzes and exams will be held online during the designated class periods.
 
 # Course Description
 

@@ -1,16 +1,14 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-## EMSE 4197: Exploratory Data Analysis - Spring 2020 <img src="images/eda_hex_sticker.png" align="right" width="200"/>
+## EMSE 4197: Exploratory Data Analysis - Spring 2021 <a href='https://github.com/emse-eda-gwu/2021-Spring'><img src='images/eda_hex_sticker.png' align="right" height="139"/></a>
 
 <!-- badges: start -->
 
 ![Render & Deploy
-Site](https://github.com/emse-eda-gwu/2020-Spring/workflows/Render%20&%20Deploy%20Site/badge.svg)
+Site](https://github.com/emse-eda-gwu/2021-Spring/workflows/Render%20&%20Deploy%20Site/badge.svg)
 [![License: CC
-BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![License:
-MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA-lightgrey)](https://creativecommons.org/licenses/by-sa/2.0/)
 <!-- badges: end -->
 
 ### Description
@@ -32,10 +30,10 @@ final, reproducible report of their project and will give a 5-minute
 presentation of their findings.
 
 For more details, please see the [course
-website](http://eda.seas.gwu.edu/2020-Spring/).
+website](http://eda.seas.gwu.edu/2021-Spring/).
 
 ### Acknowledgments
 
 This course was inspired by many other courses / resources that cover
 similar material - see the course [about
-page](http://eda.seas.gwu.edu/2020-Spring/about.html) for more details.
+page](http://eda.seas.gwu.edu/2021-Spring/about.html) for more details.

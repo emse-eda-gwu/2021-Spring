@@ -1,28 +1,27 @@
 ---
-output:
-  github_document:
+output: 
+  github_document: 
     html_preview: false
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r setup, include = FALSE}
+```{r, include = FALSE}
 knitr::opts_chunk$set(
-  collapse = TRUE,
-  results = "asis",
-  echo = FALSE,
-  comment = "#>",
-  out.width = "100%"
+  collapse   = TRUE,
+  warning    = FALSE,
+  message    = FALSE,
+  comment    = "#>",
+  fig.path   = "man/figures/",
+  fig.retina = 3
 )
-IS_README <- TRUE
 ```
 
-## EMSE 4197: Exploratory Data Analysis - Spring 2020 <img src="images/eda_hex_sticker.png" align="right" width="200"/>
+## EMSE 4197: Exploratory Data Analysis - Spring 2021 <a href='https://github.com/emse-eda-gwu/2021-Spring'><img src='images/eda_hex_sticker.png' align="right" height="139"/></a>
 
 <!-- badges: start -->
-![Render & Deploy Site](https://github.com/emse-eda-gwu/2020-Spring/workflows/Render%20&%20Deploy%20Site/badge.svg)
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Render & Deploy Site](https://github.com/emse-eda-gwu/2021-Spring/workflows/Render%20&%20Deploy%20Site/badge.svg)
+[![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA-lightgrey)](https://creativecommons.org/licenses/by-sa/2.0/)
 <!-- badges: end -->
 
 ### Description
@@ -30,8 +29,8 @@ IS_README <- TRUE
 ```{r child = '_description.Rmd'}
 ```
 
-For more details, please see the [course website](http://eda.seas.gwu.edu/2020-Spring/).
+For more details, please see the [course website](http://eda.seas.gwu.edu/2021-Spring/).
 
 ### Acknowledgments
 
-This course was inspired by many other courses / resources that cover similar material - see the course [about page](http://eda.seas.gwu.edu/2020-Spring/about.html) for more details.
+This course was inspired by many other courses / resources that cover similar material - see the course [about page](http://eda.seas.gwu.edu/2021-Spring/about.html) for more details.

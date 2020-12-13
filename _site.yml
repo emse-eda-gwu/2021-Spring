@@ -1,11 +1,11 @@
-name: "EMSE 4197: Exploratory Data Analysis - Spring 2020"
+name: "EMSE 4197: Exploratory Data Analysis - Spring 2021"
 output_dir: _site
 exclude:
 - DESCRIPTION
 - LICENSE
 new_session: true
 navbar:
-  title: "EDA - Spring 2020"
+  title: "EDA - Spring 2021"
   left:
     - text: Syllabus
       icon: fa-map-ok
@@ -44,21 +44,7 @@ navbar:
       menu:
         - text: "0: Class prerequisites"
           href: a0-course-prereqs.html
-        - text: "1: Exploring data"
-          href: a1-exploring-data.html
-        - text: "2: Plotting with ggplot2"
-          href: a2-plotting.html
-        - text: "3: Plotting with factors"
-          href: a3-factors.html
-        - text: "4: Wind power redesign"
-          href: a4-redesign-amounts.html
-        - text: "5: Data cleaning & joins"
-          href: a5-data-cleaning.html
-        - text: "6: Maps & geo-spatial data"
-          href: a6-geo-spatial.html
-        - text: "7: Redesign 2"
-          href: a7-redesign-trends.html
-    - text: "Final project"
+    - text: "Project"
       href: a-project.html
     - text: "References"
       icon: far fa-bookmark
@@ -83,7 +69,7 @@ navbar:
       menu:
         - text: "Slack"
           icon: fab fa-slack
-          href: https://emse-eda-s20.slack.com
+          href: https://emse-eda-s21.slack.com
         - text: "RStudio Server"
           icon: fab fa-r-project
           href: https://rstudio.seas.gwu.edu/
