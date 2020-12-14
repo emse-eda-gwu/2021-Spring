@@ -8,11 +8,13 @@ navbar:
   title: "EDA - Spring 2021"
   left:
     - text: Syllabus
-      icon: fa-map-ok
+      icon: far fa-map
       href: syllabus.html
     - text: "Schedule"
+      icon: far fa-calendar-alt
       href: schedule.html
     - text: "Readings"
+      icon: fas fa-book
       menu:
         - text: "0: Course prep"
           href: r0-course-prep.html
@@ -41,28 +43,30 @@ navbar:
         - text: "13: Communicating your results"
           href: r13-communicating.html
     - text: "Assignments"
+      icon: fas fa-laptop
       menu:
         - text: "0: Class prerequisites"
           href: a0-course-prereqs.html
     - text: "Project"
+      icon: fas fa-project-diagram
       href: a-project.html
     - text: "References"
       icon: far fa-bookmark
       menu:
         - text: "Getting Help"
-          icon: fa fa-question-circle
+          icon: fas fa-question-circle
           href: ref-getting-help.html
         - text: "Programming in R"
-          icon: fa fa-terminal
+          icon: fas fa-terminal
           href: ref-programming.html
         - text: "Visualizing Data"
-          icon: fa fa-chart-bar
+          icon: fas fa-chart-bar
           href: ref-visualizing-data.html
         - text: "R Markdown"
-          icon: fa fa-feather-alt
+          icon: fas fa-feather-alt
           href: ref-rmarkdown.html
         - text: "Other"
-          icon: fa fa-expand
+          icon: fas fa-expand
           href: ref-other.html
     - text: "Tools"
       icon: fas fa-tools
@@ -78,19 +82,19 @@ navbar:
           href: https://jhelvy.appointlet.com/b/professor-helveston
 
   right:
-  - icon: fa fa-bars
+  - icon: fas fa-bars
     menu:
     - text: About
-      icon: fa fa-info-circle
+      icon: fas fa-info-circle
       href: about.html
     - text: License
-      icon: fa fa-gavel
+      icon: fas fa-gavel
       href: LICENSE.html
     - text: Contact
-      icon: fa fa-envelope
+      icon: fas fa-envelope
       href: mailto:jph@gwu.edu
     - text: Source files
-      icon: fa fa-github
+      icon: fab fa-github
       href: https://github.com/emse-eda-gwu/2021-Spring/
 
 output:
