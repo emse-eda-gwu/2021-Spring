@@ -266,7 +266,7 @@ You will present your analysis with your teammates in class on May 06. Your slid
 
 # Examples
 
-Here are some examples of exploratory data analyses:
+Go [here](https://eda.seas.gwu.edu/showcase-2020-spring.html) to view a showcase of last year's projects. In addition, here are some examples of  exploratory data analyses done by others - some go into further detail than we will cover in this class:
 
 - [Is Usain Bolt really the fastest man on earth?](https://radmuzom.com/2019/05/18/fun-with-statistics-is-usain-bolt-really-the-fastest-man-on-earth/), by [Anindya Mozumdar](https://radmuzom.com/about/). This analysis uses some statistical modeling (which won't cover), but the use of visualizations alone are effective for addressing the research questions posed.
 - [F1 racing data analysis](https://www.kaggle.com/jonathanbouchet/f1-data-analysis), by Jonathan Bouchet. This is an extensive exploratory data analysis of a variety of data on races, drivers, and constructors across the history of [Formula 1](https://www.formula1.com/) racing. This would probably be overkill for a course project, but sections of it (e.g. section 3 on the races, or sections 4 and 5 together on the drivers and constructors) would make a nice project. It involves mutliple data sets, some not-so-simple data cleaning, and a wide variety of nice visualizations.
