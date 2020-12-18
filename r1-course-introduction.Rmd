@@ -1,100 +1,98 @@
 ---
-title: "Week 1: Course Introduction"
-output: html_document
+title: "Course Introduction"
+output:
+  html_document:
+    number_sections: false
+    toc: yes
 ---
+
+<!-- For circle images -->
+<style>
+.circle img {
+  border-radius:50%;
+}
+</style>
 
 ```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
 rm(list=objects()) # start with a clean workspace
-source("knitr_setup.R")
+library(knitr)
+library(here)
+options(knitr.kable.NA = '')
+knitr::opts_chunk$set(
+    fig.width  = 4.75,
+    fig.height = 4.75,
+    fig.align  = "center"
+)
 ```
 
-# Teaching Team
+# Before we start...
 
-## Meet your instructor!
-
-Dr. John Helveston, Assistant Professor in Engineering Management & Systems Engineering
-
-![](images/helveston.jpg){ width=250 }
-
-Background:
-
-- 2016 PhD in Engineering & Public Policy at Carnegie Mellon University
-- 2015 MS in Engineering & Public Policy at Carnegie Mellon University
-- 2010 BS in Engineering Science & Mechanics at Virginia Tech
-
-## Meet your tutors!
-
-Yanjie He, Masters student in Data Analytics | Lingmei Zhao, Masters student in Statistics
----|---
-![](images/yanjie.jpg){ width=250 } | ![](images/lingmei.jpg){ width=250 }
+For this class, you'll need to install some software and register for some tools. Go to the [course prep](r0-course-prep.html) page to get setup before we get started with class.
 
 # For new students
 
 ```{r child = '_prerequisites.Rmd'}
 ```
 
-# Course prep
+# Teaching Team
 
-For this class, you'll need to install some software and register for some websites. Go to the [course prep](L0-course-prep.html) page to get setup.
+## Meet your instructor!
 
-# What's new?
+[Dr. John Helveston](http://www.jhelvy.com/) is an Assistant Professor in Engineering Management & Systems Engineering. He does research on technological change, electric vehicles, modeling consumer preferences, and China.
 
-Students taking this course should have already taken [Programming for Analytics](https://emse-p4a-gwu.github.io/). If you haven't, I **strongly** recommend you review the lessons and assignments on the [previous semester website](https://emse6574-gwu.github.io/2019-Fall/). You can also get up to speed by completing [Assignment 0](assignment0.html).
+<div class="circle">
+<img src="images/helveston.jpg" width=250>
+</div>
 
-While this course follows a similar structure as P4A, there will be several key distinctions:
+Background:
 
-1. Whereas in P4A we worked with nice, tidy data sets, in this course we will be working more with messier, "raw" data that often needs to be significantly processed before being able to explore it.
-2. Rather than solve puzzles (e.g. write the function `isPrime()`), assignments will involve more real-world data problems that often have multiple, subjective solutions.
-3. Style and aesthetics will matter - consider your assignments and your final project to be professional data products that you would want to show off to future employers.
+- 2018 Joined the EMSE Department as an Assistant Professor
+- 2016 PhD in Engineering & Public Policy at Carnegie Mellon University
+- 2015 MS in Engineering & Public Policy at Carnegie Mellon University
+- 2010 BS in Engineering Science & Mechanics at Virginia Tech
 
-# Course mantras
+## Meet your teaching assistant (TA)!
 
-Here are some philosophies that will get you far in data analytic work. We will be revisiting these over and over again.
+Saurav Pantha is a graduate student from Kathmandu, Nepal and is currently earning his MS in Systems Engineering. Before GW, he worked at a business consulting firm based out of Bangalore, India, helping multiple automotive & banking clients to solve business problems through data analytics solutions.
 
-**1) Embrace plain text**
+<div class="circle">
+<img src="images/pantha.jpg" width=250>
+</div>
 
-You will write code to produce rich outputs that include text and graphics. While your output may have lots of different formatting, your code will be written in [**plain text**](https://en.wikipedia.org/wiki/Plain_text).
+## Meet your learning assistants (LAs)!
 
-**2) Embrace reproducibility**
+Jennifer Kim is a junior in EMSE and EDA alumni!
 
-Everything you produce in this course will be a [reproducible](https://en.wikipedia.org/wiki/Reproducibility) output. That is, you should be able to reproduce your output from the raw data and code. For example, This webpage was generated from [this markdown source file](https://raw.githubusercontent.com/emse-eda-gwu/2020-Spring/master/L1.1-course-introduction.Rmd) on GitHub.
+<div class="circle">
+<img src="images/kim.png" width=250>
+</div>
 
-If you want to generate this very HTML page, download the `.Rmd` file, then open it in RStudio and run the following code:
+# Quick class orientation
 
-```{r eval=FALSE}
-rmarkdown::render('L1.1-course-introduction.Rmd')
-```
+## Slack
 
-# The syllabus
+All course communication will be managed through [Slack](https://emse-eda-s21.slack.com).
 
-The [syllabus](syllabus.html) is lengthy, but I do expect you to look through each section. If any changes need to be made, you'll be notified through Slack.
+**You can use Slack to**:
 
-# The schedule
+- Ask general questions.
+- Ask for help with an assignment.
+- Send direct, private messages to each other or the instructors (just like email...but better!)
 
-The course [schedule](schedule.html) is your roadmap for the semester. Visit it often to make sure you are well-prepared for class and aware of upcoming assignment / quiz dates.
+## RStudio in the browser!
 
-# Communication & Help
+If you're having trouble installing R or RStudio, don't worry - you can quickly launch a _virtual_ version of RStudio in your webbrowser! Click on the <i class="fab fa-r-project"></i> logo in the menu bar and log in with your GWU web ID and password.
+
+**Note**: You must be on the GW network for this to work. If you're off campus, you can get on the network remotely using a [VPN](https://seascf.seas.gwu.edu/vpn-access).
+
+## The syllabus
+
+Take a look at the [syllabus](syllabus.html). This is your contract for the course - review it to learn what will be expected of you throughout the semester and how you will be assessed. Pay attention to the homework assignments and due dates.
+
+## The schedule
+
+The course [schedule](schedule.html) is your road map for the semester. Visit it often to make sure you are well-prepared for class and aware of upcoming dates for assignments, quizzes, etc.
+
+## Communication & Help
 
 This can be a challenging class - don't suffer in silence! Look at the ["Getting Help"](ref-getting-help.html) page, come to office hours, send me a message on Slack.
-
-# Readings!
-
-## Workflow
-
-Now that you've got R and RStudio installed, read the ["Getting Started"](http://socviz.co/gettingstarted.html) lesson in [Healy](http://socviz.co/). We will follow the conventions laid out in this chapter throughout the class, including:
-
-- Using [RStudio Projects](https://r4ds.had.co.nz/workflow-projects.html) to stay organized.
-- Working in plain text.
-- Using RMarkdown to conduct and report on our analyses.
-
-## Reading in Data
-
-Check out the [**readr**](https://readr.tidyverse.org/articles/readr.html) and [**readxl**](https://readxl.tidyverse.org/) packages - we'll be using these throughout the semester to import data into R.
-
-## Tidy Data
-
-We'll cover the concept of "tidy" data in class on day 1. To get familiar with it, read [Chapter 12](https://r4ds.had.co.nz/tidy-data.html) in R4DS, and take a look at these [Tidy data explanations](https://github.com/gadenbuie/tidyexplain#tidy-data).
-
-## Writing a research question
-
-Read through [this guide](https://writingcenter.gmu.edu/guides/how-to-write-a-research-question) from GMU on how to write a research question. We'll come back to these ideas again later when you start working on your [final projects](a-project.html), but it's a good idea to start thinking about your research question early.
