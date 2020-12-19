@@ -19,9 +19,6 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -322,75 +319,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-.tocify-subheader {
-  display: inline;
-}
-.tocify-subheader .tocify-item {
-  font-size: 0.95em;
-}
-
-</style>
-
-
 
 </head>
 
@@ -398,16 +326,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -642,7 +560,7 @@ div.tocify {
 
 
 <div id="helpful-tutorials" class="section level1">
-<h1><span class="header-section-number">1</span> Helpful Tutorials</h1>
+<h1>Helpful Tutorials</h1>
 <ul>
 <li><a href="https://rstudio.cloud/learn/primers">RStudio Primers</a></li>
 <li><a href="https://www.datacamp.com/community/tutorials/tidyverse-tutorial-r">Tidyverse in R</a></li>
@@ -650,18 +568,18 @@ div.tocify {
 </ul>
 </div>
 <div id="inspiration" class="section level1">
-<h1><span class="header-section-number">2</span> Inspiration</h1>
+<h1>Inspiration</h1>
 <ul>
 <li><a href="https://stephanieevergreen.com/females-in-dataviz/">An Incomplete List of Females in Data Visualization</a>, by Stephanie Evergreen</li>
 <li><a href="https://medium.com/read-write-participate/open-science-and-star-wars-2577b8081e8f">The Links Between Open Science and Star Wars</a></li>
 </ul>
 </div>
 <div id="giving-talks" class="section level1">
-<h1><span class="header-section-number">3</span> Giving talks</h1>
+<h1>Giving talks</h1>
 <p>You will all have to give a presentation at some point - make sure you start it right: <a href="https://www.youtube.com/watch?v=w82a1FT5o88">“How to start a speech”</a></p>
 </div>
 <div id="when-all-else-fails" class="section level1">
-<h1><span class="header-section-number">4</span> When all else fails…</h1>
+<h1>When all else fails…</h1>
 <p>You will inevitably run into problems; things won’t work the way you expect, and you’ll get lots of confusing error messages. When this happens, many turn to the following tried and true problem-solving approaches:</p>
 <p><img src="images/oreilly_googling.jpg" width="250" /> <img src="images/oreilly_trying_stuff.jpeg" width="250" /> <img src="images/oreilly_changing_stuff.jpg" width="250" /></p>
 </div>
@@ -688,8 +606,6 @@ div.tocify {
 <script src="js/external-link.js"></script>
 
 
-</div>
-</div>
 
 </div>
 
@@ -722,32 +638,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3,h4",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = false;
-    options.smoothScroll = false;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
