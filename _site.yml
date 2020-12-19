@@ -8,7 +8,7 @@ navbar:
   title: "EDA - Spring 2021"
   left:
     - text: Syllabus
-      icon: far fa-map
+      icon: fa fa-map
       href: syllabus.html
     - text: "Schedule"
       icon: fa fa-calendar-alt

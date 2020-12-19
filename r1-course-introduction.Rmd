@@ -50,7 +50,7 @@ Saurav Pantha is a graduate student from Kathmandu, Nepal and is currently earni
 <img src="images/pantha.jpg" width=250>
 </div>
 
-## Meet your learning assistants (LAs)!
+## Meet your learning assistant (LA)!
 
 Jennifer Kim is a junior in EMSE and EDA alumni!
 
@@ -72,9 +72,9 @@ All course communication will be managed through [Slack](https://emse-eda-s21.sl
 
 ## RStudio in the browser!
 
-If you're having trouble installing R or RStudio, don't worry - you can quickly launch a _virtual_ version of RStudio in your webbrowser! Click on the <i class="fab fa-r-project"></i> logo in the menu bar and log in with your GWU web ID and password.
+If you're having trouble installing R or RStudio, don't worry - you can quickly launch a _cloud_ version of RStudio in your web browser! Click on the <i class="fab fa-r-project"></i> logo under the "Tools" menu and log in with your GWU web ID and password.
 
-**Note**: You must be on the GW network for this to work. If you're off campus, you can get on the network remotely using a [VPN](https://seascf.seas.gwu.edu/vpn-access).
+> **Note**: You must be on the GW network for this to work. If you're off campus, you can get on the network remotely using a [VPN](https://seascf.seas.gwu.edu/vpn-access).
 
 ## The syllabus
 
