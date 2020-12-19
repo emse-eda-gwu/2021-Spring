@@ -8,6 +8,7 @@ New images:
 
 
 General:
+- Do a lecture on bias in data, e.g. "plane" image
 - Drop datacamp from the class - didn't add much.
 - Add at least one more redesign (maybe two).
 - Add link for assignment 0 to getting started with data in R bootcamp site.
@@ -35,6 +36,10 @@ https://twitter.com/beeonaposy/status/1245824406783430660?s=19
 3-visualizing-information:
 - Add trump_covid.jpg image on directly labeling lines
 - "screaming cats?"
+
+Color:
+- Color Theory images source:
+- https://twitter.com/emeldraws/status/1151835561415495681?s=19
 
 6-trends:
 - Log scales - use them to show doubling rate? penny doubling example?
