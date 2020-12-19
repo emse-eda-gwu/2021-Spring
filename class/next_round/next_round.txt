@@ -1,3 +1,12 @@
+New images:
+- penguin_paradox.jpg
+- color_theory_analogous.jpeg
+- color_theory_complementary.jpeg
+- color_theory_monochromatic.jpeg
+- color_theory_split_complementary.jpeg
+- plane.jpg
+
+
 General:
 - Drop datacamp from the class - didn't add much.
 - Add at least one more redesign (maybe two).
@@ -15,6 +24,9 @@ Revise grading rubrics to look for effectiveness of design choices:
 - chart choice appropriate to show relationship / comparison
 - design elements are clear and not confusing
 - annotations are appropriate
+
+Correlation:
+- Add penguin_paradox.jpg
 
 2-eda:
 Automated EDA:
