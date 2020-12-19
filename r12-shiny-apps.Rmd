@@ -6,9 +6,7 @@ output:
     toc: no
 ---
 
-```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
-rm(list=objects()) # start with a clean workspace
-source("knitr_setup.R")
+```{r child = "knitr_setup.Rmd"}
 ```
 
 This week we will learn about how to make interactive web applications using the [R Shiny package](https://shiny.rstudio.com/). Take a look at some examples of impressive apps built using Shiny:

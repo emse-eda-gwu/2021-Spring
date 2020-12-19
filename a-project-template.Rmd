@@ -6,11 +6,14 @@ output:
     toc: false
 ---
 
+```{r child = "knitr_setup.Rmd"}
+```
+
 Download [this](assignments/project/project_template.zip) file to use as a template for working on your project.
 
 The zip file contains the following items:
 
-```{r, message=FALSE, warning=FALSE, echo=FALSE, eval=FALSE}
+```{r, echo=FALSE, eval=FALSE}
 library(fs)
 library(here)
 

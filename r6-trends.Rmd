@@ -6,9 +6,7 @@ output:
     toc: no
 ---
 
-```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
-rm(list=objects()) # start with a clean workspace
-source("knitr_setup.R")
+```{r child = "knitr_setup.Rmd"}
 ```
 
 This week, we will learn some of the technical details of how to create charts that highlight **trends**, which inherently involve changes over time. Most of these articles have code in them that illustrate how to create each chart type, and I encourage you to try and reproduce the examples provided in R yourself.

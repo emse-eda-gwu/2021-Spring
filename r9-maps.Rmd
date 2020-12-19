@@ -6,9 +6,7 @@ output:
     toc: no
 ---
 
-```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
-rm(list=objects()) # start with a clean workspace
-source("knitr_setup.R")
+```{r child = "knitr_setup.Rmd"}
 ```
 
 This week, we will learn some techniques for creating a special type of chart: maps. We will look at different types of maps and how to work with different types of geospatial data. The readings below discuss some concepts to consider when dealing with maps as well as some of the technical details for how to create them in R.

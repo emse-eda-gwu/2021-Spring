@@ -11,7 +11,7 @@ navbar:
       icon: far fa-map
       href: syllabus.html
     - text: "Schedule"
-      icon: far fa-calendar-alt
+      icon: fa fa-calendar-alt
       href: schedule.html
     - text: "Readings"
       icon: fas fa-book
@@ -51,7 +51,7 @@ navbar:
       icon: fas fa-project-diagram
       href: a-project.html
     - text: "References"
-      icon: far fa-bookmark
+      icon: fa fa-bookmark
       menu:
         - text: "Getting Help"
           icon: fas fa-question-circle

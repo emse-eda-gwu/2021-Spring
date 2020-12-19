@@ -6,9 +6,7 @@ output:
     toc: no
 ---
 
-```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
-rm(list=objects()) # start with a clean workspace
-source("knitr_setup.R")
+```{r child = "knitr_setup.Rmd"}
 ```
 
 > "Data visualization is part art and part science. The challenge is to get the art right without getting the science wrong and vice versa."

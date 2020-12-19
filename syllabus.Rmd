@@ -6,10 +6,7 @@ output:
     toc_float: true
 ---
 
-```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
-rm(list=objects()) # start with a clean workspace
-source("knitr_setup.R")
-library(cowplot)
+```{r child = "knitr_setup.Rmd"}
 ```
 
 > ### COVID-19 Considerations

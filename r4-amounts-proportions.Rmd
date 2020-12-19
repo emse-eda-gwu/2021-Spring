@@ -6,9 +6,7 @@ output:
     toc: no
 ---
 
-```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
-rm(list=objects()) # start with a clean workspace
-source("knitr_setup.R")
+```{r child = "knitr_setup.Rmd"}
 ```
 
 This week, we will learn some of the technical details of how to write code to create "good" information visualizations that follow the design principles we discussed last week. We will focus on graphing **amounts**, **distributions**, and **proportions**. The readings listed below are broken into two groups: 1) design principles, and 2) coding techniques to achieve those principles. Now, open up whatever you takes notes in best and **take notes** while reading through the following readings:

@@ -6,9 +6,7 @@ output:
     toc: no
 ---
 
-```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
-rm(list=objects()) # start with a clean workspace
-source("knitr_setup.R")
+```{r child = "knitr_setup.Rmd"}
 ```
 
 For our final class, we will focus on how to communicate the results of your analyses to others. We will look at strategies for giving effective presentations / speeches as well as best practices for designing slides.

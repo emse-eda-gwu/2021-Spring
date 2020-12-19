@@ -6,9 +6,7 @@ output:
     toc: no
 ---
 
-```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
-rm(list=objects()) # start with a clean workspace
-source("knitr_setup.R")
+```{r child = "knitr_setup.Rmd"}
 ```
 
 This week, we will learn some techniques for dealing with messy data. Most of the time, the raw data you get is in the wrong format and variables are not properly coded, so you will need to "clean" the data before starting any analysis. Other times the data will be split into two or more data sets, and you'll need to "join" them together into a single data frame. The readings below discuss some clever techniques for how to address these situations.

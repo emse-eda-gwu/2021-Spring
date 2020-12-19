@@ -3,9 +3,7 @@ title: "Finding Data"
 output: html_document
 ---
 
-```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
-rm(list=objects()) # start with a clean workspace
-source("knitr_setup.R")
+```{r child = "knitr_setup.Rmd"}
 ```
 
 The world is full of data, but sometimes finding it can be difficult. Here are some resources that you might find helpful for finding data across the web.

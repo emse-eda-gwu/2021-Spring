@@ -13,16 +13,7 @@ output:
 }
 </style>
 
-```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
-rm(list=objects()) # start with a clean workspace
-library(knitr)
-library(here)
-options(knitr.kable.NA = '')
-knitr::opts_chunk$set(
-    fig.width  = 4.75,
-    fig.height = 4.75,
-    fig.align  = "center"
-)
+```{r child = "knitr_setup.Rmd"}
 ```
 
 # Before we start...

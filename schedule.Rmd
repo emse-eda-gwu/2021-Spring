@@ -6,9 +6,7 @@ output:
     toc: no
 ---
 
-```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
-rm(list=objects()) # start with a clean workspace
-source("knitr_setup.R")
+```{r child = "knitr_setup.Rmd"}
 ```
 
 Here's your roadmap for the semester!
@@ -47,9 +45,9 @@ schedule$Week <- seq(length(dates))
 schedule <- schedule[c('Week', 'Date', 'Topics', 'Readings',
                        'Class', 'Quizzes', 'Assignments')]
 # Render the schedule as markdown
-kable(schedule, format = 'html', escape = FALSE, 
-      align = c('c', 'c', 'l', 'l', 'l', 'l', 'l')) %>% 
-    kable_styling(full_width = F) %>% 
-    column_spec(column = 3, width = '18em') %>% 
+kable(schedule, format = 'html', escape = FALSE,
+      align = c('c', 'c', 'l', 'l', 'l', 'l', 'l')) %>%
+    kable_styling(full_width = F) %>%
+    column_spec(column = 3, width = '18em') %>%
     column_spec(column = c(5, 7), width = '10em')
 ```
