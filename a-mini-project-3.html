@@ -11,7 +11,7 @@
 
 
 
-<title>Week 2: Exploring Data</title>
+<title>Mini Project 3</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,6 +19,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -319,6 +322,75 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
 
 </head>
 
@@ -326,6 +398,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -358,7 +440,57 @@ $(document).ready(function () {
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-book"></span>
+    <span class="fas fa-laptop-code"></span>
+     
+    Class
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="c1-getting-started.html">1: Getting Started</a>
+    </li>
+    <li>
+      <a href="c2-exploring-data.html">2: Exploring Data</a>
+    </li>
+    <li>
+      <a href="c3-cleaning-data.html">3: Cleaning Data</a>
+    </li>
+    <li>
+      <a href="c4-visualizing-information.html">4: Visualizing Information</a>
+    </li>
+    <li>
+      <a href="c5-amounts-proportions.html">5: Amounts &amp; Proportions</a>
+    </li>
+    <li>
+      <a href="c6-comparisons.html">6: Comparisons</a>
+    </li>
+    <li>
+      <a href="c7-trends.html">7: Trends</a>
+    </li>
+    <li>
+      <a href="c8-correlation.html">8: Correlation</a>
+    </li>
+    <li>
+      <a href="c9-maps.html">9: Maps</a>
+    </li>
+    <li>
+      <a href="c11-polishing-charts.html">11: Polishing Charts</a>
+    </li>
+    <li>
+      <a href="c12-interactive-charts.html">12: Interactive Charts</a>
+    </li>
+    <li>
+      <a href="c13-websites.html">13: Websites</a>
+    </li>
+    <li>
+      <a href="c14-communicating-results.html">14: Communicating Results</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fas fa-book-reader"></span>
      
     Readings
      
@@ -366,66 +498,68 @@ $(document).ready(function () {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="r0-course-prep.html">0: Course prep</a>
+      <a href="r1-exploring-data.html">1: Exploring Data</a>
     </li>
     <li>
-      <a href="r1-course-introduction.html">1: Course introduction</a>
+      <a href="r2-cleaning-data.html">2: Cleaning Data</a>
     </li>
     <li>
-      <a href="r2-exploring-data.html">2: Exploring data</a>
+      <a href="r3-visualizing-information.html">3: Visualizing Information</a>
     </li>
     <li>
-      <a href="r3-visualizing-information.html">3: Visualizing information</a>
+      <a href="r4-amounts-proportions.html">4: Amounts &amp; Proportions</a>
     </li>
     <li>
-      <a href="r4-amounts-proportions.html">4: Graphing amounts &amp; proportions</a>
+      <a href="r5-comparisons.html">5: Comparisons</a>
     </li>
     <li>
-      <a href="r5-comparisons.html">5: Graphing comparisons</a>
+      <a href="r6-trends.html">6: Trends</a>
     </li>
     <li>
-      <a href="r6-trends.html">6: Graphing trends</a>
+      <a href="r7-correlation.html">7: Correlation</a>
     </li>
     <li>
-      <a href="r7-cleaning-joins.html">7: Data cleaning &amp; joins</a>
+      <a href="r8-maps.html">8: Maps</a>
     </li>
     <li>
-      <a href="r8-polish.html">8: Polishing your charts</a>
+      <a href="r9-polishing-charts.html">9: Polishing Charts</a>
     </li>
     <li>
-      <a href="r9-maps.html">9: Maps &amp; geospatial data</a>
+      <a href="r11-interactive-charts.html">11: Interactive Charts</a>
     </li>
     <li>
-      <a href="r11-correlation.html">11: Correlation analysis</a>
+      <a href="r12-websites.html">12: Websites</a>
     </li>
     <li>
-      <a href="r12-shiny-apps.html">12: Shiny apps</a>
-    </li>
-    <li>
-      <a href="r13-communicating.html">13: Communicating your results</a>
+      <a href="r13-communicating-results.html">13: Communicating Results</a>
     </li>
   </ul>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-laptop"></span>
+    <span class="fas fa-pencil-ruler"></span>
      
-    Assignments
+    Projects
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="a0-course-prereqs.html">0: Class prerequisites</a>
+      <a href="a-course-prereqs.html">Course Prerequisites (optional)</a>
+    </li>
+    <li>
+      <a href="a-mini-project-1.html">Mini Project 1</a>
+    </li>
+    <li>
+      <a href="a-mini-project-2.html">Mini Project 2</a>
+    </li>
+    <li>
+      <a href="a-mini-project-3.html">Mini Project 3</a>
+    </li>
+    <li>
+      <a href="a-project.html">Final Project</a>
     </li>
   </ul>
-</li>
-<li>
-  <a href="a-project.html">
-    <span class="fas fa-project-diagram"></span>
-     
-    Project
-  </a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -437,6 +571,13 @@ $(document).ready(function () {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="ref-course-software.html">
+        <span class="fas fa-hdd"></span>
+         
+        Course Software
+      </a>
+    </li>
+    <li>
       <a href="ref-getting-help.html">
         <span class="fas fa-question-circle"></span>
          
@@ -444,10 +585,10 @@ $(document).ready(function () {
       </a>
     </li>
     <li>
-      <a href="ref-programming.html">
-        <span class="fas fa-terminal"></span>
+      <a href="ref-finding-data.html">
+        <span class="fas fa-database"></span>
          
-        Programming in R
+        Finding Data
       </a>
     </li>
     <li>
@@ -455,6 +596,13 @@ $(document).ready(function () {
         <span class="fas fa-chart-bar"></span>
          
         Visualizing Data
+      </a>
+    </li>
+    <li>
+      <a href="ref-programming.html">
+        <span class="fas fa-terminal"></span>
+         
+        Programming in R
       </a>
     </li>
     <li>
@@ -554,42 +702,25 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Week 2: Exploring Data</h1>
+<h1 class="title toc-ignore">Mini Project 3</h1>
 
 </div>
 
 
-<p>This week, we will learn some strategies for exploring data sets to gain a greater understanding of the variable types and their relationships.</p>
-<div id="data-types-descriptive-statistics" class="section level1">
-<h1>Data types &amp; descriptive statistics</h1>
-<p>To get started, open up a notebook (physical, digital…whatever you take notes in best), and <strong>take notes</strong> while you watch <a href="https://www.youtube.com/watch?v=zHcQPKP6NpM">this 20 minute video</a> to learn about some basic data types and descriptive statistics:</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/zHcQPKP6NpM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-</div>
-<div id="readings" class="section level1">
-<h1>Readings!</h1>
-<p>After watching the above video, read through the following chapters and <strong>take notes</strong>.</p>
-<ul>
-<li><a href="https://r4ds.had.co.nz/exploratory-data-analysis.html">R4DS - 7: Exploratory data analysis</a>: Provides some more “hands on” strategies for exploring data using R and the <strong>ggplot2</strong> library.</li>
-<li><a href="https://serialmentor.com/dataviz/directory-of-visualizations.html">Wilke - 5: Directory of visualizations</a>: Provides a quick overview of many common plot types.</li>
-</ul>
-</div>
-<div id="choosing-the-right-chart" class="section level1">
-<h1>Choosing the right chart</h1>
-<p>You will want to choose different chart types depending on the relationship or message you want to convey. Fortunately, there are lots of great guides to help you make those choices. View them <a href="ref-visualizing-data.html#2_choosing_the_right_chart">here</a>.</p>
-</div>
+<p>Coming Soon!</p>
 
 
 <hr>
 
 <div>
 <center>
-    EMSE 4575: Exploratory Data Analysis (Spring 2021) | <a href="https://github.com/emse-eda-gwu/2021-Fall"><i class="fab fa-github"></i></a>
+    EMSE 4575: Exploratory Data Analysis (Spring 2021)
     <br>
     <i class="far fa-calendar-alt"></i> Tuesdays |
     <i class="far fa-clock"></i> 12:45 - 3:15 PM |
     <a href="https://www.jhelvy.com"><i class="fas fa-user"></i> Dr. John Paul Helveston</a> |
-    <a href="mailto:jph@gwu.edu"><i class="fas fa-envelope"></i> jph@gwu.edu</a>
+    <a href="mailto:jph@gwu.edu"><i class="fas fa-envelope"></i> jph@gwu.edu</a> |
+    <a href="https://github.com/emse-eda-gwu/2021-Fall"><i class="fab fa-github"></i></a>
     <br>
     <a href="LICENSE.html">LICENSE: CC-BY-SA <i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i><i class="fab fa-creative-commons-sa"></i></a>
 </center>
@@ -601,6 +732,8 @@ $(document).ready(function () {
 <script src="js/external-link.js"></script>
 
 
+</div>
+</div>
 
 </div>
 
@@ -633,6 +766,32 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = false;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
