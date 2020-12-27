@@ -10,7 +10,6 @@ navbar:
     - text: ""
       icon: fas fa-home
       href: index.html
-  left:
     - text: Syllabus
       icon: fa fa-map
       href: syllabus.html
