@@ -1,12 +1,11 @@
 ---
-title: "Week 8: Polishing Your Charts"
+title: "Visualizing Information"
 output:
   html_document:
-    number_sections: false
     toc: no
 ---
 
 ```{r child = "knitr_setup.Rmd"}
 ```
 
-Coming soon!
+Coming Soon!

@@ -1,5 +1,5 @@
 ---
-title: "Week 3: Visualizing Information"
+title: "Visualizing Information"
 output:
   html_document:
     number_sections: false
@@ -9,4 +9,15 @@ output:
 ```{r child = "knitr_setup.Rmd"}
 ```
 
-Coming soon!
+> "Data visualization is part art and part science. The challenge is to get the art right without getting the science wrong and vice versa."
+>
+> -- Claus O. Wilke in [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/introduction.html)
+
+This week, we will learn what makes a "good" information visualization, which is _not_ entirely a subjective judgment. There are a wide variety of design principles available to help guide the creation of clear, effective information visualizations--many of which are rooted in research on human psychology. To get started, open up whatever you takes notes in best and **take notes** while reading through the following two chapters:
+
+- [Wilke 1: Introduction](https://serialmentor.com/dataviz/introduction.html): Definitions of "ugly", "bad", and "wrong" figures
+- [Healy 1: Look at Data](http://socviz.co/lookatdata.html#lookatdata): What makes figures good and bad
+
+Finally, **take notes** while watching [this 40-minute video](https://www.youtube.com/watch?v=fSgEeI2Xpdc) titled "How humans see data", by John Rauser. This is one of the best overviews I've ever seen of how we can exploit our understanding of human psychology to design effective charts:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fSgEeI2Xpdc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

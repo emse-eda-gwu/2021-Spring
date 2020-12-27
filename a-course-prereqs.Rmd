@@ -1,5 +1,5 @@
 ---
-title: "Assignment 0: Class Prerequisites"
+title: "Course Prerequisites"
 output:
   html_document:
     number_sections: false

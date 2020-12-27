@@ -13,55 +13,93 @@ navbar:
     - text: "Schedule"
       icon: fa fa-calendar-alt
       href: schedule.html
+    - text: "Class"
+      icon: fas fa-laptop-code
+      menu:
+        - text: "1: Getting Started"
+          href: c1-getting-started.html
+        - text: "2: Exploring Data"
+          href: c2-exploring-data.html
+        - text: "3: Cleaning Data"
+          href: c3-cleaning-data.html
+        - text: "4: Visualizing Information"
+          href: c4-visualizing-information.html
+        - text: "5: Amounts & Proportions"
+          href: c5-amounts-proportions.html
+        - text: "6: Comparisons"
+          href: c6-comparisons.html
+        - text: "7: Trends"
+          href: c7-trends.html
+        - text: "8: Correlation"
+          href: c8-correlation.html
+        - text: "9: Maps"
+          href: c9-maps.html
+        - text: "11: Polishing Charts"
+          href: c11-polishing-charts.html
+        - text: "12: Interactive Charts"
+          href: c12-interactive-charts.html
+        - text: "13: Websites"
+          href: c13-websites.html
+        - text: "14: Communicating Results"
+          href: c14-communicating-results.html
     - text: "Readings"
-      icon: fas fa-book
+      icon: fas fa-book-reader
       menu:
-        - text: "0: Course prep"
-          href: r0-course-prep.html
-        - text: "1: Course introduction"
-          href: r1-course-introduction.html
-        - text: "2: Exploring data"
-          href: r2-exploring-data.html
-        - text: "3: Visualizing information"
+        - text: "1: Exploring Data"
+          href: r1-exploring-data.html
+        - text: "2: Cleaning Data"
+          href: r2-cleaning-data.html
+        - text: "3: Visualizing Information"
           href: r3-visualizing-information.html
-        - text: "4: Graphing amounts & proportions"
+        - text: "4: Amounts & Proportions"
           href: r4-amounts-proportions.html
-        - text: "5: Graphing comparisons"
+        - text: "5: Comparisons"
           href: r5-comparisons.html
-        - text: "6: Graphing trends"
+        - text: "6: Trends"
           href: r6-trends.html
-        - text: "7: Data cleaning & joins"
-          href: r7-cleaning-joins.html
-        - text: "8: Polishing your charts"
-          href: r8-polish.html
-        - text: "9: Maps & geospatial data"
-          href: r9-maps.html
-        - text: "11: Correlation analysis"
-          href: r11-correlation.html
-        - text: "12: Shiny apps"
-          href: r12-shiny-apps.html
-        - text: "13: Communicating your results"
-          href: r13-communicating.html
-    - text: "Assignments"
-      icon: fas fa-laptop
+        - text: "7: Correlation"
+          href: r7-correlation.html
+        - text: "8: Maps"
+          href: r8-maps.html
+        - text: "9: Polishing Charts"
+          href: r9-polishing-charts.html
+        - text: "11: Interactive Charts"
+          href: r11-interactive-charts.html
+        - text: "12: Websites"
+          href: r12-websites.html
+        - text: "13: Communicating Results"
+          href: r13-communicating-results.html
+    - text: "Projects"
+      icon: fas fa-pencil-ruler
       menu:
-        - text: "0: Class prerequisites"
-          href: a0-course-prereqs.html
-    - text: "Project"
-      icon: fas fa-project-diagram
-      href: a-project.html
+        - text: "Course Prerequisites (optional)"
+          href: a-course-prereqs.html
+        - text: "Mini Project 1"
+          href: a-mini-project-1.html
+        - text: "Mini Project 2"
+          href: a-mini-project-2.html
+        - text: "Mini Project 3"
+          href: a-mini-project-3.html
+        - text: "Final Project"
+          href: a-project.html
     - text: "References"
       icon: fa fa-bookmark
       menu:
+        - text: "Course Software"
+          icon: fas fa-hdd
+          href: ref-course-software.html
         - text: "Getting Help"
           icon: fas fa-question-circle
           href: ref-getting-help.html
-        - text: "Programming in R"
-          icon: fas fa-terminal
-          href: ref-programming.html
+        - text: "Finding Data"
+          icon: fa-database
+          href: ref-finding-data.html
         - text: "Visualizing Data"
           icon: fas fa-chart-bar
           href: ref-visualizing-data.html
+        - text: "Programming in R"
+          icon: fas fa-terminal
+          href: ref-programming.html
         - text: "R Markdown"
           icon: fas fa-feather-alt
           href: ref-rmarkdown.html

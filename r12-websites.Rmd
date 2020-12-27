@@ -1,5 +1,5 @@
 ---
-title: "Week 13: Communicating Your Results"
+title: "Websites"
 output:
   html_document:
     number_sections: false
@@ -9,4 +9,4 @@ output:
 ```{r child = "knitr_setup.Rmd"}
 ```
 
-Coming soon!
+Coming Soon!

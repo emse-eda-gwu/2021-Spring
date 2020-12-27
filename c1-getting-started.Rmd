@@ -1,5 +1,5 @@
 ---
-title: "Course Introduction"
+title: "Getting Started"
 output:
   html_document:
     number_sections: false
@@ -18,7 +18,7 @@ output:
 
 # Before we start...
 
-For this class, you'll need to install some software and register for some tools. Go to the [course prep](r0-course-prep.html) page to get setup before we get started with class.
+For this class, you'll need to install some software and register for some tools. Go to the [course software](ref-course-software.html) page to get setup before we get started with class.
 
 # For new students
 

@@ -1,12 +1,12 @@
 ---
-title: "Week 11: Correlation Analysis"
+title: "Mini Project 1: Exploring & Cleaning Data"
 output:
   html_document:
     number_sections: false
-    toc: no
+    toc: true
 ---
 
 ```{r child = "knitr_setup.Rmd"}
 ```
 
-Coming soon!
+Coming Soon!

@@ -1,0 +1,11 @@
+---
+title: "Trends"
+output:
+  html_document:
+    toc: no
+---
+
+```{r child = "knitr_setup.Rmd"}
+```
+
+Coming Soon!
