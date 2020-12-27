@@ -2,10 +2,14 @@ name: "EMSE 4197: Exploratory Data Analysis - Spring 2021"
 output_dir: _site
 exclude:
 - DESCRIPTION
-- LICENSE
+- README
 new_session: true
 navbar:
-  title: "EDA - Spring 2021"
+  title: ""
+  left:
+    - text: ""
+      icon: fas fa-home
+      href: index.html
   left:
     - text: Syllabus
       icon: fa fa-map
