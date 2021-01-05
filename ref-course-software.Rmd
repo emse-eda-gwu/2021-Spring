@@ -20,7 +20,7 @@ First, install / setup these tools:
 - Some tools we'll use will require that you be on the GW network. You can do that by installing the "Cisco AnyConnect VPN Client" software and loggin in to GW's VPN. Here's how to do that:
     - Install [Cisco AnyConnect VPN Client](https://my.gwu.edu/mod/downloads/?category=VPN)
     - Follow [these instructions](https://gwu-myit.onbmc.com/dwp/app/#/knowledge/KBA00002611/rkm) to log on to the VPN with your GW NetID
-- [DataCamp](https://www.datacamp.com/home): This is a free resource being made available to you for extra practice. **You must use your @gwu.edu email for this to work** (not the @email.gwu.edu address). An invite link was also sent via email (and again can be found in the Blackboard announcement).
+- [DataCamp](https://www.datacamp.com): This is a free resource being made available to you for extra practice. **You must use your @gwu.edu email for this to work** (not the @email.gwu.edu address). An invite link was also sent via email (and again can be found in the Blackboard announcement).
 
 Next, install the latest version of R and RStudio:
 

@@ -70,8 +70,12 @@ All texts and software for this course is freely available on the web. This incl
 
 ## Software
 
+Go to the [Course Software](ref-course-software.html) page for detailed instructions on how to install the software we'll be using. Here's a quick list:
+
 - R (version 4.0.2 or later), which can be downloaded from [The Comprehensive R Archive Network (CRAN)](https://cloud.r-project.org)
 - RStudio (Desktop Version), a free IDE for R, which can be downloaded from [RStudio](https://rstudio.com/products/rstudio/download/)
+- We'll be using [Slack](https://emse-eda-s21.slack.com) for most communication.
+- Throughout the semester, you'll have free access to [DataCamp](https://www.datacamp.com) for extra (optional) practice.
 
 ## Texts / Other Useful Resources
 
@@ -141,10 +145,10 @@ library(ggrepel)
 
 df <- data.frame(
     category = c(
-      'Att. &\nPart.', 'Reflections', 'Quizzes', 'Mini Projects', 
+      'Att. &\nPart.', 'Reflections', 'Quizzes', 'Mini Projects',
       'Final Project'),
     percent = c(6, 12, 15, 24, 43)) %>%
-    arrange(desc(percent)) %>% 
+    arrange(desc(percent)) %>%
     mutate(
       cumpercent = cumsum(percent),
       label_y = cumpercent - (percent / 2),
@@ -156,17 +160,17 @@ ggplot(df) +
     # scale_x_continuous(expand = expansion(mult = c(0, 0.05))) +
     # theme_minimal_vgrid() +
     # labs(x = 'Percent of final grade', y = NULL)
-    geom_col(aes(x = "", y = percent, fill = category), 
+    geom_col(aes(x = "", y = percent, fill = category),
              width = 1.1, alpha = 0.8) +
     geom_label(data = filter(df, category %in% c(
                'Mini Projects', 'Final Project')),
                aes(x = "", y = label_y, label = category)) +
     geom_label_repel(data = filter(df, category %in% c(
                      'Quizzes', 'Att. &\nPart.', 'Reflections')),
-                     aes(x = "", y = label_y, label = category), 
+                     aes(x = "", y = label_y, label = category),
                      direction = 'y', label.padding = 0.25, segment.size = 0) +
-    coord_flip() + 
-    scale_y_continuous(expand = expansion(mult = c(0, 0.05))) + 
+    coord_flip() +
+    scale_y_continuous(expand = expansion(mult = c(0, 0.05))) +
     scale_fill_viridis(discrete = TRUE) +
     theme_minimal_vgrid() +
     theme(legend.position = 'none') +
