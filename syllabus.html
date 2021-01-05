@@ -55,8 +55,11 @@ body {
 blockquote{
   background-color: #ecf0f1;
   padding: 20px;
-  border: 0;
+  border-color: #2780e3;
   border-radius: 5px;
+}
+blockquote h3 {
+  margin-top: 0px;
 }
 
 /* Images */
@@ -83,6 +86,46 @@ tr:first-child {
 }
 tr:last-child {
   border-bottom: solid #DCDCDC;
+}
+
+.class-buttons {
+  text-align: center;
+}
+
+.btn-slides {
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 10px; /* Rounded edges */
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  padding: .9rem;
+  line-height: .5;
+  border-radius: .3rem;
+}
+
+.btn-notes {
+  background-color: #000000;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 10px; /* Rounded edges */
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  padding: .9rem;
+  line-height: .5;
+  border-radius: .3rem;
 }
 
 </style>
@@ -750,7 +793,7 @@ div.tocify {
 <ul>
 <li>All synchronous class periods will be held online during the designated class time: Tuesdays from 12:45PM - 03:15PM EST.</li>
 <li>All class periods will be recorded and posted on blackboard.</li>
-<li>Students are encouraged to stream or download the recordings for personal use only and are not permitted to post or share the recordings.</li>
+<li>Students are encouraged to stream or download the recordings for personal use only and are <strong>not</strong> permitted to post or share the recordings.</li>
 <li>We will hold multiple online study sessions every week.</li>
 <li>All quizzes and exams will be held online during the designated class periods.</li>
 </ul>
@@ -798,12 +841,13 @@ div.tocify {
 <div id="software" class="section level2">
 <h2><span class="header-section-number">5.1</span> Software</h2>
 <ul>
-<li>R (version 3.6.0 or later), which can be downloaded from <a href="https://cloud.r-project.org">The Comprehensive R Archive Network (CRAN)</a></li>
+<li>R (version 4.0.2 or later), which can be downloaded from <a href="https://cloud.r-project.org">The Comprehensive R Archive Network (CRAN)</a></li>
 <li>RStudio (Desktop Version), a free IDE for R, which can be downloaded from <a href="https://rstudio.com/products/rstudio/download/">RStudio</a></li>
 </ul>
 </div>
 <div id="texts-other-useful-resources" class="section level2">
 <h2><span class="header-section-number">5.2</span> Texts / Other Useful Resources</h2>
+<p>Each week students will be responsible for completing assigned readings, most of which will come from these three books, which are available both free online and for purchase via the following links:</p>
 <ul>
 <li>Healy, Kieran. “Data Visualization: A practical introduction” [<a href="http://socviz.co/">free online</a>], [<a href="https://www.amazon.com/Data-Visualization-Introduction-Kieran-Healy/dp/0691181624">buy on amazon</a>]</li>
 <li>Grolemund, Garrett and Wickham, Hadley. “R for Data Science” [<a href="https://r4ds.had.co.nz/">free online</a>], [<a href="https://www.amazon.com/Data-Science-Transform-Visualize-Model/dp/1491910399">buy on amazon</a>]</li>
@@ -833,7 +877,7 @@ div.tocify {
 <tr class="odd">
 <td>Low</td>
 <td>Frequently absent</td>
-<td>Rude; disruptive; distracting; monopolizes discussions</td>
+<td>Rude; disruptive; distracting; monopolizes discussions; rarely participates during in-class problem solving</td>
 </tr>
 <tr class="even">
 <td>Moderate</td>
@@ -852,23 +896,27 @@ div.tocify {
 <h2><span class="header-section-number">6.2</span> Quizzes</h2>
 <p>There will be several quizzes given about once every two weeks immediately at the beginning of class. Quizzes cover material presented in previous classes and assignments during the weeks since the most-recent quiz. Quizzes are designed to be time-intensive, to test for fluency, and to demonstrate where additional study is needed. <strong>Quizzes are low-stakes</strong> - your worst one is dropped, and the rest count for just 15% of your final grade. If you do poorly on one, use that as feedback on where you need additional improvement.</p>
 <blockquote>
-<p><strong>Why quiz at all?</strong> Research shows that giving small quizzes throughout a class can dramatically help with retention. It’s a phenomenon known as the “retrieval effect” - basically, you have to <em>practice</em> remembering things, otherwise your brain won’t remember them. The phenomenon and research on it is explained in detail in the book <a href="https://www.hup.harvard.edu/catalog.php?isbn=9780674729018">“Make It Stick: The Science of Successful Learning”</a>, by Brown, Roediger, and McDaniel.</p>
+<p><strong>Why quiz at all?</strong> Research shows that giving small quizzes throughout a class can dramatically help with <em>retention</em>. It’s a phenomenon known as the “retrieval effect” - basically, you have to <em>practice</em> remembering things, otherwise your brain won’t remember them. The phenomenon and research on it is explained in detail in the book <a href="https://www.hup.harvard.edu/catalog.php?isbn=9780674729018">“Make It Stick: The Science of Successful Learning,”</a> by Brown, Roediger, and McDaniel.</p>
 </blockquote>
 </div>
 <div id="assignments-1" class="section level2">
 <h2><span class="header-section-number">6.3</span> Assignments</h2>
-<p>Assignments will be a combination of “exercises” and “redesign” projects. Exercises include instructional videos and applied practice writing code, mostly using the <a href="https://www.datacamp.com/home">DataCamp</a> platform. These are designed to be completed prior to the associated lectures to prepare for class. Redesign project assignments provide hands-on experience with the material covered in class by redesigning an existing data visualization. While students may work with their peers on these assignments, each student must submit their own work. Credit for each assignment will be allocated according to a rubric provided in the assignment description. <strong>No more than 2 late days can be used on any one assignment.</strong></p>
+<p>Students will be responsible for two types of assignments throughout the semester:</p>
+<ul>
+<li><strong>Reflections</strong>: Each week, students will be assigned specific readings to prepare for the next class period. Students will need to submit reflections on these readings each week. Additional, optional assignments on <a href="https://www.datacamp.com">DataCamp</a> will be available for extra practice.</li>
+<li><strong>Mini Projects</strong>: There will be three mini projects throughout the semester designed to provide hands-on experience with the material covered in class by working with and exploring real data sets and / or creating visualizations. While students may work with their peers on these assignments, each student must submit their own work. Credit for each assignment will be allocated according to a rubric provided in the assignment description.</li>
+</ul>
 </div>
 <div id="final-project" class="section level2">
 <h2><span class="header-section-number">6.4</span> Final Project</h2>
-<p>Throughout the semester, students will work in teams of 1-3 students towards a final project of an exploratory data analysis. At the end of the semester, each student will submit a report of their analysis in the form of an html web page and give a 5-minute presentation of their results to the class. To make the overall project more manageable, it will be broken down into several separate “milestone” deliverables due throughout the semester, including a proposal, progress report, peer review, presentation, and final report. View the <a href="assignment-project.html">final project assignment</a> page for more details.</p>
+<p>Throughout the semester, students will work in teams of 2-3 students towards a final project of an exploratory data analysis. At the end of the semester, each student will submit a report of their analysis in the form of an html web page and create a 5 to 10-minute video presentation of their results. To make the overall project more manageable, it will be broken down into several separate “milestone” deliverables due throughout the semester, including a proposal, progress report, presentation video, and final report. View the <a href="a-project.html">final project assignment</a> page for more details.</p>
 <p><strong>There will be no final exam - the final project is the final exam</strong></p>
 </div>
 </div>
 <div id="grading" class="section level1">
 <h1><span class="header-section-number">7</span> Grading</h1>
-<div id="standard-grading" class="section level2">
-<h2><span class="header-section-number">7.1</span> Standard Grading</h2>
+<div id="category-breakdown" class="section level2">
+<h2><span class="header-section-number">7.1</span> Category Breakdown</h2>
 <p>Final grades will be calculated as follows:</p>
 <div style="width:500px">
 <table>
@@ -882,117 +930,62 @@ div.tocify {
 <tbody>
 <tr class="odd">
 <td>Attendance &amp; Participation</td>
-<td>5 %</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Quizzes</td>
-<td>16 %</td>
-<td>Lowest quiz grade is dropped</td>
-</tr>
-<tr class="odd">
-<td>Assignment 1</td>
-<td>4 %</td>
-<td>Exercises</td>
-</tr>
-<tr class="even">
-<td>Assignment 2</td>
-<td>4 %</td>
-<td>Exercises</td>
-</tr>
-<tr class="odd">
-<td>Assignment 3</td>
-<td>4 %</td>
-<td>Exercises</td>
-</tr>
-<tr class="even">
-<td>Assignment 4</td>
-<td>8 %</td>
-<td>Redesign project</td>
-</tr>
-<tr class="odd">
-<td>Assignment 5</td>
-<td>4 %</td>
-<td>Exercises</td>
-</tr>
-<tr class="even">
-<td>Assignment 6</td>
-<td>8 %</td>
-<td>Redesign project</td>
-</tr>
-<tr class="odd">
-<td>Assignment 7</td>
-<td>4 %</td>
-<td>Exercises</td>
-</tr>
-<tr class="even">
-<td>Final Project Proposal</td>
 <td>6 %</td>
 <td></td>
 </tr>
+<tr class="even">
+<td>Reflections</td>
+<td>12 %</td>
+<td>Weekly assignment (12 x 1%)</td>
+</tr>
 <tr class="odd">
-<td>Final Project Progress Report</td>
+<td>Quizzes</td>
+<td>15 %</td>
+<td>5 quizzes; lowest grade dropped</td>
+</tr>
+<tr class="even">
+<td>Mini Project 1</td>
+<td>8 %</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Mini Project 2</td>
 <td>8 %</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Final Project Peer Review</td>
-<td>5 %</td>
+<td>Mini Project 3</td>
+<td>8 %</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Final Project Proposal</td>
+<td>8 %</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Final Project Progress Report</td>
+<td>10 %</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>Final Project Presentation</td>
-<td>8 %</td>
+<td>10 %</td>
 <td></td>
 </tr>
 <tr class="even">
 <td>Final Project Report</td>
-<td>16 %</td>
+<td>15 %</td>
 <td></td>
 </tr>
 </tbody>
 </table>
 </div>
 <p>Here’s a visual breakdown by category:</p>
-<p><img src="figs/unnamed-chunk-5-1.png" width="576" style="display: block; margin: auto auto auto 0;" /></p>
-</div>
-<div id="amd-grading" class="section level2">
-<h2><span class="header-section-number">7.2</span> AMD Grading</h2>
-<p>This Alternative Minimum Grading (AMG) policy is available to everybody, but is designed specifically for students who struggle in the first part of the course, and then through sustained hard work and dedication manage to elevate their performance in the latter part of the course to a level that merits passing with a C (even if their Standard Grade might be lower than that).</p>
-<p>Student cannot “sign up” for AMG grading. Every student will be considered both for Standard Grading and AMG, and the instructor can choose to assign the AMG grade if a student’s effort merits it. To qualify for AMG you must put forth sustained effort, which means meeting the following requirements:</p>
-<ul>
-<li>You cannot miss multiple class periods</li>
-<li>You cannot miss multiple assignments or quizzes</li>
-<li>You cannot violate the Collaboration Policy</li>
-</ul>
-<p>To compute your AMG score, first use the following to compute your raw score. If the resulting score is higher than a C, set it back to a C.</p>
-<div style="width:350px">
-<table>
-<thead>
-<tr class="header">
-<th>Item</th>
-<th>Weight</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Assignments</td>
-<td>20%</td>
-</tr>
-<tr class="even">
-<td>Quizzes (Top 4)</td>
-<td>25%</td>
-</tr>
-<tr class="odd">
-<td>Final Project</td>
-<td>55%</td>
-</tr>
-</tbody>
-</table>
-</div>
+<p><img src="figs/grade-breakdown-1.png" width="576" style="display: block; margin: auto auto auto 0;" /></p>
 </div>
 <div id="grading-scale" class="section level2">
-<h2><span class="header-section-number">7.3</span> Grading Scale</h2>
+<h2><span class="header-section-number">7.2</span> Grading Scale</h2>
 <div style="width:350px">
 <table>
 <thead>
@@ -1057,7 +1050,7 @@ div.tocify {
 <ul>
 <li><strong>BE NICE. BE HONEST. DON’T CHEAT.</strong></li>
 <li>You get <strong>5</strong> late days - use them however you want, but you can’t use more than <strong>2</strong> late days on any one assignment.</li>
-<li>If you talk with me, I will listen and believe you.</li>
+<li>If you’re not sure about something, talk with me and we’ll figure it out.</li>
 </ul>
 </div>
 <div id="late-policy" class="section level2">
@@ -1113,31 +1106,20 @@ div.tocify {
 </div>
 <div id="penalties" class="section level3">
 <h3><span class="header-section-number">9.3.4</span> Penalties</h3>
-<p>Penalties are decided by the course instructors, and can vary based on the severity of the offense. Possible penalties include:</p>
+<p>Violations will be reported to the <a href="https://studentconduct.gwu.edu/charging-academic-integrity-violations">Office of Student Rights &amp; Responsibilities</a>. Penalties are decided by the course instructors, and can vary based on the severity of the offense. Possible penalties include:</p>
 <ul>
 <li>Receiving a 0 on the assignment/quiz in question.</li>
-<li>Receiving a -100 on the assignment/quiz in question.</li>
 <li>Receiving a full letter grade deduction in the course.</li>
 <li>Automatically failing the course.</li>
 </ul>
-<p>Penalties may also be accompanied by a letter to the Dean of Student Affairs, again at the instructors’ discretion. This can lead to university-level penalties, such as being suspended or expelled.</p>
-</div>
-<div id="plagiarism-detection" class="section level3">
-<h3><span class="header-section-number">9.3.5</span> Plagiarism Detection</h3>
-<p>Programs are naturally structured, which makes them <strong>very easy</strong> to compare for plagiarism. Automated plagiarism detection systems make this process even easier. <a href="http://www.kosbie.net/cmu/spring-13/15-112/automated-plagiarism-detector-demo.mp4">Watch this video</a> showing plagiarism detection software in action (this example is using Python code, but this also works for R code).</p>
-<p><strong>In short, if you copy code, we will know - don’t copy code!</strong></p>
-</div>
-<div id="grace-period" class="section level3">
-<h3><span class="header-section-number">9.3.6</span> Grace Period</h3>
-<p>Your first year of college is a time when you do a lot of learning. Sometimes, you might make bad decisions or mistakes. The most important thing for you to do is to learn from your mistakes, to constantly grow, and become a better person.</p>
-<p>Sometimes, students panic and copy code right before the deadline, then regret what they did afterwards. Therefore, you may rescind any homework submission for up to 24 hours after the deadline with no questions asked. Simply email the course instructors asking to delete the submission in question, and we will do so. Deleted submissions will not be considered during plagiarism detection, though of course they will also not be graded. However, it will always be better to get a 0 (or partial credit) on an assignment than to get a cheating violation!</p>
+<p>Depending on the student’s prior academic history, violations may also be accompanied by a letter to the Dean of Student Affairs, again at the instructors’ discretion. This can lead to university-level penalties, such as being suspended or expelled.</p>
 </div>
 </div>
 <div id="children-in-class" class="section level2">
 <h2><span class="header-section-number">9.4</span> Children in class</h2>
 <!-- Policy copied from Andrew Heiss's class -->
 <!-- https://evalsp20.classes.andrewheiss.com/syllabus/ -->
-<p>I applaud all of you who go to graduate school with children! It is difficult to balance academic, work, and family commitments, and I want you to succeed. Here are my policies regarding children in class:</p>
+<p>I applaud all of you who attend school with children! It is difficult to balance academic, work, and family commitments, and I want you to succeed. Here are my policies regarding children in class:</p>
 <ol style="list-style-type: decimal">
 <li>All breastfeeding babies are welcome in class as often as necessary.</li>
 <li>Non-nursing babies and older children are welcome whenever alternate arrangements cannot be made. As a parent of young children, I understand that babysitters fall through, partners have conflicting schedules, children get sick, and other issues arise that leave parents with few other options.</li>
