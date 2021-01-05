@@ -39,6 +39,7 @@ Imports:
     remotes,
     fontawesome,
     palmerpenguins,
+    viridis,
     emo
 Remotes:
     rstudio/fontawesome,
