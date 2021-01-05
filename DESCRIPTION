@@ -40,6 +40,7 @@ Imports:
     fontawesome,
     palmerpenguins,
     viridis,
+    ggrepel,
     emo
 Remotes:
     rstudio/fontawesome,
