@@ -11,6 +11,8 @@ output:
 
 For your final project, you will take a dataset, explore it, tinker with it, and tell a nuanced story about it using at least three charts. I want this project to be as useful for you and your future career as possible - you'll hopefully want to show off your final project in a portfolio or during job interviews. Accordingly, you get to choose what data you will use for your project. Choose whatever one you are most interested in or will have the most fun with.
 
+> Check out [these examples](ref-example-analyses.html) of other exploratory data analyses for inspiration
+
 # Overview
 
 For the final project, you will:
@@ -25,31 +27,32 @@ To make the overall project more manageable, it is broken down into separate "mi
 **Summary of Deliverables**:
 
 <div style="width:400px">
-Item            | Weight towards<br>final grade | Due Date<br>(by 11pm)
+Item            | Weight towards<br>final grade | Due Date<br>(by 11:59pm)
 ----------------|----------------------------|--------------------
-Proposal        | 6 %    | March 12
-Progress Report | 8 %    | April 16
-Final Report    | 16 %   | April 30
-Presentation    | 8 %    | May 03
+Proposal        | 10 %  | March 12
+Progress Report | 10 %  | April 16
+Final Report    | 15 %  | April 30
+Presentation    | 10 %  | May 03
+Interview       | 10 %  | Exam week
 </div>
 
-**Purpose**: The skills covered in this course are rooted in design rules and principles rather than formulas and equations. As such, the _application_ of these principles to a real data problem is one of the best ways to learn and assess mastery of these skills. I guarantee you one day you will need to apply these principles to communicate an idea to colleagues, so let's make sure you have at least one chance to practice before the [stakes are higher](https://emse6574-gwu.github.io/2019-Fall/challengerExplosion.html).
+**Purpose**: The skills covered in this course are rooted in design rules and principles rather than formulas and equations. As such, the _application_ of these principles to a real data problem is one of the best ways to learn and assess mastery of these skills. I guarantee you one day you will need to apply these principles to communicate an idea to colleagues, so let's make sure you have at least one chance to practice before the [stakes are higher](https://p4a.seas.gwu.edu/2020-Fall/L11.1-data-analysis-prelude.html).
 
-**Skills & Knowledge**: Your final project should illustrate your ability to transform raw data into insights by making the non-visible visible, showing clear trends or patterns, and / or identifying outliers or missing information. The specific skills involved in achieving this goal include all of the course learning objectives listed on the course [home page](index.html).
+**Skills & Knowledge**: Your final project should illustrate your ability to transform raw data into insights by making the non-visible visible, showing clear trends or patterns, and / or identifying outliers or missing information. The specific skills involved in achieving this goal include all of the course [learning objectives](index.html).
 
-**Teams**: You may work on an individual project or in teams of 2 to 3 students of your choosing. If you choose to work in a team, you must finalize your team members at the time of submitting your proposal.
+**Teams**: Your final project will be a team project made up of 2 to 3 classmates of your choosing. Teams will be finalized at the time of submitting your proposal. Graduate students taking the course must work on individual projects. 
 
 ---
 
 # Proposal
 
-**Due**: March 13 by 11:00 pm
+**Due**: March 12 by 11:59pm
 
-**Weight**: This assignment is worth 6% of your final grade.
+**Weight**: This assignment is worth 10% of your final grade.
 
 **Submission Details**: You may write your proposal using any tool you wish (e.g. Microsoft Word, RMarkdown), but you must submit your proposal as a **PDF document** on Blackboard by the due date.
 
-**Assessment**: We will use [this rubric](assignments/project/proposal_rubric.pdf) to grade your proposal.
+**Assessment**: We will use [this rubric](assignments/final-project/proposal_rubric.pdf) to grade your proposal.
 
 **Tasks**:
 
@@ -86,13 +89,13 @@ Write a 1-2 page proposal of an exploratory data analysis that you plan to condu
 
 # Progress Report
 
-**Due**: April 22 by 11:00 pm
+**Due**: April 16 by 11:59pm
 
-**Weight**: This assignment is worth 8% of your final grade.
+**Weight**: This assignment is worth 10% of your final grade.
 
 **Submission Details**: **Use [this template](a-project-template.html) for your analysis and report.** Your progress report should be written as a .Rmd file that compiles to a html webpage. Submit your entire project folder (including your .Rmd file, data files, .RProj file, etc.) as a single .zip file on Blackboard by the due date. For students in teams, **only one person from your team should submit the report.**
 
-**Assessment**: We will use [this rubric](assignments/project/progress_report_rubric.pdf) to grade your progress report.
+**Assessment**: We will use [this rubric](assignments/final-project/progress_report_rubric.pdf) to grade your progress report.
 
 **Tasks**:
 
@@ -129,13 +132,13 @@ Write a report summarizing progress you have made towards your project thus far,
 
 # Final Report
 
-**Due**: May 04 by 11:00 pm
+**Due**: April 30 by 11:59pm
 
-**Weight**: This assignment is worth 16% of your final grade.
+**Weight**: This assignment is worth 15% of your final grade.
 
 **Submission Details**: **Use [this template](a-project-template.html) for your final analysis and report.** Your progress report should be written as a .Rmd file that compiles to a html webpage. Publish your compiled page online (e.g. via RPubs, Github, etc.), then submit your entire project folder (including your .Rmd file, data files, .RProj file, etc.) as a single .zip file on Blackboard by the due date. Also include a link to the published report page in your Blackboard submission. For students in teams, **only one person from your team should submit the report.**
 
-**Assessment**: We will use [this rubric](assignments/project/final_report_rubric.pdf) to grade your report.
+**Assessment**: We will use [this rubric](assignments/final-project/final_report_rubric.pdf) to grade your report.
 
 **Tasks**:
 
@@ -177,13 +180,13 @@ Your final report should be a fully reproducible product and available online as
 
 # Presentation
 
-**Due**: Slides due by May 05 by 11:00 pm; presentations will be in class on May 06.
+**Due**: Slides due by May 03 by 11:59pm; presentations will be in class on May 04.
 
-**Weight**: This assignment is worth 8% of your final grade: 4% for your slides & slide design, and 4% for effectively presenting them in class.
+**Weight**: This assignment is worth 10% of your final grade: 5% for your slides & slide design, and 5% for effectively presenting them in class.
 
 **Submission Details**: Submit your slides as a PDF or .pptx file (whichever you feel most comfortable presenting with) on Blackboard by the due date.
 
-**Assessment**: We will use [this rubric](assignments/project/presentation_rubric.pdf) to grade your presentation.
+**Assessment**: We will use [this rubric](assignments/final-project/presentation_rubric.pdf) to grade your presentation.
 
 **Tasks**:
 
@@ -217,15 +220,17 @@ You will present your analysis with your teammates in class on May 06. Your slid
 
 ---
 
-# Examples
+# Final Interview
 
-Go [here](https://eda.seas.gwu.edu/showcase-2020-spring.html) to view a showcase of last year's projects. In addition, here are some examples of  exploratory data analyses done by others - some go into further detail than we will cover in this class:
+**Due**: Students will sign up for individual meetings during finals week.
 
-- [Is Usain Bolt really the fastest man on earth?](https://radmuzom.com/2019/05/18/fun-with-statistics-is-usain-bolt-really-the-fastest-man-on-earth/), by [Anindya Mozumdar](https://radmuzom.com/about/). This analysis uses some statistical modeling (which won't cover), but the use of visualizations alone are effective for addressing the research questions posed.
-- [F1 racing data analysis](https://www.kaggle.com/jonathanbouchet/f1-data-analysis), by Jonathan Bouchet. This is an extensive exploratory data analysis of a variety of data on races, drivers, and constructors across the history of [Formula 1](https://www.formula1.com/) racing. This would probably be overkill for a course project, but sections of it (e.g. section 3 on the races, or sections 4 and 5 together on the drivers and constructors) would make a nice project. It involves mutliple data sets, some not-so-simple data cleaning, and a wide variety of nice visualizations.
-- [Increasing Intensity of Strong Atlantic Hurricanes](http://myweb.fsu.edu/jelsner/stronger-hur.html), by James B. Elsner. This is a short analysis with the goal of validating the predictions of [this study](https://www.nature.com/articles/nature07234) published in Nature in 2008, which predicted that Atlantic tropical cyclones would continue to get stronger on average over time. While this analysis is too short to be considered adequate for a final project, it is still a good example of good data source documentation and one effective visualization. An expanded inquiry into the questions addressed here would make a good course project.
-- [Death: Reality vs Reported](https://owenshen24.github.io/charting-death/), by Owen Shen: This is an interesting original analysis in which the author collected the data himself. The analysis compares whether the proportion of actual causes of death is consistent with the proportion of death causes that the media reports. This analysis also uses some interactive graphics so that the reader can view different versions of the same plot, such as scrolling through the plot over time.
-- [Are first babies more likely to be late?](https://towardsdatascience.com/are-first-babies-more-likely-to-be-late-1b099b5796b6), by Allen Downey. This is another relatively short analysis, but the author does a good job of documenting his data sources, stating the assumptions he makes, and also describes what data were dropped from the analysis (i.e. babies born via C-section).
+**Weight**: This assignment is worth 10% of your final grade.
+
+**Assessment**: We will use [this rubric]() to assess your interview. 
+
+**Tasks**:
+
+The instructor will hold a 10-minute one-on-one interview with each student. The interview will be focused on your final project and will contain questions related to concepts covered during the course. Students will be provided a list of questions and the grading rubric ahead of the interview.
 
 ---
 

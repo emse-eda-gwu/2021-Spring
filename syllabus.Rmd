@@ -18,7 +18,7 @@ output:
 <div style="width:550px">
 Instructor | Course
 ---|---
-<i class="fas fa-user"></i> John Paul Helveston | <i class="far fa-calendar"></i> Tuesdays
+<i class="fas fa-user"></i> John Paul Helveston | <i class="far fa-calendar"></i> Wednesdays
 <i class="fas fa-university"></i> Science & Engineering Hall, Office 2830 | <i class="fa fa-map-marker-alt"></i> Anywhere!
 <i class="fas fa-phone"></i> +1 (202) 994-7173 | <i class="far fa-calendar-alt"></i> Jan. 12 - Apr. 27, 2020
 <i class="fas fa-envelope"></i> [jpg@gwu.edu](mailto:jph@gwu.edu) | <i class="far fa-clock"></i> 12:45PM - 03:15PM EST
@@ -89,13 +89,7 @@ Each week students will be responsible for completing assigned readings, most of
 
 ## Class Participation
 
-Regular class attendance is **essential**. Much of the class time will be spent doing exercises and coding. Multiple absences, inappropriate or unprofessional behavior during class (such as monopolizing discussions or being rude or disruptive), not participating in classroom exercises, and not being prepared for class will result in a lower grade for the class participation component. As a rule of thumb, the participation grade will be assigned according to the following rubric:
-
-Score | Attendance | Classroom
-----|---------------|-------------------------------
-Low      | Frequently absent | Rude; disruptive; distracting; monopolizes discussions; rarely participates during in-class problem solving
-Moderate | Attended most classes, but often arrived late or left early | Takes notes; attentive; occasionally contributes in class discussion / exercises
-High     | Attends on time and prepared | Takes notes; attentive; regularly contributes in class discussion / exercises; does not dominate conversation; listens and responds thoughtfully to comments made by others
+Regular class attendance is **essential**. Much of the class time will be spent doing exercises and coding. Multiple absences, inappropriate or unprofessional behavior during class (such as monopolizing discussions or being rude or disruptive), not participating in classroom exercises, and not being prepared for class will result in poor performance in this class.
 
 ## Quizzes
 
@@ -112,9 +106,13 @@ Students will be responsible for two types of assignments throughout the semeste
 
 ## Final Project
 
-Throughout the semester, students will work in teams of 2-3 students towards a final project of an exploratory data analysis. At the end of the semester, each student will submit a report of their analysis in the form of an html web page and create a 5 to 10-minute video presentation of their results. To make the overall project more manageable, it will be broken down into several separate "milestone" deliverables due throughout the semester, including a proposal, progress report, presentation video, and final report. View the [final project assignment](a-project.html) page for more details.
+Throughout the semester, students will work in teams of 2-3 students towards a final project of an exploratory data analysis. At the end of the semester, each student will submit a report of their analysis in the form of an html web page and create a 5 to 10-minute video presentation of their results. To make the overall project more manageable, it will be broken down into several separate "milestone" deliverables due throughout the semester, including a proposal, progress report, presentation video, and final report.
 
-**There will be no final exam - the final project is the final exam**
+View the [final project assignment](a-project.html) page for more details.
+
+## Final Interview
+
+Rather than have a final exam, each student will have a 10-minute interview by the instructor. The interview will be focused on the final project the student worked and will contain questions related to concepts covered during the course. Students will be provided a list of questions and the grading rubric ahead of the interview.
 
 # Grading
 
@@ -122,19 +120,19 @@ Throughout the semester, students will work in teams of 2-3 students towards a f
 
 Final grades will be calculated as follows:
 
-<div style="width:500px">
+<div style="width:550px">
 Item                          | Weight | Notes
 ------------------------------|--------|-------------------------------------
-Attendance & Participation    | 6 %    |
-Reflections                   | 12 %   | Weekly assignment (12 x 1%)
-Quizzes                       | 15 %   | 5 quizzes; lowest grade dropped
-Mini Project 1                | 8 %    |
-Mini Project 2                | 8 %    |
-Mini Project 3                | 8 %    |
-Final Project Proposal        | 8 %    |
+Reflections                   | 6 %    | Weekly assignment (12 x 0.5%)
+Quizzes                       | 12 %   | 5 quizzes, lowest dropped
+Mini Project 1                | 9 %    | Individual projects
+Mini Project 2                | 9 %    |
+Mini Project 3                | 9 %    |
+Final Project Proposal        | 10 %   | Teams of 2-3 students
 Final Project Progress Report | 10 %   |
-Final Project Presentation    | 10 %   |
 Final Project Report          | 15 %   |
+Final Project Presentation    | 10 %   |
+Final Interview               | 10 %   | Individual interview about your project
 </div>
 
 Here's a visual breakdown by category:
@@ -145,9 +143,8 @@ library(ggrepel)
 
 df <- data.frame(
     category = c(
-      'Att. &\nPart.', 'Reflections', 'Quizzes', 'Mini Projects',
-      'Final Project'),
-    percent = c(6, 12, 15, 24, 43)) %>%
+      'Reflections', 'Quizzes', 'Mini Projects', 'Final Project',  'Interview'),
+    percent = c(6, 12, 27, 45, 10)) %>%
     arrange(desc(percent)) %>%
     mutate(
       cumpercent = cumsum(percent),
@@ -155,18 +152,13 @@ df <- data.frame(
       category = fct_reorder(category, percent))
 
 ggplot(df) +
-    # geom_col(aes(x = percent, y = fct_reorder(category, percent)),
-    #          width = 0.7, alpha = 0.8) +
-    # scale_x_continuous(expand = expansion(mult = c(0, 0.05))) +
-    # theme_minimal_vgrid() +
-    # labs(x = 'Percent of final grade', y = NULL)
     geom_col(aes(x = "", y = percent, fill = category),
              width = 1.1, alpha = 0.8) +
     geom_label(data = filter(df, category %in% c(
                'Mini Projects', 'Final Project')),
                aes(x = "", y = label_y, label = category)) +
     geom_label_repel(data = filter(df, category %in% c(
-                     'Quizzes', 'Att. &\nPart.', 'Reflections')),
+                     'Quizzes', 'Interview', 'Reflections')),
                      aes(x = "", y = label_y, label = category),
                      direction = 'y', label.padding = 0.25, segment.size = 0) +
     coord_flip() +

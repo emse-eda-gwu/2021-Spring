@@ -88,6 +88,9 @@ navbar:
     - text: "References"
       icon: fa fa-bookmark
       menu:
+        - text: "Example Analyses"
+          icon: fas fa-lightbulb
+          href: ref-example-analyses.html
         - text: "Course Software"
           icon: fas fa-hdd
           href: ref-course-software.html

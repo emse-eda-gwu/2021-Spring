@@ -1,0 +1,21 @@
+---
+title: "Example Analyses"
+output:
+  html_document:
+    number_sections: false
+    toc: no
+---
+
+```{r child = "knitr_setup.Rmd"}
+```
+
+As inspiration for your final projects, check out the [showcase](https://eda.seas.gwu.edu/showcase-2020-spring.html) of last year's projects. 
+
+In addition, here are some examples of exploratory data analyses done by others. Some go into further detail than we will cover in this class, but hopefully they will inspire you as you prepare for your own project:
+
+- [Survivors of the Titantic](https://www.datacamp.com/community/tutorials/tidyverse-tutorial-r): A great overview of getting started with the tidyverse.
+- [Is Usain Bolt really the fastest man on earth?](https://radmuzom.com/2019/05/18/fun-with-statistics-is-usain-bolt-really-the-fastest-man-on-earth/), by [Anindya Mozumdar](https://radmuzom.com/about/). This analysis uses some statistical modeling (which won't cover), but the use of visualizations alone are effective for addressing the research questions posed.
+- [F1 racing data analysis](https://www.kaggle.com/jonathanbouchet/f1-data-analysis), by Jonathan Bouchet. This is an extensive exploratory data analysis of a variety of data on races, drivers, and constructors across the history of [Formula 1](https://www.formula1.com/) racing. This would probably be overkill for a course project, but sections of it (e.g. section 3 on the races, or sections 4 and 5 together on the drivers and constructors) would make a nice project. It involves mutliple data sets, some not-so-simple data cleaning, and a wide variety of nice visualizations.
+- [Increasing Intensity of Strong Atlantic Hurricanes](http://myweb.fsu.edu/jelsner/stronger-hur.html), by James B. Elsner. This is a short analysis with the goal of validating the predictions of [this study](https://www.nature.com/articles/nature07234) published in Nature in 2008, which predicted that Atlantic tropical cyclones would continue to get stronger on average over time. While this analysis is too short to be considered adequate for a final project, it is still a good example of good data source documentation and one effective visualization. An expanded inquiry into the questions addressed here would make a good course project.
+- [Death: Reality vs Reported](https://owenshen24.github.io/charting-death/), by Owen Shen: This is an interesting original analysis in which the author collected the data himself. The analysis compares whether the proportion of actual causes of death is consistent with the proportion of death causes that the media reports. This analysis also uses some interactive graphics so that the reader can view different versions of the same plot, such as scrolling through the plot over time.
+- [Are first babies more likely to be late?](https://towardsdatascience.com/are-first-babies-more-likely-to-be-late-1b099b5796b6), by Allen Downey. This is another relatively short analysis, but the author does a good job of documenting his data sources, stating the assumptions he makes, and also describes what data were dropped from the analysis (i.e. babies born via C-section).
