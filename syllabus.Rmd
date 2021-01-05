@@ -29,7 +29,7 @@ Instructor | Course
 
 - All synchronous class periods will be held online during the designated class time: Tuesdays from 12:45PM - 03:15PM EST.
 - All class periods will be recorded and posted on blackboard.
-- Students are encouraged to stream or download the recordings for personal use only and are not permitted to post or share the recordings.
+- Students are encouraged to stream or download the recordings for personal use only and are **not** permitted to post or share the recordings.
 - We will hold multiple online study sessions every week.
 - All quizzes and exams will be held online during the designated class periods.
 
@@ -70,10 +70,12 @@ All texts and software for this course is freely available on the web. This incl
 
 ## Software
 
-- R (version 3.6.0 or later), which can be downloaded from [The Comprehensive R Archive Network (CRAN)](https://cloud.r-project.org)
+- R (version 4.0.2 or later), which can be downloaded from [The Comprehensive R Archive Network (CRAN)](https://cloud.r-project.org)
 - RStudio (Desktop Version), a free IDE for R, which can be downloaded from [RStudio](https://rstudio.com/products/rstudio/download/)
 
 ## Texts / Other Useful Resources
+
+Each week students will be responsible for completing assigned readings, most of which will come from these three books, which are available both free online and for purchase via the following links:
 
 - Healy, Kieran. "Data Visualization: A practical introduction" [[free online](http://socviz.co/)], [[buy on amazon](https://www.amazon.com/Data-Visualization-Introduction-Kieran-Healy/dp/0691181624)]
 - Grolemund, Garrett and Wickham, Hadley. "R for Data Science" [[free online](https://r4ds.had.co.nz/)], [[buy on amazon](https://www.amazon.com/Data-Science-Transform-Visualize-Model/dp/1491910399)]
@@ -87,7 +89,7 @@ Regular class attendance is **essential**. Much of the class time will be spent 
 
 Score | Attendance | Classroom
 ----|---------------|-------------------------------
-Low      | Frequently absent | Rude; disruptive; distracting; monopolizes discussions
+Low      | Frequently absent | Rude; disruptive; distracting; monopolizes discussions; rarely participates during in-class problem solving
 Moderate | Attended most classes, but often arrived late or left early | Takes notes; attentive; occasionally contributes in class discussion / exercises
 High     | Attends on time and prepared | Takes notes; attentive; regularly contributes in class discussion / exercises; does not dominate conversation; listens and responds thoughtfully to comments made by others
 
@@ -95,80 +97,81 @@ High     | Attends on time and prepared | Takes notes; attentive; regularly cont
 
 There will be several quizzes given about once every two weeks immediately at the beginning of class. Quizzes cover material presented in previous classes and assignments during the weeks since the most-recent quiz. Quizzes are designed to be time-intensive, to test for fluency, and to demonstrate where additional study is needed. **Quizzes are low-stakes** - your worst one is dropped, and the rest count for just 15% of your final grade. If you do poorly on one, use that as feedback on where you need additional improvement.
 
-> **Why quiz at all?** Research shows that giving small quizzes throughout a class can dramatically help with retention. It's a phenomenon known as the "retrieval effect" - basically, you have to _practice_ remembering things, otherwise your brain won't remember them. The phenomenon and research on it is explained in detail in the book ["Make It Stick: The Science of Successful Learning"](https://www.hup.harvard.edu/catalog.php?isbn=9780674729018), by Brown, Roediger, and McDaniel.
+> **Why quiz at all?** Research shows that giving small quizzes throughout a class can dramatically help with *retention*. It's a phenomenon known as the "retrieval effect" - basically, you have to _practice_ remembering things, otherwise your brain won't remember them. The phenomenon and research on it is explained in detail in the book ["Make It Stick: The Science of Successful Learning,"](https://www.hup.harvard.edu/catalog.php?isbn=9780674729018) by Brown, Roediger, and McDaniel.
 
 ## Assignments
 
-Assignments will be a combination of "exercises" and "redesign" projects. Exercises include instructional videos and applied practice writing code, mostly using the [DataCamp](https://www.datacamp.com/home) platform. These are designed to be completed prior to the associated lectures to prepare for class. Redesign project assignments provide hands-on experience with the material covered in class by redesigning an existing data visualization. While students may work with their peers on these assignments, each student must submit their own work. Credit for each assignment will be allocated according to a rubric provided in the assignment description. **No more than 2 late days can be used on any one assignment.**
+Students will be responsible for two types of assignments throughout the semester:
+
+- **Reflections**: Each week, students will be assigned specific readings to prepare for the next class period. Students will need to submit reflections on these readings each week. Additional, optional assignments on [DataCamp](https://www.datacamp.com) will be available for extra practice.
+- **Mini Projects**: There will be three mini projects throughout the semester designed to provide hands-on experience with the material covered in class by working with and exploring real data sets and / or creating visualizations. While students may work with their peers on these assignments, each student must submit their own work. Credit for each assignment will be allocated according to a rubric provided in the assignment description.
 
 ## Final Project
 
-Throughout the semester, students will work in teams of 1-3 students towards a final project of an exploratory data analysis. At the end of the semester, each student will submit a report of their analysis in the form of an html web page and give a 5-minute presentation of their results to the class. To make the overall project more manageable, it will be broken down into several separate "milestone" deliverables due throughout the semester, including a proposal, progress report, peer review, presentation, and final report. View the [final project assignment](assignment-project.html) page for more details.
+Throughout the semester, students will work in teams of 2-3 students towards a final project of an exploratory data analysis. At the end of the semester, each student will submit a report of their analysis in the form of an html web page and create a 5 to 10-minute video presentation of their results. To make the overall project more manageable, it will be broken down into several separate "milestone" deliverables due throughout the semester, including a proposal, progress report, presentation video, and final report. View the [final project assignment](a-project.html) page for more details.
 
 **There will be no final exam - the final project is the final exam**
 
 # Grading
 
-## Standard Grading
+## Category Breakdown
 
 Final grades will be calculated as follows:
 
 <div style="width:500px">
 Item                          | Weight | Notes
 ------------------------------|--------|-------------------------------------
-Attendance & Participation    | 5 %    |
-Quizzes                       | 16 %   | Lowest quiz grade is dropped
-Assignment 1                  | 4 %    | Exercises
-Assignment 2                  | 4 %    | Exercises
-Assignment 3                  | 4 %    | Exercises
-Assignment 4                  | 8 %    | Redesign project
-Assignment 5                  | 4 %    | Exercises
-Assignment 6                  | 8 %    | Redesign project
-Assignment 7                  | 4 %    | Exercises
-Final Project Proposal        | 6 %    |
-Final Project Progress Report | 8 %    |
-Final Project Peer Review     | 5 %    |
-Final Project Presentation    | 8 %    |
-Final Project Report          | 16 %   |
+Attendance & Participation    | 6 %    |
+Reflections                   | 12 %   | Weekly assignment (12 x 1%)
+Quizzes                       | 15 %   | 5 quizzes; lowest grade dropped
+Mini Project 1                | 8 %    |
+Mini Project 2                | 8 %    |
+Mini Project 3                | 8 %    |
+Final Project Proposal        | 8 %    |
+Final Project Progress Report | 10 %   |
+Final Project Presentation    | 10 %   |
+Final Project Report          | 15 %   |
 </div>
 
 Here's a visual breakdown by category:
 
-```{r, echo=FALSE, fig.height=3, fig.align='left'}
-data.frame(
-    category = c('Attendance &\nParticipation', 'Quizzes', 'Assignments',
-                 'Final Project'),
-    percent = c(5, 16, 36, 43)) %>%
-    ggplot() +
-    geom_col(aes(x = fct_reorder(category, percent), y = percent),
-             width = 0.7, alpha = 0.8) +
-    scale_y_continuous(expand = expand_scale(mult = c(0, 0.05))) +
-    coord_flip() +
+```{r grade-breakdown, echo=FALSE, fig.height=3, fig.align='left'}
+library(viridis)
+library(ggrepel)
+
+df <- data.frame(
+    category = c(
+      'Att. &\nPart.', 'Reflections', 'Quizzes', 'Mini Projects', 
+      'Final Project'),
+    percent = c(6, 12, 15, 24, 43)) %>%
+    arrange(desc(percent)) %>% 
+    mutate(
+      cumpercent = cumsum(percent),
+      label_y = cumpercent - (percent / 2),
+      category = fct_reorder(category, percent))
+
+ggplot(df) +
+    # geom_col(aes(x = percent, y = fct_reorder(category, percent)),
+    #          width = 0.7, alpha = 0.8) +
+    # scale_x_continuous(expand = expansion(mult = c(0, 0.05))) +
+    # theme_minimal_vgrid() +
+    # labs(x = 'Percent of final grade', y = NULL)
+    geom_col(aes(x = "", y = percent, fill = category), 
+             width = 1.1, alpha = 0.8) +
+    geom_label(data = filter(df, category %in% c(
+               'Mini Projects', 'Final Project')),
+               aes(x = "", y = label_y, label = category)) +
+    geom_label_repel(data = filter(df, category %in% c(
+                     'Quizzes', 'Att. &\nPart.', 'Reflections')),
+                     aes(x = "", y = label_y, label = category), 
+                     direction = 'y', label.padding = 0.25, segment.size = 0) +
+    coord_flip() + 
+    scale_y_continuous(expand = expansion(mult = c(0, 0.05))) + 
+    scale_fill_viridis(discrete = TRUE) +
     theme_minimal_vgrid() +
-    labs(
-        x = 'Category',
-        y = 'Percent of final grade')
+    theme(legend.position = 'none') +
+    labs(y = 'Percent of final grade', x = NULL)
 ```
-
-## AMD Grading
-
-This Alternative Minimum Grading (AMG) policy is available to everybody, but is designed specifically for students who struggle in the first part of the course, and then through sustained hard work and dedication manage to elevate their performance in the latter part of the course to a level that merits passing with a C (even if their Standard Grade might be lower than that).
-
-Student cannot "sign up" for AMG grading. Every student will be considered both for Standard Grading and AMG, and the instructor can choose to assign the AMG grade if a student's effort merits it. To qualify for AMG you must put forth sustained effort, which means meeting the following requirements:
-
-- You cannot miss multiple class periods
-- You cannot miss multiple assignments or quizzes
-- You cannot violate the Collaboration Policy
-
-To compute your AMG score, first use the following to compute your raw score. If the resulting score is higher than a C, set it back to a C.
-
-<div style="width:350px">
-Item             | Weight
------------------|----------
-Assignments      | 20%
-Quizzes (Top 4)  | 25%
-Final Project    | 55%
-</div>
 
 ## Grading Scale
 
@@ -195,7 +198,7 @@ This class can be challenging - don't suffer in silence. Look at the ["Getting H
 
 - **BE NICE. BE HONEST. DON'T CHEAT.**
 - You get **5** late days - use them however you want, but you can't use more than **2** late days on any one assignment.
-- If you talk with me, I will listen and believe you.
+- If you're not sure about something, talk with me and we'll figure it out.
 
 ## Late Policy
 
@@ -248,33 +251,20 @@ Cheating on quizzes, assignments, or the final project can include:
 
 ### Penalties
 
-Penalties are decided by the course instructors, and can vary based on the severity of the offense. Possible penalties include:
+Violations will be reported to the [Office of Student Rights & Responsibilities](https://studentconduct.gwu.edu/charging-academic-integrity-violations). Penalties are decided by the course instructors, and can vary based on the severity of the offense. Possible penalties include:
 
 - Receiving a 0 on the assignment/quiz in question.
-- Receiving a -100 on the assignment/quiz in question.
 - Receiving a full letter grade deduction in the course.
 - Automatically failing the course.
 
-Penalties may also be accompanied by a letter to the Dean of Student Affairs, again at the instructors' discretion. This can lead to university-level penalties, such as being suspended or expelled.
-
-### Plagiarism Detection
-
-Programs are naturally structured, which makes them **very easy** to compare for plagiarism. Automated plagiarism detection systems make this process even easier. [Watch this video](http://www.kosbie.net/cmu/spring-13/15-112/automated-plagiarism-detector-demo.mp4) showing plagiarism detection software in action (this example is using Python code, but this also works for R code).
-
-**In short, if you copy code, we will know - don't copy code!**
-
-### Grace Period
-
-Your first year of college is a time when you do a lot of learning. Sometimes, you might make bad decisions or mistakes. The most important thing for you to do is to learn from your mistakes, to constantly grow, and become a better person.
-
-Sometimes, students panic and copy code right before the deadline, then regret what they did afterwards. Therefore, you may rescind any homework submission for up to 24 hours after the deadline with no questions asked. Simply email the course instructors asking to delete the submission in question, and we will do so. Deleted submissions will not be considered during plagiarism detection, though of course they will also not be graded. However, it will always be better to get a 0 (or partial credit) on an assignment than to get a cheating violation!
+Depending on the student's prior academic history, violations may also be accompanied by a letter to the Dean of Student Affairs, again at the instructors' discretion. This can lead to university-level penalties, such as being suspended or expelled.
 
 ## Children in class
 
 <!-- Policy copied from Andrew Heiss's class -->
 <!-- https://evalsp20.classes.andrewheiss.com/syllabus/ -->
 
-I applaud all of you who go to graduate school with children! It is difficult to balance academic, work, and family commitments, and I want you to succeed. Here are my policies regarding children in class:
+I applaud all of you who attend school with children! It is difficult to balance academic, work, and family commitments, and I want you to succeed. Here are my policies regarding children in class:
 
 1. All breastfeeding babies are welcome in class as often as necessary.
 2. Non-nursing babies and older children are welcome whenever alternate arrangements cannot be made. As a parent of young children, I understand that babysitters fall through, partners have conflicting schedules, children get sick, and other issues arise that leave parents with few other options.
