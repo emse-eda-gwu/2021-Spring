@@ -352,4 +352,5 @@ Brownie points if it's animated.
 Some content on this page is inspired by and / or modified from other sources:
 
 - The "Pep Talk" and "Super Heros" sections are inspired by Andrew Heiss's course [Program Evaluation For Public Service](https://evalf19.classes.andrewheiss.com/syllabus/)
-- The collaboration policy is mostly copied from the course [15-112](http://www.kosbie.net/cmu/fall-19/15-112/) at Carnegie Mellon University
+- The collaboration policy is modified from the course [15-112](http://www.kosbie.net/cmu/fall-19/15-112/) at Carnegie Mellon University
+

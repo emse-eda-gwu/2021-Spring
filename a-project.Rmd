@@ -20,8 +20,6 @@ For the final project, you will:
 - Create visualizations to effectively communicate the results of your analysis using the principles of information visualization covered in this course.
 - Document your entire analysis in a reproducible format, including a detailed curation of the data used, analysis conducted, and results produced.
 
-**Click [here](a-project-template.html) for a template to use for your analysis**.
-
 To make the overall project more manageable, it is broken down into separate "milestone" deliverables due throughout the semester, starting with a proposal due just before spring break.
 
 **Summary of Deliverables**:
@@ -126,53 +124,6 @@ Write a report summarizing progress you have made towards your project thus far,
     - Your charts should follow the design principles we have covered in class. They do not have to be fully polished yet, but at a minimum they should be accurate (i.e. not misleading) and they should not include distracting non-data ink.
 
 6. **For students working in teams**: On Blackboard under the assignment titled `"Team Member Review [Progress Report]"`, submit a short description of the specific contributions of each team member in your team. For example, "Student A identified the data source and wrote the documentation for it. Student B led the data cleaning process and did much of the initial data exploration. Student C helped write code for the main visualizations." These reviews will be kept confidential and compared to assess that the workload and grading for team members are equitable. Team members who do not make meaningful contributions to their projects will receive a lower grade than that of their team mates. **If you are having any disputes amongst team members, please contact Professor Helveston so we can find a resolution.**
-
----
-
-# Peer Review
-
-**Due**: April 29 by 11:00 pm
-
-**Weight**: This assignment is worth 5% of your final grade.
-
-**Submission Details**: Submit your peer reviews as a PDF document on Blackboard by the due date.
-
-**Assessment**: Your peer review will be graded for completion.
-
-**Tasks**:
-
-Each student will be randomly assigned one progress report of their classmate's projects to review. This is an **individual assignment**, so students in teams must individually write their own reviews. Students in teams will each be assigned different projects to review. The reviews will be returned to the project teams as further feedback to consider as they revise their analyses and prepare for their final report and presentation. Below is a list of specific items your peer review should include (check the rubric to see their relative weighting).
-
-1. Follow these formatting rules:
-
-    - Be between 1 and 3 pages in length, including all images.
-    - 12 point font, 1 inch margins.
-    - Write the title of the project being reviewed from the progress report (e.g. **Review of**: `<insert project title>`)
-    - Do **not** put your name on your review - these will be anonymous reviews returned to each team.
-
-2. Evaluate their research question according to these qualities:
-
-    - **Clear**: it provides enough specifics that your audience can easily understand its purpose without needing additional explanation.
-    - **Focused**: it is narrow enough that it can be addressed thoroughly with the data available and within the limits of the final project report.
-    - **Concise**: it is expressed in the fewest possible words.
-    - **Complex**: it is not answerable with a simple "yes" or "no," but rather requires synthesis and analysis of data.
-    - **Arguable**: its potential answers are open to debate rather than accepted facts.
-
-3. Evaluate the description of their data source(s):
-
-    - Are the data appropriate for the research question?
-    - Are the data sources well-described? Do you know the source and the original source?
-    - Can you follow the information in the report to obtain the data yourself?
-    - Is there a data dictionary available in an appendix for each data set?
-    - Provide one suggestion to help further clarify any questions you have about the data source(s).
-
-4. Evaluate their preliminary results:
-
-    - Are there at least two charts provided in the analysis?
-    - Are the charts relevant to the research question posed?
-    - Do the charts support or oppose the research question or illustrate what else might be needed to address the research question?
-    - Do the charts follow the design principles (to a reasonable degree) that we have covered in class (i.e. they are not misleading, and they do not include distracting non-data ink)?
-    - Provide at least two suggestions to improve the charts.
 
 ---
 
