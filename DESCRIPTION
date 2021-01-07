@@ -1,7 +1,6 @@
 Type: Website
 Package: emseeda
 Title: Exploratory Data Analysis
-Date: 2020-12-12
 Version: 0.1.0
 Authors@R: c(
     person(given   = "John",
@@ -9,7 +8,7 @@ Authors@R: c(
            role    = c("aut", "cre", "cph"),
            email   = "john.helveston@gmail.com",
            comment = c(ORCID = "0000-0002-2657-9191")))
-Depends: R (>= 3.6.0)
+Depends: R (>= 4.0.2)
 License: CC-BY-SA
 Encoding: UTF-8
 Imports:
@@ -47,7 +46,6 @@ Imports:
 Remotes:
     hadley/emo,
     rstudio/fontawesome,
-    davidgohel/gdtools,
     jrnold/ggthemes,
     hrbrmstr/hrbrthemes,
     haozhu233/kableExtra,
