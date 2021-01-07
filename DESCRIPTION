@@ -19,6 +19,7 @@ Imports:
     emo,
     fontawesome,
     gapminder,
+    gdtools,
     GGally,
     ggrepel,
     ggthemes,
