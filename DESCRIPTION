@@ -23,7 +23,6 @@ Imports:
     gsheet,
     here,
     HistData,
-    hrbrthemes,
     janitor,
     kableExtra,
     kableExtra,
@@ -44,6 +43,5 @@ Remotes:
     hadley/emo,
     rstudio/fontawesome,
     jrnold/ggthemes,
-    hrbrmstr/hrbrthemes,
     haozhu233/kableExtra,
     rstudio/rmarkdown
