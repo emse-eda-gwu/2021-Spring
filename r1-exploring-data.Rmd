@@ -3,10 +3,80 @@ title: "Exploring Data"
 output:
   html_document:
     number_sections: false
-    toc: no
+    toc: yes
 ---
 
 ```{r child = "knitr_setup.Rmd"}
 ```
 
-Coming Soon!
+# Overview
+
+**Due**: 19 January, 11:59 pm
+
+**Weight**: This assignment is worth 0.5% of your final grade.
+
+**Purpose**: The purpose of this assignment is to develop some basic strategies for exploring data sets to gain a greater understanding of the variable types and their relationships.
+
+**Skills & Knowledge**: After completing these exercises, you should be able to:
+
+- Apply a strategy for systematically exploring data.
+- Know the distinctions between variables, values, and observations.
+- Know the distinctions between nominal, ordinal, interval, and ratio data.
+- Select appropriate measures of centrality and variability for different data types.
+- Select appropriate data visualizations for different relationships among data variables.
+
+**Assessment**: This assignment is graded using a check system:
+
+- ✔+ (110%): Reflection shows phenomenal thought and engagement with the course content. I will not assign these often.
+- ✔ (100%): Reflection is thoughtful, well-written, and shows engagement with the course content. This is the expected level of performance.
+- ✔− (50%): Reflection is hastily composed, too short, and/or only cursorily engages with the course content. This grade signals that you need to improve next time. I will _hopefully_ not assign these often.
+
+Notice that is essentially a pass/fail or completion-based system. I'm not grading your writing ability, I'm not counting the exact number of words you write, and I'm not looking for encyclopedic citations of every single reading to prove that you did indeed read everything. I'm looking for thoughtful engagement, that's all. Do good work and you'll get a ✓.
+
+---
+
+# Tasks
+
+1. **Register**: If you haven't already, register for [DataCamp](https://www.datacamp.com/home). **You must use your @gwu.edu email for this to work** (not the @email.gwu.edu address). This will give you access to lots of extra practice opportunities. None of these will be mandatory.
+
+2. **Read**: Open up a notebook (physical, digital...whatever you take notes in best), and **take notes** while you go through the readings below.
+
+3. **Optional Exercises**: You don't *have* to do these, but they can be really helpful, especially if you are coming to this course without having taken EMSE 4574 Programming for Analytics:
+
+    - Complete the following RStudio Primer lesson: [Exploratory Data Analysis](https://rstudio.cloud/learn/primers/3.1)
+    - Complete [Lesson 3: Numerical Summaries](https://campus.datacamp.com/courses/exploratory-data-analysis/numerical-summaries?ex=1) from the DataCamp course "Exploratory Data Analysis in R".
+
+4. **Reflection**: When you have completed all of the readings, download and edit [this template](https://eda.seas.gwu.edu/2021-Spring/templates/reflection1.zip) to write a  ~150 word reflection about on what you've read (be sure to edit the YAML at the top). That's fairly short - there are ~250 words on a typical double-spaced page in Microsoft Word (500 when single-spaced). You can do a lot of different things with this memo, for example: 
+
+    - Discuss something you learned from the course content
+    - Write about the best or worst data visualization you saw recently
+    - Connect the course content to your own work
+    - Discuss some of the key insights or things you found interesting in the readings
+
+5. **Submit Everything**: Knit your document to a html page, then create a zip file of everything in your R Project folder. Go to the "Assignment Submission" page on Blackboard and submit your zip file.
+
+---
+
+# Readings
+
+## 1) Video on Data types & descriptive statistics
+
+This week, we will learn some strategies for exploring data sets to gain a greater understanding of the variable types and their relationships. To get started, open up a notebook (physical, digital...whatever you take notes in best), and **take notes** while you watch [this 20 minute video](https://www.youtube.com/watch?v=zHcQPKP6NpM) to learn about some basic data types and descriptive statistics:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zHcQPKP6NpM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+
+## 2) Chapters on EDA
+
+Read through the following chapters and **take notes**.
+
+-   [R4DS - 7: Exploratory data analysis](https://r4ds.had.co.nz/exploratory-data-analysis.html): Provides some more "hands on" strategies for exploring data using R and the **ggplot2** library.
+-   [Wilke - 5: Directory of visualizations](https://serialmentor.com/dataviz/directory-of-visualizations.html): Provides a quick overview of many common plot types.
+
+## 3) Choosing the right chart
+
+You will want to choose different chart types depending on the relationship or message you want to convey. Fortunately, there are lots of great guides to help you make those choices. View them [here](ref-visualizing-data.html#choosing-the-right-chart).
+
+---
+
+Page sources: This assignment is inspired by Andrew Heiss's [course](https://datavizm20.classes.andrewheiss.com/assignment/#reflections-1) on Data Visualization.

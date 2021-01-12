@@ -3,15 +3,8 @@ title: "Getting Started"
 output:
   html_document:
     number_sections: false
-    toc: yes
+    toc: no
 ---
-
-<!-- For circle images -->
-<style>
-.circle img {
-  border-radius:50%;
-}
-</style>
 
 ```{r child = "knitr_setup.Rmd"}
 ```
@@ -25,65 +18,11 @@ For this class, you'll need to install some software and register for some tools
 ```{r child = '_prerequisites.Rmd'}
 ```
 
-# Teaching Team
+# Class notes
 
-## Meet your instructor!
+```{r, echo=FALSE}
+class <- "1-getting-started"
+```
 
-[Dr. John Helveston](http://www.jhelvy.com/) is an Assistant Professor in Engineering Management & Systems Engineering. He does research on technological change, electric vehicles, modeling consumer preferences, and China.
-
-<div class="circle">
-<img src="images/helveston.jpg" width=250>
-</div>
-
-Background:
-
-- 2018 Joined the EMSE Department as an Assistant Professor
-- 2016 PhD in Engineering & Public Policy at Carnegie Mellon University
-- 2015 MS in Engineering & Public Policy at Carnegie Mellon University
-- 2010 BS in Engineering Science & Mechanics at Virginia Tech
-
-## Meet your teaching assistant (TA)!
-
-Saurav Pantha is a graduate student from Kathmandu, Nepal and is currently earning his MS in Systems Engineering. Before GW, he worked at a business consulting firm based out of Bangalore, India, helping multiple automotive & banking clients to solve business problems through data analytics solutions.
-
-<div class="circle">
-<img src="images/pantha.jpg" width=250>
-</div>
-
-## Meet your learning assistant (LA)!
-
-Jennifer Kim is a junior in EMSE and EDA alumni!
-
-<div class="circle">
-<img src="images/kim.png" width=250>
-</div>
-
-# Quick class orientation
-
-## Slack
-
-All course communication will be managed through [Slack](https://emse-eda-s21.slack.com).
-
-**You can use Slack to**:
-
-- Ask general questions.
-- Ask for help with an assignment.
-- Send direct, private messages to each other or the instructors (just like email...but better!)
-
-## RStudio in the browser!
-
-If you're having trouble installing R or RStudio, don't worry - you can quickly launch a _cloud_ version of RStudio in your web browser! Click on the <i class="fab fa-r-project"></i> logo under the "Tools" menu and log in with your GWU web ID and password.
-
-> **Note**: You must be on the GW network for this to work. If you're off campus, you can get on the network remotely using a [VPN](https://seascf.seas.gwu.edu/vpn-access).
-
-## The syllabus
-
-Take a look at the [syllabus](syllabus.html). This is your contract for the course - review it to learn what will be expected of you throughout the semester and how you will be assessed. Pay attention to the homework assignments and due dates.
-
-## The schedule
-
-The course [schedule](schedule.html) is your road map for the semester. Visit it often to make sure you are well-prepared for class and aware of upcoming dates for assignments, quizzes, etc.
-
-## Communication & Help
-
-This can be a challenging class - don't suffer in silence! Look at the ["Getting Help"](ref-getting-help.html) page, come to office hours, send me a message on Slack.
+```{r child = "_slides.Rmd"}
+```

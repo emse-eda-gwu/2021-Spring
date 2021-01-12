@@ -1,0 +1,1244 @@
+---
+title: "Getting Started"
+subtitle: "EMSE 4575: Exploratory Data Analysis"
+date: January 12, 2021
+week: 1
+author: "John Paul Helveston"
+institute: "The George Washington University | Dept. of Engineering Management and Systems Engineering"
+output:
+  xaringan::moon_reader:
+    css:
+      - default
+      - css/lexis.css
+      - css/lexis-fonts.css
+    lib_dir: libs
+    seal: false
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+library(tidyverse)
+library(here)
+library(fontawesome)
+library(cowplot)
+library(ggrepel)
+library(readxl)
+library(countdown)
+library(metathis)
+options(
+    htmltools.dir.version = FALSE,
+    knitr.table.format = "html",
+    knitr.kable.NA = '',
+    dplyr.width = Inf,
+    width = 250
+)
+knitr::opts_chunk$set(
+    warning = FALSE,
+    message = FALSE,
+    fig.path = "figs/",
+    fig.width = 7.252,
+    fig.height = 4,
+    comment = "#>",
+    fig.retina = 3
+)
+xaringanExtra::use_tile_view()
+xaringanExtra::use_panelset()
+xaringanExtra::use_clipboard()
+xaringanExtra::use_share_again()
+xaringanExtra::style_share_again(share_buttons = "none")
+xaringanExtra::use_extra_styles(
+  hover_code_line = TRUE,
+  mute_unhighlighted_code = FALSE
+)
+# Set up website metadata
+meta() %>%
+  meta_general(
+    description = rmarkdown::metadata$subtitle,
+    generator = "xaringan and remark.js"
+  ) %>%
+  meta_name("github-repo" = "emse-eda-gwu/2021-Spring") %>%
+  meta_social(
+    title = rmarkdown::metadata$title,
+    url = "https://eda.seas.gwu.edu/2021-Spring/",
+    og_type = "website",
+    og_author = "John Paul Helveston",
+    twitter_card_type = "summary_large_image",
+    twitter_creator = "@johnhelveston"
+  )
+
+# Setup class-specific paths
+class <- "1-getting-started"
+root <- paste0("https://eda.seas.gwu.edu/2021-Spring/class/", class, "/")
+path_slides <- file.path("class", class, "index.html")
+path_pdf <- paste0(root, class, ".pdf")
+path_notes <- paste0(root, class, ".zip")
+
+# Read in data sets for class
+milk_production <- read_csv(here('data', 'milk_production.csv'))
+fed_spend_long <- read_csv(here('data', 'fed_spend_long.csv'))
+fed_spend_wide <- read_csv(here('data', 'fed_spend_wide.csv'))
+tb_cases <- read_csv(here('data', 'tb_cases.csv'))
+lotr_words <- read_csv(here('data', 'lotr_words.csv'))
+xlsxPath <- here('data', 'pv_cell_production.xlsx')
+pv_cells <- read_excel(xlsxPath, sheet = 'Cell Prod by Country', skip = 2) %>%
+  mutate(Year = as.numeric(Year)) %>% # Convert "non-years" to NA #<<
+  filter(!is.na(Year)) # Drop NA rows in Year #<<
+```
+
+class: middle, inverse
+
+.leftcol30[
+<center>
+<img src="https://raw.githubusercontent.com/emse-eda-gwu/2021-Spring/master/images/eda_hex_sticker.png" width=250>
+</center>
+]
+.rightcol70[
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+### `r fontawesome::fa(name = "university", fill = "white")` `r rmarkdown::metadata$subtitle`
+### `r fontawesome::fa(name = "user", fill = "white")` `r rmarkdown::metadata$author`
+### `r fontawesome::fa(name = "calendar-alt", fill = "white")` `r rmarkdown::metadata$date`
+]
+
+---
+
+```{r child="topics/0.Rmd"}
+```
+
+---
+
+```{r child="topics/1.Rmd"}
+```
+
+---
+
+## Course 1: [Intro to Programming for Analytics](https://p4a.seas.gwu.edu/2020-Fall/)
+
+**"Computational Literacy"**
+
+- Programming: Conditionals (if/else), loops, functions, testing, data types.
+- Analytics: Data structures, import / export, basic data manipulation & visualization.
+
+--
+
+## Course 2: [Exploratory Data Analysis](https://emse-eda-gwu.github.io/2021-Spring/)
+
+**"Data Literacy"**
+
+- Strategies for conducting an exploratory data analysis.
+- Design principles for visualizing and communicating _information_ extracted from data.
+- Reproducibility: Reports that contain code, equations, visualizations, and narrative text.
+
+---
+
+class: center, inverse, middle
+
+# **Class goal**: translate _data_ into _information_
+
+---
+
+class: center
+
+# **Class goal**: translate _data_ into _information_
+
+--
+
+.leftcol[
+**Data**
+
+Average student engagement scores
+
+ Class       | Type | City | County
+ ------------|-------------|------|-------
+ Special Ed. | Charter     | 643  | 793
+ Special Ed. | Public      | 735  | 928
+ General Ed. | Charter     | 590  | 724
+ General Ed. | Public      | 863  | 662
+
+]
+
+--
+
+.rightcol[
+**Information**
+
+```{r student-engagement-final, echo=FALSE, fig.width=6, fig.height=5}
+engagement <- data.frame(
+    City   = c(643, 735, 590, 863),
+    County = c(793, 928, 724, 662),
+    School = c('Special Ed., Charter', 'Special Ed., Public',
+               'General Ed., Charter', 'General Ed., Public'),
+    Highlight = c(0, 0, 0, 1)) %>%
+    gather(Location, Engagement, City:County) %>%
+    mutate(
+      Location = fct_relevel(Location, c('City', 'County')),
+      Highlight = as.factor(Highlight),
+      x = ifelse(Location == 'County', 1, 0))
+engagement_plot <- engagement %>%
+    ggplot(aes(x = x, y = Engagement, group = School, color = Highlight)) +
+    geom_point() +
+    geom_line() +
+    scale_color_manual(values = c('#757575', '#ed573e')) +
+    labs(x = 'Sex', y = 'Engagement',
+         title = paste0('Students in public, general education classes\n',
+                        'in county schools have surprisingly low engagement')) +
+    scale_x_continuous(limits = c(-1.2, 1.2), labels = c('City', 'County'),
+                       breaks = c(0, 1)) +
+    geom_text_repel(aes(label = Engagement, color = as.factor(Highlight)),
+                    data          = subset(engagement, Location == 'County'),
+                    size          = 5,
+                    nudge_x       = 0.1,
+                    segment.color = NA) +
+    geom_text_repel(aes(label = Engagement, color = as.factor(Highlight)),
+                    data          = subset(engagement, Location == 'City'),
+                    size          = 5,
+                    nudge_x       = -0.1,
+                    segment.color = NA) +
+    geom_text_repel(aes(label = School, color = as.factor(Highlight)),
+                    data          = subset(engagement, Location == 'City'),
+                    size          = 5,
+                    nudge_x       = -0.25,
+                    hjust         = 1,
+                    segment.color = NA) +
+    theme_cowplot() +
+    background_grid(major = 'x') +
+    theme(axis.line = element_blank(),
+          axis.title.x = element_blank(),
+          axis.title.y = element_blank(),
+          axis.text.y = element_blank(),
+          axis.ticks = element_blank(),
+          legend.position = 'none')
+engagement_plot
+```
+]
+
+---
+
+# Data exploration: an iterative process
+
+--
+
+.leftcol[
+Encode data:
+
+.code60[
+```{r}
+engagement_data <- data.frame(
+    City   = c(643, 735, 590, 863),
+    County = c(793, 928, 724, 662),
+    School = c('Special Ed., Charter', 'Special Ed., Public',
+               'General Ed., Charter', 'General Ed., Public'))
+engagement_data
+```
+]]
+
+--
+
+.rightcol[
+Re-format data for plotting:
+
+.code60[
+```{r}
+engagement_data <- engagement_data %>%
+    gather(Location, Engagement, City:County) %>%
+    mutate(Location = fct_relevel(
+      Location, c('City', 'County')))
+engagement_data
+```
+]]
+
+---
+
+# Data exploration: an iterative process
+
+.leftcol[
+Initial exploratory plotting:
+
+.code60[
+```{r student-engagement-bars1, fig.width=6, fig.height=3}
+engagement_data %>%
+    ggplot() +
+    geom_col(aes(x = Engagement, y = School,
+                 fill = Location),
+             position = 'dodge')
+```
+]]
+
+--
+
+.rightcol[
+More exploratory plotting:<br>highlight difference
+
+```{r student-engagement-bars2, echo=FALSE, fig.width=6, fig.height=5}
+engagement %>%
+    mutate(Highlight = as.factor(Highlight)) %>%
+    ggplot(aes(x=x, y=Engagement, group=School, color=School)) +
+    geom_point() +
+    geom_line() +
+    labs(x='Sex', y='Engagement')
+```
+]
+
+---
+
+# Data exploration: an iterative process
+
+.leftcol[
+Directly label figure:
+
+```{r student-engagement-bars3, echo=FALSE, fig.width=6, fig.height=5}
+engagement %>%
+    mutate(Highlight = as.factor(Highlight)) %>%
+    ggplot(aes(x=x, y=Engagement, group=School, color=School)) +
+    geom_point() +
+    geom_line() +
+    labs(x='Location', y='Engagement') +
+    theme_cowplot() +
+    scale_x_continuous(limits = c(-0.2, 2), labels = c('City', 'County'),
+                       breaks = c(0, 1)) +
+    theme(legend.position = 'none') +
+    geom_text_repel(aes(label = School, color = as.factor(School)),
+                    data          = subset(engagement, Location == 'County'),
+                    size          = 5,
+                    nudge_x       = 0.2,
+                    hjust         = 0,
+                    segment.color = NA)
+```
+]
+
+--
+
+.rightcol[
+
+Remove unnecessary axes, change colors, fix labels:
+
+```{r, ref.label='student-engagement-final', echo=FALSE, fig.width=6, fig.height=5}
+```
+]
+
+---
+
+**A fully reproducible analysis**
+
+.panelset[
+.panel[.panel-name[Code]
+
+.code40[.leftcol[
+```{r, eval=FALSE}
+data <- data.frame(
+    City   = c(643, 735, 590, 863),
+    County = c(793, 928, 724, 662),
+    School = c('Special Ed., Charter', 'Special Ed., Public',
+               'General Ed., Charter', 'General Ed., Public'),
+    Highlight = c(0, 0, 0, 1)) %>%
+    gather(Location, Engagement, City:County) %>%
+    mutate(
+      Location = fct_relevel(Location, c('City', 'County')),
+      Highlight = as.factor(Highlight),
+      x = ifelse(Location == 'County', 1, 0))
+```
+]
+.rightcol[
+```{r, eval=FALSE}
+plot <- ggplot(data, aes(x = x, y = Engagement, group = School, color = Highlight)) +
+    geom_point() +
+    geom_line() +
+    scale_color_manual(values = c('#757575', '#ed573e')) +
+    labs(x = 'Sex', y = 'Engagement',
+         title = paste0('Students in public, general education classes\n',
+                        'in county schools have surprisingly low engagement')) +
+    scale_x_continuous(limits = c(-1.2, 1.2), labels = c('City', 'County'),
+                       breaks = c(0, 1)) +
+    geom_text_repel(aes(label = Engagement, color = as.factor(Highlight)),
+                    data          = subset(engagement, Location == 'County'),
+                    size          = 5,
+                    nudge_x       = 0.1,
+                    segment.color = NA) +
+    geom_text_repel(aes(label = Engagement, color = as.factor(Highlight)),
+                    data          = subset(engagement, Location == 'City'),
+                    size          = 5,
+                    nudge_x       = -0.1,
+                    segment.color = NA) +
+    geom_text_repel(aes(label = School, color = as.factor(Highlight)),
+                    data          = subset(engagement, Location == 'City'),
+                    size          = 5,
+                    nudge_x       = -0.25,
+                    hjust         = 1,
+                    segment.color = NA) +
+    theme_cowplot() +
+    background_grid(major = 'x') +
+    theme(axis.line = element_blank(),
+          axis.title.x = element_blank(),
+          axis.title.y = element_blank(),
+          axis.text.y = element_blank(),
+          axis.ticks = element_blank(),
+          legend.position = 'none')
+```
+]]]
+
+.panel[.panel-name[Plot]
+
+```{r, ref.label='student-engagement-final', echo=FALSE, fig.width=6, fig.height=5}
+```
+
+]]
+
+---
+
+```{r child="topics/2.Rmd"}
+```
+
+---
+
+# Meet your instructor!
+
+.leftcol30[.circle[
+<img src="images/helveston.jpg" width="300">
+]]
+.rightcol70[
+
+### John Helveston, Ph.D.
+
+.font80[
+- 2018 - Present Assistant Professor, Engineering Management & Systems Engineering
+- 2016-2018 Postdoc at [Institute for Sustainable Energy](https://www.bu.edu/ise/), Boston University
+- 2016 PhD in Engineering & Public Policy at Carnegie Mellon University
+- 2015 MS in Engineering & Public Policy at Carnegie Mellon University
+- 2010 BS in Engineering Science & Mechanics at Virginia Tech
+- Website: [www.jhelvy.com](http://www.jhelvy.com/)
+]]
+
+---
+# Meet your tutors!
+
+.leftcol30[.circle[
+<img src="images/pantha.jpg" width="300">
+]]
+.rightcol70[
+### **Saurav Pantha** (aka "The Firefighter")
+
+- Graduate Assistant (GA)
+- Masters student in EMSE
+]
+
+---
+
+# Meet your tutors!
+
+.leftcol30[.circle[
+<img src="images/kim.png" width="300">
+]]
+.rightcol70[
+### **Jennifer Kim** (aka "The Monitor")
+
+- Learning Assistant (LA)
+- EMSE Junior & P4A alumni
+]
+
+---
+
+# Prerequisites
+
+## [EMSE 4574: Intro to Programming for Analytics](https://p4a.seas.gwu.edu/2020-Fall/)
+
+You should be able to:
+
+- Use RStudio to write basic R commands.
+- Know the distinctions between different R operators and data types, including numeric, string, and logical data.
+- Use **tidyverse** functions to wrangle and manipulate data in R.
+- Use the **ggplot2** library to create plots in R.
+
+--
+
+> [`r fontawesome::fa(name = "university")` Check out R for Analytics Primer](http://jhelvy.github.io/r4aPrimer/)
+
+---
+
+# Course website
+
+## `r fa('globe')` Everything you need will be on the course website:<br>https://eda.seas.gwu.edu/2021-Spring/
+
+--
+
+## `r fa('calendar-alt')` The [schedule](https://emse-eda-gwu.github.io/2021-Spring/schedule.html) is the best starting point
+
+---
+
+# Quizzes
+
+--
+
+## `r fa('calendar-alt')` In class every other week-ish (5 total, lowest dropped)
+
+--
+
+## `r fa('clock')` ~5 minutes
+
+--
+
+## `r fa('tasks')` [Example quiz](https://p4aquizdemo.formr.org/)
+
+--
+
+> **Why quiz at all?** The "retrieval effect" - basically, you have to _practice_ remembering things, otherwise your brain won't remember them (see the book ["Make It Stick: The Science of Successful Learning"](https://www.hup.harvard.edu/catalog.php?isbn=9780674729018))
+
+---
+
+## Assignments
+
+--
+
+## 1) `r fa("book")` Weekly "reflections" on [readings](https://eda.seas.gwu.edu/2021-Spring/r1-exploring-data.html)
+
+--
+
+## 2) `r fa("pencil-ruler")` 3 Mini Projects (due 2 weeks from date assigned)
+
+--
+
+## 3) `r fa("pencil-ruler")` [Final Project](https://emse-eda-gwu.github.io/2021-Spring/a-project.html) (Teams of 2 - 3 students)
+
+Item            | Due Date
+----------------|---------------
+Proposal        | March 12
+Progress Report | April 16
+Final Report    | April 30
+Presentation    | May 03
+Interview       | Exam week
+
+---
+background-color: #FFF
+
+# .center[Grades]
+
+```{r grade-breakdown, echo=FALSE, fig.height=5, fig.width=13, fig.align='center'}
+library(viridis)
+library(ggrepel)
+
+df <- data.frame(
+    category = c(
+      'Reflections', 'Quizzes', 'Mini Projects', 'Final Project',  'Interview'),
+    percent = c(6, 12, 27, 45, 10)) %>%
+    arrange(desc(percent)) %>%
+    mutate(
+      cumpercent = cumsum(percent),
+      label_y = cumpercent - (percent / 2),
+      category = fct_reorder(category, percent))
+
+ggplot(df) +
+    geom_col(aes(x = "", y = percent, fill = category),
+             width = 1.2, alpha = 0.8) +
+    geom_label(data = filter(df, category %in% c(
+               'Mini Projects', 'Final Project')),
+               aes(x = "", y = label_y, label = category),
+               size = 9) +
+    geom_label_repel(data = filter(df, category %in% c(
+                     'Quizzes', 'Interview', 'Reflections')),
+                     aes(x = "", y = label_y, label = category),
+                     direction = 'y', label.padding = 0.25, segment.size = 0,
+                     size = 9) +
+    coord_flip() +
+    scale_y_continuous(expand = expansion(mult = c(0, 0.05))) +
+    scale_fill_viridis(discrete = TRUE) +
+    theme_minimal_vgrid(font_size = 25) +
+    theme(legend.position = 'none') +
+    labs(y = 'Percent of final grade', x = NULL)
+```
+
+---
+
+# .center[Grades]
+
+Item                          | Weight | Notes
+------------------------------|--------|-------------------------------------
+Reflections                   | 6 %    | Weekly assignment (12 x 0.5%)
+Quizzes                       | 12 %   | 5 quizzes, lowest dropped
+Mini Project 1                | 9 %    | Individual projects
+Mini Project 2                | 9 %    |
+Mini Project 3                | 9 %    |
+Final Project Proposal        | 10 %   | Teams of 2-3 students
+Final Project Progress Report | 10 %   |
+Final Project Report          | 15 %   |
+Final Project Presentation    | 10 %   |
+Final Interview               | 10 %   | Individual interview about your project
+
+---
+
+# Course policies
+
+--
+
+.leftcol35[
+- ## BE NICE
+- ## BE HONEST
+- ## DON'T CHEAT
+]
+
+--
+
+.rightcol65[
+## Copying is good, stealing is bad
+
+> "Plagiarism is trying to pass someone else’s work off as your own. Copying is about reverse-engineering."
+>
+> .right[-- Austin Kleon, from [Steal Like An Artist](https://austinkleon.com/steal/)&ensp;]
+]
+
+---
+
+# Late submissions
+
+## - **5** late days - use them anytime, no questions asked
+## - No more than **2** late days on any one assignment
+## - Contact me for special cases
+
+---
+
+# How to succeed in this class
+
+--
+
+## `r fa("users")` Participate during class!
+
+--
+
+## `r fa("pencil-ruler")` Start assignments early and **read carefully**!
+
+--
+
+## `r fa("book")` Actually read (before class)!
+
+--
+
+## `r fa("bed")` Get sleep and take breaks often!
+
+--
+
+## `r fa("people-carry")` Ask for help!
+
+---
+
+# [Getting Help](https://p4a.seas.gwu.edu/2020-Fall/ref-getting-help.html)
+
+--
+
+## `r fa('slack')` Use [Slack](https://emse-eda-s21.slack.com/) to ask questions.
+
+--
+
+## `r fa('chalkboard-teacher')` Meet with your tutors
+
+--
+
+## `r fa('user-clock')` [Schedule a meeting](https://jhelvy.appointlet.com/b/professor-helveston) w/Prof. Helveston:
+
+- Mondays from 8:00-5:00pm
+- Wednesdays from 3:20-5:00pm
+- Thursdays from 12:00-5:00pm
+
+--
+
+## `r fa('code')` [GW Coders](http://gwcoders.github.io/)
+
+---
+
+# `r fa('hdd')` [Course Software](https://eda.seas.gwu.edu/2021-Spring/ref-course-software.html)
+
+--
+
+## `r fa('slack')` [Slack](https://emse-eda-s21.slack.com/): See bb for link to join;<br>install on phone and **turn notifications on**!
+
+--
+
+## `r fa('r-project')` [R](https://cloud.r-project.org/) & [RStudio](https://rstudio.com/products/rstudio/download/) (Install both)
+
+--
+
+## `r fa('wifi')` Install [Cisco AnyConnect VPN Client](https://seascf.seas.gwu.edu/vpn-access) to use RStudio in the cloud: https://rstudio.seas.gwu.edu/
+
+--
+
+## `r fa('database')` [DataCamp](https://www.datacamp.com/): sign up with your **@gwu.edu** email
+
+---
+class: inverse, center
+
+<br>
+# .fancy[Break]
+
+# Install Stuff
+
+```{r, echo=FALSE}
+countdown(minutes = 5,
+          warn_when = 30,
+          update_every = 1,
+          left = 0, right = 0, top = 1, bottom = 0,
+          margin = "5%",
+          font_size = "8em")
+```
+
+---
+
+```{r child="topics/4.Rmd"}
+```
+
+---
+
+## Workflow for reading in data
+
+1) Use R Projects (.Rproj files) to organize your analysis - **don't double-click .R files**!
+
+<img src = "images/rproj.png" width = "75">
+
+--
+
+2) Use the `here` package to create file paths
+
+```{r, eval=FALSE}
+path <- here::here("folder", "file.csv")
+```
+
+--
+
+3) Import data with these functions:
+
+File type  | Function       | Library
+-----------|----------------|----------
+`.csv`     | `read_csv()`   | **readr**
+`.txt`     | `read.table()` | **utils**
+`.xlsx`    | `read_excel()` | **readxl**
+
+---
+
+# Importing Comma Separated Values (.csv)
+
+Read in `.csv` files with `read_csv()`:
+
+```{r}
+library(tidyverse)
+library(here)
+
+csvPath <- here('data', 'milk_production.csv')
+milk_production <- read_csv(csvPath) #<<
+
+head(milk_production)
+```
+
+---
+
+# Importing Text Files (.txt)
+
+Read in `.txt` files with `read.table()`:
+
+```{r}
+txtPath <- here('data', 'nasa_global_temps.txt')
+global_temps <- read.table(txtPath, skip = 5, header = FALSE) #<<
+
+head(global_temps)
+```
+
+---
+
+# Importing Text Files (.txt)
+
+Read in `.txt` files with `read.table()`:
+
+```{r}
+txtPath <- here('data', 'nasa_global_temps.txt')
+global_temps <- read.table(txtPath, skip = 5, header = FALSE)
+names(global_temps) <- c('year', 'no_smoothing', 'loess') # Add header #<<
+
+head(global_temps)
+```
+
+---
+
+# Importing Excel Files (.xlsx)
+
+Read in `.xlsx` files with `read_excel()`:
+
+```{r}
+library(readxl)
+
+xlsxPath <- here('data', 'pv_cell_production.xlsx')
+pv_cells <- read_excel(xlsxPath, sheet = 'Cell Prod by Country', skip = 2) #<<
+```
+.code70[
+```{r}
+glimpse(pv_cells)
+```
+]
+
+---
+
+# Importing Excel Files (.xlsx)
+
+Read in `.xlsx` files with `read_excel()`:
+
+```{r}
+library(readxl)
+
+xlsxPath <- here('data', 'pv_cell_production.xlsx')
+pv_cells <- read_excel(xlsxPath, sheet = 'Cell Prod by Country', skip = 2) %>%
+  mutate(Year = as.numeric(Year)) %>% # Convert "non-years" to NA #<<
+  filter(!is.na(Year)) # Drop NA rows in Year #<<
+```
+.code60[
+```{r}
+glimpse(pv_cells)
+```
+]
+
+---
+class: inverse
+
+```{r, echo=FALSE}
+countdown(minutes = 10,
+          warn_when = 30,
+          update_every = 1,
+          top = 0,
+          right = 0,
+          font_size = '2em')
+```
+
+# Your turn
+
+Download [today's class notes](`r path_notes`)
+
+Write code to import the following data files from the "data" folder:
+
+- `lotr_words.csv`
+- `north_america_bear_killings.txt`
+- `uspto_clean_energy_patents.xlsx`
+
+```{r, include=FALSE}
+lotr_words <- read_csv(here('data', 'lotr_words.csv'))
+
+bear_killings <- read.table(here('data', 'north_america_bear_killings.txt'),
+                            header = TRUE)
+
+patents <- read_excel(here('data', 'uspto_clean_energy_patents.xlsx'),
+                       sheet = 'Figure 6-45', skip = 3)
+```
+
+---
+
+```{r child="topics/5.Rmd"}
+```
+
+---
+
+### Data provenance - It matters where you get your data
+
+--
+
+**Validity**:
+
+- Is this data trustworthy? Is it authentic?
+- Where did the data come from?
+- How has the data been changed / managed over time?
+- Is the data complete?
+
+--
+
+**Comprehension**:
+
+- Is this data accurate?
+- Can you explain your results?
+- Is this the _right_ data to answer your question?
+
+--
+
+**Reproducibility**: The data source is the start of the reproducibility chain.
+
+---
+
+## `r fa("search")` **Document your source like a museum curator**
+
+**Example**: View `README.md` file in the `data` folder
+
+--
+
+Whenever you download data, you should **at a minimum** record the following:
+
+  - The name of the file you are describing.
+  - The date you downloaded it.
+  - The original name of the downloaded file (in case you renamed it).
+  - The url to the site you downloaded it from.
+  - The source of the _original_ data (sometimes different from the site you downloaded it from).
+  - A short description of the data, maybe how they were collected (if available).
+  - A dictionary for the data (e.g. a simple markdown table describing each variable).
+
+---
+class: inverse
+
+```{r, echo=FALSE}
+countdown(minutes = 10,
+          warn_when = 30,
+          update_every = 1,
+          top = 0,
+          right = 0,
+          font_size = '2em')
+```
+
+# Your turn
+
+Documentation in the "data/README.md" file is missing for the following data sets:
+
+- wildlife_impacts.csv: [source](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-07-23) (Breakout Rooms 1 & 2)
+- north_america_bear_killings.txt: [source](https://data.world/makeovermonday/2019w21) (Breakout Rooms 3 & 4)
+- uspto_clean_energy_patents.xlsx: [source](https://www.nsf.gov/statistics/2018/nsb20181/report/sections/industry-technology-and-the-global-marketplace/global-trends-in-sustainable-energy-research-and-technologies) (Breakout Rooms 5 & 6)
+
+Go to the above sites and add the following information to the "data/README.md" file:
+
+- The name of the downloaded file.
+- The web address to the site you downloaded the data from.
+- The source of the _original_ data (if different from the website).
+- A short description of the data and how they were collected.
+- A dictionary for the data (hint: the site might already have this!).
+
+---
+
+```{r child="topics/6.Rmd"}
+```
+
+---
+
+# Variables, values, and observations
+
+- **Variable**: Something you can measure
+- **Value**: The measurement of a variable
+- **Observation**: A set of associated measurements across different variables
+
+--
+
+.code100[
+```{r}
+head(fed_spend_long)
+```
+]
+
+---
+
+# Tidy data
+
+Tidy data follows the following three rules:
+
+- Each **variable** has its own **column**
+- Each **observation** has its own **row**
+- Each **value** has its own **cell**
+
+<center>
+<img src="images/tidy-data.png" width = "850">
+</center>
+
+---
+
+## Tidy data
+
+.leftcol[
+```{r, echo=FALSE}
+head(fed_spend_long)
+```
+]
+.rightcol[
+]
+
+<center>
+<img src="images/tidy-data.png" width = "850">
+</center>
+
+---
+
+.leftcol40[.code70[
+# Tidy ("long")
+```{r}
+head(fed_spend_long)
+```
+]]
+.rightcol60[.code70[
+# Untidy ("wide")
+```{r}
+head(fed_spend_wide)
+```
+]]
+
+---
+
+## Identifying tidy data
+
+> 1. Pick a cell in a column
+> 2. Ask "is **cell** a _value_ of **column**?"
+> 3. Repeat for each column
+
+.leftcol40[.code70[
+```{r}
+head(fed_spend_long)
+```
+]]
+
+--
+
+.rightcol60[.code70[
+```{r}
+head(fed_spend_wide)
+```
+]]
+
+---
+
+## Identifying tidy data
+
+> Are the column names _values_ of a variable?
+
+.leftcol40[.code70[
+```{r}
+head(fed_spend_long)
+```
+]]
+
+.rightcol60[.code70[
+```{r}
+head(fed_spend_wide)
+```
+]]
+
+---
+
+# **Quick practice 1**: Is this data frame "tidy"?
+
+> Decide [here](https://docs.google.com/presentation/d/1c66hRe_adYoWUPrhPf2A17pL4fmhAlCmNNqkSIloNnE/edit?usp=sharing) (link also in #classroom)
+
+**Description**: Tuberculosis cases in various countries
+.code90[
+```{r, echo=FALSE}
+tb_cases
+```
+]
+
+---
+
+# **Quick practice 2**: Is this data frame "tidy"?
+
+> Decide [here](https://docs.google.com/presentation/d/1c66hRe_adYoWUPrhPf2A17pL4fmhAlCmNNqkSIloNnE/edit?usp=sharing) (link also in #classroom)
+
+**Description**: Word counts by character type in "Lord of the Rings" trilogy
+.code80[
+```{r, echo=FALSE}
+lotr_words
+```
+]
+
+---
+
+# **Quick practice 3**: Is this data frame "tidy"?
+
+> Decide [here](https://docs.google.com/presentation/d/1c66hRe_adYoWUPrhPf2A17pL4fmhAlCmNNqkSIloNnE/edit?usp=sharing) (link also in #classroom)
+
+**Description**: Photovoltaic cell production by country
+.code90[
+```{r, echo=FALSE}
+head(pv_cells)
+```
+]
+
+---
+class: center, middle, inverse
+
+# Why do we need tidy data?
+
+(a quick explanation with cute graphics, by [Allison Horst](https://github.com/allisonhorst/stats-illustrations))
+
+---
+class: center
+background-image: url("images/horst_tidydata_1.jpg")
+background-size: contain
+
+---
+class: center
+background-image: url("images/horst_tidydata_2.jpg")
+background-size: contain
+
+---
+class: center
+background-image: url("images/horst_tidydata_3.jpg")
+background-size: contain
+
+---
+class: center
+background-image: url("images/horst_tidydata_4.jpg")
+background-size: contain
+
+---
+
+# Some tidy examples: data wrangling
+
+Compute the total R&D spending in each year
+
+.leftcol[
+```{r}
+head(fed_spend_long)
+```
+]
+.rightcol[
+```{r}
+fed_spend_long %>%
+  group_by(year) %>%
+  summarise(total = sum(rd_budget_mil))
+```
+]
+
+---
+
+# Some tidy examples: data wrangling
+
+Compute the total R&D spending in each year
+
+.leftcol[
+```{r}
+head(fed_spend_wide)
+```
+]
+.rightcol[
+```{r}
+fed_spend_wide %>%
+  mutate(total = DHS + DOC + DOD + DOE + DOT + EPA + HHS + Interior + NASA + NIH + NSF + Other + USDA + VA) %>%
+  select(year, total)
+```
+]
+
+---
+
+# Some tidy examples: plotting
+
+Make a bar chart of total R&D spending by agency
+
+.leftcol45[
+```{r}
+head(fed_spend_long)
+```
+]
+.rightcol55[
+```{r fed-spend-bars, fig.width=6, fig.height=3.3}
+ggplot(fed_spend_long) +
+  geom_col(aes(x = rd_budget_mil, y = reorder(department, rd_budget_mil)), #<<
+           width = 0.7, alpha = 0.8) +
+  theme_bw(base_size = 15) +
+  labs(x = "R&D Spending ($Millions)",
+       y = "Federal Agency")
+```
+]
+
+---
+class: inverse, center, middle
+
+# Tidying and Untidying your data with
+
+# `spread()` and `gather()`
+
+---
+
+## `spread()`: from tidy ("long") to untidy ("wide")
+
+### `key` = column names, `value` = cells
+
+<center>
+<img src="images/tidy-spread.png" width=550>
+</center>
+
+---
+
+## `spread()`: from tidy ("long") to untidy ("wide")
+
+### `key` = column names, `value` = cells
+
+--
+
+.leftcol45[
+```{r}
+head(fed_spend_long)
+```
+]
+
+.rightcol55[
+```{r}
+fed_spend_wide <- fed_spend_long %>%
+    spread(key = department, #<<
+           value = rd_budget_mil) #<<
+
+head(fed_spend_wide)
+```
+]
+
+---
+
+## `gather()`: from untidy ("wide") to tidy ("long")
+
+### `key` = column names, `value` = cells
+
+<center>
+<img src="images/tidy-gather.png" width=550>
+</center>
+
+---
+
+## `gather()`: from untidy ("wide") to tidy ("long")
+
+### `key` = column names, `value` = cells
+
+--
+
+.leftcol55[
+```{r, echo=FALSE}
+head(fed_spend_wide)
+```
+]
+
+.rightcol45[
+```{r}
+fed_spend_long <- fed_spend_wide %>%
+    gather(key = "department", #<<
+           value = "rd_budget_mil", #<<
+           DHS:VA) #<<
+
+head(fed_spend_long)
+```
+]
+
+---
+class: inverse
+
+```{r, echo=FALSE}
+countdown(minutes = 10,
+          warn_when = 30,
+          update_every = 1,
+          top = 0,
+          right = 0,
+          font_size = '2em')
+```
+
+# Your turn: Tidy <--> Untidy
+
+We already read in the following two data frames:
+
+- `pv_cells`
+- `milk_production`
+
+Now we'll modify the format of each:
+
+1. Use `spread()` to "untidy" the `milk_production` data into a format where the columns are state names and the values are the milk produced in each state.
+
+2. Use `gather()` to "tidy" the `pv_cells` data into a data frame with three names: `year`, `country`, `numCells`
+
+```{r, echo=FALSE}
+milk_wide <- milk_production %>%
+    spread(key = state, value = milk_produced)
+
+pv_cells_long <- pv_cells %>%
+    gather(key = "country", value = "numCells", China:World)
+```
