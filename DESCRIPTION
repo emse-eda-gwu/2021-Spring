@@ -45,4 +45,5 @@ Remotes:
     rstudio/fontawesome,
     jrnold/ggthemes,
     haozhu233/kableExtra,
-    rstudio/rmarkdown
+    rstudio/rmarkdown,
+    gadenbuie/xaringanExtra
