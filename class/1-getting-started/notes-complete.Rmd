@@ -1,0 +1,150 @@
+---
+title: "Getting Started"
+subtitle: "EMSE 4575: Exploratory Data Analysis"
+date: January 12, 2021
+week: 1
+output: html_document
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(here)
+knitr::opts_chunk$set(
+    warning = FALSE,
+    message = FALSE,
+    fig.path = "figs/",
+    fig.width = 7.252,
+    fig.height = 4,
+    comment = "#>",
+    fig.retina = 3
+)
+```
+
+# Practice 1 - Importing Data
+
+Write code to import the following data files from the "data" folder:
+
+- `lotr_words.csv`
+- `north_america_bear_killings.txt`
+- `uspto_clean_energy_patents.xlsx`
+
+```{r, include=FALSE}
+lotr_words <- read_csv(here('data', 'lotr_words.csv'))
+
+bear_killings <- read.table(here('data', 'north_america_bear_killings.txt'),
+                            header = TRUE)
+
+patents <- read_excel(here('data', 'uspto_clean_energy_patents.xlsx'),
+                       sheet = 'Figure 6-45', skip = 3)
+```
+
+
+
+# Practice 2 - Data Provenance
+
+Documentation in the "data/README.md" file is missing for the following data sets:
+
+1. wildlife_impacts.csv (Breakout Rooms 1 & 2):
+https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-07-23
+
+2. north_america_bear_killings.txt (Breakout Rooms 3 & 4):
+https://data.world/makeovermonday/2019w21
+
+3. uspto_clean_energy_patents.xlsx (Breakout Rooms 5 & 6):
+https://www.nsf.gov/statistics/2018/nsb20181/report/sections/industry-technology-and-the-global-marketplace/global-trends-in-sustainable-energy-research-and-technologies
+
+Go to the above sites and add the following information to the "data/README.md" file:
+
+- The name of the downloaded file.
+- The web address to the site you downloaded the data from.
+- The source of the _original_ data (if different from the website).
+- A short description of the data and how they were collected.
+- A dictionary for the data (hint: the site might already have this!).
+
+### wildlife_impacts.csv
+
+Data file: `wildlife_impacts.csv`
+
+Date downloaded: January 5, 2020
+
+Description: Impacts of wildlife with aircraft by 4 major US airlines - 70% of the full database. Also, the data have been pre-processed.
+
+Source of downloaded file:
+- The Tidy Tuesday challenge here: https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-07-23
+- Here's the link to the original file I downloaded: https://github.com/rfordatascience/tidytuesday/blob/master/data/2019/2019-07-23/wildlife_impacts.csv?raw=true
+
+Original data source:
+- FAA wildlife strike database: https://wildlife.faa.gov/home
+
+Notes:
+- Note that the wildlife impact data is only from the big 4 airlines - 70% of the full database.
+- The data have been pre-processed
+
+Link to full data dictionary:
+https://wildlife.faa.gov/downloads/fieldlist.xls
+
+### north_america_bear_killings.txt
+
+Data file: `north_america_bear_killings.txt`
+
+Date downloaded: January 15, 2020
+
+Description: Bear killings in the U.S.
+
+Source of downloaded file: https://data.world/makeovermonday/2019w21
+
+Original source: The data was found on Wikipedia and collected, prepared, and distributed by Ali Sanne on data.world.
+
+variable        | description
+----------------|----------------------
+Name            | Name of victim
+age             | Age of victim
+gender          | Gender of victim
+Date            | Date of incident
+Month           | Month of incident
+Year            | Year of incident
+Type            | type
+Location        | Location of incident
+Description     | Description of incident
+Type of bear    | Type of bear
+Hunter          | Whether the victim was a hunter
+Grizzly         | Whether the bear was a brizzly
+Hikers          | Whether the victim was a hiker
+Only one killed | Whether there was only one victim killed
+
+### uspto_clean_energy_patents.xlsx
+
+Data file: `uspto_clean_energy_patents.xlsx`
+
+Date downloaded: January 24, 2020
+
+Description: USPTO patents in clean energy technologies.
+
+Original source:
+Science-Metrix, PatentsView, and USPTO patent data. See Appendix Table 6-57.
+Science and Engineering Indicators 2018
+https://www.nsf.gov/statistics/2018/nsb20181/assets/1235/tables/at06-56.xlsx
+
+Details (from source): Sustainable energy technologies include alternative energy, energy storage, smart grid, and pollution mitigation. Alternative energy includes solar; wind; nuclear; fuel cell; hydropower; wave, tidal, ocean; geothermal; and electric or hybrid. Energy storage includes batteries, compressed air, flywheels, superconductivity, magnet energy systems, ultracapacitors, hydrogen production and storage, and thermal energy. Pollution mitigation includes recycling; control of air, water, and solid waste pollution; environmental remediation; cleaner coal; and capture and storage of carbon and other greenhouse gases. Technologies are classified by The Patent Board. Patent grants are fractionally allocated among regions or countries on the basis of the proportion of the residences of all named inventors.
+
+Link to full report here: https://www.nsf.gov/statistics/2018/nsb20181/report/sections/industry-technology-and-the-global-marketplace/global-trends-in-sustainable-energy-research-and-technologies
+
+
+
+
+
+
+
+# Practice 3 - Tidy Data
+
+1. Use `spread()` to "untidy" the `milk_production` data into a format where the columns are state names and the values are the milk produced in each state.
+
+2. Use `gather()` to "tidy" the `pv_cells` data into a data frame with three names: `year`, `country`, `numCells`
+
+```{r}
+milk_wide <- milk_production %>%
+    spread(key = state, value = milk_produced)
+
+pv_cells_long <- pv_cells %>%
+    gather(key = "country", value = "numCells", China:World)
+```

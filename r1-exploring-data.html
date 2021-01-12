@@ -19,6 +19,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -362,6 +365,75 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
 
 </head>
 
@@ -369,6 +441,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -682,7 +764,72 @@ $(document).ready(function () {
 </div>
 
 
-<p>Coming Soon!</p>
+<div id="overview" class="section level1">
+<h1>Overview</h1>
+<p><strong>Due</strong>: 19 January, 11:59 pm</p>
+<p><strong>Weight</strong>: This assignment is worth 0.5% of your final grade.</p>
+<p><strong>Purpose</strong>: The purpose of this assignment is to develop some basic strategies for exploring data sets to gain a greater understanding of the variable types and their relationships.</p>
+<p><strong>Skills &amp; Knowledge</strong>: After completing these exercises, you should be able to:</p>
+<ul>
+<li>Apply a strategy for systematically exploring data.</li>
+<li>Know the distinctions between variables, values, and observations.</li>
+<li>Know the distinctions between nominal, ordinal, interval, and ratio data.</li>
+<li>Select appropriate measures of centrality and variability for different data types.</li>
+<li>Select appropriate data visualizations for different relationships among data variables.</li>
+</ul>
+<p><strong>Assessment</strong>: This assignment is graded using a check system:</p>
+<ul>
+<li>✔+ (110%): Reflection shows phenomenal thought and engagement with the course content. I will not assign these often.</li>
+<li>✔ (100%): Reflection is thoughtful, well-written, and shows engagement with the course content. This is the expected level of performance.</li>
+<li>✔− (50%): Reflection is hastily composed, too short, and/or only cursorily engages with the course content. This grade signals that you need to improve next time. I will <em>hopefully</em> not assign these often.</li>
+</ul>
+<p>Notice that is essentially a pass/fail or completion-based system. I’m not grading your writing ability, I’m not counting the exact number of words you write, and I’m not looking for encyclopedic citations of every single reading to prove that you did indeed read everything. I’m looking for thoughtful engagement, that’s all. Do good work and you’ll get a ✓.</p>
+<hr />
+</div>
+<div id="tasks" class="section level1">
+<h1>Tasks</h1>
+<ol style="list-style-type: decimal">
+<li><p><strong>Register</strong>: If you haven’t already, register for <a href="https://www.datacamp.com/home">DataCamp</a>. <strong>You must use your <span class="citation">@gwu.edu</span> email for this to work</strong> (not the <span class="citation">@email.gwu.edu</span> address). This will give you access to lots of extra practice opportunities. None of these will be mandatory.</p></li>
+<li><p><strong>Read</strong>: Open up a notebook (physical, digital…whatever you take notes in best), and <strong>take notes</strong> while you go through the readings below.</p></li>
+<li><p><strong>Optional Exercises</strong>: You don’t <em>have</em> to do these, but they can be really helpful, especially if you are coming to this course without having taken EMSE 4574 Programming for Analytics:</p>
+<ul>
+<li>Complete the following RStudio Primer lesson: <a href="https://rstudio.cloud/learn/primers/3.1">Exploratory Data Analysis</a></li>
+<li>Complete <a href="https://campus.datacamp.com/courses/exploratory-data-analysis/numerical-summaries?ex=1">Lesson 3: Numerical Summaries</a> from the DataCamp course “Exploratory Data Analysis in R”.</li>
+</ul></li>
+<li><p><strong>Reflection</strong>: When you have completed all of the readings, download and edit <a href="https://eda.seas.gwu.edu/2021-Spring/templates/reflection1.zip">this template</a> to write a ~150 word reflection about on what you’ve read (be sure to edit the YAML at the top). That’s fairly short - there are ~250 words on a typical double-spaced page in Microsoft Word (500 when single-spaced). You can do a lot of different things with this memo, for example:</p>
+<ul>
+<li>Discuss something you learned from the course content</li>
+<li>Write about the best or worst data visualization you saw recently</li>
+<li>Connect the course content to your own work</li>
+<li>Discuss some of the key insights or things you found interesting in the readings</li>
+</ul></li>
+<li><p><strong>Submit Everything</strong>: Knit your document to a html page, then create a zip file of everything in your R Project folder. Go to the “Assignment Submission” page on Blackboard and submit your zip file.</p></li>
+</ol>
+<hr />
+</div>
+<div id="readings" class="section level1">
+<h1>Readings</h1>
+<div id="video-on-data-types-descriptive-statistics" class="section level2">
+<h2>1) Video on Data types &amp; descriptive statistics</h2>
+<p>This week, we will learn some strategies for exploring data sets to gain a greater understanding of the variable types and their relationships. To get started, open up a notebook (physical, digital…whatever you take notes in best), and <strong>take notes</strong> while you watch <a href="https://www.youtube.com/watch?v=zHcQPKP6NpM">this 20 minute video</a> to learn about some basic data types and descriptive statistics:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zHcQPKP6NpM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+<div id="chapters-on-eda" class="section level2">
+<h2>2) Chapters on EDA</h2>
+<p>Read through the following chapters and <strong>take notes</strong>.</p>
+<ul>
+<li><a href="https://r4ds.had.co.nz/exploratory-data-analysis.html">R4DS - 7: Exploratory data analysis</a>: Provides some more “hands on” strategies for exploring data using R and the <strong>ggplot2</strong> library.</li>
+<li><a href="https://serialmentor.com/dataviz/directory-of-visualizations.html">Wilke - 5: Directory of visualizations</a>: Provides a quick overview of many common plot types.</li>
+</ul>
+</div>
+<div id="choosing-the-right-chart" class="section level2">
+<h2>3) Choosing the right chart</h2>
+<p>You will want to choose different chart types depending on the relationship or message you want to convey. Fortunately, there are lots of great guides to help you make those choices. View them <a href="ref-visualizing-data.html#choosing-the-right-chart">here</a>.</p>
+<hr />
+<p>Page sources: This assignment is inspired by Andrew Heiss’s <a href="https://datavizm20.classes.andrewheiss.com/assignment/#reflections-1">course</a> on Data Visualization.</p>
+</div>
+</div>
 
 
 <hr>
@@ -707,6 +854,8 @@ $(document).ready(function () {
 <script src="js/external-link.js"></script>
 
 
+</div>
+</div>
 
 </div>
 
@@ -739,6 +888,32 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = false;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

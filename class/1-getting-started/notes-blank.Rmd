@@ -1,0 +1,71 @@
+---
+title: "Getting Started"
+subtitle: "EMSE 4575: Exploratory Data Analysis"
+date: January 12, 2021
+week: 1
+output: html_document
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(here)
+knitr::opts_chunk$set(
+    warning = FALSE,
+    message = FALSE,
+    fig.path = "figs/",
+    fig.width = 7.252,
+    fig.height = 4,
+    comment = "#>",
+    fig.retina = 3
+)
+```
+
+# Practice 1 - Importing Data
+
+Write code to import the following data files from the "data" folder:
+
+- `lotr_words.csv`
+- `north_america_bear_killings.txt`
+- `uspto_clean_energy_patents.xlsx`
+
+```{r}
+
+```
+
+
+
+# Practice 2 - Data Provenance
+
+Documentation in the "data/README.md" file is missing for the following data sets:
+
+1. wildlife_impacts.csv (Breakout Rooms 1 & 2):
+https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-07-23
+
+2. north_america_bear_killings.txt (Breakout Rooms 3 & 4):
+https://data.world/makeovermonday/2019w21
+
+3. uspto_clean_energy_patents.xlsx (Breakout Rooms 5 & 6):
+https://www.nsf.gov/statistics/2018/nsb20181/report/sections/industry-technology-and-the-global-marketplace/global-trends-in-sustainable-energy-research-and-technologies
+
+Go to the above sites and add the following information to the "data/README.md" file:
+
+- The name of the downloaded file.
+- The web address to the site you downloaded the data from.
+- The source of the _original_ data (if different from the website).
+- A short description of the data and how they were collected.
+- A dictionary for the data (hint: the site might already have this!).
+
+
+
+
+
+
+# Practice 3 - Tidy Data
+
+1. Use `spread()` to "untidy" the `milk_production` data into a format where the columns are state names and the values are the milk produced in each state.
+
+2. Use `gather()` to "tidy" the `pv_cells` data into a data frame with three names: `year`, `country`, `numCells`
+
+```{r}
+
+```
