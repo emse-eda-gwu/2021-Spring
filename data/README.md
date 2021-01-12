@@ -1,6 +1,6 @@
 ---
 
-Data file: `avengers.csv`
+Data file: avengers.csv
 
 Date downloaded: January 17, 2020
 
@@ -13,7 +13,7 @@ Dictionary here: https://www.rdocumentation.org/packages/fivethirtyeight/version
 
 ---
 
-Data file: `candy_rankings.csv`
+Data file: candy_rankings.csv
 
 Date downloaded: January 17, 2020
 
@@ -37,7 +37,7 @@ https://github.com/malcolmbarrett/designing_ggplots
 
 ---
 
-Data file: `college_all_ages.csv`
+Data file: college_all_ages.csv
 
 Date downloaded: January 17, 2020
 
@@ -50,7 +50,7 @@ Dictionary here: https://www.rdocumentation.org/packages/fivethirtyeight/version
 
 ---
 
-Data file: `ComicRelief_360Giving_International.xlsx`
+Data file: ComicRelief_360Giving_International.xlsx
 
 Date downloaded: January 26, 2020
 
@@ -65,7 +65,7 @@ Dictionary here: http://standard.threesixtygiving.org/en/latest/reference/#sprea
 
 ---
 
-Data file: `Datasaurus_data.csv`
+Data file: Datasaurus_data.csv
 
 Date downloaded: March 20, 2020
 
@@ -78,9 +78,9 @@ http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.
 ---
 
 Data files:
-- `fed_spend_orig.csv`
-- `fed_spend_wide.csv`
-- `fed_spend_long.csv`
+- fed_spend_orig.csv
+- fed_spend_wide.csv
+- fed_spend_long.csv
 
 Date downloaded: January 27, 2020
 
@@ -134,7 +134,7 @@ For reference:
 
 ---
 
-Data file: `diamonds.csv`
+Data file: diamonds.csv
 
 Date downloaded: January 15, 2020
 
@@ -161,7 +161,7 @@ Variable  | Description
 
 ---
 
-Data file: `faithful.csv`
+Data file: faithful.csv
 
 Date downloaded: January 14, 2020
 
@@ -183,7 +183,7 @@ waiting    |double  |Waiting time to next eruption (in mins)
 
 ---
 
-Data file: `gapminder.csv`
+Data file: gapminder.csv
 
 Date downloaded: February 11, 2020
 
@@ -205,7 +205,7 @@ gdpPercap | per-capita GDP
 
 ---
 
-Data file: `hot_dog_winners.csv`
+Data file: hot_dog_winners.csv
 
 Date downloaded: February 13, 2020
 
@@ -229,8 +229,8 @@ New record         | 1 or 0 for whether new record was set
 ---
 
 Data file:
-- `internet_users_region_country.csv`
-- `internet_users_region.csv`
+- internet_users_region_country.csv
+- internet_users_region.csv
 
 Date downloaded: February 13, 2020
 
@@ -258,7 +258,7 @@ country    | country
 year       | year
 percent    | Percent of population in country using the Internet
 
----
+----------------------------------------------------------------------
 
 Data file: `lotr_words.csv`
 
@@ -287,7 +287,7 @@ Male     |double    |Number of words spoken by male characters)
 
 ---
 
-Data file: `marathon.csv`
+Data file: marathon.csv
 
 Date downloaded: January 14, 2020
 
@@ -302,7 +302,7 @@ Original data source:
 
 ---
 
-Data file: `milk_production.csv`
+Data file: milk_production.csv
 
 Date downloaded: January 5, 2020
 
@@ -326,7 +326,7 @@ milk_produced |double    |Pounds of Milk Produced
 
 ---
 
-Data file: `msleep.csv`
+Data file: msleep.csv
 
 Date downloaded: January 15, 2020
 
@@ -355,8 +355,8 @@ bodywt       | body weight in kilograms
 ---
 
 Data file:
-- `nasa_global_temps.txt`
-- `nasa_global_temps.csv`
+- nasa_global_temps.txt
+- nasa_global_temps.csv
 
 Date downloaded: January 5, 2020
 
@@ -392,8 +392,8 @@ Source of downloaded file: http://www.naturalearthdata.com/downloads/50m-cultura
 ---
 
 Data file:
-- `north_america_bear_killings.txt`
-- `north_america_bear_killings.csv`
+- north_america_bear_killings.txt
+- north_america_bear_killings.csv
 
 Date downloaded: January 15, 2020
 
@@ -422,7 +422,7 @@ Only one killed | Whether there was only one victim killed
 
 ---
 
-Data file: `nyc_squirrels.csv`
+Data file: nyc_squirrels.csv
 
 Date downloaded: March 10, 2020
 
@@ -436,7 +436,7 @@ https://www.thesquirrelcensus.com/
 
 ---
 
-Data file: `pc_sales_2018.xlsx`
+Data file: pc_sales_2018.xlsx
 
 Date downloaded: January 5, 2020
 
@@ -493,7 +493,7 @@ Original Source: https://www.who.int/tb/country/data/download/en/
 
 ---
 
-Data file: `total_gdp_us_inflation_adjusted.csv`
+Data file: total_gdp_us_inflation_adjusted.csv
 
 Date downloaded: March 2, 2020
 
@@ -501,7 +501,7 @@ Data source: https://www.gapminder.org/data/
 
 ---
 
-Data file: `us_coffee_shops.csv`
+Data file: us_coffee_shops.csv
 
 Date downloaded: March 10, 2020
 
@@ -512,7 +512,7 @@ Source of downloaded file: File was sent to me by Justin Zhen <jzhen@thinknum.co
 
 ---
 
-Data file: `uspto_clean_energy_patents.xlsx`
+Data file: uspto_clean_energy_patents.xlsx
 
 Date downloaded: January 24, 2020
 
@@ -529,7 +529,7 @@ Link to full report here: https://www.nsf.gov/statistics/2018/nsb20181/report/se
 
 ---
 
-Data file: `us_contagious_diseases.csv`
+Data file: us_contagious_diseases.csv
 
 Date downloaded: February 14, 2020
 
@@ -552,7 +552,7 @@ population      | State population, interpolated for non-census years.
 
 ---
 
-Data file: `wildlife_impacts.csv`
+Data file: wildlife_impacts.csv
 
 Date downloaded: January 5, 2020
 
