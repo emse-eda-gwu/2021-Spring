@@ -9,6 +9,7 @@ output: html_document
 ```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(here)
+library(readxl)
 knitr::opts_chunk$set(
     warning = FALSE,
     message = FALSE,
