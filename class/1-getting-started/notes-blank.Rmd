@@ -1,6 +1,7 @@
 ---
 title: "Getting Started"
 subtitle: "EMSE 4575: Exploratory Data Analysis"
+author: "John" 
 date: January 12, 2021
 week: 1
 output: html_document
@@ -30,10 +31,15 @@ Write code to import the following data files from the "data" folder:
 - `uspto_clean_energy_patents.xlsx`
 
 ```{r}
+lotrPath <- here('data', 'lotr_words.csv')
+lotr_words <- read_csv(lotrPath)
 
+bearPath <- here('data', 'north_america_bear_killings.txt')
+bears <- read.table(bearPath, header = TRUE)
+
+usptoPath <- here('data', 'uspto_clean_energy_patents.xlsx')
+usptoData <- read_excel(usptoPath, sheet = "Figure 6-45", skip = 3)
 ```
-
-
 
 # Practice 2 - Data Provenance
 
@@ -68,5 +74,24 @@ Go to the above sites and add the following information to the "data/README.md" 
 2. Use `gather()` to "tidy" the `pv_cells` data into a data frame with three names: `year`, `country`, `numCells`
 
 ```{r}
+# Read in the data
+milk_production <- read_csv(here('data', 'milk_production.csv'))
+
+xlsxPath <- here('data', 'pv_cell_production.xlsx')
+pv_cells <- read_excel(xlsxPath, sheet = 'Cell Prod by Country', skip = 2) %>%
+  mutate(Year = as.numeric(Year)) %>% # Convert "non-years" to NA #<<
+  filter(!is.na(Year)) # Drop NA rows in Year #<<
+
+# Convert the milk_production data to wide format
+
+# Convert the pv_cells data to long format
 
 ```
+
+
+
+
+
+
+
+

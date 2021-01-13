@@ -143,9 +143,19 @@ Link to full report here: https://www.nsf.gov/statistics/2018/nsb20181/report/se
 2. Use `gather()` to "tidy" the `pv_cells` data into a data frame with three names: `year`, `country`, `numCells`
 
 ```{r}
+# Read in the data
+milk_production <- read_csv(here('data', 'milk_production.csv'))
+
+xlsxPath <- here('data', 'pv_cell_production.xlsx')
+pv_cells <- read_excel(xlsxPath, sheet = 'Cell Prod by Country', skip = 2) %>%
+  mutate(Year = as.numeric(Year)) %>% # Convert "non-years" to NA #<<
+  filter(!is.na(Year)) # Drop NA rows in Year #<<
+
+# Convert the milk_production data to wide format
 milk_wide <- milk_production %>%
     spread(key = state, value = milk_produced)
 
+# Convert the pv_cells data to long format
 pv_cells_long <- pv_cells %>%
     gather(key = "country", value = "numCells", China:World)
 ```
