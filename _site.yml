@@ -41,8 +41,8 @@ navbar:
           href: c11-polishing-charts.html
         - text: "12: Interactive Charts"
           href: c12-interactive-charts.html
-        - text: "13: Websites"
-          href: c13-websites.html
+        - text: "13: Shiny Apps"
+          href: c13-shiny-apps.html
         - text: "14: Communicating Results"
           href: c14-communicating-results.html
     - text: "Readings"
@@ -68,8 +68,8 @@ navbar:
           href: r9-polishing-charts.html
         - text: "11: Interactive Charts"
           href: r11-interactive-charts.html
-        - text: "12: Websites"
-          href: r12-websites.html
+        - text: "12: Shiny Apps"
+          href: r12-shiny-apps.html
         - text: "13: Communicating Results"
           href: r13-communicating-results.html
     - text: "Projects"
