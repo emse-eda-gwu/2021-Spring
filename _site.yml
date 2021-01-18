@@ -21,10 +21,11 @@ navbar:
       menu:
         - text: "1: Getting Started"
           href: c1-getting-started.html
-        - text: "3: Exploring Data"
-          href: c3-exploring-data.html
-        - text: "4: Cleaning Data"
-          href: c4-cleaning-data.html
+        - text: "2: No Class - Inauguration"
+        - text: "3: Centrality & Variability"
+          href: c3-centrality-variability.html
+        - text: "4: Correlation"
+          href: c4-correlation.html
         - text: "5: Visualizing Information"
           href: c5-visualizing-information.html
         - text: "6: Amounts & Proportions"
@@ -33,8 +34,9 @@ navbar:
           href: c7-comparisons.html
         - text: "8: Trends"
           href: c8-trends.html
-        - text: "9: Correlation"
-          href: c9-correlation.html
+        - text: "9: Cleaning Data"
+          href: c9-cleaning-data.html
+        - text: "10: No Class - Spring Break"
         - text: "11: Polishing Charts"
           href: c11-polishing-charts.html
         - text: "12: Maps"
@@ -43,15 +45,16 @@ navbar:
           href: c13-interactive-charts.html
         - text: "14: Shiny Apps"
           href: c14-shiny-apps.html
+        - text: "15: No Class - Team Meetings"
         - text: "16: Communicating Results"
           href: c16-communicating-results.html
     - text: "Readings"
       icon: fas fa-book-reader
       menu:
-        - text: "1: Exploring Data"
-          href: r1-exploring-data.html
-        - text: "3: Cleaning Data"
-          href: r3-cleaning-data.html
+        - text: "1: Centrality & Variability"
+          href: r1-centrality-variability.html
+        - text: "3: Correlation"
+          href: r3-correlation.html
         - text: "4: Visualizing Information"
           href: r4-visualizing-information.html
         - text: "5: Amounts & Proportions"
@@ -60,8 +63,8 @@ navbar:
           href: r6-comparisons.html
         - text: "7: Trends"
           href: r7-trends.html
-        - text: "8: Correlation"
-          href: r8-correlation.html
+        - text: "8: Cleaning Data"
+          href: r8-cleaning-data.html
         - text: "9: Polishing Charts"
           href: r9-polishing-charts.html
         - text: "11: Maps"

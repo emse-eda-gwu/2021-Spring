@@ -1,5 +1,5 @@
 ---
-title: "Exploring Data"
+title: "Centrality & Variability"
 output:
   html_document:
     number_sections: false
@@ -15,11 +15,11 @@ output:
 
 **Weight**: This assignment is worth 0.5% of your final grade.
 
-**Purpose**: The purpose of this assignment is to develop some basic strategies for exploring data sets to gain a greater understanding of the variable types and their relationships.
+**Purpose**: The purpose of this assignment is to develop some basic strategies for exploring data sets to gain a greater understanding of the variable types, their centrality, and their variability.
 
 **Skills & Knowledge**: After completing these exercises, you should be able to:
 
-- Apply a strategy for systematically exploring data.
+- Apply a strategy for systematically exploring data centrality and variability.
 - Know the distinctions between variables, values, and observations.
 - Know the distinctions between nominal, ordinal, interval, and ratio data.
 - Select appropriate measures of centrality and variability for different data types.
