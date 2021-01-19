@@ -11,7 +11,7 @@ output:
 
 # Overview
 
-**Due**: 19 January, 11:59 pm
+**Due**: 26 January, 11:59 pm
 
 **Weight**: This assignment is worth 0.5% of your final grade.
 
