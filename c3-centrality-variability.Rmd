@@ -11,7 +11,7 @@ output:
 # Class notes
 
 ```{r, echo=FALSE}
-class <- "c3-centrality-variability"
+class <- "3-centrality-variability"
 ```
 
 ```{r child = "_slides.Rmd"}
