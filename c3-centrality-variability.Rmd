@@ -8,4 +8,11 @@ output:
 ```{r child = "knitr_setup.Rmd"}
 ```
 
-Coming Soon!
+# Class notes
+
+```{r, echo=FALSE}
+class <- "c3-centrality-variability"
+```
+
+```{r child = "_slides.Rmd"}
+```
