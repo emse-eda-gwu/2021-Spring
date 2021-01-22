@@ -14,4 +14,4 @@ zip::zip(
         'data',
         'notes-blank.Rmd',
         'notes-complete.Rmd',
-        '1-getting-started.Rproj'))
+        '3-centrality-variability.Rproj'))
