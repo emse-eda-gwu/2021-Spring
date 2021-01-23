@@ -1,9 +1,9 @@
 
 ```{r, echo=FALSE}
-root <- paste0("class/", class, "/")
-path_slides <- file.path("class", class, "index.html")
-path_pdf <- paste0(root, class, ".pdf")
-path_notes <- paste0(root, class, ".zip")
+root <- paste0("class/", params$class, "/")
+path_slides <- file.path("class", params$class, "index.html")
+path_pdf <- paste0(root, params$class, ".pdf")
+path_notes <- paste0(root, params$class, ".zip")
 ```
 
 <div class = "row">

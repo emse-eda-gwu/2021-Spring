@@ -4,6 +4,8 @@ output:
   html_document:
     number_sections: false
     toc: no
+params:
+  class: "1-getting-started"
 ---
 
 ```{r child = "knitr_setup.Rmd"}
@@ -19,10 +21,6 @@ For this class, you'll need to install some software and register for some tools
 ```
 
 # Class notes
-
-```{r, echo=FALSE}
-class <- "1-getting-started"
-```
 
 ```{r child = "_slides.Rmd"}
 ```
