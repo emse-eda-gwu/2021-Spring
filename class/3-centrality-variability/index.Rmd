@@ -113,7 +113,7 @@ class: center
 |<center><img src="images/heros/kareemot.gif" height="120"></center> Kareemot | <center><img src="images/heros/ebun.gif" height="120"></center> Ebun | <center><img src="images/heros/alexa.jpg" height="120"></center> Alexa |
 |-|-|-|
 |<center><img src="images/heros/kyara.jpg" height="120"></center> Kyara | <center><img src="images/heros/katie.gif" height="120"></center> Katie | <center><img src="images/heros/helena.png" height="120"></center> Helena |
-|<center><img src="images/heros/matthew.gif" height="120"></center> Matthew | <center><img src="images/heros/carolyne.jpg" height="120"></center> Carolyne | |
+|<center><img src="images/heros/matthew.gif" height="120"></center> Matthew | <center><img src="images/heros/carolyne.jpg" height="120"></center> Carolyne | <center><img src="images/heros/kazi.gif" height="120"></center> Kazi|
 
 ---
 class: center, middle, inverse
