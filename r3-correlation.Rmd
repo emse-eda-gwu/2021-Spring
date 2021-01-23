@@ -53,6 +53,14 @@ This week, we will learn some methods to recognize and measure the correlation b
 - [R4DS - 23: Model basics](https://r4ds.had.co.nz/model-basics.html): An overview of basic modeling in R.
 - ["Beware Spurious Correlations", Harvard Business Review](https://hbr.org/2015/06/beware-spurious-correlations)
 
+**Optional Readings**
+
+Correlation, as innocent as it may seem, has a long and ugly history of racism that should never be forgotten. These readings discuss this topics in more detail:
+
+- [Francis Galton pioneered scientific advances in many fields – but also founded the racist pseudoscience of eugenics](https://theconversation.com/francis-galton-pioneered-scientific-advances-in-many-fields-but-also-founded-the-racist-pseudoscience-of-eugenics-144465)
+- [Column: The false, racist theory of eugenics once ruled science. Let’s never let that happen again](https://www.pbs.org/newshour/nation/column-the-false-racist-theory-of-eugenics-once-ruled-science-lets-never-let-that-happen-again)
+- Listen to [this Radiolab episode](https://podcasts.apple.com/us/podcast/g-unfit/id152249110?i=1000444689017) on eugenics.
+
 ## 2) Videos on correlation and regression
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fmK5YWWobH8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
