@@ -28,6 +28,9 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -318,6 +321,75 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
 
 </head>
 
@@ -325,6 +397,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-sm-12 col-md-8 col-lg-9">
 
 
 
@@ -641,7 +723,64 @@ $(document).ready(function () {
 </div>
 
 
-<p>Coming Soon!</p>
+<blockquote>
+<p><strong>Due</strong>: 02 February, 11:59 pm</p>
+<p><strong>Weight</strong>: This assignment is worth 0.5% of your final grade.</p>
+<p><strong>Purpose</strong>: The purpose of this assignment is to learn some methods to recognize and measure the correlation between two variables as well as how to find a “line of best fit” between them.</p>
+<p><strong>Assessment</strong>: This assignment is graded using a check system:</p>
+<ul>
+<li>✔+ (110%): Reflection shows phenomenal thought and engagement with the course content. I will not assign these often.</li>
+<li>✔ (100%): Reflection is thoughtful, well-written, and shows engagement with the course content. This is the expected level of performance.</li>
+<li>✔− (50%): Reflection is hastily composed, too short, and/or only cursorily engages with the course content. This grade signals that you need to improve next time. I will <em>hopefully</em> not assign these often.</li>
+</ul>
+<p>Notice that is essentially a pass/fail or completion-based system. I’m not grading your writing ability, I’m not counting the exact number of words you write, and I’m not looking for encyclopedic citations of every single reading to prove that you did indeed read everything. I’m looking for thoughtful engagement, that’s all. Do good work and you’ll get a ✓.</p>
+</blockquote>
+<div id="tasks" class="section level1">
+<h1>Tasks</h1>
+<ol style="list-style-type: decimal">
+<li><p><strong>Read</strong>: Open up a notebook (physical, digital…whatever you take notes in best), and <strong>take notes</strong> while you go through the readings below.</p></li>
+<li><p><strong>Optional Exercises</strong>: You don’t <em>have</em> to do these, but they can be really helpful for extra practice. This week, take a look at the DataCamp course <a href="https://learn.datacamp.com/courses/correlation-and-regression-in-r">“Correlation and Regression in R”</a>.</p></li>
+<li><p><strong>Reflection</strong>: When you have completed all of the readings, download and edit <a href="https://eda.seas.gwu.edu/2021-Spring/templates/reflection3.zip">this template</a> to write a ~150 word reflection about on what you’ve read (be sure to edit the YAML at the top). That’s fairly short - there are ~250 words on a typical double-spaced page in Microsoft Word (500 when single-spaced). You can do a lot of different things with this memo, for example:</p>
+<ul>
+<li>Discuss something you learned from the course content</li>
+<li>Write about the best or worst data visualization you saw recently</li>
+<li>Connect the course content to your own work</li>
+<li>Discuss some of the key insights or things you found interesting in the readings</li>
+</ul></li>
+<li><p><strong>Submit Everything</strong>: Knit your document to a html page, then create a zip file of everything in your R Project folder. Go to the “Assignment Submission” page on Blackboard and submit your zip file.</p></li>
+</ol>
+<hr />
+</div>
+<div id="readings" class="section level1">
+<h1>Readings</h1>
+<p>This week, we will learn some methods to recognize and measure the correlation between two variables as well as how to find a “line of best fit” between them. By the end, you will be able to:</p>
+<ul>
+<li>Recognize when to use correlation.</li>
+<li>Interpret the magnitude and direction of a correlation.</li>
+<li>Explain the influence of outliers.</li>
+<li>Describe the Pearson correlation and the Spearman correlation.</li>
+<li>Explain the term “line of best fit”.</li>
+<li>Interpret intercept and slope coefficients.</li>
+<li>Define residuals.</li>
+<li>Describe the standard error of the estimate.</li>
+<li>Report the assumptions of linear regression and how to test them.</li>
+<li>Explain standardized regression and its connection to correlation.</li>
+</ul>
+<div id="readings-on-visualizing-correlation-and-modeling-in-r" class="section level2">
+<h2>1) Readings on visualizing correlation and modeling in R</h2>
+<ul>
+<li><a href="https://serialmentor.com/dataviz/visualizing-associations.html">Wilke - 12: Visualizing associations</a>: An overview of ways to visualize associations between two or more variables.</li>
+<li><a href="https://r4ds.had.co.nz/model-basics.html">R4DS - 23: Model basics</a>: An overview of basic modeling in R.</li>
+</ul>
+</div>
+<div id="videos-on-correlation-and-regression" class="section level2">
+<h2>2) Videos on correlation and regression</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fmK5YWWobH8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kXDRkUqzD6g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+</div>
 
 
 <hr>
@@ -666,6 +805,8 @@ $(document).ready(function () {
 <script src="js/external-link.js"></script>
 
 
+</div>
+</div>
 
 </div>
 
@@ -698,6 +839,32 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = false;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
