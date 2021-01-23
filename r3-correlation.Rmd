@@ -51,6 +51,7 @@ This week, we will learn some methods to recognize and measure the correlation b
 
 - [Wilke - 12: Visualizing associations](https://serialmentor.com/dataviz/visualizing-associations.html): An overview of ways to visualize associations between two or more variables.
 - [R4DS - 23: Model basics](https://r4ds.had.co.nz/model-basics.html): An overview of basic modeling in R.
+- ["Beware Spurious Correlations", Harvard Business Review](https://hbr.org/2015/06/beware-spurious-correlations)
 
 ## 2) Videos on correlation and regression
 
