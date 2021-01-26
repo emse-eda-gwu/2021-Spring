@@ -17,6 +17,7 @@ Imports:
     emo,
     fontawesome,
     gapminder,
+    gert,
     ggrepel,
     ggthemes,
     googlesheets4,
@@ -44,6 +45,7 @@ Imports:
 Remotes:
     hadley/emo,
     rstudio/fontawesome,
+    r-lib/gert,
     jrnold/ggthemes,
     haozhu233/kableExtra,
     rstudio/rmarkdown,
