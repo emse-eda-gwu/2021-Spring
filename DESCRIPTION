@@ -13,7 +13,6 @@ License: CC-BY-SA
 Encoding: UTF-8
 Imports:
     cowplot,
-    devtools,
     emo,
     fontawesome,
     ggrepel,
