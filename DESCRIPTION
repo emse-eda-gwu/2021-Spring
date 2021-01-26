@@ -31,6 +31,7 @@ Imports:
     remotes,
     rmarkdown,
     roxygen2,
+    sass,
     shiny,
     shinyjs,
     shinythemes,
@@ -46,4 +47,5 @@ Remotes:
     jrnold/ggthemes,
     haozhu233/kableExtra,
     rstudio/rmarkdown,
+    rstudio/sass,
     gadenbuie/xaringanExtra
