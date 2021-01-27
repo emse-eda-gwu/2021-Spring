@@ -14,4 +14,4 @@ zip::zip(
         'data',
         'notes-blank.Rmd',
         'notes-complete.Rmd',
-        '3-centrality-variability.Rproj'))
+        paste0(lesson, ".Rproj")))

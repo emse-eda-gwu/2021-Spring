@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Correlation</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="John Paul Helveston" />
+    <meta name="date" content="2021-02-03" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <script src="libs/clipboard/clipboard.min.js"></script>
+    <link href="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
+    <link href="libs/shareon/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain/shareagain.js"></script>
+    <link href="libs/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <meta name="description" content="EMSE 4575: Exploratory Data Analysis"/>
+    <meta name="generator" content="xaringan and remark.js"/>
+    <meta name="github-repo" content="emse-eda-gwu/2021-Spring"/>
+    <meta name="twitter:title" content="Correlation"/>
+    <meta name="twitter:description" content="EMSE 4575: Exploratory Data Analysis"/>
+    <meta name="twitter:url" content="https://eda.seas.gwu.edu/2021-Spring/"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:creator" content="@johnhelveston"/>
+    <meta name="twitter:site" content="@johnhelveston"/>
+    <meta property="og:title" content="Correlation"/>
+    <meta property="og:description" content="EMSE 4575: Exploratory Data Analysis"/>
+    <meta property="og:url" content="https://eda.seas.gwu.edu/2021-Spring/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="article:author" content="John Paul Helveston"/>
+    <link href="libs/countdown/countdown.css" rel="stylesheet" />
+    <script src="libs/countdown/countdown.js"></script>
+    <link rel="stylesheet" href="css/lexis.css" type="text/css" />
+    <link rel="stylesheet" href="css/lexis-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+class: middle, inverse
+
+.leftcol30[
+&lt;center&gt;
+&lt;img src="https://raw.githubusercontent.com/emse-eda-gwu/2021-Spring/master/images/eda_hex_sticker.png" width=250&gt;
+&lt;/center&gt;
+]
+.rightcol70[
+# Week 4: .fancy[Correlation]
+
+### &lt;svg style="height:0.8em;top:.04em;position:relative;fill:white;" viewBox="0 0 512 512"&gt;&lt;path d="M496 128v16a8 8 0 0 1-8 8h-24v12c0 6.627-5.373 12-12 12H60c-6.627 0-12-5.373-12-12v-12H24a8 8 0 0 1-8-8v-16a8 8 0 0 1 4.941-7.392l232-88a7.996 7.996 0 0 1 6.118 0l232 88A8 8 0 0 1 496 128zm-24 304H40c-13.255 0-24 10.745-24 24v16a8 8 0 0 0 8 8h464a8 8 0 0 0 8-8v-16c0-13.255-10.745-24-24-24zM96 192v192H60c-6.627 0-12 5.373-12 12v20h416v-20c0-6.627-5.373-12-12-12h-36V192h-64v192h-64V192h-64v192h-64V192H96z"/&gt;&lt;/svg&gt; EMSE 4575: Exploratory Data Analysis
+### &lt;svg style="height:0.8em;top:.04em;position:relative;fill:white;" viewBox="0 0 448 512"&gt;&lt;path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"/&gt;&lt;/svg&gt; John Paul Helveston
+### &lt;svg style="height:0.8em;top:.04em;position:relative;fill:white;" viewBox="0 0 448 512"&gt;&lt;path d="M0 464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V192H0v272zm320-196c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zM192 268c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zM64 268c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zM400 64h-48V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H160V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H48C21.5 64 0 85.5 0 112v48h448v-48c0-26.5-21.5-48-48-48z"/&gt;&lt;/svg&gt; February 03, 2021
+]
+
+---
+
+## Today's data
+
+
+```r
+msleep &lt;- read_csv(here::here('data', 'msleep.csv'))
+```
+
+## New packages:
+
+
+```r
+install.packages('HistData')
+install.packages('palmerpenguins')
+install.packages('GGally')
+```
+
+---
+
+
+
+class: inverse, middle
+
+# Week 4: .fancy[Correlation]
+
+## 1. What is correlation?
+## 2. Visualizing correlation
+
+## BREAK
+
+## 3. Linear models
+## 4. Visualizing linear models
+
+---
+
+
+
+class: inverse, middle
+
+# Week 4: .fancy[Correlation]
+
+## 1. .orange[What is correlation?]
+## 2. Visualizing correlation
+
+## BREAK
+
+## 3. Linear models
+## 4. Visualizing linear models
+
+---
+
+## Some pretty racist origins in [eugenics](https://en.wikipedia.org/wiki/Eugenics) ("well born")
+
+--
+
+.leftcol[
+
+### [Sir Francis Galton](https://en.wikipedia.org/wiki/Francis_Galton) (1822 - 1911)
+- Charles Darwin's cousin.
+- "Father" of [eugenics](https://en.wikipedia.org/wiki/Eugenics).
+- Interested in heredity.
+
+&lt;center&gt;
+&lt;img src="images/Francis_Galton_1850s.jpg" width=200&gt;
+&lt;/center&gt;
+]
+
+--
+
+.rightcol[
+
+### [Karl Pearson](https://en.wikipedia.org/wiki/Karl_Pearson) (1857 - 1936)
+
+- Galton's ([hero-worshiping](https://en.wikipedia.org/wiki/Apotheosis)) protégé.
+- Defined correlation equation.
+- "Father" of mathematical statistics.
+
+&lt;center&gt;
+&lt;img src="images/Karl_Pearson.jpg" width=220&gt;
+&lt;center&gt;
+]
+
+???
+
+The beautiful irony is that human genetics was also the field that conclusively demonstrated the biological falsity of race.
+
+---
+
+.leftcol[
+
+# Galton's family data
+
+Galton, F. (1886). ["Regression towards mediocrity in hereditary stature"](http://www.stat.ucla.edu/~nchristo/statistics100C/history_regression.pdf). _The Journal of the Anthropological Institute of Great Britain and Ireland_ 15: 246-263.
+
+**Galton's question**: Does marriage selection indicate a relationship between the heights of husbands and wives?&lt;br&gt;(He called this "assortative mating")
+
+"midparent height" is just a scaled mean:
+
+```r
+midparentHeight =  (father + 1.08*mother)/2
+```
+]
+
+--
+
+.rightcol[.code70[
+
+```r
+library(HistData)
+
+galtonScatterplot &lt;- ggplot(GaltonFamilies) +
+    geom_point(aes(x = midparentHeight,
+                   y = childHeight),
+               size = 0.5, alpha = 0.7) +
+    theme_classic() +
+    labs(x = 'Midparent height (inches)',
+         y = 'Child height (inches)')
+```
+
+&lt;center&gt;
+&lt;img src="figs/galtonScatterplot.png" width=450&gt;
+&lt;/center&gt;
+]]
+
+---
+class: center, middle
+
+# How do you measure correlation?
+
+&lt;br&gt;
+# Pearson came up with this:
+
+# `\(r = \frac{\text{Cov}(x, y)}{\text{sd}(x) * \text{sd}(y)}\)`
+
+---
+
+# How do you measure correlation?
+
+.leftcol60[
+## `\(r = \frac{\text{Cov}(x, y)}{\text{sd}(x) * \text{sd}(y)}\)`
+
+.font130[
+Assumptions:
+1. Variables must be interval or ratio
+2. Linear relationship
+]]
+
+--
+
+.rightcol40[
+&lt;center&gt;
+&lt;img src="figs/cor_vstrong_p.png" width=275&gt;
+&lt;/center&gt;
+&lt;br&gt;
+&lt;center&gt;
+&lt;img src="figs/cor_quad.png" width=275&gt;
+&lt;/center&gt;
+]
+
+---
+
+# How do you _interpret_ `\(r\)`?
+
+.leftcol[
+## `\(r = \frac{\text{Cov}(x, y)}{\text{sd}(x) * \text{sd}(y)}\)`
+
+Interpretation:
+- `\(-1 \le r \le 1\)`
+- Closer to 1 is stronger correlation
+- Closer to 0 is weaker correlation
+]
+--
+.rightcol[.code70[
+
+```r
+cor(x = GaltonFamilies$midparentHeight,
+    y = GaltonFamilies$childHeight,
+    method = 'pearson')
+```
+
+```
+#&gt; [1] 0.3209499
+```
+]
+&lt;center&gt;
+&lt;img src="figs/galtonScatterplot.png" width=400&gt;
+&lt;/center&gt;
+]
+
+---
+
+## What does `\(r\)` mean?
+
+.leftcol40[.font120[
+
+- `\(\pm 0.1 - 0.3\)`: Weak
+- `\(\pm 0.3 - 0.5\)`: Moderate
+- `\(\pm 0.5 - 0.8\)`: Strong
+- `\(\pm 0.8 - 1.0\)`: Very strong
+]]
+.rightcol60[
+&lt;center&gt;
+&lt;img src="figs/cor_p.png"&gt;
+&lt;/center&gt;
+]
+
+---
+class: center,  middle
+
+# Visualizing correlation is...um...easy, right?
+
+&lt;br&gt;
+
+# [guessthecorrelation.com](http://guessthecorrelation.com/)
+
+# Click [here](https://docs.google.com/presentation/d/1uN5FfQ4QiiaJ1SI1A5SRji58vWzubk2qwGi9Lykz5z0/edit?usp=sharing) to vote!
+
+---
+class: middle
+
+.leftcol20[
+## The datasaurus
+
+### (More [here](https://www.autodeskresearch.com/publications/samestats))
+]
+
+.rightcol80[
+&lt;img src="images/datasaurus.png"&gt;
+]
+
+---
+
+# Coefficient of determination: `\(r^2\)`
+
+.leftcol[.font130[
+Percent of variance in one variable that is explained by the other variable
+
+&lt;center&gt;
+&lt;img src="images/rsquared_venn.png"&gt;
+&lt;/center&gt;
+]]
+
+--
+
+.rightcol[
+
+`\(r\)` | `\(r^2\)`
+----|------
+0.1 | 0.01
+0.2 | 0.04
+0.3 | 0.09
+0.4 | 0.16
+0.5 | 0.25
+0.6 | 0.36
+0.7 | 0.49
+0.8 | 0.64
+0.9 | 0.81
+1.0 | 1.00
+
+]
+
+---
+
+## You should report both `\(r\)` and `\(r^2\)`
+
+&lt;br&gt;
+
+### Correlation between parent and child height is 0.32, therefore 10% of the variance in the child height is explained by the parent height.
+
+---
+
+# Correlation != Causation
+
+--
+
+### X causes Y
+
+- Training causes improved performance
+
+--
+
+### Y causes X
+
+- (Good / bad) performance causes people to train harder.
+
+--
+
+### Z causes both X &amp; Y
+
+- Commitment and motivation cause increased training and better performance.
+
+---
+class: center
+
+## Be weary of dual axes!
+
+## ([They can cause spurious correlations](https://www.tylervigen.com/spurious-correlations))
+
+--
+
+.leftcol[
+.font120[Dual axes]
+&lt;center&gt;
+&lt;img src="images/hbr_two_axes1.png"&gt;
+&lt;/center&gt;
+]
+
+--
+
+.rightcol[
+.font120[Single axis]
+&lt;center&gt;
+&lt;img src="images/hbr_two_axes2.png"&gt;
+&lt;/center&gt;
+]
+
+---
+class: inverse, center
+
+# Outliers
+
+&lt;center&gt;
+&lt;img src = "images/outliers.jpeg" width = "730"&gt;
+&lt;/center&gt;
+
+---
+class: middle
+
+&lt;center&gt;
+&lt;img src="figs/pearson_base.png" width=600&gt;
+&lt;/center&gt;
+
+---
+class: middle
+
+&lt;center&gt;
+&lt;img src="figs/pearson1.png" width=600&gt;
+&lt;/center&gt;
+
+---
+class: middle
+
+&lt;center&gt;
+&lt;img src="figs/pearson2.png" width=600&gt;
+&lt;/center&gt;
+
+---
+class: center, middle
+
+## Pearson correlation is highly sensitive to outliers
+
+&lt;center&gt;
+&lt;img src="figs/pearson_grid.png" width=600&gt;
+&lt;/center&gt;
+
+---
+
+# Spearman's rank-order correlation
+
+# `\(r = \frac{\text{Cov}(x, y)}{\text{sd}(x) * \text{sd}(y)}\)`
+
+--
+
+.font120[
+- Separately rank the values of X &amp; Y.
+- Use Pearson's correlation on the _ranks_ instead of the `\(x\)` &amp; `\(y\)` values.
+]
+
+--
+
+.font120[
+Assumptions:
+
+- Variables can be ordinal, interval or ratio
+- Relationship must be monotonic (i.e. does not require linearity)
+]
+
+---
+class: center, middle
+
+## Spearman correlation more robust to outliers
+
+&lt;center&gt;
+&lt;img src="figs/spearman_grid.png" width=600&gt;
+&lt;/center&gt;
+
+---
+class: center, middle
+
+## Spearman correlation more robust to outliers
+
+.cols3[
+&lt;center&gt;
+&lt;img src="figs/pearson_grid.png"&gt;
+&lt;/center&gt;
+]
+.cols3[
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; Pearson &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Spearman &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; -0.56 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.53 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 0.39 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.69 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 0.94 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.81 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 0.38 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.76 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 0.81 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.79 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 0.31 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.70 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 0.95 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.81 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 0.51 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.75 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; -0.56 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.53 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+.cols3[
+&lt;center&gt;
+&lt;img src="figs/outlier_compare.png"&gt;
+&lt;/center&gt;
+]
+
+---
+
+## Summary of correlation
+
+.font120[
+- **Pearon's correlation**: Described the strength of a **linear** relationship between two variables that are interval or ratio in nature.
+- **Spearman's rank-order correlation**: Describes the strength of a **monotonic** relationship between two variables that are ordinal, interval, or ratio. **It is more robust to outliers**.
+- The **coefficient of determination** ( `\(r^2\)` ) describes the amount of variance in one variable that is explained by the other variable.
+- **Correlation != Causation**
+]
+
+--
+
+R command (hint: add `use = "complete.obs"` to drop NA values)
+
+```r
+pearson  &lt;- cor(x, y, method = "pearson", use = "complete.obs")
+spearman &lt;- cor(x, y, method = "spearman", use = "complete.obs")
+```
+
+---
+
+
+
+class: inverse, middle
+
+# Week 4: .fancy[Correlation]
+
+## 1. What is correlation?
+## 2. .orange[Visualizing correlation]
+
+## BREAK
+
+## 3. Linear models
+## 4. Visualizing linear models
+
+---
+
+## **Scatterplots**: The correlation workhorse
+
+.leftcol[
+
+```r
+scatterplot &lt;- ggplot(mtcars) +
+*   geom_point(aes(x = mpg, y = hp),
+               size = 2, alpha = 0.7) +
+    theme_classic(base_size = 20) +
+    labs(x = 'Fuel economy (mpg)',
+         y = 'Engine power (hp)')
+
+scatterplot
+```
+]
+
+.rightcol[
+&lt;center&gt;
+&lt;img src="figs/mtcarsScatterplotBase.png"&gt;
+&lt;/center&gt;
+]
+
+---
+
+## Adding a correlation label to a chart
+
+.leftcol[
+Make the correlation label
+
+
+```r
+corr &lt;- cor(
+    mtcars$mpg, mtcars$hp,
+    method = 'pearson')
+
+*corrLabel &lt;- paste('r = ', round(corr, 2))
+```
+
+Add label to the chart with `annotate()`
+
+
+```r
+scatterplot +
+*   annotate(geom = 'text',
+*            x = 25, y = 310,
+*            label = corrLabel,
+*            hjust = 0, size = 7)
+```
+]
+
+.rightcol[
+&lt;center&gt;
+&lt;img src="figs/mtcarsScatterplot.png"&gt;
+&lt;/center&gt;
+]
+
+---
+class: middle, center
+background-color: #FFFFFF
+
+&lt;center&gt;
+&lt;img src="images/all-the-correlations.jpeg" width=700&gt;
+&lt;/center&gt;
+
+---
+
+## Visualize all the correlations: `ggcorr()`
+
+.leftcol[
+
+```r
+library('GGally')
+```
+
+
+```r
+mtcars %&gt;%
+*   ggcorr()
+```
+]
+
+.rightcol[
+&lt;center&gt;
+&lt;img src="figs/ggcor_mtcars.png"&gt;
+&lt;/center&gt;
+]
+
+---
+
+## Visualizing correlations: `ggcorr()`
+
+.leftcol[
+
+```r
+library('GGally')
+```
+
+
+```r
+mtcars %&gt;%
+*   ggcorr(label = TRUE,
+*          label_size = 3,
+*          label_round = 2)
+```
+]
+
+.rightcol[
+&lt;center&gt;
+&lt;img src="figs/ggcor_mtcars_labels.png"&gt;
+&lt;/center&gt;
+]
+
+---
+
+## Visualizing correlations: `ggcorr()`
+
+.leftcol[
+
+```r
+ggcor_mtcars_final &lt;- mtcars %&gt;%
+    ggcorr(label = TRUE,
+           label_size = 3,
+           label_round = 2,
+*          label_color = 'white',
+*          nbreaks = 5,
+*          palette = "RdBu")
+```
+]
+
+.rightcol[
+&lt;center&gt;
+&lt;img src="figs/ggcor_mtcars_final.png"&gt;
+&lt;/center&gt;
+]
+
+---
+
+.leftcol[
+
+## .center[Pearson]
+
+```r
+mtcars %&gt;%
+    ggcorr(label = TRUE,
+           label_size = 3,
+           label_round = 2,
+*          method = c("pairwise", "pearson"))
+```
+
+&lt;center&gt;
+&lt;img src="figs/ggcor_mtcars_pearson.png" width=400&gt;
+&lt;/center&gt;
+]
+
+.rightcol[
+
+## .center[Spearman]
+
+
+```r
+mtcars %&gt;%
+    ggcorr(label = TRUE,
+           label_size = 3,
+           label_round = 2,
+*          method = c("pairwise", "spearman"))
+```
+
+&lt;center&gt;
+&lt;img src="figs/ggcor_mtcars_spearman.png" width=400&gt;
+&lt;/center&gt;
+]
+
+---
+
+## Correlograms: `ggpairs()`
+
+.leftcol40[
+
+```r
+library('GGally')
+```
+
+```r
+mtcars %&gt;%
+    select(mpg, cyl, disp, hp, wt) %&gt;%
+*   ggpairs()
+```
+
+- Look for linear relationships 
+- View distribution of each variable
+]
+
+.rightcol60[
+&lt;center&gt;
+&lt;img src="figs/ggpairs_mtcars.png" width=600&gt;
+&lt;/center&gt;
+]
+
+---
+
+## Correlograms: `ggpairs()`
+
+.leftcol40[
+
+```r
+library('GGally')
+```
+
+```r
+mtcars %&gt;%
+    select(mpg, cyl, disp, hp, wt) %&gt;%
+    ggpairs() +
+*   theme_classic()
+```
+
+- Look for linear relationships 
+- View distribution of each variable
+]
+
+.rightcol60[
+&lt;center&gt;
+&lt;img src="figs/ggpairs_mtcars_classic.png" width=600&gt;
+&lt;/center&gt;
+]
+
+---
+class: inverse
+
+## Your turn
+
+<div class="countdown blink-colon noupdate-15" id="timer_6011ef6c" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+.leftcol[
+Using the `penguins` data frame:
+
+1. Find the two variables with the largest correlation in absolute value (i.e. closest to -1 or 1).
+
+2. Create a scatter plot of those two variables. 
+
+3. Add an annotation for the Pearson correlation coefficient.
+]
+
+.rightcol[
+### .center[[palmerpenguins library](https://allisonhorst.github.io/palmerpenguins/)]
+&lt;center&gt;
+&lt;img src="images/lter_penguins.png" width=700&gt;
+&lt;/center&gt;
+
+.right[Artwork by [@allison_horst](https://twitter.com/allison_horst)]
+]
+
+---
+
+## **Simpson's Paradox**: when correlation betrays you 
+
+--
+
+.leftcol[
+.center[**Body mass vs. Bill depth**]
+&lt;center&gt;
+&lt;img src="figs/simpson_penguins.png" width=450&gt;
+&lt;/center&gt;
+]
+
+--
+
+.rightcol[
+.center[**Body mass vs. Bill depth**]
+&lt;center&gt;
+&lt;img src="figs/simpson_penguins_good.png" width=600&gt;
+&lt;/center&gt;
+]
+
+---
+class: inverse, center
+
+<div class="countdown" id="timer_6011edf3" style="top:1;right:0;bottom:0;left:0;margin:5%;font-size:8em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+# Break!
+
+## Stand up, Move around, Stretch!
+
+---
+
+
+
+class: inverse, middle
+
+# Week 4: .fancy[Correlation]
+
+## 1. What is correlation?
+## 2. Visualizing correlation
+
+## BREAK
+
+## 3. .orange[Linear models]
+## 4. Visualizing linear models
+
+---
+
+# Palmer Penguins
+
+.leftcol[
+The correlation of 0.87 means that the body mass (g) explains about 75% of the variation in the flipper length (mm).
+]
+
+.rightcol[
+&lt;center&gt;
+&lt;img src="figs/penguinScatterplot.png" width=500&gt;
+&lt;/center&gt;
+]
+
+---
+
+# Palmer Penguins
+
+.leftcol[
+The correlation of 0.87 means that the body mass (g) explains about 75% of the variation in the flipper length (mm).
+
+&lt;br&gt;
+
+**Now let's fit a model to these points!**
+]
+
+.rightcol[
+&lt;center&gt;
+&lt;img src="figs/penguinScatterplotSmooth.png" width=500&gt;
+&lt;/center&gt;
+]
+
+---
+
+## Modeling basics
+
+.leftcol[
+Two parts to a model:
+
+1. **Model family**: e.g., `\(y = ax + b\)`
+&lt;br&gt;
+
+2. **Fitted model**: e.g., `\(y = 3x + 7\)`
+]
+
+--
+
+.rightcol[
+Here is some simulated data
+
+&lt;center&gt;
+&lt;img src="images/sim_base.png"&gt;
+&lt;/center&gt;
+]
+
+---
+
+## Modeling basics
+
+.leftcol[
+Two parts to a model:
+1. **Model family**: linear model: `\(y = ax + b\)`
+]
+
+--
+
+.rightcol[
+There are an infinite number of possible models
+&lt;center&gt;
+&lt;img src="images/sim_models.png"&gt;
+&lt;/center&gt;
+]
+
+---
+
+## Modeling basics
+
+.leftcol[
+
+Two parts to a model:
+
+1. **Model family**: linear model: `\(y = ax + b\)`
+&lt;br&gt;
+
+2. **Fitted model**: How to choose the "best" `\(a\)` and `\(b\)`?
+]
+
+.rightcol[
+There are an infinite number of possible models
+
+&lt;center&gt;
+&lt;img src="images/sim_models.png"&gt;
+&lt;/center&gt;
+]
+
+---
+
+## Modeling basics
+
+.leftcol[
+Two parts to a model:
+1. **Model family**: linear model: `\(y = ax + b\)`
+&lt;br&gt;
+
+2. **Fitted model**: How to choose the "best" `\(a\)` and `\(b\)`?
+
+.blue[_We need to come up with some measure of "distance" from the model to the data_]
+]
+
+--
+
+.rightcol[
+
+Compute the **.blue["residuals"]**:&lt;br&gt;The distance between the model line and the data&lt;br&gt;
+
+&lt;center&gt;
+&lt;img src="images/sim_residuals.png"&gt;
+&lt;/center&gt;
+]
+
+---
+
+## Residual: `\(y_i - y_i'\)`
+
+.leftcol[
+### **Residual**: The distance between the model line and the data
+]
+
+.rightcol[
+&lt;center&gt;
+&lt;img src="images/sim_residuals.png"&gt;
+&lt;/center&gt;
+]
+
+---
+
+## Sum of squared residuals: `\(\text{SSR} = \sum_{i = 1}^{n} (y_i - y_i')^2\)`
+
+.leftcol[
+### **Residual**: The distance between the model line and the data
+]
+
+.rightcol[
+&lt;center&gt;
+&lt;img src="images/sim_residuals.png"&gt;
+&lt;/center&gt;
+]
+
+---
+
+## Search algorithm
+
+.cols3[
+1): Pick a model ( `\(a\)` and `\(b\)` ):&lt;br&gt;
+
+`\(y = ax + b\)`
+&lt;br&gt;
+
+&lt;center&gt;
+&lt;img src="images/sim_models.png"&gt;
+&lt;/center&gt;
+]
+
+--
+
+.cols3[
+2): Compute the SSR:&lt;br&gt;
+
+`\(\text{SSR} = \sum_{i = 1}^{n} (y_i - y_i')^2\)`
+
+&lt;center&gt;
+&lt;img src="images/sim_residuals.png"&gt;
+&lt;/center&gt;
+]
+
+--
+
+.cols3[
+3): Repeat steps 1 &amp; 2 until the smallest SSR is found
+&lt;br&gt;&lt;br&gt;
+
+&lt;center&gt;
+&lt;img src="images/sim_best_line.png"&gt;
+&lt;/center&gt;
+]
+
+---
+
+## Fitting a linear model in R
+
+
+```r
+model &lt;- lm(formula = y ~ x, data = data)
+```
+
+--
+
+&amp;zwj;Example: Penguin data
+
+
+```r
+model &lt;- lm(
+  formula = body_mass_g ~ flipper_length_mm,
+  data    = penguins)
+```
+
+--
+
+Get coefficients ( `\(a\)` &amp; `\(b\)` in `\(y = ax + b\)` )
+
+```r
+coef(model)
+```
+
+```
+#&gt;       (Intercept) flipper_length_mm 
+#&gt;       -5780.83136          49.68557
+```
+
+---
+
+## Fitting a linear model in R
+
+.leftcol[
+
+```r
+model &lt;- lm(formula = y ~ x,
+            data = data)
+```
+
+&amp;zwj;Example: Penguin data
+
+
+```r
+model &lt;- lm(
+  formula = body_mass_g ~ flipper_length_mm,
+  data    = penguins)
+```
+
+Get coefficients
+
+
+```r
+coef(model)
+```
+
+```
+#&gt;       (Intercept) flipper_length_mm 
+#&gt;       -5780.83136          49.68557
+```
+]
+
+.rightcol[
+&lt;center&gt;
+&lt;img src="figs/penguinScatterplotEq.png" width=500&gt;
+&lt;/center&gt;
+]
+
+---
+class: middle, center
+
+## Interpreting results
+
+&lt;center&gt;
+&lt;img src="images/horst_dragons_continuous.png" width=600&gt;
+&lt;/center&gt;
+
+.left[Artwork by [@allison_horst](https://twitter.com/allison_horst)]
+
+---
+
+## Example write up for Penguin data
+
+.leftcol[.font120[
+
+The correlation between flipper length (mm) and body mass (g) is **0.87**. Therefore, **~75%** of the variance in body mass is explained by flipper length.
+
+The slope of the best fitting regression line indicates that body mass increased by **49.7 g** as flipper length increased by one mm.
+]]
+
+.rightcol[
+&lt;center&gt;
+&lt;img src="figs/penguinScatterplotEq.png" width=500&gt;
+&lt;/center&gt;
+]
+
+---
+
+## Making predictions
+
+.leftcol[
+**Interpolation is OK**: You may predict values of `\(y\)` for values of `\(x\)` that were not observed but are within the range of the observed values of `\(x\)`.
+
+&lt;center&gt;
+&lt;img src="figs/penguinScatterplotEq.png" width=420&gt;
+&lt;/center&gt;
+]
+
+--
+
+.rightcol[
+**Extrapolation is BAD**: You should NOT predict values of `\(y\)` using values of `\(x\)` that are outside the observed range of `\(x\)`.
+
+&lt;center&gt;
+&lt;img src="images/extrapolating.png"&gt;
+&lt;/center&gt;
+.center[[xkcd](https://m.xkcd.com/605/)]
+]
+
+---
+
+## Repeat: Extrapolation is **BAD**
+
+.leftcol[
+"Extrapolation of these trends to the 2008 Olympiad indicates that the women’s 100-metre race could be won in a time of 10.57±0.232 seconds and the men’s event in 9.73±0.144 seconds. **Should these trends continue, the projections will intersect at the 2156 Olympics, when — for the first time ever — the winning women's 100-metre sprint time of 8.079 seconds will be lower than that of the men's winning time of 8.098 seconds (Fig. 1).**"
+]
+
+.rightcol[
+&lt;center&gt;
+&lt;img src="images/nature_sprint.jpeg"&gt;
+&lt;/center&gt;
+.font80[Tatem, A. J., Guerra, C. A., Atkinson, P. M., &amp; Hay, S. I. (2004). Momentous sprint at the 2156 Olympics? _Nature_, 431(7008), 525-525. [View online](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3173856/)]
+]
+
+---
+
+# Symantics
+
+.leftcol[.font130[
+These all mean the same thing:
+- "Use X to predict Y"
+- "Regress Y _on_ X"
+- "Regression of Y _on_ X"
+
+```r
+model &lt;- lm(formula = y ~ x,
+            data = data)
+```
+]]
+
+--
+
+.rightcol[
+&lt;center&gt;
+&lt;img src="figs/penguinScatterplotEq.png" width=500&gt;
+&lt;/center&gt;
+]
+
+---
+
+# Symantics
+
+
+```r
+model &lt;- lm(formula = y ~ x,
+            data = data)
+```
+
+.leftcol[.font130[
+**Y: Dependent variable**
+- Outcome variable
+- Response variable
+- Regressand
+- Left-hand variable
+
+]]
+
+.rightcol[.font130[
+**X: Independent variable**
+- Predictor variable
+- Explanatory variable
+- Regressor
+- Right-hand variable
+]]
+
+---
+
+
+
+class: inverse, middle
+
+# Week 4: .fancy[Correlation]
+
+## 1. What is correlation?
+## 2. Visualizing correlation
+
+## BREAK
+
+## 3. Linear models
+## 4. .orange[Visualizing linear models]
+
+---
+
+## Adding the correlation annotation
+
+.leftcol60[
+
+```r
+# Make the correlation label
+corr &lt;- cor(
+    penguins$body_mass_g, penguins$flipper_length_mm,
+    method = 'pearson', use = "complete.obs")
+
+*corrLabel &lt;- paste("r = ", round(corr, 2))
+
+# Make the chart!
+ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
+    geom_point(size = 1, alpha = 0.7) +
+*   annotate(geom = 'text', x = 175, y = 6000,
+*            label = corrLabel,
+*            hjust = 0, size = 5) +
+    theme_classic(base_size = 20) +
+    labs(x = "Flipper length (mm)",
+         y = "Body mass (g)")
+```
+]
+
+.rightcol40[
+&lt;center&gt;
+&lt;img src="figs/penguinScatterplot.png"&gt;
+&lt;/center&gt;
+]
+
+---
+
+.leftcol60[
+
+```r
+# Make correlation label
+corrLabel &lt;- paste("r = ", round(cor(
+    penguins$body_mass_g, penguins$flipper_length_mm,
+    method = 'pearson', use = "complete.obs"), 2))
+
+# Make model label
+model &lt;- lm(
+  formula = body_mass_g ~ flipper_length_mm,
+  data    = penguins)
+coefs &lt;- round(coef(model), 2)
+*modelLabel &lt;- paste('y = ', coefs[1], ' + ', coefs[2], 'x')
+
+# Make the chart!
+ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
+    geom_point(size = 1, alpha = 0.7) +
+*   geom_smooth(method = 'lm', se = FALSE) +
+    annotate(geom = 'text', x = 175, y = 6000,
+             label = corrLabel,
+             hjust = 0, size = 5) +
+*   annotate(geom = 'text', x = 175, y = 5700,
+*            label = modelLabel, color = "blue",
+*            hjust = 0, size = 5)
+    theme_classic(base_size = 20) +
+    labs(x = "Flipper length (mm)",
+         y = "Body mass (g)")
+```
+]
+
+.rightcol40[
+## .center[Add correlation + model]
+
+&lt;center&gt;
+&lt;img src="figs/penguinScatterplotEq.png"&gt;
+&lt;/center&gt;
+]
+
+---
+class: inverse
+
+## Your turn
+
+<div class="countdown blink-colon noupdate-15" id="timer_6011eef5" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+Using the `msleep` data frame:
+
+1. Create a scatter plot of `brainwt` versus `bodywt`.
+2. Include an annotation for the Pearson correlation coefficient.
+3. Include an annotation for the best fit line.
+
+Bonus: Compare your results to a log-linear relationship by converting the x and y variables to the log of x and y, like this:
+
+```r
+model &lt;- lm(log(x) ~ log(y), data = msleep)
+```
+
+You can also convert your plot to log axes by adding these layers:
+
+```r
+plot +    
+    scale_x_log10() +
+    scale_y_log10()  
+```
+
+---
+class: middle, center, inverse
+
+# Projects
+
+---
+class: middle, center
+
+## Take your time and take breaks
+
+&lt;center&gt;
+&lt;img src="images/horst_gator_error.jpg" width=850&gt;
+&lt;/center&gt;
+
+.left[Artwork by [@allison_horst](https://twitter.com/allison_horst)]
+
+---
+class: center
+
+&lt;center&gt;
+&lt;img src="images/horst_monsters_r_first_then.png" width=550&gt;
+&lt;/center&gt;
+.left[Artwork by [@allison_horst](https://twitter.com/allison_horst)]
+
+---
+class: center, middle, inverse
+
+# Start thinking about research questions
+
+---
+
+# Writing a research question
+
+Follow [these guidelines](https://writingcenter.gmu.edu/guides/how-to-write-a-research-question) - your question should be:
+
+--
+
+- **Clear**: your audience can easily understand its purpose without additional explanation.
+
+--
+
+- **Focused**: it is narrow enough that it can be addressed thoroughly with the data available and within the limits of the final project report.
+
+--
+
+- **Concise**: it is expressed in the fewest possible words.
+
+--
+
+- **Complex**: it is not answerable with a simple "yes" or "no," but rather requires synthesis and analysis of data.
+
+--
+
+- **Arguable**: its potential answers are open to debate rather than accepted facts (do others care about it?)
+
+---
+
+# Writing a research question
+
+--
+
+**Bad question: Why are social networking sites harmful?**
+
+- Unclear: it does not specify _which_ social networking sites or state what harm is being caused; assumes that "harm" exists.
+
+--
+
+**Improved question: How are online users experiencing or addressing privacy issues on such social networking sites as Facebook and Twitter?**
+
+- Specifies the sites (Facebook and Twitter), type of harm (privacy issues), and who is harmed (online users).
+
+--
+
+**Other good examples**: See the [Example Projects Page](https://eda.seas.gwu.edu/2021-Spring/ref-example-analyses.html) page
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
