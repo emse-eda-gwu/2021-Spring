@@ -28,7 +28,7 @@ params:
     - Connect the course content to your own work
     - Discuss some of the key insights or things you found interesting in the readings
 
-5. **Submit Everything**: Knit your document to a html page, then create a zip file of everything in your R Project folder. Go to the "Assignment Submission" page on Blackboard and submit your zip file.
+4. **Submit Everything**: Knit your document to a html page, then create a zip file of everything in your R Project folder. Go to the "Assignment Submission" page on Blackboard and submit your zip file.
 
 ---
 
