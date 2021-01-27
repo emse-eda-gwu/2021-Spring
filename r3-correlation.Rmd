@@ -60,8 +60,6 @@ Correlation, as innocent as it may seem, has a long and ugly history of racism t
 - [Column: The false, racist theory of eugenics once ruled science. Let’s never let that happen again](https://www.pbs.org/newshour/nation/column-the-false-racist-theory-of-eugenics-once-ruled-science-lets-never-let-that-happen-again)
 - Listen to [this Radiolab episode](https://podcasts.apple.com/us/podcast/g-unfit/id152249110?i=1000444689017) on eugenics.
 
-## 2) Videos on correlation and regression
+## 2) Video on correlation
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fmK5YWWobH8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/kXDRkUqzD6g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
