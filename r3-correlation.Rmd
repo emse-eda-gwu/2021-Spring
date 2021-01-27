@@ -47,7 +47,7 @@ This week, we will learn some methods to recognize and measure the correlation b
 - Report the assumptions of linear regression and how to test them.
 - Explain standardized regression and its connection to correlation.
 
-## 1) Readings on visualizing correlation and modeling in R
+## 1) Readings on visualizing correlation
 
 - [Wilke - 12: Visualizing associations](https://serialmentor.com/dataviz/visualizing-associations.html): An overview of ways to visualize associations between two or more variables.
 - ["Beware Spurious Correlations", Harvard Business Review](https://hbr.org/2015/06/beware-spurious-correlations)
