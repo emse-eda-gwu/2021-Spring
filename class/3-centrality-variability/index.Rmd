@@ -110,10 +110,26 @@ class: center
 
 # Thanks for the heros `r emo::ji("smile")`
 
-|<center><img src="images/heros/helena.png" height="120"></center> Helena | <center><img src="images/heros/katie.gif" height="120"></center> Katie | <center><img src="images/heros/carolyne.jpg" height="120"></center> Carolyne | <center><img src="images/heros/alejandro.jpg" height="120"></center> Alejandro |
-|-|-|-|-|
-|<center><img src="images/heros/kyara.jpg" height="120"></center> Kyara | <center><img src="images/heros/ebun.gif" height="120"></center> Ebun | <center><img src="images/heros/kareemot.gif" height="120"></center> Kareemot | <center><img src="images/heros/kaveena.png" height="120"></center> Kaveena |
-|<center><img src="images/heros/matthew.gif" height="120"></center> Matthew | <center><img src="images/heros/alexa.jpg" height="120"></center> Alexa | <center><img src="images/heros/kazi.gif" height="120"></center> Kazi| |
+|<center><img src="images/heros/helena.png" height="120"></center> Helena | <center><img src="images/heros/katie.gif" height="120"></center> Katie | <center><img src="images/heros/carolyne.jpg" height="120"></center> Carolyne | <center><img src="images/heros/kaveena.png" height="120"></center> Kaveena | <center><img src="images/heros/omar1.png" height="120"></center> Omar 1 |
+|-|-|-|-|-|
+|<center><img src="images/heros/kyara.jpg" height="120"></center> Kyara | <center><img src="images/heros/ebun.gif" height="120"></center> Ebun | <center><img src="images/heros/kareemot.gif" height="120"></center> Kareemot | <center><img src="images/heros/alejandro.jpg" height="120"></center> Alejandro | <center><img src="images/heros/omar2.jpg" height="120"></center> Omar 2 |
+|<center><img src="images/heros/matthew.gif" height="120"></center> Matthew | <center><img src="images/heros/michael.gif" height="120"></center> Michael | <center><img src="images/heros/alexa.jpg" height="120"></center> Alexa | <center><img src="images/heros/kazi.gif" height="120"></center> Kazi| | |
+
+---
+
+# Updates 
+
+--
+
+## Office hours are set (posted in #links in slack & on BB) :
+
+- 5-7pm Mondays w/Jenny K.
+- 7-9pm Tuesdays w/Saurav P.
+- 2-4pm Fridays w/Prof. Helveston
+
+--
+
+## Jenny has an announcement
 
 ---
 class: center, middle, inverse
@@ -142,6 +158,32 @@ knitr::opts_chunk$set(
 
 theme_set(theme_bw(base_size = 20)) # Set theme for all ggplots #<<
 ```
+
+---
+
+```{r, eval=FALSE}
+ggplot(mtcars) + 
+  geom_point(aes(x = mpg, y = hp))
+```
+
+.leftcol[
+Default theme
+
+```{r, echo=FALSE}
+ggplot(mtcars) + 
+  geom_point(aes(x = mpg, y = hp)) + 
+  theme_gray()
+```
+]
+.rightcol[
+`theme_bw(base_size = 20)`
+
+```{r, echo=FALSE}
+ggplot(mtcars) + 
+  geom_point(aes(x = mpg, y = hp)) + 
+  theme_bw(base_size = 20)
+```
+]
 
 ---
 
@@ -332,7 +374,7 @@ class: center, middle
 
 - As _ordinal_ categories: "Jan.", "Feb.", "Mar.", etc.
 - As _interval_ scale: "Jan. 1", "Jan. 2", "Jan. 3", etc.
-- As _ratio_ scale: "Day 1", "Day 2", "Day 3", etc.
+- As _ratio_ scale: "30 sec", "60 sec", "70 sec", etc.
 
 ---
 
@@ -383,7 +425,7 @@ class: inverse, middle
 
 --
 
-### **Median**: Middle value (50% of data above & below)
+### **Median**: "Middle" value (50% of data above & below)
 
 --
 
@@ -415,6 +457,12 @@ paste0(round(100*meanP, 1), '%')
 <img src="figs/wildlife-hist-1.png">
 ]
 
+???
+
+On average, where do planes hit birds? 
+Saying ~1000 ft is misleading
+It's much more likely to be under 100 ft
+
 ---
 class: inverse
 
@@ -440,15 +488,16 @@ class: inverse
 
 --
 
-### **Range**: max - min
-
---
-
-### **Standard deviation**: distribution of values relative to the mean
+### **Standard deviation**: distribution of values relative to the mean 
+### $s = \sqrt{\frac{\sum_{i=1}^{N}(x_i - \bar{x})^2}{N - 1}}$
 
 --
 
 ### **Interquartile range (IQR)**: $Q_3 - Q_1$ (middle 50% of data)
+
+--
+
+### **Range**: max - min
 
 ---
 
@@ -544,9 +593,9 @@ class: inverse, center
 
 ## **Mean** & **Standard Deviation** are sensitive to outliers
 
-**Outliers**: $Q_1 \pm 1.5 IQR$
+**Outliers**: $Q_1 - 1.5 IQR$ or $Q_3 + 1.5 IQR$
 
-**Extreme values**: $Q_1 \pm 3.0 IQR$
+**Extreme values**: $Q_1 - 3 IQR$ or $Q_3 + 3 IQR$
 
 --
 
@@ -576,6 +625,7 @@ data2 <- c(3,3,4,5,5,6,6,7,8,20)
 class: inverse, middle
 
 # .center[Robust statistics for continuous data]
+# .center[(less sensitive to outliers)]
 
 ## .red[Centrality]: Use _median_ rather than _mean_
 
@@ -625,6 +675,22 @@ lotr_words %>%
         IQR    = IQR(Female))
 summary(lotr_words$Female)
 summary(lotr_words$Male)
+```
+
+---
+class: inverse, center
+
+# Break!
+
+## Stand up, Move around, Stretch!
+
+```{r, echo=FALSE}
+countdown(minutes = 5,
+          warn_when = 30,
+          update_every = 1,
+          left = 0, right = 0, top = 1, bottom = 0,
+          margin = "5%",
+          font_size = "8em")
 ```
 
 ---
@@ -717,7 +783,7 @@ Summarize with counts / percentages
 ```{r}
 wildlife_impacts %>%
     count(operator, sort = TRUE) %>% #<<
-    mutate(p = n / sum(n))
+    mutate(p = n / sum(n)) #<<
 ```
 ]
 
@@ -730,7 +796,7 @@ Visualize with bars
 ```{r wildlife-operator-bars, fig.width=7, fig.height=3}
 wildlife_impacts %>%
     count(operator, sort = TRUE) %>%
-    ggplot() +
+    ggplot() + #<<
     geom_col(aes(x = n, y = reorder(operator, n)), #<<
              width = 0.7) + #<<
     labs(x = "Count", y = "Operator")
@@ -748,7 +814,7 @@ wildlife_impacts %>%
 ```{r}
 wildlife_impacts %>%
     count(incident_month, sort = TRUE) %>% #<<
-    mutate(p = n / sum(n))
+    mutate(p = n / sum(n)) #<<
 ```
 ]]
 
@@ -761,7 +827,7 @@ wildlife_impacts %>%
 ```{r wildlife-months-bar, fig.width=7, fig.height=3.7}
 wildlife_impacts %>%
     count(incident_month, sort = TRUE) %>%
-    ggplot() +
+    ggplot() + #<<
     geom_col(aes(x = as.factor(incident_month), #<<
                  y = n), width = 0.7) + #<<
     labs(x = "Incident month")
@@ -775,41 +841,34 @@ wildlife_impacts %>%
 .leftcol30[
 **Histograms**:
 
-- Identifying skewness
-- Identifying # of modes
+- Skewness
+- Number of modes
 <br>
 
 **Boxplots**:
 
-- Identifying outliers
-- Comparing distributions across groups
+- Outliers
+- Comparing variables
 ]
-.rightcol70[
+.rightcol70[.border[
 <img src = 'images/eda-boxplot.png'>
-]
+]]
 
 ---
 
 ## **Histogram**: Identify Skewness & # of Modes
 
-.leftcol[
+.leftcol40[
 **Summarise**:<br>Mean, median, sd, range, & IQR:
 
 ```{r}
-wildlife_impacts %>%
-    filter(! is.na(height)) %>%
-    summarise(
-        mean   = mean(height),
-        median = median(height),
-        sd     = sd(height),
-        range  = max(height) - min(height),
-        IQR    = IQR(height))
+summary(wildlife_impacts$height)
 ```
 ]
 
 --
 
-.rightcol[
+.rightcol60[
 **Visualize**:<br>Histogram (identify skewness & modes)
 
 ```{r wildlife-height-hist, fig.width=7, fig.height=3.7, fig.align='center'}
@@ -908,22 +967,6 @@ class: inverse
 ]
 
 ---
-class: inverse, center
-
-```{r, echo=FALSE}
-countdown(minutes = 5,
-          warn_when = 30,
-          update_every = 1,
-          left = 0, right = 0, top = 1, bottom = 0,
-          margin = "5%",
-          font_size = "8em")
-```
-
-# Break!
-
-## Stand up, Move around, Stretch!
-
----
 
 ```{r child="topics/4.Rmd"}
 ```
@@ -985,7 +1028,7 @@ wildlife_impacts %>%
 
 ## Two **Continuous** Variables
 
-Visualize with scatterplot - looking for _correlational_ relationship
+Visualize with scatterplot - looking for _clustering_ and/or _correlational_ relationship
 
 .leftcol45[
 ```{r wildlife-scatterplot, fig.width=7, fig.height=4, fig.align='center', fig.show='hide'}
@@ -1081,8 +1124,9 @@ class: inverse, middle
 
 ---
 class: center
+background-color: #FFFFFF
 
-EDA is an iterative process to help you _understand_ your data and ask better questions
+**EDA is an iterative process to help you<br>_understand_ your data and ask better questions**
 
 <center>
 <img src="images/eda.png" width=700>
@@ -1174,6 +1218,6 @@ Follow [these guidelines](https://writingcenter.gmu.edu/guides/how-to-write-a-re
 
 ---
 
-# Start self-organizing
+# Start self-organizing for projects
 
 > Find your topic / teammate(s) [here](https://docs.google.com/presentation/d/15ohFg5a9y6ZMk5tGGm4ho7Rj97eVTgcBwgVac5W-Yzc/edit?usp=sharing) (link also in #classroom)

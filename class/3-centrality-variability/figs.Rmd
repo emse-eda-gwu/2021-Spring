@@ -103,12 +103,18 @@ daysToShip %>%
 ```{r days-to-ship-sd, fig.width=6, fig.height=5}
 daysToShip %>%
     gather(warehouse, days, warehouseA:warehouseB) %>%
+    group_by(warehouse) %>%
+    mutate(days = days - mean(days)) %>%
     filter(warehouse == 'warehouseB') %>%
     ggplot() +
     geom_col(aes(x = as.factor(order), y = days), width = 0.7) +
-    geom_hline(yintercept = mean(daysToShip$warehouseB), size = 1) +
-    scale_y_continuous(expand = expand_scale(mult = c(0, 0.05))) +
-    theme_bw(base_size = 18) +
+    geom_text(data = daysToShipLabels %>% filter(warehouse == 'warehouseB'), 
+              aes(x = x1, y = y, label = label1),
+               hjust = 0, size = 8, fontface = "bold") +
+    geom_text(data = daysToShipLabels %>% filter(warehouse == 'warehouseB'), 
+              aes(x = x2, y = y, label = label2),
+               hjust = 0, size = 8) +
+    geom_hline(yintercept = 0, size = 1) +
     labs(title = 'Difference from mean days to ship',
          x = 'Order', y = 'Days to ship')
 ```
