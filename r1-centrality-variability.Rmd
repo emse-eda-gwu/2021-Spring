@@ -47,8 +47,10 @@ Follow [Snoop's advice](https://twitter.com/ryancbriggs/status/12935435314963087
 
 This week, we will learn some strategies for exploring data sets to gain a greater understanding of the variable types and their relationships. To get started, open up a notebook (physical, digital...whatever you take notes in best), and **take notes** while you watch [this 20 minute video](https://www.youtube.com/watch?v=zHcQPKP6NpM) to learn about some basic data types and descriptive statistics:
 
+<center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/zHcQPKP6NpM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
+</center>
 
 ## 3) Chapters on EDA
 

@@ -43,4 +43,6 @@ params:
 
 Watch [this 40-minute video](https://www.youtube.com/watch?v=fSgEeI2Xpdc) titled "How humans see data", by John Rauser. This is one of the best overviews I've ever seen of how we can exploit our understanding of human psychology to design effective charts. We'll go over these concepts in class again this week.
 
+<center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fSgEeI2Xpdc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>

@@ -62,4 +62,6 @@ Correlation, as innocent as it may seem, has a long and ugly history of racism t
 
 ## 2) Video on correlation
 
+<center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fmK5YWWobH8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
