@@ -1,0 +1,3 @@
+3:
+- Drop lotr_words from first main practice (just use milk data)
+- Improve the last exercise of wildlife state vs operator
