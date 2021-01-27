@@ -5,9 +5,9 @@ class: inverse, middle
 
 ## 1. .orange[Data Types]
 ## 2. Measures of Centrality & Variability
-## 3. Visualizing Centrality & Variability
 
 ## BREAK
 
+## 3. Visualizing Centrality & Variability
 ## 4. Relationships Between 2 Variables
 ## 5. Exploratory Data Analysis

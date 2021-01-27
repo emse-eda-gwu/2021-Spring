@@ -66,10 +66,26 @@ class: center
 
 # Thanks for the heros 😄
 
-|&lt;center&gt;&lt;img src="images/heros/helena.png" height="120"&gt;&lt;/center&gt; Helena | &lt;center&gt;&lt;img src="images/heros/katie.gif" height="120"&gt;&lt;/center&gt; Katie | &lt;center&gt;&lt;img src="images/heros/carolyne.jpg" height="120"&gt;&lt;/center&gt; Carolyne | &lt;center&gt;&lt;img src="images/heros/alejandro.jpg" height="120"&gt;&lt;/center&gt; Alejandro |
-|-|-|-|-|
-|&lt;center&gt;&lt;img src="images/heros/kyara.jpg" height="120"&gt;&lt;/center&gt; Kyara | &lt;center&gt;&lt;img src="images/heros/ebun.gif" height="120"&gt;&lt;/center&gt; Ebun | &lt;center&gt;&lt;img src="images/heros/kareemot.gif" height="120"&gt;&lt;/center&gt; Kareemot | &lt;center&gt;&lt;img src="images/heros/kaveena.png" height="120"&gt;&lt;/center&gt; Kaveena |
-|&lt;center&gt;&lt;img src="images/heros/matthew.gif" height="120"&gt;&lt;/center&gt; Matthew | &lt;center&gt;&lt;img src="images/heros/alexa.jpg" height="120"&gt;&lt;/center&gt; Alexa | &lt;center&gt;&lt;img src="images/heros/kazi.gif" height="120"&gt;&lt;/center&gt; Kazi| |
+|&lt;center&gt;&lt;img src="images/heros/helena.png" height="120"&gt;&lt;/center&gt; Helena | &lt;center&gt;&lt;img src="images/heros/katie.gif" height="120"&gt;&lt;/center&gt; Katie | &lt;center&gt;&lt;img src="images/heros/carolyne.jpg" height="120"&gt;&lt;/center&gt; Carolyne | &lt;center&gt;&lt;img src="images/heros/kaveena.png" height="120"&gt;&lt;/center&gt; Kaveena | &lt;center&gt;&lt;img src="images/heros/omar1.png" height="120"&gt;&lt;/center&gt; Omar 1 |
+|-|-|-|-|-|
+|&lt;center&gt;&lt;img src="images/heros/kyara.jpg" height="120"&gt;&lt;/center&gt; Kyara | &lt;center&gt;&lt;img src="images/heros/ebun.gif" height="120"&gt;&lt;/center&gt; Ebun | &lt;center&gt;&lt;img src="images/heros/kareemot.gif" height="120"&gt;&lt;/center&gt; Kareemot | &lt;center&gt;&lt;img src="images/heros/alejandro.jpg" height="120"&gt;&lt;/center&gt; Alejandro | &lt;center&gt;&lt;img src="images/heros/omar2.jpg" height="120"&gt;&lt;/center&gt; Omar 2 |
+|&lt;center&gt;&lt;img src="images/heros/matthew.gif" height="120"&gt;&lt;/center&gt; Matthew | &lt;center&gt;&lt;img src="images/heros/michael.gif" height="120"&gt;&lt;/center&gt; Michael | &lt;center&gt;&lt;img src="images/heros/alexa.jpg" height="120"&gt;&lt;/center&gt; Alexa | &lt;center&gt;&lt;img src="images/heros/kazi.gif" height="120"&gt;&lt;/center&gt; Kazi| | |
+
+---
+
+# Updates 
+
+--
+
+## Office hours are set (posted in #links in slack &amp; on BB) :
+
+- 5-7pm Mondays w/Jenny K.
+- 7-9pm Tuesdays w/Saurav P.
+- 2-4pm Fridays w/Prof. Helveston
+
+--
+
+## Jenny has an announcement
 
 ---
 class: center, middle, inverse
@@ -103,6 +119,25 @@ knitr::opts_chunk$set(
 ---
 
 
+```r
+ggplot(mtcars) + 
+  geom_point(aes(x = mpg, y = hp))
+```
+
+.leftcol[
+Default theme
+
+&lt;img src="figs/unnamed-chunk-3-1.png" width="522.144" /&gt;
+]
+.rightcol[
+`theme_bw(base_size = 20)`
+
+&lt;img src="figs/unnamed-chunk-4-1.png" width="522.144" /&gt;
+]
+
+---
+
+
 
 class: inverse, middle
 
@@ -110,10 +145,10 @@ class: inverse, middle
 
 ## 1. Data Types
 ## 2. Measures of Centrality &amp; Variability
-## 3. Visualizing Centrality &amp; Variability
 
 ## BREAK
 
+## 3. Visualizing Centrality &amp; Variability
 ## 4. Relationships Between 2 Variables
 ## 5. Exploratory Data Analysis
 
@@ -127,10 +162,10 @@ class: inverse, middle
 
 ## 1. .orange[Data Types]
 ## 2. Measures of Centrality &amp; Variability
-## 3. Visualizing Centrality &amp; Variability
 
 ## BREAK
 
+## 3. Visualizing Centrality &amp; Variability
 ## 4. Relationships Between 2 Variables
 ## 5. Exploratory Data Analysis
 
@@ -340,7 +375,7 @@ class: center, middle
 
 - As _ordinal_ categories: "Jan.", "Feb.", "Mar.", etc.
 - As _interval_ scale: "Jan. 1", "Jan. 2", "Jan. 3", etc.
-- As _ratio_ scale: "Day 1", "Day 2", "Day 3", etc.
+- As _ratio_ scale: "30 sec", "60 sec", "70 sec", etc.
 
 ---
 
@@ -391,10 +426,10 @@ class: inverse, middle
 
 ## 1. Data Types
 ## 2. .orange[Measures of Centrality &amp; Variability]
-## 3. Visualizing Centrality &amp; Variability
 
 ## BREAK
 
+## 3. Visualizing Centrality &amp; Variability
 ## 4. Relationships Between 2 Variables
 ## 5. Exploratory Data Analysis
 
@@ -421,7 +456,7 @@ class: inverse, middle
 
 --
 
-### **Median**: Middle value (50% of data above &amp; below)
+### **Median**: "Middle" value (50% of data above &amp; below)
 
 --
 
@@ -460,6 +495,12 @@ Percent of data below mean:
 &lt;img src="figs/wildlife-hist-1.png"&gt;
 ]
 
+???
+
+On average, where do planes hit birds? 
+Saying ~1000 ft is misleading
+It's much more likely to be under 100 ft
+
 ---
 class: inverse
 
@@ -485,15 +526,16 @@ class: inverse
 
 --
 
-### **Range**: max - min
-
---
-
-### **Standard deviation**: distribution of values relative to the mean
+### **Standard deviation**: distribution of values relative to the mean 
+### `\(s = \sqrt{\frac{\sum_{i=1}^{N}(x_i - \bar{x})^2}{N - 1}}\)`
 
 --
 
 ### **Interquartile range (IQR)**: `\(Q_3 - Q_1\)` (middle 50% of data)
+
+--
+
+### **Range**: max - min
 
 ---
 
@@ -641,9 +683,9 @@ class: inverse, center
 
 ## **Mean** &amp; **Standard Deviation** are sensitive to outliers
 
-**Outliers**: `\(Q_1 \pm 1.5 IQR\)`
+**Outliers**: `\(Q_1 - 1.5 IQR\)` or `\(Q_3 + 1.5 IQR\)`
 
-**Extreme values**: `\(Q_1 \pm 3.0 IQR\)`
+**Extreme values**: `\(Q_1 - 3 IQR\)` or `\(Q_3 + 3 IQR\)`
 
 --
 
@@ -675,6 +717,7 @@ data2 &lt;- c(3,3,4,5,5,6,6,7,8,20)
 class: inverse, middle
 
 # .center[Robust statistics for continuous data]
+# .center[(less sensitive to outliers)]
 
 ## .red[Centrality]: Use _median_ rather than _mean_
 
@@ -698,6 +741,17 @@ class: inverse
 
 
 ---
+class: inverse, center
+
+# Break!
+
+## Stand up, Move around, Stretch!
+
+<div class="countdown" id="timer_6011726e" style="top:1;right:0;bottom:0;left:0;margin:5%;font-size:8em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
 
 
 
@@ -707,10 +761,10 @@ class: inverse, middle
 
 ## 1. Data Types
 ## 2. Measures of Centrality &amp; Variability
-## 3. .orange[Visualizing Centrality &amp; Variability]
 
 ## BREAK
 
+## 3. .orange[Visualizing Centrality &amp; Variability]
 ## 4. Relationships Between 2 Variables
 ## 5. Exploratory Data Analysis
 
@@ -800,7 +854,7 @@ Summarize with counts / percentages
 ```r
 wildlife_impacts %&gt;%
 *   count(operator, sort = TRUE) %&gt;%
-    mutate(p = n / sum(n))
+*   mutate(p = n / sum(n))
 ```
 
 ```
@@ -824,7 +878,7 @@ Visualize with bars
 ```r
 wildlife_impacts %&gt;%
     count(operator, sort = TRUE) %&gt;%
-    ggplot() +
+*   ggplot() +
 *   geom_col(aes(x = n, y = reorder(operator, n)),
 *            width = 0.7) +
     labs(x = "Count", y = "Operator")
@@ -845,7 +899,7 @@ wildlife_impacts %&gt;%
 ```r
 wildlife_impacts %&gt;%
 *   count(incident_month, sort = TRUE) %&gt;%
-    mutate(p = n / sum(n))
+*   mutate(p = n / sum(n))
 ```
 
 ```
@@ -877,7 +931,7 @@ wildlife_impacts %&gt;%
 ```r
 wildlife_impacts %&gt;%
     count(incident_month, sort = TRUE) %&gt;%
-    ggplot() +
+*   ggplot() +
 *   geom_col(aes(x = as.factor(incident_month),
 *                y = n), width = 0.7) +
     labs(x = "Incident month")
@@ -893,49 +947,40 @@ wildlife_impacts %&gt;%
 .leftcol30[
 **Histograms**:
 
-- Identifying skewness
-- Identifying # of modes
+- Skewness
+- Number of modes
 &lt;br&gt;
 
 **Boxplots**:
 
-- Identifying outliers
-- Comparing distributions across groups
+- Outliers
+- Comparing variables
 ]
-.rightcol70[
+.rightcol70[.border[
 &lt;img src = 'images/eda-boxplot.png'&gt;
-]
+]]
 
 ---
 
 ## **Histogram**: Identify Skewness &amp; # of Modes
 
-.leftcol[
+.leftcol40[
 **Summarise**:&lt;br&gt;Mean, median, sd, range, &amp; IQR:
 
 
 ```r
-wildlife_impacts %&gt;%
-    filter(! is.na(height)) %&gt;%
-    summarise(
-        mean   = mean(height),
-        median = median(height),
-        sd     = sd(height),
-        range  = max(height) - min(height),
-        IQR    = IQR(height))
+summary(wildlife_impacts$height)
 ```
 
 ```
-#&gt; # A tibble: 1 x 5
-#&gt;    mean median    sd range   IQR
-#&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-#&gt; 1  984.     50 2027. 25000  1000
+#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+#&gt;     0.0     0.0    50.0   983.8  1000.0 25000.0   18038
 ```
 ]
 
 --
 
-.rightcol[
+.rightcol60[
 **Visualize**:&lt;br&gt;Histogram (identify skewness &amp; modes)
 
 
@@ -962,7 +1007,7 @@ ggplot(wildlife_impacts) +
   labs(x = 'Height (ft)', y = 'Count')
 ```
 
-&lt;img src="figs/unnamed-chunk-23-1.png" width="504" style="display: block; margin: auto;" /&gt;
+&lt;img src="figs/unnamed-chunk-27-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 .rightcol[
@@ -1016,7 +1061,7 @@ ggplot(wildlife_impacts) +
 - Skewness
 - Modes
 
-&lt;img src="figs/unnamed-chunk-24-1.png" width="504" style="display: block; margin: auto;" /&gt;
+&lt;img src="figs/unnamed-chunk-28-1.png" width="504" style="display: block; margin: auto;" /&gt;
 
 ]
 .rightcol[
@@ -1025,7 +1070,7 @@ ggplot(wildlife_impacts) +
 - Outliers
 &lt;br&gt;&lt;br&gt;
 
-&lt;img src="figs/unnamed-chunk-25-1.png" width="504" style="display: block; margin: auto;" /&gt;
+&lt;img src="figs/unnamed-chunk-29-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -1050,17 +1095,6 @@ class: inverse
 ]
 
 ---
-class: inverse, center
-
-<div class="countdown" id="timer_60102020" style="top:1;right:0;bottom:0;left:0;margin:5%;font-size:8em;" data-warnwhen="30">
-<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-
-# Break!
-
-## Stand up, Move around, Stretch!
-
----
 
 
 
@@ -1070,10 +1104,10 @@ class: inverse, middle
 
 ## 1. Data Types
 ## 2. Measures of Centrality &amp; Variability
-## 3. Visualizing Centrality &amp; Variability
 
 ## BREAK
 
+## 3. Visualizing Centrality &amp; Variability
 ## 4. .orange[Relationships Between 2 Variables]
 ## 5. Exploratory Data Analysis
 
@@ -1165,14 +1199,14 @@ wildlife_impacts %&gt;%
 ```
 ]
 .rightcol55[
-&lt;img src="figs/unnamed-chunk-30-1.png" width="648" style="display: block; margin: auto;" /&gt;
+&lt;img src="figs/unnamed-chunk-33-1.png" width="648" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
 
 ## Two **Continuous** Variables
 
-Visualize with scatterplot - looking for _correlational_ relationship
+Visualize with scatterplot - looking for _clustering_ and/or _correlational_ relationship
 
 .leftcol45[
 
@@ -1186,7 +1220,7 @@ ggplot(wildlife_impacts) +
 ]
 
 .rightcol55[
-&lt;img src="figs/unnamed-chunk-31-1.png" width="504" style="display: block; margin: auto;" /&gt;
+&lt;img src="figs/unnamed-chunk-34-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -1207,7 +1241,7 @@ ggplot(wildlife_impacts) +
 ]
 
 .rightcol55[
-&lt;img src="figs/unnamed-chunk-32-1.png" width="504" style="display: block; margin: auto;" /&gt;
+&lt;img src="figs/unnamed-chunk-35-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -1236,10 +1270,10 @@ class: inverse, middle
 
 ## 1. Data Types
 ## 2. Measures of Centrality &amp; Variability
-## 3. Visualizing Centrality &amp; Variability
 
 ## BREAK
 
+## 3. Visualizing Centrality &amp; Variability
 ## 4. Relationships Between 2 Variables
 ## 5. .orange[Exploratory Data Analysis]
 
@@ -1280,8 +1314,9 @@ class: inverse, middle
 
 ---
 class: center
+background-color: #FFFFFF
 
-EDA is an iterative process to help you _understand_ your data and ask better questions
+**EDA is an iterative process to help you&lt;br&gt;_understand_ your data and ask better questions**
 
 &lt;center&gt;
 &lt;img src="images/eda.png" width=700&gt;
@@ -1373,7 +1408,7 @@ Follow [these guidelines](https://writingcenter.gmu.edu/guides/how-to-write-a-re
 
 ---
 
-# Start self-organizing
+# Start self-organizing for projects
 
 &gt; Find your topic / teammate(s) [here](https://docs.google.com/presentation/d/15ohFg5a9y6ZMk5tGGm4ho7Rj97eVTgcBwgVac5W-Yzc/edit?usp=sharing) (link also in #classroom)
     </textarea>
