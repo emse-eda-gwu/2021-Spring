@@ -36,12 +36,14 @@ params:
 >
 > -- Claus O. Wilke in [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/introduction.html)
 
-- [Wilke 1: Introduction](https://serialmentor.com/dataviz/introduction.html): Definitions of "ugly", "bad", and "wrong" figures
+These two chapters cover a lot of excellent examples of what makes a chart "good" and "bad":
+
 - [Healy 1: Look at Data](http://socviz.co/lookatdata.html#lookatdata): What makes figures good and bad
+- [Wilke 1: Introduction](https://serialmentor.com/dataviz/introduction.html): Definitions of "ugly", "bad", and "wrong" figures
 
-# Videos
+# Optional Video
 
-Watch [this 40-minute video](https://www.youtube.com/watch?v=fSgEeI2Xpdc) titled "How humans see data", by John Rauser. This is one of the best overviews I've ever seen of how we can exploit our understanding of human psychology to design effective charts. We'll go over these concepts in class again this week.
+If you have time, watch [this 40-minute video](https://www.youtube.com/watch?v=fSgEeI2Xpdc) titled "How humans see data", by John Rauser. He discusses how we can exploit our understanding of human psychology to design effective charts (I'll cover much of the same information in the video in class).
 
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fSgEeI2Xpdc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
