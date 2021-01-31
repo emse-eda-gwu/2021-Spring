@@ -95,6 +95,29 @@ class: middle, inverse
 ]
 
 ---
+class: center, middle, inverse
+
+# .fancy[.blue[Tip of the week]]
+
+# All data are biased
+
+---
+class: middle 
+
+.leftcol40[
+<center>
+<img src="images/Abraham_Wald.jpg" width=300>
+</center>
+## [.center[Abraham Wald]](https://en.wikipedia.org/wiki/Abraham_Wald)
+]
+
+.rightcol60[
+<center>
+<img src="images/plane.jpg" width=600>
+</center>
+]
+
+---
 
 ## Today's data
 
