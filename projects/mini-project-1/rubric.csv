@@ -1,0 +1,19 @@
+category,label,rating,maxPoints,points,description
+formatting,Formatting,Excellent,5,5,Followed all formatting guidelines.
+formatting,Formatting,Good,5,4,Followed most formatting guidelines.
+formatting,Formatting,Needs work,5,3,Missing multiple formatting guidelines.
+documentation,Documentation,Excellent,5,5,Original and downloaded data sources clearly described.
+documentation,Documentation,Good,5,4,Poor description of original and / or downloaded data sources.
+documentation,Documentation,Needs work,5,3,Poor / unclear / missing description of either original or downloaded data source
+researchQuestions,Research questions,Excellent,10,10 / 9,At least 3 RQs & associated data variables listed.
+researchQuestions,Research questions,Good,10,8 / 7 / 6,<3 RQs listed or variables are missing.
+researchQuestions,Research questions,Needs work,10,5 / 4 / 3,<3 RQs listed and variables are missing.
+exploration,Exploration,Excellent,10,10 / 9,Summary measures and charts appropriately used to address all RQs; excellent summary description.
+exploration,Exploration,Good,10,8 / 7 / 6,Measures and charts used to address RQs could be improved; adequate summary description.
+exploration,Exploration,Needs work,10,5 / 4 / 3,Missing summary measures and / or charts to address RQs; poor summary description.
+visualizations,Visualizations,Excellent,10,10 / 9,Visualizations appropriately chosen according to data types and / or relationships.
+visualizations,Visualizations,Good,10,8 / 7 / 6,Visualizations are appropriate but could be improved. 
+visualizations,Visualizations,Needs work,10,5 / 4 / 3,"Poor match between visualization and data types / relationships, and / or missing."
+technical,Technical things,Excellent,5,5,All code runs without errors; all files included in the submitted .zip file.
+technical,Technical things,Good,5,4,"Code has only one or two error, otherwise runs; all files included in the submitted .zip file."
+technical,Technical things,Needs work,5,3,Code has multiple errors; submitted .zip file is missing components necessary to reproduce analysis.
