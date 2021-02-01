@@ -10,18 +10,18 @@ output:
 ```
 
 > **Due**: 16 February, 11:59 pm
-> 
+>
 > **Weight**: This assignment is worth 9% of your final grade.
-> 
+>
 > **Purpose**: When you get a data file to analyze, one of the first things you'll want to do is _explore_ it. But that's often easier said than done. The purpose of this assignment is to give you a chance to practice some of the techniques we've discussed in class for exploring a data set.
 >
 > **Assessment**: I will use [this rubric](projects/mini-project-1/rubric.pdf) to grade your submissions.
 >
-> **Background**: For this assignment, you'll be exploring data on the costs of hundreds of transit projects around the world collected by the [Transit Costs Project](https://transitcosts.com/). The data span more than 50 countries and totals more than 11,000 km of urban rail built since the late 1990s. 
+> **Background**: For this assignment, you'll be exploring data on the costs of hundreds of transit projects around the world collected by the [Transit Costs Project](https://transitcosts.com/). The data span more than 50 countries and totals more than 11,000 km of urban rail built since the late 1990s.
 
 # Tasks
 
-## 1. Get organized  
+## 1. Get organized
 
 Download and unzip [this template](templates/project_template.zip) for your project, then open the `project.Rproj` file. In the setup chunk in your `report.Rmd` file, read in the `transit_cost.csv` file - you can read it in directly from the web with this line of code:
 
@@ -35,17 +35,21 @@ transit_cost <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidy
 
 Go to [this GitHub page](https://github.com/rfordatascience/tidytuesday/tree/master/data/2021/2021-01-05) and read about the data we'll be using (that's where we are reading the data in from). Identify and document in your `report.Rmd` file the original data source as well as the source from where you downloaded the data (note that the GitHub page is **not** the original data source - it is just a repository where someone else put the data).
 
-## 3. Preview the data 
+## 3. Preview the data
 
 Preview the data (e.g. using `head()`, `glimpse()`, `View()`, and / or make some quick plots). Take note of what variables are available, their types, and what they measure. Hint: Read the data dictionary on the GitHub page!
 
-## 4. Identify research questions 
+## 4. Identify research questions
 
-Once you have a sense for what is captured in the data, list **at least three** questions you think you may be able to answer with these data (you can list more if you want). A question can be about what the data captures (e.g. "Which countries in the data have the longest total amount of projects in km?") or perhaps about a relationship between different variables (e.g. "Are projects with tunnels more expensive on a $/km basis than projects without tunnels?"). It is okay if you end up not being able to answer your question - just write down what you think you _might_ be able to find out by exploring the data.
+Once you have a sense for the available variables in the data, list **at least three** questions you think you may be able to answer with these data (you can list more if you want), and list which variables you plan to explore to address each question.
 
-## 5. Search for answers
+A question can be about what the data captures (e.g. "Which countries in the data have the longest total amount of projects in km?") or about a relationship between different variables (e.g. "Are projects with tunnels more expensive on a $/km basis than projects without tunnels?").
 
-For **each** of your questions: 
+**Note**`: It is okay if you end up not being able to answer your question - just write down what you think you _might_ be able to find out by exploring the data.
+
+## 5. Explore the data
+
+For **each** of your questions:
 
 1. If necessary, modify the `transit_cost` data frame to address your question. For example, you may need to create new variables (e.g. using `mutate()`), filter the data (e.g. if you're only interested in a single country, year, etc.), or perhaps just rename some of the variables. For this task, you'll be relying on your data wrangling skills - if you're unfamiliar with how to do this, review [this data wrangling lesson](https://jhelvy.github.io/r4aPrimer/L4-data-wrangling.html), come to office hours, and ask questions on Slack - we're here to help!
 2. Examine summary measures (centrality, variability, correlation) in the variables relevant to your question by printing out summary values / tables and making charts. Your charts should be appropriately chosen according to the data type and / or relationship you are searching for.
