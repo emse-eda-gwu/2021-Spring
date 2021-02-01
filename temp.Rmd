@@ -41,19 +41,19 @@ Preview the data (e.g. using `head()`, `glimpse()`, `View()`, and / or make some
 
 ## 4. Identify research questions
 
-Once you have a sense for the available variables in the data, list **at least three** questions you think you may be able to answer with these data (you can list more if you want), and list which variables you plan to explore to address each question.
+Once you have a sense for the available variables in the data, list **at least three** questions you think you may be able to answer with these data (you can list more if you want). For each question, list which variables you plan to explore to address the question.
 
 A question can be about what the data captures (e.g. "Which countries in the data have the longest total amount of projects in km?") or about a relationship between different variables (e.g. "Are projects with tunnels more expensive on a $/km basis than projects without tunnels?").
 
-**Note**`: It is okay if you end up not being able to answer your question - just write down what you think you _might_ be able to find out by exploring the data.
+**Note**: It is okay if you end up not being able to answer your question - just write down what you think you _might_ be able to find out by exploring the data.
 
 ## 5. Explore the data
 
 For **each** of your questions:
 
-1. If necessary, modify the `transit_cost` data frame to address your question. For example, you may need to create new variables (e.g. using `mutate()`), filter the data (e.g. if you're only interested in a single country, year, etc.), or perhaps just rename some of the variables. For this task, you'll be relying on your data wrangling skills - if you're unfamiliar with how to do this, review [this data wrangling lesson](https://jhelvy.github.io/r4aPrimer/L4-data-wrangling.html), come to office hours, and ask questions on Slack - we're here to help!
-2. Examine summary measures (centrality, variability, correlation) in the variables relevant to your question by printing out summary values / tables and making charts. Your charts should be appropriately chosen according to the data type and / or relationship you are searching for.
-3. Write a paragraph describing what you found. If you found an answer to your question, make sure you have included at least one chart (or a few charts if appropriate) that helps explain your answer. If this process did **not** lead to an answer your question, write about you might adjust your question or perhaps what other data you may need to address your question.
+1. If necessary, modify the `transit_cost` data frame to address your question. For example, you may need to create new variables (e.g. using `mutate()`), filter the data (e.g. if you're only interested in a single country, year, etc.), or you may want to rename some of the variables. For this task, you'll be relying on your data wrangling skills - if you're unfamiliar with how to do this, review [this data wrangling lesson](https://jhelvy.github.io/r4aPrimer/L4-data-wrangling.html), come to office hours, and ask questions on Slack - we're here to help!
+2. Examine summary measures (centrality, variability, correlation) in the variables relevant to your question by printing out summary values / tables and making charts. Your charts should be appropriately chosen according to the data type and / or relationship you are searching for. At this stage in the course, don't worry to much about how "pretty" your charts looks - we'll get better at polishing our charts throughout the class. Just make sure they are clear and the labels, etc. are legible.
+3. Write a paragraph describing what you found. If you found an answer to your question, make sure you have included at least one chart (or a few charts if appropriate) that helps explain your answer. If this process did **not** lead to an answer your question, write about how you might adjust your question or perhaps what other data you may need to address your question.
 
 ## 6. Knit and submit
 
