@@ -510,7 +510,7 @@ tribble(
 ## Summary of correlation
 
 .font120[
-- **Pearon's correlation**: Described the strength of a **linear** relationship between two variables that are interval or ratio in nature.
+- **Pearson's correlation**: Described the strength of a **linear** relationship between two variables that are interval or ratio in nature.
 - **Spearman's rank-order correlation**: Describes the strength of a **monotonic** relationship between two variables that are ordinal, interval, or ratio. **It is more robust to outliers**.
 - The **coefficient of determination** ( $r^2$ ) describes the amount of variance in one variable that is explained by the other variable.
 - **Correlation != Causation**
