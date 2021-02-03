@@ -26,14 +26,14 @@ output:
 Download and unzip [this template](templates/project_template.zip) for your project, then open the `project.Rproj` file. In the setup chunk in your `report.Rmd` file, read in the `transit_cost.csv` file - you can read it in directly from the web with this line of code:
 
 ```{r, eval=FALSE}
-transit_cost <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-01-05/transit_cost.csv')
+transit_cost <- read_csv('http://eda.seas.gwu.edu/2021-Spring/data/transit_cost.csv')
 ```
 
 **Note**: The template comes with some text and code explaining how to use it - you should delete this code and adjust the content in the YAML for your report.
 
 ## 2. Document the data
 
-Go to [this GitHub page](https://github.com/rfordatascience/tidytuesday/tree/master/data/2021/2021-01-05) and read about the data we'll be using (that's where we are reading the data in from). Identify and document in your `report.Rmd` file the original data source as well as the source from where you downloaded the data (note that the GitHub page is **not** the original data source - it is just a repository where someone else put the data).
+Go to [this GitHub page](https://github.com/rfordatascience/tidytuesday/tree/master/data/2021/2021-01-05) and read about the data we'll be using (that's where I got the data in from). Identify and document in your `report.Rmd` file the original data source as well as the source from where you downloaded the data (note that the GitHub page is **not** the original data source - it is just a repository where someone else put the data).
 
 **Format**: This can just be a single paragraph describing the data sources.
 
