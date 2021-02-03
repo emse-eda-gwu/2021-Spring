@@ -501,6 +501,17 @@ Data source: https://www.gapminder.org/data/
 
 ---
 
+Data file: transit_cost.csv
+
+Date downloaded: January 31, 2021
+
+Description: Data on transit project costs from more than 50 countries, totaling more than 11,000 km of urban rail built since the late 1990s. Original data are collected from the Transit Costs Project: https://transitcosts.com/
+
+Source of downloaded file: These are from the tidytuesday competition on 2021-01-05:
+https://github.com/rfordatascience/tidytuesday/tree/master/data/2021/2021-01-05
+
+---
+
 Data file: us_coffee_shops.csv
 
 Date downloaded: March 10, 2020
