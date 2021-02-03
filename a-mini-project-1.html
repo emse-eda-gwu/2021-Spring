@@ -184,6 +184,9 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+pre code {
+  padding: 0;
+}
 </style>
 
 
@@ -653,12 +656,12 @@ $(document).ready(function () {
 <div id="get-organized" class="section level2">
 <h2>1. Get organized</h2>
 <p>Download and unzip <a href="templates/project_template.zip">this template</a> for your project, then open the <code>project.Rproj</code> file. In the setup chunk in your <code>report.Rmd</code> file, read in the <code>transit_cost.csv</code> file - you can read it in directly from the web with this line of code:</p>
-<pre class="r"><code>transit_cost &lt;- read_csv(&#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-01-05/transit_cost.csv&#39;)</code></pre>
+<pre class="r"><code>transit_cost &lt;- read_csv(&#39;http://eda.seas.gwu.edu/2021-Spring/data/transit_cost.csv&#39;)</code></pre>
 <p><strong>Note</strong>: The template comes with some text and code explaining how to use it - you should delete this code and adjust the content in the YAML for your report.</p>
 </div>
 <div id="document-the-data" class="section level2">
 <h2>2. Document the data</h2>
-<p>Go to <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2021/2021-01-05">this GitHub page</a> and read about the data we’ll be using (that’s where we are reading the data in from). Identify and document in your <code>report.Rmd</code> file the original data source as well as the source from where you downloaded the data (note that the GitHub page is <strong>not</strong> the original data source - it is just a repository where someone else put the data).</p>
+<p>Go to <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2021/2021-01-05">this GitHub page</a> and read about the data we’ll be using (that’s where I got the data in from). Identify and document in your <code>report.Rmd</code> file the original data source as well as the source from where you downloaded the data (note that the GitHub page is <strong>not</strong> the original data source - it is just a repository where someone else put the data).</p>
 <p><strong>Format</strong>: This can just be a single paragraph describing the data sources.</p>
 </div>
 <div id="preview-the-data" class="section level2">
