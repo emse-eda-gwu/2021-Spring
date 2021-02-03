@@ -1,3 +1,6 @@
 3:
 - Drop lotr_words from first main practice (just use milk data)
 - Improve the last exercise of wildlife state vs operator
+
+4:
+- log-linear thing at the end was confusing, not enough time to discuss it in detail. Maybe just use a different one, or build from the penguins example so they can make a model and add the line to the chart

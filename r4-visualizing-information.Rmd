@@ -26,7 +26,9 @@ params:
     - Connect the course content to your own work
     - Discuss some of the key insights or things you found interesting in the readings
 
-3. **Submit Everything**: Knit your document to a html page, then create a zip file of everything in your R Project folder. Go to the "Assignment Submission" page on Blackboard and submit your zip file.
+3. **Optional Show and Tell**: If you've seen a particularly _good_ or _bad_ visualization that you'd like to share, add it to your reflection. You can insert it as an image, or just link to it. If there is time, I may choose some to use for a "show and tell" in class.
+
+4. **Submit Everything**: Knit your document to a html page, then create a zip file of everything in your R Project folder. Go to the "Assignment Submission" page on Blackboard and submit your zip file.
 
 ---
 
