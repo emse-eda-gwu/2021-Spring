@@ -1,0 +1,18 @@
+---
+title: ""
+output: html_document
+---
+
+```{r setup, include=FALSE, warning=FALSE, message=FALSE}
+library(emo)
+```
+
+# CONGRATULATIONS!!! `r emo::ji("tada")`
+
+You found the mystery bonus! As a reward for your discovery, you'll get an extra 3% on this assignment!
+
+**To get this credit, add this line at the bottom of your `report.Rmd` file:**
+
+```
+# Woohoo! I found the bonus!
+```
