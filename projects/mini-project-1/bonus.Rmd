@@ -11,7 +11,7 @@ library(emo)
 
 You found the mystery bonus! As a reward for your discovery, you'll get an extra 3% on this assignment!
 
-**To get this credit, add this line at the bottom of your `report.Rmd` file:**
+**To get this credit, at the bottom of your `report.Rmd` file include the scatterplot you made to get to this page, and add this line:**
 
 ```
 # Woohoo! I found the bonus!
