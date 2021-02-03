@@ -19,72 +19,72 @@ navbar:
     - text: "Class"
       icon: fas fa-laptop-code
       menu:
-        - text: "1: Getting Started"
+        - text: "Jan 13: Getting Started"
           href: c1-getting-started.html
-        - text: "2: No Class - Inauguration"
-        - text: "3: Centrality & Variability"
+        - text: "Jan 20: No Class - Inauguration"
+        - text: "Jan 27: Centrality & Variability"
           href: c3-centrality-variability.html
-        - text: "4: Correlation"
+        - text: "Feb 03: Correlation"
           href: c4-correlation.html
-        - text: "5: Visualizing Information"
+        - text: "Feb 10: Visualizing Information"
           href: c5-visualizing-information.html
-        - text: "6: Amounts & Proportions"
+        - text: "Feb 17: Amounts & Proportions"
           href: c6-amounts-proportions.html
-        - text: "7: Comparisons"
+        - text: "Feb 24: Comparisons"
           href: c7-comparisons.html
-        - text: "8: Trends"
+        - text: "Mar 03: Trends"
           href: c8-trends.html
-        - text: "9: Cleaning Data"
+        - text: "Mar 10: Cleaning Data"
           href: c9-cleaning-data.html
-        - text: "10: No Class - Spring Break"
-        - text: "11: Polishing Charts"
+        - text: "Mar 17: No Class - Spring Break"
+        - text: "Mar 24: Polishing Charts"
           href: c11-polishing-charts.html
-        - text: "12: Maps"
+        - text: "Mar 31: Maps"
           href: c12-maps.html
-        - text: "13: Interactive Charts"
+        - text: "Apr 07: Interactive Charts"
           href: c13-interactive-charts.html
-        - text: "14: Shiny Apps"
+        - text: "Apr 14: Shiny Apps"
           href: c14-shiny-apps.html
-        - text: "15: No Class - Team Meetings"
-        - text: "16: Communicating Results"
+        - text: "Apr 21: No Class - Team Meetings"
+        - text: "Apr 28: Communicating Results"
           href: c16-communicating-results.html
     - text: "Readings"
       icon: fas fa-book-reader
       menu:
-        - text: "1: Centrality & Variability"
+        - text: "Jan 13: Centrality & Variability"
           href: r1-centrality-variability.html
-        - text: "3: Correlation"
+        - text: "Jan 27: Correlation"
           href: r3-correlation.html
-        - text: "4: Visualizing Information"
+        - text: "Feb 03: Visualizing Information"
           href: r4-visualizing-information.html
-        - text: "5: Amounts & Proportions"
+        - text: "Feb 10: Amounts & Proportions"
           href: r5-amounts-proportions.html
-        - text: "6: Comparisons"
+        - text: "Feb 17: Comparisons"
           href: r6-comparisons.html
-        - text: "7: Trends"
+        - text: "Feb 24: Trends"
           href: r7-trends.html
-        - text: "8: Cleaning Data"
+        - text: "Mar 03: Cleaning Data"
           href: r8-cleaning-data.html
-        - text: "9: Polishing Charts"
+        - text: "Mar 10: Polishing Charts"
           href: r9-polishing-charts.html
-        - text: "11: Maps"
+        - text: "Mar 24: Maps"
           href: r11-maps.html
-        - text: "12: Interactive Charts"
+        - text: "Mar 31: Interactive Charts"
           href: r12-interactive-charts.html
-        - text: "13: Shiny Apps"
+        - text: "Apr 07: Shiny Apps"
           href: r13-shiny-apps.html
-        - text: "14: Communicating Results"
+        - text: "Apr 14: Communicating Results"
           href: r14-communicating-results.html
     - text: "Projects"
       icon: fas fa-pencil-ruler
       menu:
         - text: "Course Prerequisites (optional)"
           href: a-course-prereqs.html
-        - text: "Mini Project 1"
+        - text: "Mini Project 1 (Due 02/16)"
           href: a-mini-project-1.html
-        - text: "Mini Project 2"
+        - text: "Mini Project 2 (Due 03/09)"
           href: a-mini-project-2.html
-        - text: "Mini Project 3"
+        - text: "Mini Project 3 (Due 03/30)"
           href: a-mini-project-3.html
         - text: "Final Project"
           href: a-project.html
