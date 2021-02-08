@@ -3,4 +3,5 @@
 - Improve the last exercise of wildlife state vs operator
 
 4:
-- log-linear thing at the end was confusing, not enough time to discuss it in detail. Maybe just use a different one, or build from the penguins example so they can make a model and add the line to the chart
+- Entire linear modeling part is unnecessary - we won't use it in exploring data, and there are too many unaddressed questions (e.g. error). Instead, drop this whole section and fill it in with a detailed discussion on bias in data.
+So first 2 classes on EDA are centrality, variability, and correlation + bias in data.
