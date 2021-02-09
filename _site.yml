@@ -51,29 +51,29 @@ navbar:
     - text: "Readings"
       icon: fas fa-book-reader
       menu:
-        - text: "Jan 13: Centrality & Variability"
+        - text: "Jan 13: Centrality & Variability (Due 01/26)"
           href: r1-centrality-variability.html
-        - text: "Jan 27: Correlation"
+        - text: "Jan 27: Correlation (Due 02/02)"
           href: r3-correlation.html
-        - text: "Feb 03: Visualizing Information"
+        - text: "Feb 03: Visualizing Information (Due 02/09)"
           href: r4-visualizing-information.html
-        - text: "Feb 10: Amounts & Proportions"
+        - text: "Feb 10: Amounts & Proportions (Due 02/16)"
           href: r5-amounts-proportions.html
-        - text: "Feb 17: Comparisons"
+        - text: "Feb 17: Comparisons (Due 02/23)"
           href: r6-comparisons.html
-        - text: "Feb 24: Trends"
+        - text: "Feb 24: Trends (Due 03/02)"
           href: r7-trends.html
-        - text: "Mar 03: Cleaning Data"
+        - text: "Mar 03: Cleaning Data (Due 03/09)"
           href: r8-cleaning-data.html
-        - text: "Mar 10: Polishing Charts"
+        - text: "Mar 10: Polishing Charts (Due 03/23)"
           href: r9-polishing-charts.html
-        - text: "Mar 24: Maps"
+        - text: "Mar 24: Maps (Due 01/26)"
           href: r11-maps.html
-        - text: "Mar 31: Interactive Charts"
+        - text: "Mar 31: Interactive Charts (Due 04/06)"
           href: r12-interactive-charts.html
-        - text: "Apr 07: Shiny Apps"
+        - text: "Apr 07: Shiny Apps (Due 04/13)"
           href: r13-shiny-apps.html
-        - text: "Apr 14: Communicating Results"
+        - text: "Apr 14: Communicating Results (Due 04/27)"
           href: r14-communicating-results.html
     - text: "Projects"
       icon: fas fa-pencil-ruler
