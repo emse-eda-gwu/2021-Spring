@@ -3,10 +3,54 @@ title: "Amounts & Proportions"
 output:
   html_document:
     number_sections: false
-    toc: no
+    toc: yes
+params:
+  due: "16 February, 11:59 pm"
+  purpose: 'learn some of the technical details of how to write code to create "good" information visualizations that follow the design principles we discussed last week. We will focus on graphing **amounts** and **proportions**.'
 ---
 
 ```{r child = "knitr_setup.Rmd"}
 ```
 
-Coming Soon!
+```{r child = "_rheader.Rmd"}
+```
+
+# Tasks
+
+1. **Read**: Open up a notebook (physical, digital...whatever you take notes in best), and **take notes** while you go through the readings below.
+
+2. **Optional Exercises**: You don't *have* to do these, but they can be really helpful for extra practice. This week, take a look at the DataCamp course ["Categorical Data in the Tidyverse"](https://learn.datacamp.com/courses/categorical-data-in-the-tidyverse). This will introduce how to work with and manipulate factors, which we'll be doing a lot of in class next week.
+
+3. **Reflection**: When you have completed all of the readings, download and edit [this template](https://eda.seas.gwu.edu/2021-Spring/templates/reflection5.zip) to write a  ~150 word reflection about on what you've read (be sure to edit the YAML at the top). That's fairly short - there are ~250 words on a typical double-spaced page in Microsoft Word (500 when single-spaced). You can do a lot of different things with this memo, for example:
+
+    - Discuss something you learned from the course content
+    - Write about the best or worst data visualization you saw recently
+    - Connect the course content to your own work
+    - Discuss some of the key insights or things you found interesting in the readings
+
+4. **Submit Everything**: Knit your document to a html page, then create a zip file of everything in your R Project folder. Go to the "Assignment Submission" page on Blackboard and submit your zip file.
+
+---
+
+# Readings
+
+The readings listed below are broken into two groups:
+
+1. Design principles
+2. Coding techniques to implement those principles
+
+## Design principles
+
+The design principles discussed in the following readings repeat many of the concepts we saw last week, except focused on the particular subset of charts for this week:
+
+- Wilke: [6 - Visualizing amounts](https://serialmentor.com/dataviz/visualizing-amounts.html)
+- Wilke: [10 - Visualizing proportions](https://serialmentor.com/dataviz/visualizing-proportions.html)
+- [Square pie chart beats out the rest in perception study](https://eagereyes.org/blog/2016/a-reanalysis-of-a-study-about-square-pie-charts-from-2009)
+- [When Are 100% Stacked Bar Graphs Useful?](https://www.perceptualedge.com/blog/?p=2239)
+
+## Coding techniques
+
+The readings below discuss two important components that we will run into a lot in making charts: factors & facets. Factors are categorical variables, but dealing with them in R can be somewhat messy. Fortunately, we have the [forcats](https://forcats.tidyverse.org/) package to help us tackle these! Facets, on the other hand, are rather straight forward to implement and offer a handy technique for creating charts when you have many different variables to consider at once:
+
+- R4DS: [15 - Factors](https://r4ds.had.co.nz/factors.html)
+- R4DS: [3.5 - Facets](https://r4ds.had.co.nz/data-visualisation.html#facets)
