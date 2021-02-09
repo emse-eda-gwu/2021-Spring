@@ -900,17 +900,23 @@ class: inverse, center
 
 ### We strongly prefer to interpret stimuli as regular, simple, and orderly
 
+--
+
 .cols3[
 <center>
 <img src="images/unsatisfying-pie.gif" width=500>
 </center>
 ]
 
+--
+
 .cols3[
 <center>
 <img src="images/unsatisfying-paper.gif" width=500>
 </center>
 ]
+
+--
 
 .cols3[
 <center>
@@ -1171,7 +1177,7 @@ class: middle
 
 .border[
 <center>
-<img src="figs/mtcarsScatter.png" width=800>
+<img src="figs/mtCarsScatter.png" width=800>
 </center>
 ]
 
@@ -1713,7 +1719,7 @@ class: center
 
 ---
 class: middle
-background-color: #FFFFFF
+background-color: #f8f8f8
 
 <center>
 <img src="images/pattern_fills3.png" width=600>

@@ -3,7 +3,7 @@ class: inverse, middle
 
 # Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
 
-## 1. The Human Visual-Memory System
+## 1. .orange[The Human Visual-Memory System]
 ## 2. The Psychology of Data Viz
 
 ## BREAK

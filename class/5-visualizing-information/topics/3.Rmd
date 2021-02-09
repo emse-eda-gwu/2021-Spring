@@ -8,5 +8,5 @@ class: inverse, middle
 
 ## BREAK
 
-## 3. 10 Data Viz Best Practices
+## 3. .orange[10 Data Viz Best Practices]
 ## 4. Making a (good) ggplot
