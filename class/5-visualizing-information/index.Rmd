@@ -99,7 +99,7 @@ class: inverse
 # Quiz 1
 
 ```{r, echo=FALSE}
-countdown(minutes = 5,
+countdown(minutes = 10,
           warn_when = 30,
           update_every = 1,
           bottom = 0,
@@ -108,8 +108,7 @@ countdown(minutes = 5,
 ```
 
 .leftcol[
-- ### Go to `#classroom` channel in Slack for link
-- ### Open up RStudio before you start - you'll probably want to use it.
+### Link is on the [schedule](https://eda.seas.gwu.edu/2021-Spring/schedule.html)
 ]
 
 .rightcol[
@@ -482,7 +481,7 @@ gapminder %>%
     filter(country != "Sri Lanka") %>%
     mutate(country = ifelse(country == "Korea, Rep.", "Korea", country)) %>%
     arrange(lifeExp) %>%
-    select(country, lifeExp) %>%
+    dplyr::select(country, lifeExp) %>%
     as.data.frame()
 ```
 ]
@@ -2279,7 +2278,7 @@ Use the `gapminder.csv` data to create the following plot, following these steps
 ]
 
 .rightcol65[
-```{r americasLifeExp, echo=FALSE, fig.width=10, fig.height=7}
+```{r americasLifeExp, echo=FALSE, fig.width=8, fig.height=7}
 gapminder %>%
   filter(year == 2007, continent == "Americas") %>%
   ggplot() +
@@ -2288,7 +2287,7 @@ gapminder %>%
   scale_x_continuous(expand = expansion(mult = c(0, 0.05))) +
   theme_minimal_vgrid(font_size = 18) +
   labs(
-    title = 'Life expectancy in American countries in 2007',
+    title = 'Life expectancy in 2007 for\nCountries in the Americas',
     x = 'Life expectancy (years)',
     y = 'Country')
 ```
