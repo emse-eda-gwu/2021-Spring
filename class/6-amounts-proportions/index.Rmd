@@ -70,7 +70,7 @@ meta() %>%
   )
 
 # Setup class-specific paths
-class <- "5-amounts-proportions"
+class <- "6-amounts-proportions"
 root <- paste0("https://eda.seas.gwu.edu/2021-Spring/class/", class, "/")
 path_slides <- file.path("class", class, "index.html")
 path_pdf <- paste0(root, class, ".pdf")
