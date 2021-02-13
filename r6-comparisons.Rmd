@@ -3,10 +3,51 @@ title: "Comparisons"
 output:
   html_document:
     number_sections: false
-    toc: no
+    toc: yes
+params:
+  due: "23 February, 11:59 pm"
+  purpose: 'The purpose of this assignment is to learn some of the technical details of how to create charts for **comparing values** to one another and / or to a benchmark.'
 ---
 
 ```{r child = "knitr_setup.Rmd"}
 ```
 
-Coming Soon!
+```{r child = "_rheader.Rmd"}
+```
+
+# Tasks
+
+1. **Read**: Open up a notebook (physical, digital...whatever you take notes in best), and **take notes** while you go through the readings below.
+
+2. **Reflection**: When you have completed all of the readings, download and edit [this template](https://eda.seas.gwu.edu/2021-Spring/templates/reflection6.zip) to write a ~150 word (or more) reflection about on what you've read (be sure to edit the YAML at the top). That's fairly short - there are ~250 words on a typical double-spaced page in Microsoft Word (500 when single-spaced). You can do a lot of different things with this memo, for example:
+
+    - Discuss something you learned from the course content
+    - Write about the best or worst data visualization you saw recently
+    - Connect the course content to your own work
+    - Discuss some of the key insights or things you found interesting in the readings
+
+3. **Make a Chart**: Once you've read through everything, add a code chunk in your reflection that creates one of the charts you saw in one of the readings. **Cite the source** of the chart. The goal is to try and reproduce the chart as closely as possible to how it looks in the reading, so it is perfectly fine to copy-paste code directly into your reflection. You may need to modify the figure dimensions in the chunk settings.
+
+4. **Submit Everything**: Knit your document to a html page, then create a zip file of everything in your R Project folder. Go to the "Assignment Submission" page on Blackboard and submit your zip file.
+
+---
+
+# Readings
+
+> "At the heart of quantitative reasoning is a single question: Compared to what?"
+>
+> -- Edward Tufte
+
+Most of the readings this week have code in them that illustrate how to create each chart type, and I encourage you to try and reproduce the examples provided in R yourself. You may also want to take a look at the [top 50 ggplots](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html), which contains examples with ggplot code to create 50 common visualizations.
+
+Plot types for comparing values:
+
+- [Slopes](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html#Slope%20Chart)
+- [Bullets](http://www.storytellingwithdata.com/blog/2017/5/25/the-bullet-graph)
+- [Dumbell plots](http://uc-r.github.io/cleveland-dot-plots)
+- Wilke: [7 - Visualizing distributions](https://serialmentor.com/dataviz/histograms-density-plots.html)
+- Wilke: [9 - Visualizing many distributions at once](https://serialmentor.com/dataviz/boxplots-violins.html)
+
+Optional reading:
+
+- [Dual-Scaled Axes in Graphs - Are They Ever the Best Solution?](http://www.perceptualedge.com/articles/visual_business_intelligence/dual-scaled_axes.pdf)

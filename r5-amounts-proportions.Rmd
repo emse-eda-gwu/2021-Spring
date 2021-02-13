@@ -21,7 +21,7 @@ params:
 
 2. **Optional Exercises**: You don't *have* to do these, but they can be really helpful for extra practice. This week, take a look at the DataCamp course ["Categorical Data in the Tidyverse"](https://learn.datacamp.com/courses/categorical-data-in-the-tidyverse). This will introduce how to work with and manipulate factors, which we'll be doing a lot of in class next week.
 
-3. **Reflection**: When you have completed all of the readings, download and edit [this template](https://eda.seas.gwu.edu/2021-Spring/templates/reflection5.zip) to write a  ~150 word reflection about on what you've read (be sure to edit the YAML at the top). That's fairly short - there are ~250 words on a typical double-spaced page in Microsoft Word (500 when single-spaced). You can do a lot of different things with this memo, for example:
+3. **Reflection**: When you have completed all of the readings, download and edit [this template](https://eda.seas.gwu.edu/2021-Spring/templates/reflection5.zip) to write a ~150 word (or more) reflection about on what you've read (be sure to edit the YAML at the top). That's fairly short - there are ~250 words on a typical double-spaced page in Microsoft Word (500 when single-spaced). You can do a lot of different things with this memo, for example:
 
     - Discuss something you learned from the course content
     - Write about the best or worst data visualization you saw recently
