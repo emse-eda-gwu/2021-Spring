@@ -11,7 +11,7 @@
 
 
 
-<title>Mini Project 2</title>
+<title>Mini Project 2: Redesign</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -721,12 +721,117 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Mini Project 2</h1>
+<h1 class="title toc-ignore">Mini Project 2: Redesign</h1>
 
 </div>
 
 
-<p>Coming Soon!</p>
+<blockquote>
+<p><strong>Due</strong>: 09 March, 11:59 pm</p>
+<p><strong>Weight</strong>: This assignment is worth 9% of your final grade.</p>
+<p><strong>Purpose</strong>: At some point in your career, you will likely be involved in creating or revising a summary chart of some data. When that happens, you will also likely be the most knowledge person in the room about what to do to design the chart(s) to effectively communicate the information in the data. This assignment is a practice run for that day.</p>
+<p><strong>Assessment</strong>: I will use <a href="projects/mini-project-2/rubric.html">this rubric</a> to grade your submissions.</p>
+</blockquote>
+<div id="background" class="section level2">
+<h2>Background</h2>
+<p>The American Wind Energy Association (<a href="https://www.awea.org/">AWEA</a>) is a national trade association that advocates for the wind power industry. They also publish data on wind power statistics in the U.S. The authors of <a href="https://howmuch.net/articles/wind-power-in-the-united-states-2018">this article</a> at howmuch.net got a hold of some of this data and published this unfortunate chart:</p>
+<center>
+<br> <img src="projects/mini-project-2/us-wind-power.jpg" width="700">
+</center>
+<p><br></p>
+<p>For this assignment, you will use the <strong>ggplot2</strong> library in R to redesign the above chart. In this redesign, we are interested in exploring this question: <strong>Which states are leaders in wind energy?</strong> The answer depends on what you consider a “leader” to be. For example, the authors of the above chart clearly viewed the installed capacity as the most important metric to highlight. But this chart also contains lots of other data, such as the amount of money each state invested and the number of homes powered by wind in each state. Some states may be leading in other ways, such as the capacity built per dollar of investment.</p>
+<p>With that in mind, here’s what you need to do for this analysis:</p>
+</div>
+<div id="get-organized" class="section level2">
+<h2>1. Get organized</h2>
+<p>Download and unzip <a href="templates/project_template.zip">this template</a> for your project, then open the <code>project.Rproj</code> file. The template comes with some text and code explaining how to use it - delete this code adjust the content in the YAML for your report.</p>
+<p>Use <a href="projects/mini-project-2/US_State_Wind_Energy_Facts_2018.xlsx">this link</a> to download the <code>US_State_Wind_Energy_Facts_2018.xlsx</code> file and put it in your <code>data_raw</code> folder. Here is some information on the data:</p>
+<p><strong>Description</strong>: Data on which US states produce the most wind energy.</p>
+<p><strong>Source of downloaded file</strong>: The formatted Excel spreadsheet was downloaded from data.world: <a href="https://data.world/makeovermonday/2019w8" class="uri">https://data.world/makeovermonday/2019w8</a></p>
+<p><strong>Original source</strong>: The primary source is the American Wind Energy Association (<a href="https://www.awea.org/" class="uri">https://www.awea.org/</a>), but the source for this particular data was found on this article, which cites the AWEA: <a href="https://www.chooseenergy.com/news/article/best-worst-ranked-states-wind-power/" class="uri">https://www.chooseenergy.com/news/article/best-worst-ranked-states-wind-power/</a></p>
+<p><strong>Data dictionary</strong>:</p>
+<div style="width:600px">
+<table>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Ranking</code></td>
+<td>Rank order of state by installed capacity</td>
+</tr>
+<tr class="even">
+<td><code>State</code></td>
+<td>U.S. state</td>
+</tr>
+<tr class="odd">
+<td><code>Installed Capacity (MW)</code></td>
+<td>Installed capacity in MW</td>
+</tr>
+<tr class="even">
+<td><code>Equivalent Homes Powered</code></td>
+<td>Number of homes powered by wind power</td>
+</tr>
+<tr class="odd">
+<td><code>Total Investment ($ Millions)</code></td>
+<td>Total Investment in $ millions</td>
+</tr>
+<tr class="even">
+<td><code>Wind Projects Online</code></td>
+<td>Number of projects currently online</td>
+</tr>
+<tr class="odd">
+<td><code># of Wind Turbines</code></td>
+<td>Number of wind turbines in state</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="preview-the-data" class="section level2">
+<h2>2. Preview the data</h2>
+<p>In the setup chunk in your <code>report.Rmd</code> file, write code to read in the excel sheet, then write code to preview the data, e.g. using <code>head()</code>, <code>glimpse()</code>, <code>View()</code>, and / or make some quick plots (<strong>Hint</strong>: look at the top and bottom!). Take note of what variables are available, their types, what they measure, and if there are any missing values. (<strong>Hint</strong>: Read the data dictionary!) Are all the variables encoded the way you would expect (e.g. are numbers encoded as numbers?)</p>
+</div>
+<div id="clean-the-data" class="section level2">
+<h2>3. Clean the data</h2>
+<p>Write code to modify variable types and names to get your data frame cleaned up for analysis. As you do so, I recommend that you modify some of the column names (especially those with spaces in them) to make your analysis easier. <strong>Hint</strong>: The <code>rename()</code> function will come in handy - here’s how you use it:</p>
+<pre class="r"><code>dataFrame %&gt;%
+    rename(
+        new_name1 = old_name1,
+        new_name2 = old_name2,
+        new_name3 = old_name3)</code></pre>
+<p>Write a few sentences describing any modifications you made to the original data and why you did it.</p>
+</div>
+<div id="summarize-the-data" class="section level2">
+<h2>4. Summarize the data</h2>
+<p>Examine measures of centrality and variability in the important variables relevant to our research question. Remember that we’re interested in the states that are “leaders” in wind energy. While installed capacity is an obvious choice to look at, you should also look at summaries of other values, such as the amount of money invested, and <strong>at least two</strong> other computed measures, such as the capacity per dollar invested (<strong>Note</strong>: you’ll need to create new variables to do this!). Write a few sentences explaining your summary measures and what you learned from them.</p>
+</div>
+<div id="visualize-the-data" class="section level2">
+<h2>5. Visualize the data</h2>
+<ol style="list-style-type: decimal">
+<li><p>Create an appropriate visualization that highlights leadership in <em>installed capacity</em>. This chart should be a substantial improvement over the original visualization, and it should follow the design principles we have covered in class.</p></li>
+<li><p>Create a second visualization that highlights “leadership” in another metric of your choice. This could be one of the existing variables or a variable you computed. Your chart and design choices should highlight the metric you chose and should have a clear message to convey. Again, this chart should follow the design principles we have covered in class.</p></li>
+</ol>
+</div>
+<div id="summarize-your-analysis" class="section level2">
+<h2>6. Summarize your analysis</h2>
+<p>Write a summary of your analysis process. I’m specifically looking for a discussion of the following:</p>
+<ul>
+<li>What was wrong with the original chart? Discuss specific design principles we have covered in class.</li>
+<li>Discuss the improvements your first revised chart makes compared to the original chart.</li>
+<li>Discuss what message your second chart conveys and what design choices you made to highlight that message.</li>
+</ul>
+</div>
+<div id="knit-and-submit" class="section level2">
+<h2>7. Knit and submit</h2>
+<p>Click the “knit” button to compile your <code>.Rmd</code> file into a html web page, then create a zip file of everything in your R Project folder. Go to the “Assignment Submission” page on Blackboard and submit your zip file under “Mini Project 2”.</p>
+<hr />
+<p><strong>Page sources</strong>:</p>
+<p>This assignment is inspired by the assignment <a href="https://datavizf17.classes.andrewheiss.com/assignment/01-redesign/">“Redesign 1”</a> in Andrew Heiss’s course <a href="https://datavizf17.classes.andrewheiss.com/">MPA 635: Data Visualization</a>.</p>
+</div>
 
 
 <hr>
