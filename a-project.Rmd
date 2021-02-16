@@ -32,7 +32,7 @@ Item            | Weight towards<br>final grade | Due Date<br>(by 11:59pm)
 Proposal        | 10 %  | March 12
 Progress Report | 10 %  | April 16
 Final Report    | 15 %  | April 30
-Presentation    | 10 %  | May 03
+Presentation    | 10 %  | May 04
 Interview       | 10 %  | Exam week
 </div>
 
@@ -180,7 +180,7 @@ Your final report should be a fully reproducible product and available online as
 
 # Presentation
 
-**Due**: Slides due by May 03 by 11:59pm; presentations will be in class on May 04.
+**Due**: Link to video recording due by May 04 by 11:59pm. We will watch all the videos live in class on May 05.
 
 **Weight**: This assignment is worth 10% of your final grade: 5% for your slides & slide design, and 5% for effectively presenting them in class.
 
