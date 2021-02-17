@@ -1,6 +1,7 @@
 library(tidyverse)
 library(here)
 library(cowplot)
+library(waffle)
 
 avengers         <- read_csv(here('data', 'avengers.csv'))
 bears            <- read_csv(here('data', 'north_america_bear_killings.csv'))
@@ -298,6 +299,26 @@ milk_compare_bars_dodged <- milk_production %>%
        fill = 'State',
        title = '1970 & 2017 Milk Production by State')
 
+# Format the data
+milk_waffle_2017 <- milk_production %>%
+  filter(year == 2017) %>%
+  mutate(state = fct_other(state,
+    keep = c('California', 'Wisconsin'))) %>%
+  group_by(state) %>%
+  summarise(milk_produced = sum(milk_produced)) %>%
+  mutate(milk_produced = milk_produced / 10^9) %>%
+  ggplot() +
+  geom_waffle( #<<
+    aes(fill = state, values = milk_produced), #<<
+    color = "white", size = 1, n_rows = 15) + #<<
+  scale_x_discrete(expand = c(0, 0)) +
+  scale_y_discrete(expand = c(0, 0)) +
+  theme_minimal() +
+  labs(fill = 'State',
+       x = NULL, y = NULL,
+       title = '2017 Milk Production by State',
+       subtitle = '(1 square = 1 billion lbs)')
+
 ggsave(here('figs', 'milk_bars.png'),
        milk_bars, width = 6, height = 5)
 ggsave(here('figs', 'milk_dots.png'),
@@ -316,7 +337,8 @@ ggsave(here('figs', 'milk_compare_bars_stacked.png'),
        milk_compare_bars_stacked, width = 7, height = 3.5)
 ggsave(here('figs', 'milk_compare_bars_dodged.png'),
        milk_compare_bars_dodged, width = 7, height = 4)
-
+ggsave(here('figs', 'milk_waffle_2017.png'),
+       milk_waffle_2017, width = 5, height = 4)
 
 # lotr_words -----------------------------------------------------------
 
