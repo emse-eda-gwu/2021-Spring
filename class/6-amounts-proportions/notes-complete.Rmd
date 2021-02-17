@@ -1,8 +1,8 @@
 ---
 title: "Amounts & Proportions"
 subtitle: "EMSE 4575: Exploratory Data Analysis"
-date: February 10, 2021
-week: 5
+date: February 17, 2021
+week: 6
 output: html_document
 ---
 
@@ -93,10 +93,11 @@ bears %>%
     month = as.factor(month),
     is_aug = ifelse(month == "8", TRUE, FALSE)) %>%
   ggplot() +
-  geom_col(aes(x = month,
-               y = n,
-               fill = is_aug),
-           width = 0.7) +
+  geom_col(
+    aes(x = month, 
+        y = n,
+        fill = is_aug),
+    width = 0.7) +
   scale_y_continuous(
     expand = expansion(mult = c(0, 0.05)),
     limits = c(0, 30)) +
@@ -118,8 +119,9 @@ milk_production %>%
     milk_produced = milk_produced / 10^9,
     state = fct_reorder(state, milk_produced)) %>%
   ggplot() +
-  geom_point(aes(x = milk_produced, y = state),
-             size = 2.5, color = 'steelblue') +
+  geom_point(
+    aes(x = milk_produced, y = state),
+    size = 2.5, color = 'steelblue') +
   theme_minimal_vgrid() +
   labs(x = 'Milk produced (billions lbs)',
        y = 'State',
@@ -149,16 +151,18 @@ wildlife_summary
 
 Stacked bars:
 
-```{r wildlife_bars_stacked, fig.width=4, fig.height=5}
+```{r wildlife_bars_stacked, fig.width=6, fig.height=3}
 ggplot(wildlife_summary) +
-  geom_col(aes(x = "", y = n, fill = time_of_day),
-           width = 0.7, alpha = 0.8) +
-  scale_y_continuous(
+  geom_col(
+    aes(x = n, y = "", fill = reorder(time_of_day, n)),
+    width = 0.7, alpha = 0.8) +
+  scale_x_continuous(
     expand = expansion(mult = c(0, 0.05))) +
   theme_minimal_hgrid() +
-  labs(x = NULL,
-       y = 'Number of incidents',
-       fill = 'Time of day')
+  labs(
+    x = NULL,
+    y = 'Number of incidents',
+    fill = 'Time of day')
 ```
 
 Dodged bars:
@@ -166,52 +170,65 @@ Dodged bars:
 ```{r wildlife_bars_dodged, fig.width=5, fig.height=3}
 wildlife_summary %>%
   ggplot() +
-  geom_col(aes(x = n, y = reorder(time_of_day, n)),
-           width = 0.7, alpha = 0.8) +
+  geom_col(
+    aes(x = n, y = reorder(time_of_day, n)),
+    width = 0.7, alpha = 0.8) +
   scale_x_continuous(
     expand = expansion(mult = c(0, 0.05))) +
   theme_minimal_vgrid() +
-  labs(x = 'Time of day',
-       y = 'Number of incidents',
-       fill = 'Time of day')
+  labs(
+    x = 'Time of day',
+    y = 'Number of incidents',
+    fill = 'Time of day')
 ```
 
 Pie chart:
 
 ```{r wildlife_pie, fig.width=5, fig.height=3}
 wildlife_summary %>%
-  arrange(desc(time_of_day)) %>%
-  mutate(p = 100*(n / sum(n)),
-         label = str_c(round(p), '%')) %>%
+  arrange(desc(n)) %>%
+  mutate(
+    # Reorder the time_of_day factors before computing the labels
+    time_of_day = fct_reorder(time_of_day, n), 
+    p = 100*(n / sum(n)),
+    label = paste(round(p), '%')) %>%
   ggplot() +
-  geom_col(aes(x = "", y = n, fill = time_of_day),
-           width = 0.7, alpha = 0.8) +
+  geom_col(
+    aes(x = "", y = n, fill = time_of_day),
+    width = 0.7, alpha = 0.8) +
   coord_polar(theta = "y") +
-  geom_text(aes(x = 1.2, y = n, label = label),
-            color = "black", size = 4,
-            position = position_stack(vjust = 0.5)) +
+  geom_text(
+    aes(x = 1.2, y = n, label = label),
+    color = "black", size = 4,
+    position = position_stack(vjust = 0.5)) +
   theme_map() +
-  labs(x = NULL,
-       y = 'Number of incidents',
-       fill = 'Time of day')
+  labs(
+    x = NULL,
+    y = 'Number of incidents',
+    fill = 'Time of day')
 ```
 
 Waffle chart:
 
-```{r wildlife_waffle, fig.height=5, fig.width=3}
+```{r wildlife_waffle, fig.height=5, fig.width=3.5}
 # Divide the number of incidents by 100
 wildlife_summary %>%
   mutate(n = n / 100) %>%
+  # geom_waffle() ignores factor levels and arranges the squares
+  # based on the way the data frame is sorted
+  arrange(desc(n)) %>% 
   ggplot() +
-  geom_waffle(aes(fill = time_of_day, values = n),
-              color = "white", size = 1, n_rows = 15,
-              flip = TRUE) +
+  geom_waffle(
+    aes(fill = time_of_day, values = n),
+    color = "white", size = 1, n_rows = 15,
+    flip = TRUE) +
   scale_x_discrete(expand = c(0, 0)) +
   scale_y_discrete(expand = c(0, 0)) +
   theme_minimal() +
-  labs(fill = 'Time of day',
-       x = NULL,
-       y = NULL,
-       title = str_c('Wildlife impact incidents by time of day\n',
-                     '(1 square = 100 incidents)'))
+  labs(
+    fill = 'Time of day',
+    x = NULL,
+    y = NULL,
+    title = 'Wildlife impact incidents by time of day',
+    subtitle = '(1 square = 100 incidents)')
 ```

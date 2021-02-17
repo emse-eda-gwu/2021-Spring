@@ -1,8 +1,8 @@
 ---
 title: "Amounts & Proportions"
 subtitle: "EMSE 4575: Exploratory Data Analysis"
-date: February 10, 2021
-week: 5
+date: February 17, 2021
+week: 6
 output: html_document
 ---
 
@@ -89,7 +89,7 @@ wildlife_summary
 
 Stacked bars:
 
-```{r wildlife_bars_stacked, fig.width=4, fig.height=5}
+```{r wildlife_bars_stacked, fig.width=6, fig.height=3}
 # Write code here
 ```
 
@@ -107,6 +107,6 @@ Pie chart:
 
 Waffle chart:
 
-```{r wildlife_waffle, fig.height=5, fig.width=3}
+```{r wildlife_waffle, fig.height=5, fig.width=3.5}
 # Write code here
 ```
