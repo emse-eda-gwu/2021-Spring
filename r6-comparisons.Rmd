@@ -42,9 +42,9 @@ Most of the readings this week have code in them that illustrate how to create e
 
 Plot types for comparing values:
 
-- [Slopes](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html#Slope%20Chart)
-- [Bullets](http://www.storytellingwithdata.com/blog/2017/5/25/the-bullet-graph)
-- [Dumbell plots](http://uc-r.github.io/cleveland-dot-plots)
+- [Slope charts](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html#Slope%20Chart)
+- [Bullet charts](https://themockup.blog/posts/2020-11-29-bullet-chart-variants-in-r/)
+- [Dumbell charts](http://uc-r.github.io/cleveland-dot-plots)
 - Wilke: [7 - Visualizing distributions](https://serialmentor.com/dataviz/histograms-density-plots.html)
 - Wilke: [9 - Visualizing many distributions at once](https://serialmentor.com/dataviz/boxplots-violins.html)
 
