@@ -8,3 +8,4 @@ So first 2 classes on EDA are centrality, variability, and correlation + bias in
 
 6:
 - switch reading on "facets" to the next week (I moved it out of "amounts" and put in in "comparisons")
+- consider dropping waffles if geom_waffle() still not working

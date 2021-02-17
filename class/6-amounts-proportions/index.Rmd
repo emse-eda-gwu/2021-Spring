@@ -1060,25 +1060,25 @@ class: center, middle
 
 .cols3[
 <center>
-<img src="images/dots.png" width=160>
+<img src="images/pie.png" width=160>
 <center>
 
 ## Pie charts
 
 <center>
-<img src="figs/federal_spending_dots.png">
+<img src="figs/milk_2017_pie-1.png" width=300>
 <center>
 ]
 
 .cols3[
 <center>
-<img src="images/lollipop_rotated.png" width=330>
+<img src="images/waffles.png" width=180>
 <center>
 
 ## Waffle charts
 
 <center>
-<img src="figs/federal_spending_lollipop.png">
+<img src="figs/milk_waffle_2017.png" width=300>
 <center>
 ]
 
