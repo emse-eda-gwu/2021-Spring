@@ -20,7 +20,8 @@ rubric <- read_csv("rubric.csv") %>%
   spread(key = rating, value = description) %>%
   select(-category) %>% 
   rename(Category = label) %>% 
-  arrange(order)
+  arrange(order) %>% 
+  select(-order)
 ```
 
 ### Rubric: Mini Project 1

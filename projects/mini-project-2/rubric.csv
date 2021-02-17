@@ -1,19 +1,19 @@
-category,label,rating,maxPoints,points,description
-organization,Organization & Formatting,Excellent,5,5,"Data placed in correct folder, read in, and variables have been renamed for ease of use in analysis. "
-organization,Organization & Formatting,Good,5,4,Data not placed in correct folder OR variables were not renamed.
-organization,Organization & Formatting,Needs work,5,3,"Data not placed in correct folder AND variables were not renamed, or not properly read into R."
-dataSummary,Data Summary,Excellent,10,10 / 9,Measures of centrality and variability in appropriate variables are computed; at leaset two new useful measures are computed.
-dataSummary,Data Summary,Good,10,8 / 7 / 6,Measures of centrality and variability in appropriate variables are computed; only one new useful measure computed.
-dataSummary,Data Summary,Needs work,10,5 / 4 / 3,Measures of centrality and variability missing; failed to compute new measures.
-viz1,Data Visualization 1,Excellent,10,10 / 9,Charts expertly demonstrates best practices of visual design and highlights leadership in installed capacity.
-viz1,Data Visualization 1,Good,10,8 / 7 / 6,Charts generally demonstrates best practices of visual design and highlights leadership in installed capacity; some elements might be confusing.
-viz1,Data Visualization 1,Needs work,10,5 / 4 / 3,"Chart generally lacks best practices of visual design; elements are confusing, does not highlight leadership in capacity. "
-viz2,Data Visualization 2,Excellent,10,10 / 9,Charts expertly demonstrates best practices of visual design and conveys a clear message.
-viz2,Data Visualization 2,Good,10,8 / 7 / 6,Charts generally demonstrates best practices of visual design and conveys a reasonably clear message; some elements might be confusing.
-viz2,Data Visualization 2,Needs work,10,5 / 4 / 3,"Chart generally lacks best practices of visual design; elements are confusing, does not highlight a clear message."
-description,Analysis Description,Excellent,5,5,Informative description of flaws in the original chart & their improvements; clear description of revised chart key message.
-description,Analysis Description,Good,5,4,Description of one or two of design flaws in original chart & improvements made; accurate but incomplete description of key message in revised charts.
-description,Analysis Description,Needs work,5,3,Poor description of design flaws in the original chart & improvements made; poor or missing description of key message of revised charts
-technical,Technical things,Excellent,5,5,All code runs without errors; all files included in the submitted .zip file.
-technical,Technical things,Good,5,4,"Code has only one or two error, otherwise runs; all files included in the submitted .zip file."
-technical,Technical things,Needs work,5,3,Code has multiple errors; submitted .zip file is missing components necessary to reproduce analysis.
+order,category,label,rating,maxPoints,points,description
+1,organization,Organization & Formatting,Excellent,5,5,"Data placed in correct folder, read in, and variables have been renamed for ease of use in analysis. "
+1,organization,Organization & Formatting,Good,5,4,Data not placed in correct folder OR variables were not renamed.
+1,organization,Organization & Formatting,Needs work,5,3,"Data not placed in correct folder AND variables were not renamed, or not properly read into R."
+2,dataSummary,Data Summary,Excellent,10,10 / 9,Measures of centrality and variability in appropriate variables are computed; at leaset two new useful measures are computed.
+2,dataSummary,Data Summary,Good,10,8 / 7 / 6,Measures of centrality and variability in appropriate variables are computed; only one new useful measure computed.
+2,dataSummary,Data Summary,Needs work,10,5 / 4 / 3,Measures of centrality and variability missing; failed to compute new measures.
+3,viz1,Data Visualization 1,Excellent,10,10 / 9,Charts expertly demonstrates best practices of visual design and highlights leadership in installed capacity.
+3,viz1,Data Visualization 1,Good,10,8 / 7 / 6,Charts generally demonstrates best practices of visual design and highlights leadership in installed capacity; some elements might be confusing.
+3,viz1,Data Visualization 1,Needs work,10,5 / 4 / 3,"Chart generally lacks best practices of visual design; elements are confusing, does not highlight leadership in capacity. "
+4,viz2,Data Visualization 2,Excellent,10,10 / 9,Charts expertly demonstrates best practices of visual design and conveys a clear message.
+4,viz2,Data Visualization 2,Good,10,8 / 7 / 6,Charts generally demonstrates best practices of visual design and conveys a reasonably clear message; some elements might be confusing.
+4,viz2,Data Visualization 2,Needs work,10,5 / 4 / 3,"Chart generally lacks best practices of visual design; elements are confusing, does not highlight a clear message."
+5,description,Analysis Description,Excellent,5,5,Informative description of flaws in the original chart & their improvements; clear description of revised chart key message.
+5,description,Analysis Description,Good,5,4,Description of one or two of design flaws in original chart & improvements made; accurate but incomplete description of key message in revised charts.
+5,description,Analysis Description,Needs work,5,3,Poor description of design flaws in the original chart & improvements made; poor or missing description of key message of revised charts
+6,technical,Technical things,Excellent,5,5,All code runs without errors; all files included in the submitted .zip file.
+6,technical,Technical things,Good,5,4,"Code has only one or two error, otherwise runs; all files included in the submitted .zip file."
+6,technical,Technical things,Needs work,5,3,Code has multiple errors; submitted .zip file is missing components necessary to reproduce analysis.
