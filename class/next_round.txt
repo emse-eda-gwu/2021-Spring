@@ -5,3 +5,6 @@
 4:
 - Entire linear modeling part is unnecessary - we won't use it in exploring data, and there are too many unaddressed questions (e.g. error). Instead, drop this whole section and fill it in with a detailed discussion on bias in data.
 So first 2 classes on EDA are centrality, variability, and correlation + bias in data.
+
+6:
+- switch reading on "facets" to the next week (I moved it out of "amounts" and put in in "comparisons")
