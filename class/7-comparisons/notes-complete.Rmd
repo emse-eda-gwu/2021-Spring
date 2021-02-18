@@ -1,0 +1,195 @@
+---
+title: "Comparisons"
+subtitle: "EMSE 4575: Exploratory Data Analysis"
+date: February 24, 2021
+week: 7
+output: html_document
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(here)
+knitr::opts_chunk$set(
+    warning = FALSE,
+    message = FALSE,
+    fig.path = "figs/",
+    fig.width = 7.252,
+    fig.height = 4,
+    comment = "#>",
+    fig.retina = 3
+)
+
+# Read in the data
+college_all_ages <- read_csv(here('data', 'college_all_ages.csv'))
+federal_spending <- read_csv(here('data', 'fed_spend_long.csv'))
+gapminder        <- read_csv(here('data', 'gapminder.csv'))
+marathon         <- read_csv(here('data', 'marathon.csv'))
+milk_production  <- read_csv(here('data', 'milk_production.csv'))
+lotr_words  <- read_csv(here('data', 'lotr_words.csv'))
+wildlife_impacts  <- read_csv(here('data', 'wildlife_impacts.csv'))
+```
+
+
+### Your turn - reference lines
+
+Use the `milk_production.csv` data to create the following charts showing differences from the mean state milk production in 2017.
+
+```{r}
+milk_summary <- milk_production %>%
+  filter(year == 2017) %>%
+  mutate(
+    milk_produced = milk_produced / 10^9,
+    state = fct_reorder(state, milk_produced))
+```
+
+```{r milk-lollipop-mean, fig.height=6.3, fig.width=5, fig.align='center'}
+milk_summary <- milk_production %>%
+  filter(year == 2017) %>%
+  mutate(
+    milk_produced = milk_produced / 10^9,
+    state = fct_reorder(state, milk_produced))
+
+ggplot(milk_summary) +
+  geom_point(aes(x = milk_produced, y = state),
+             size = 2.5, color = 'steelblue') +
+  geom_vline(xintercept = mean(milk_summary$milk_produced),
+             color = 'red', linetype = 'dashed') +
+  annotate('text', x = 5, y = 'Georgia',
+           color = 'red', hjust = 0,
+           label = 'Mean\nProduction') +
+  theme_minimal_vgrid() +
+  labs(x = 'Milk produced (billions lbs)',
+       y = 'State')
+```
+
+```{r milk-bars-diverging, fig.height=6.3, fig.width=5, fig.align='center'}
+milk_summary_diverging <- milk_summary %>%
+  mutate(
+    milk_produced = milk_produced - mean(milk_produced),
+    barColor = ifelse(milk_produced > 0, 'above', 'below'))
+
+ggplot(milk_summary_diverging) +
+  geom_col(aes(x = state, y = milk_produced,
+               fill = barColor), width = 0.7) +
+  scale_fill_manual(values = c('steelblue', 'sienna')) +
+  coord_flip() +
+  theme_minimal_vgrid() +
+  theme(legend.position = 'none') +
+  labs(x = 'State',
+       y = 'Difference from mean milk produced (billions lbs)')
+```
+
+
+
+## Your turn - comparing multiple categories
+
+Use the `federal_spending_long.csv` data to create the following charts.
+
+.leftcol[
+```{r, echo=FALSE}
+federal_spending_summary <- federal_spending %>%
+    filter(year %in% c(1976, 2017)) %>%
+    mutate(
+      rd_budget_bil = rd_budget_mil / 10^3,
+      department = fct_reorder2(
+        department, year, desc(rd_budget_bil)), year = as.factor(year))
+```
+
+```{r federal-spending-dumbbell, fig.height=6, fig.width=6, fig.align='center'}
+ggplot(federal_spending_summary,
+       aes(x = rd_budget_bil, y = department)) +
+    geom_line(
+      aes(group = department),
+      color = 'lightblue', size = 1) +
+    geom_point(aes(color = year), size = 2.5) +
+    scale_color_manual(values = c('lightblue', 'steelblue')) +
+    theme_minimal_vgrid() +
+    # Remove y axis line
+    theme(axis.line.y = element_blank()) +
+    labs(x = 'R&D Budget (Billions $USD)',
+         y = 'Department',
+         color = 'Year',
+         title = 'Change in R&D budget of\nU.S. government departments (1976 - 2017)')
+```
+
+```{r federal-spending-slope, fig.height=6, fig.width=6, fig.align='center'}
+federal_spending %>%
+    filter(year %in% c(1976, 2017)) %>%
+    mutate(
+      rd_budget_bil = rd_budget_mil / 10^3,
+      department = fct_reorder2(department, year, desc(rd_budget_bil)),
+      year = as.factor(year),
+      label = paste(department, ' (',
+                    round(rd_budget_bil), ')'),
+      label_left = ifelse(year == 1976, label, NA),
+      label_right = ifelse(year == 2017, label, NA)) %>%
+    ggplot(aes(x = year, y = rd_budget_bil,
+           group = department)) +
+    geom_line(size = 1) +
+    # Add 1976 labels (left side)
+    geom_text_repel(
+      aes(label = label_left),
+      hjust = 1, nudge_x = -0.05,
+      direction = 'y', segment.color = 'grey') +
+    # Add 2007 labels (right side)
+    geom_text_repel(
+      aes(label = label_right),
+      hjust = 0, nudge_x = 0.05,
+      direction = 'y', segment.color = 'grey') +
+    # Move year labels to top
+    scale_x_discrete(position = 'top') +
+    # Annotate & adjust theme
+    theme_minimal_grid() +
+    theme(panel.grid  = element_blank(),
+          axis.text.y = element_blank(),
+          axis.ticks = element_blank(),
+          legend.position = 'none') +
+    labs(x = NULL,
+         y = 'R&D Budget (Billions $USD)',
+         title = 'Change in R&D budget of\nU.S. government departments (1976 - 2017)')
+```
+
+
+
+
+## Your turn - comparing distributions
+
+Use the `gapminder.csv` data to create the following charts comparing the distribution of life expectancy across countries in continents in 2007.
+
+```{r, echo=FALSE}
+gapminder_2007 <- gapminder %>%
+  filter(year == 2007) %>%
+  mutate(continent = fct_reorder(continent, lifeExp))
+```
+
+```{r gapminder-densities, fig.height=4.5, fig.width=6.5, fig.align='center'}
+ggplot(gapminder_2007) +
+  geom_density(
+    aes(x = lifeExp, y = ..count.., fill = continent),
+    alpha = 0.7) +
+  scale_y_continuous(
+    expand = expansion(mult = c(0, 0.05))) +
+  scale_fill_brewer(palette = 'Accent') +
+  theme_minimal_hgrid() +
+  labs(
+    x = 'Life expectancy (years)',
+    y = 'Count',
+    fill = 'Continent',
+    title = 'Distribution of life expectancy across\ncountries in continent in 2007')
+```
+
+```{r gapminder-ridges, fig.height=4.5, fig.width=6.5, fig.align='center'}
+gapminder_2007 %>%
+    filter(continent != 'Oceania') %>%
+    ggplot() +
+    geom_density_ridges(
+      aes(x = lifeExp, y = continent),
+      scale = 1.5, alpha = 0.7) +
+    scale_y_discrete(expand = c(0, 0)) +
+    scale_x_continuous(expand = c(0, 0)) +
+    coord_cartesian(clip = "off") +
+    theme_ridges() +
+    labs(x = 'Life expectancy (years)',
+         y = 'Continent',
+         title = 'Distribution of life expectancy across\ncountries in continent in 2007')
+```
