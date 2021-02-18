@@ -51,3 +51,5 @@ Plot types for comparing values:
 Optional reading:
 
 - [Dual-Scaled Axes in Graphs - Are They Ever the Best Solution?](http://www.perceptualedge.com/articles/visual_business_intelligence/dual-scaled_axes.pdf)
+
+P.S. Since nobody found the easter egg in [Mini Project 1](a-mini-project-1.html), anyone who finds it between now and class on 2/24 will get an extra 10% on Quiz 2 (if you find it, send me a message on Slack describing what you found and how you found it)
