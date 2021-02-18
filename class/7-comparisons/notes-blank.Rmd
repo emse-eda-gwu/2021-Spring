@@ -1,0 +1,96 @@
+---
+title: "Comparisons"
+subtitle: "EMSE 4575: Exploratory Data Analysis"
+date: February 24, 2021
+week: 7
+output: html_document
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(here)
+knitr::opts_chunk$set(
+    warning = FALSE,
+    message = FALSE,
+    fig.path = "figs/",
+    fig.width = 7.252,
+    fig.height = 4,
+    comment = "#>",
+    fig.retina = 3
+)
+
+# Read in the data
+college_all_ages <- read_csv(here('data', 'college_all_ages.csv'))
+federal_spending <- read_csv(here('data', 'fed_spend_long.csv'))
+gapminder        <- read_csv(here('data', 'gapminder.csv'))
+marathon         <- read_csv(here('data', 'marathon.csv'))
+milk_production  <- read_csv(here('data', 'milk_production.csv'))
+lotr_words  <- read_csv(here('data', 'lotr_words.csv'))
+wildlife_impacts  <- read_csv(here('data', 'wildlife_impacts.csv'))
+```
+
+
+
+### Your turn - reference lines
+
+Use the `milk_production.csv` data to create the following charts showing differences from the mean state milk production in 2017.
+
+```{r}
+milk_summary <- milk_production %>%
+  filter(year == 2017) %>%
+  mutate(
+    milk_produced = milk_produced / 10^9,
+    state = fct_reorder(state, milk_produced))
+```
+
+```{r milk-lollipop-mean, fig.height=6.3, fig.width=5, fig.align='center'}
+# Make the lollipop chart here
+```
+
+```{r milk-bars-diverging, fig.height=6.3, fig.width=5, fig.align='center'}
+# Make the diverging bars chart here
+```
+
+
+## Your turn - comparing multiple categories
+
+Use the `federal_spending_long.csv` data to create the following charts.
+
+.leftcol[
+```{r, echo=FALSE}
+federal_spending_summary <- federal_spending %>%
+    filter(year %in% c(1976, 2017)) %>%
+    mutate(
+      rd_budget_bil = rd_budget_mil / 10^3,
+      department = fct_reorder2(
+        department, year, desc(rd_budget_bil)), year = as.factor(year))
+```
+
+```{r federal-spending-dumbbell, fig.height=6, fig.width=6, fig.align='center'}
+# Make the dumbbel chart here
+```
+
+```{r federal-spending-slope, fig.height=6, fig.width=6, fig.align='center'}
+# Make the slope chart here
+```
+
+
+
+
+## Your turn - comparing distributions
+
+Use the `gapminder.csv` data to create the following charts comparing the distribution of life expectancy across countries in continents in 2007.
+
+```{r, echo=FALSE}
+gapminder_2007 <- gapminder %>%
+  filter(year == 2007) %>%
+  mutate(continent = fct_reorder(continent, lifeExp))
+```
+
+```{r gapminder-densities, fig.height=4.5, fig.width=6.5, fig.align='center'}
+# Make the densities chart here
+```
+
+```{r gapminder-ridges, fig.height=4.5, fig.width=6.5, fig.align='center'}
+# Make the ridgeline chart here
+```
