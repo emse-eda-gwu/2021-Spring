@@ -81,12 +81,9 @@ path_notes <- paste0(root, class, ".zip")
 # Read in data sets for class
 theme_set(theme_gray(base_size = 18))
 college_all_ages <- read_csv(here('data', 'college_all_ages.csv'))
-federal_spending <- read_csv(here('data', 'fed_spend_long.csv'))
 gapminder        <- read_csv(here('data', 'gapminder.csv'))
 marathon         <- read_csv(here('data', 'marathon.csv'))
 milk_production  <- read_csv(here('data', 'milk_production.csv'))
-lotr_words  <- read_csv(here('data', 'lotr_words.csv'))
-wildlife_impacts  <- read_csv(here('data', 'wildlife_impacts.csv'))
 internet_regions <- read_csv(here('data', 'internet_users_region.csv'))
 
 # Processed data
@@ -190,7 +187,6 @@ class: middle, inverse
 
 ```{r, eval=FALSE}
 college_all_ages <- read_csv(here('data', 'college_all_ages.csv'))
-federal_spending <- read_csv(here('data', 'federal_spending_long.csv'))
 gapminder        <- read_csv(here('data', 'gapminder.csv'))
 marathon         <- read_csv(here('data', 'marathon.csv'))
 milk_production  <- read_csv(here('data', 'milk_production.csv'))
