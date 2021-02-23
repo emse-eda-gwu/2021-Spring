@@ -7,8 +7,13 @@ output: html_document
 ---
 
 ```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+# install.packages("ggrepel")
+# install.packages("ggridges")
+library(ggrepel)
+library(ggridges)
 library(tidyverse)
 library(here)
+library(cowplot)
 knitr::opts_chunk$set(
     warning = FALSE,
     message = FALSE,
@@ -20,13 +25,9 @@ knitr::opts_chunk$set(
 )
 
 # Read in the data
-college_all_ages <- read_csv(here('data', 'college_all_ages.csv'))
-federal_spending <- read_csv(here('data', 'fed_spend_long.csv'))
 gapminder        <- read_csv(here('data', 'gapminder.csv'))
-marathon         <- read_csv(here('data', 'marathon.csv'))
 milk_production  <- read_csv(here('data', 'milk_production.csv'))
-lotr_words  <- read_csv(here('data', 'lotr_words.csv'))
-wildlife_impacts  <- read_csv(here('data', 'wildlife_impacts.csv'))
+internet_regions <- read_csv(here('data', 'internet_users_region.csv'))
 ```
 
 
@@ -42,96 +43,167 @@ milk_summary <- milk_production %>%
     state = fct_reorder(state, milk_produced))
 ```
 
-```{r milk-lollipop-mean, fig.height=6.3, fig.width=5, fig.align='center'}
-milk_summary <- milk_production %>%
+```{r milk-lollipop-mean, fig.height=8, fig.width=5.5, fig.align='center'}
+milk_production %>%
   filter(year == 2017) %>%
   mutate(
     milk_produced = milk_produced / 10^9,
-    state = fct_reorder(state, milk_produced))
-
-ggplot(milk_summary) +
-  geom_point(aes(x = milk_produced, y = state),
-             size = 2.5, color = 'steelblue') +
-  geom_vline(xintercept = mean(milk_summary$milk_produced),
-             color = 'red', linetype = 'dashed') +
-  annotate('text', x = 5, y = 'Georgia',
-           color = 'red', hjust = 0,
-           label = 'Mean\nProduction') +
+    state = fct_reorder(state, milk_produced)) %>%
+  ggplot() +
+  geom_point(
+    aes(x = milk_produced, y = state),
+    size = 2.5, color = 'steelblue') +
+  geom_vline(
+    xintercept = mean(milk_summary$milk_produced),
+    color = 'red', linetype = 'dashed') +
+  annotate(
+    'text', x = 5, y = 'Georgia',
+    color = 'red', hjust = 0,
+    label = 'Mean\nProduction') +
   theme_minimal_vgrid() +
   labs(x = 'Milk produced (billions lbs)',
        y = 'State')
 ```
 
-```{r milk-bars-diverging, fig.height=6.3, fig.width=5, fig.align='center'}
-milk_summary_diverging <- milk_summary %>%
+```{r milk-bars-diverging, fig.height=8, fig.width=6, fig.align='center'}
+milk_summary %>%
   mutate(
     milk_produced = milk_produced - mean(milk_produced),
-    barColor = ifelse(milk_produced > 0, 'above', 'below'))
-
-ggplot(milk_summary_diverging) +
-  geom_col(aes(x = state, y = milk_produced,
-               fill = barColor), width = 0.7) +
+    barColor = ifelse(milk_produced > 0, 'above', 'below')) %>%
+  ggplot() +
+  geom_col(
+    aes(x = milk_produced, y = state, fill = barColor),
+    width = 0.7) +
   scale_fill_manual(values = c('steelblue', 'sienna')) +
-  coord_flip() +
   theme_minimal_vgrid() +
   theme(legend.position = 'none') +
-  labs(x = 'State',
-       y = 'Difference from mean milk produced (billions lbs)')
+  labs(
+    x = 'Difference from mean milk produced (billions lbs)',
+    y = 'State')
 ```
 
 
 
 ## Your turn - comparing multiple categories
 
-Use the `federal_spending_long.csv` data to create the following charts.
+Using the `internet_regions` data frame, pick a strategy and create an improved version of this chart.
 
-.leftcol[
-```{r, echo=FALSE}
-federal_spending_summary <- federal_spending %>%
-    filter(year %in% c(1976, 2017)) %>%
-    mutate(
-      rd_budget_bil = rd_budget_mil / 10^3,
-      department = fct_reorder2(
-        department, year, desc(rd_budget_bil)), year = as.factor(year))
+Strategies:
+
+- Dodged bars
+- Facets
+- Bullet chart
+- Dumbell chart
+- Slope chart
+
+```{r internet-usage-bars, fig.height=6, fig.width=10, out.width="80%"}
+internet_regions_compare <- internet_regions %>%
+  filter(year %in% c(2000, 2015)) %>%
+  mutate(
+    numUsers = numUsers / 10^6,
+    year = as.factor(year))
+
+ggplot(internet_regions_compare) +
+  geom_col(
+    aes(x = year, y = numUsers, fill = region),
+    position = "dodge") +
+  labs(y = "Millions of internet users")
 ```
 
-```{r federal-spending-dumbbell, fig.height=6, fig.width=6, fig.align='center'}
-ggplot(federal_spending_summary,
-       aes(x = rd_budget_bil, y = department)) +
-    geom_line(
-      aes(group = department),
-      color = 'lightblue', size = 1) +
+```{r internet-usage-dodged, fig.height=6, fig.width=10, out.width="80%"}
+internet_regions_compare %>%
+  mutate(region = fct_reorder2(region, year, -numUsers)) %>%
+  ggplot() +
+  geom_col(
+    aes(x = numUsers, y = region, fill = year),
+    position = "dodge") +
+  theme_minimal_vgrid(font_size = 18) +
+  scale_x_continuous(
+    limits = c(0, 1200),
+    expand = expansion(mult = c(0, 0.05))) +
+  scale_fill_manual(values = c('grey', 'gold')) +
+  labs(y = "Millions of internet users")
+```
+
+```{r internet-usage-facets, fig.height=4, fig.width=14, out.width="80%"}
+internet_regions_compare %>%
+  mutate(
+    region = fct_recode(region,
+      "Middle East &\nNorth Africa" = "Middle East & North Africa",
+      "Latin America &\n Caribbean" = "Latin America & Caribbean",
+      "Europe &\n Central Asia" = "Europe & Central Asia"),
+    region = fct_reorder2(region, year, -numUsers)) %>%
+  ggplot() +
+  geom_col(
+    aes(x = year, y = numUsers, fill = year),
+    width = 0.6) +
+  facet_wrap(vars(region), nrow = 1) +
+  theme_minimal_hgrid(font_size = 18) +
+  theme(legend.position = "none") +
+  scale_y_continuous(
+    limits = c(0, 1200),
+    expand = expansion(mult = c(0, 0.05))) +
+  scale_fill_manual(values = c('grey', 'gold')) +
+  labs(y = "Millions of internet users")
+```
+
+```{r internet-usage-bullet, fig.height=6, fig.width=10, out.width="80%"}
+internet_regions_compare %>%
+  mutate(region = fct_reorder2(region, year, -numUsers)) %>%
+  spread(year, numUsers) %>%
+  ggplot() +
+  geom_col(
+    aes(x = `2000`, y = region, fill = "2000"),
+    width = 0.7) +
+  geom_col(
+    aes(x = `2015`, y = region, fill = "2015"),
+    width = 0.3) +
+  theme_minimal_vgrid(font_size = 18) +
+  scale_x_continuous(
+    limits = c(0, 1200),
+    expand = expansion(mult = c(0, 0.05))) +
+  scale_fill_manual(values = c('grey', 'black')) +
+  labs(y = "Millions of internet users",
+       fill = "Year")
+```
+
+```{r internet-usage-dumbbell, fig.height=6, fig.width=6, fig.align='center'}
+internet_regions_compare %>%
+  mutate(region = fct_reorder2(region, year, -numUsers)) %>%
+  ggplot(aes(x = numUsers, y = region)) +
+  geom_line(
+    aes(group = region),
+    color = 'lightblue', size = 1) +
     geom_point(aes(color = year), size = 2.5) +
     scale_color_manual(values = c('lightblue', 'steelblue')) +
+    scale_x_continuous(limits = c(0, 1200)) +
     theme_minimal_vgrid() +
     # Remove y axis line
     theme(axis.line.y = element_blank()) +
-    labs(x = 'R&D Budget (Billions $USD)',
-         y = 'Department',
+    labs(x = 'Millions of internet users',
+         y = 'Region',
          color = 'Year',
-         title = 'Change in R&D budget of\nU.S. government departments (1976 - 2017)')
+         title = 'Number of internet users by world region',
+         subtitle = "(2000 - 2015)")
 ```
 
-```{r federal-spending-slope, fig.height=6, fig.width=6, fig.align='center'}
-federal_spending %>%
-    filter(year %in% c(1976, 2017)) %>%
-    mutate(
-      rd_budget_bil = rd_budget_mil / 10^3,
-      department = fct_reorder2(department, year, desc(rd_budget_bil)),
-      year = as.factor(year),
-      label = paste(department, ' (',
-                    round(rd_budget_bil), ')'),
-      label_left = ifelse(year == 1976, label, NA),
-      label_right = ifelse(year == 2017, label, NA)) %>%
-    ggplot(aes(x = year, y = rd_budget_bil,
-           group = department)) +
-    geom_line(size = 1) +
-    # Add 1976 labels (left side)
+```{r internet-usage-slope, fig.height=7, fig.width=10, fig.align='center'}
+internet_regions_compare %>%
+  mutate(
+    region = fct_reorder2(region, year, -numUsers),
+    region_asia = ifelse(region == "East Asia & Pacific", "asia", "other"),
+    label = paste(region, ' (', round(numUsers), ')'),
+    label_left = ifelse(year == 2000, label, NA),
+    label_right = ifelse(year == 2015, label, NA)) %>%
+    ggplot(aes(x = year, y = numUsers,
+           group = region)) +
+    geom_line(aes(color = region_asia), size = 1)  +
+    # Add 2000 labels (left side)
     geom_text_repel(
       aes(label = label_left),
       hjust = 1, nudge_x = -0.05,
       direction = 'y', segment.color = 'grey') +
-    # Add 2007 labels (right side)
+    # Add 2015 labels (right side)
     geom_text_repel(
       aes(label = label_right),
       hjust = 0, nudge_x = 0.05,
@@ -139,14 +211,16 @@ federal_spending %>%
     # Move year labels to top
     scale_x_discrete(position = 'top') +
     # Annotate & adjust theme
+    scale_color_manual(values = c("red", "black")) +
     theme_minimal_grid() +
     theme(panel.grid  = element_blank(),
           axis.text.y = element_blank(),
           axis.ticks = element_blank(),
           legend.position = 'none') +
     labs(x = NULL,
-         y = 'R&D Budget (Billions $USD)',
-         title = 'Change in R&D budget of\nU.S. government departments (1976 - 2017)')
+         y = 'Millions of internet users',
+         title = 'Number of internet users by world region',
+         subtitle = "(2000 - 2015)")
 ```
 
 
@@ -156,7 +230,7 @@ federal_spending %>%
 
 Use the `gapminder.csv` data to create the following charts comparing the distribution of life expectancy across countries in continents in 2007.
 
-```{r, echo=FALSE}
+```{r}
 gapminder_2007 <- gapminder %>%
   filter(year == 2007) %>%
   mutate(continent = fct_reorder(continent, lifeExp))

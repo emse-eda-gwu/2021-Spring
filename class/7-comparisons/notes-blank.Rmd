@@ -7,8 +7,13 @@ output: html_document
 ---
 
 ```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+# install.packages("ggrepel")
+# install.packages("ggridges")
+library(ggrepel)
+library(ggridges)
 library(tidyverse)
 library(here)
+library(cowplot)
 knitr::opts_chunk$set(
     warning = FALSE,
     message = FALSE,
@@ -20,15 +25,10 @@ knitr::opts_chunk$set(
 )
 
 # Read in the data
-college_all_ages <- read_csv(here('data', 'college_all_ages.csv'))
-federal_spending <- read_csv(here('data', 'fed_spend_long.csv'))
 gapminder        <- read_csv(here('data', 'gapminder.csv'))
-marathon         <- read_csv(here('data', 'marathon.csv'))
 milk_production  <- read_csv(here('data', 'milk_production.csv'))
-lotr_words  <- read_csv(here('data', 'lotr_words.csv'))
-wildlife_impacts  <- read_csv(here('data', 'wildlife_impacts.csv'))
+internet_regions <- read_csv(here('data', 'internet_users_region.csv'))
 ```
-
 
 
 ### Your turn - reference lines
@@ -43,35 +43,60 @@ milk_summary <- milk_production %>%
     state = fct_reorder(state, milk_produced))
 ```
 
-```{r milk-lollipop-mean, fig.height=6.3, fig.width=5, fig.align='center'}
-# Make the lollipop chart here
+```{r milk-lollipop-mean, fig.height=8, fig.width=5.5, fig.align='center'}
+# Write code here
 ```
 
-```{r milk-bars-diverging, fig.height=6.3, fig.width=5, fig.align='center'}
-# Make the diverging bars chart here
+```{r milk-bars-diverging, fig.height=8, fig.width=6, fig.align='center'}
+# Write code here
 ```
+
 
 
 ## Your turn - comparing multiple categories
 
-Use the `federal_spending_long.csv` data to create the following charts.
+Using the `internet_regions` data frame, pick a strategy and create an improved version of this chart.
 
-.leftcol[
-```{r, echo=FALSE}
-federal_spending_summary <- federal_spending %>%
-    filter(year %in% c(1976, 2017)) %>%
-    mutate(
-      rd_budget_bil = rd_budget_mil / 10^3,
-      department = fct_reorder2(
-        department, year, desc(rd_budget_bil)), year = as.factor(year))
+Strategies:
+
+- Dodged bars
+- Facets
+- Bullet chart
+- Dumbell chart
+- Slope chart
+
+```{r internet-usage-bars, fig.height=6, fig.width=10, out.width="80%"}
+internet_regions_compare <- internet_regions %>%
+  filter(year %in% c(2000, 2015)) %>%
+  mutate(
+    numUsers = numUsers / 10^6,
+    year = as.factor(year))
+
+ggplot(internet_regions_compare) +
+  geom_col(
+    aes(x = year, y = numUsers, fill = region),
+    position = "dodge") +
+  labs(y = "Millions of internet users")
 ```
 
-```{r federal-spending-dumbbell, fig.height=6, fig.width=6, fig.align='center'}
-# Make the dumbbel chart here
+```{r internet-usage-dodged, fig.height=6, fig.width=10, out.width="80%"}
+# Make a dodged bar chart here
 ```
 
-```{r federal-spending-slope, fig.height=6, fig.width=6, fig.align='center'}
-# Make the slope chart here
+```{r internet-usage-facets, fig.height=4, fig.width=14, out.width="80%"}
+# Make a faceted bar chart here
+```
+
+```{r internet-usage-bullet, fig.height=6, fig.width=10, out.width="80%"}
+# Make a bullet chart here
+```
+
+```{r internet-usage-dumbbell, fig.height=6, fig.width=6, fig.align='center'}
+# Make a dumbell chart here
+```
+
+```{r internet-usage-slope, fig.height=7, fig.width=10, fig.align='center'}
+# Make a slope chart here
 ```
 
 
@@ -81,16 +106,16 @@ federal_spending_summary <- federal_spending %>%
 
 Use the `gapminder.csv` data to create the following charts comparing the distribution of life expectancy across countries in continents in 2007.
 
-```{r, echo=FALSE}
+```{r}
 gapminder_2007 <- gapminder %>%
   filter(year == 2007) %>%
   mutate(continent = fct_reorder(continent, lifeExp))
 ```
 
 ```{r gapminder-densities, fig.height=4.5, fig.width=6.5, fig.align='center'}
-# Make the densities chart here
+# Make an overlapping density chart here
 ```
 
 ```{r gapminder-ridges, fig.height=4.5, fig.width=6.5, fig.align='center'}
-# Make the ridgeline chart here
+# Make an ridgeline chart here
 ```
