@@ -3,10 +3,53 @@ title: "Trends"
 output:
   html_document:
     number_sections: false
-    toc: no
+    toc: yes
+params:
+  due: "02 March, 11:59 pm"
+  purpose: 'The purpose of this assignment is to learn some of the technical details of how to create charts that highlight **trends**, which inherently involve changes in values over time.'
 ---
 
 ```{r child = "knitr_setup.Rmd"}
 ```
 
-Coming Soon!
+```{r child = "_rheader.Rmd"}
+```
+
+# Tasks
+
+1. **Read**: Open up a notebook (physical, digital...whatever you take notes in best), and **take notes** while you go through the readings below.
+
+2. **Reflection**: When you have completed all of the readings, download and edit [this template](https://eda.seas.gwu.edu/2021-Spring/templates/reflection7.zip) to write a ~150 word (or more) reflection about on what you've read (be sure to edit the YAML at the top). That's fairly short - there are ~250 words on a typical double-spaced page in Microsoft Word (500 when single-spaced). You can do a lot of different things with this memo, for example:
+
+    - Discuss something you learned from the course content
+    - Write about the best or worst data visualization you saw recently
+    - Connect the course content to your own work
+    - Discuss some of the key insights or things you found interesting in the readings
+
+3. **Submit Everything**: Knit your document to a html page, then create a zip file of everything in your R Project folder. Go to the "Assignment Submission" page on Blackboard and submit your zip file.
+
+---
+
+# Readings
+
+Most of the readings this week have code in them that illustrate how to create each chart type, and I encourage you to try and reproduce the examples provided in R yourself.
+
+- Wilke: [13 - Visualizing time series](https://serialmentor.com/dataviz/time-series.html)
+- Wilke: [14 - Visualizing trends](https://serialmentor.com/dataviz/visualizing-trends.html)
+
+Some examples of visualizations we'll explore in class:
+
+- The "bar chart race": [Changes in how couples meet over time](https://flowingdata.com/2019/03/15/shifts-in-how-couples-meet-online-takes-the-top-spot/)
+- The heatmap: [How common is your birthday?](http://thedailyviz.com/2016/09/17/how-common-is-your-birthday-dailyviz/)
+- [Time-Series Heatmaps](https://towardsdatascience.com/time-series-calendar-heatmaps-9f576578fcfe)
+
+Optional:
+
+- [The Sankey diagrams (a.k.a. flow chart)](https://www.data-to-viz.com/graph/sankey.html)
+- Video: [The fallen of WWII](http://www.fallen.io/ww2/)
+
+# Video 
+
+This video by Hans Rosling is a great summary of his larger [TED talk](https://www.ted.com/talks/hans_rosling_the_best_stats_you_ve_ever_seen) on the "gapminder" project he started showing life expectancy and GDP over time. This is an excellent example of using an _animated_ chart to tell a much richer story than a static chart.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jbkSRLYSojo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
