@@ -30,7 +30,6 @@ milk_production  <- read_csv(here('data', 'milk_production.csv'))
 internet_regions <- read_csv(here('data', 'internet_users_region.csv'))
 ```
 
-
 ### Your turn - reference lines
 
 Use the `milk_production.csv` data to create the following charts showing differences from the mean state milk production in 2017.
@@ -82,7 +81,39 @@ milk_summary %>%
     y = 'State')
 ```
 
+Now replicate it but only for the top 10, merging all other states into an "Other" category 
 
+```{r milk-lollipop-mean-top10, fig.height=5, fig.width=5.5, fig.align='center'}
+top10 <- milk_production %>%
+  filter(year == 2017) %>%
+  arrange(desc(milk_produced)) %>% 
+  slice(1:10)
+
+milk_summary <- milk_production %>%
+  filter(year == 2017) %>%
+  mutate(
+    milk_produced = milk_produced / 10^9,
+    state = fct_other(state, keep = top10$state)) %>% 
+  group_by(state) %>% 
+  summarise(milk_produced = sum(milk_produced)) %>% 
+  ungroup() %>% 
+  mutate(state = fct_reorder(state, milk_produced))
+
+ggplot(milk_summary) +
+  geom_point(
+    aes(x = milk_produced, y = state),
+    size = 2.5, color = 'steelblue') +
+  geom_vline(
+    xintercept = mean(milk_summary$milk_produced),
+    color = 'red', linetype = 'dashed') +
+  annotate(
+    'text', x = 19, y = 'California',
+    color = 'red', hjust = 1,
+    label = 'Mean\nProduction') +
+  theme_minimal_vgrid() +
+  labs(x = 'Milk produced (billions lbs)',
+       y = 'State')
+```
 
 ## Your turn - comparing multiple categories
 
@@ -122,7 +153,8 @@ internet_regions_compare %>%
     limits = c(0, 1200),
     expand = expansion(mult = c(0, 0.05))) +
   scale_fill_manual(values = c('grey', 'gold')) +
-  labs(y = "Millions of internet users")
+  labs(x = "Millions of internet users", 
+       y = "Region")
 ```
 
 ```{r internet-usage-facets, fig.height=4, fig.width=14, out.width="80%"}
@@ -167,7 +199,7 @@ internet_regions_compare %>%
        fill = "Year")
 ```
 
-```{r internet-usage-dumbbell, fig.height=6, fig.width=6, fig.align='center'}
+```{r internet-usage-dumbbell, fig.height=4, fig.width=6, fig.align='center'}
 internet_regions_compare %>%
   mutate(region = fct_reorder2(region, year, -numUsers)) %>%
   ggplot(aes(x = numUsers, y = region)) +
@@ -237,10 +269,10 @@ gapminder_2007 <- gapminder %>%
 ```
 
 ```{r gapminder-densities, fig.height=4.5, fig.width=6.5, fig.align='center'}
-ggplot(gapminder_2007) +
+gapminder_densities <- ggplot(gapminder_2007) +
   geom_density(
     aes(x = lifeExp, y = ..count.., fill = continent),
-    alpha = 0.7) +
+    alpha = 0.4) +
   scale_y_continuous(
     expand = expansion(mult = c(0, 0.05))) +
   scale_fill_brewer(palette = 'Accent') +
@@ -250,6 +282,15 @@ ggplot(gapminder_2007) +
     y = 'Count',
     fill = 'Continent',
     title = 'Distribution of life expectancy across\ncountries in continent in 2007')
+
+gapminder_densities
+```
+
+```{r gapminder-densities-facet, fig.height=3, fig.width=10, fig.align='center'}
+gapminder_densities + 
+  facet_wrap(vars(continent), nrow = 1) + 
+  theme(legend.position = "none") + 
+  labs(title = 'Distribution of life expectancy across countries in continent in 2007')
 ```
 
 ```{r gapminder-ridges, fig.height=4.5, fig.width=6.5, fig.align='center'}
