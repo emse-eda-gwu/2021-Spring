@@ -855,7 +855,7 @@ class: center
 ### Strategies for comparing 2 things across **more than 2 categories**
 
 .leftcol[
-**Dodged bars `r emo::ji("frown")`**
+**Dodged bars `r emo::ji("sad")`**
 
 ```{r, ref.label="milk-compare-dodged-toomany", echo=FALSE, fig.height=5, fig.width=7, fig.align='center'}
 ```
@@ -912,7 +912,7 @@ class: center
 ### Strategies for comparing 2 things across **more than 2 categories**
 
 .leftcol[
-**Dodged bars `r emo::ji("frown")`**
+**Dodged bars `r emo::ji("sad")`**
 
 ```{r, ref.label="milk-compare-dodged-toomany", echo=FALSE, fig.height=5, fig.width=7, fig.align='center'}
 ```
@@ -1270,6 +1270,17 @@ Right         | 1
 ---
 class: center, middle
 
+## Overlapping labels?
+
+.leftcol30[.border[
+<center>
+<img src="images/overlapping_labels.png">
+</center>
+]]
+
+---
+class: center, middle
+
 ## Overlapping labels?<br>**ggrepel** library to the rescue!
 
 .leftcol30[.border[
@@ -1278,14 +1289,13 @@ class: center, middle
 </center>
 ]]
 
---
-
 .rightcol70[
 <center>
 <img src="images/horst_monsters_ggrepel.jpg" width=600>
 </center>
 ]
 
+.left[Artwork by [@allison_horst](https://twitter.com/allison_horst)]
 
 ---
 
