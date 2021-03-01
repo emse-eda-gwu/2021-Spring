@@ -358,7 +358,7 @@ Data file:
 - nasa_global_temps.txt
 - nasa_global_temps.csv
 
-Date downloaded: January 5, 2020
+Date downloaded: March 1, 2021
 
 Description: NASA data on the change in global surface temperature relative to 1951-1980 average temperatures.
 
@@ -375,7 +375,7 @@ Dictionary:
 
 variable    | description
 ------------|----------------------
-year        | year
+year        | year (1880 - 2020)
 meanTemp    | Global annual mean temperature anomaly wrt 1951-80 (Celsius)
 smoothTemp  | Five-year lowess smooth of the "No_Smoothing" variable
 
