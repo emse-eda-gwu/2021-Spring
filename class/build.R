@@ -1,8 +1,8 @@
 lesson <- strsplit(here::here(), "/")[[1]]
 lesson <- lesson[length(lesson)]
 
-# Build the slides
-xaringanBuilder::build_all("index.Rmd", include = c('html', 'pdf'))
+# Build the slides at an html and pdf
+xaringanBuilder::build_pdf("index.Rmd")
 
 # Rename PDF of slides
 file.rename(from = "index.pdf", to = paste0(lesson, ".pdf"))
