@@ -1,5 +1,6 @@
 library(tidyverse)
 library(readxl)
+library(janitor)
 options(dplyr.width = Inf)
 
 # Federal R&D Spending ------------------------------
@@ -32,3 +33,16 @@ pv_cells_long <- pv_cells %>%
     select(year = Year, country, numCells)
 
 write_csv(pv_cells_long, here::here("data", "pv_cells_long.csv"))
+
+# US COVID 19 cases and deaths ------------------------------------
+
+us_covid_full <- read_csv(here::here("data", "us_covid_full.csv")) %>% 
+  clean_names()
+us_covid <- us_covid_full %>% 
+  group_by(date, province_state) %>% 
+  summarise(
+    deaths = sum(deaths), 
+    cases = sum(confirmed)) %>% 
+  rename(state = province_state)
+
+write_csv(us_covid, here::here("data", "us_covid.csv"))  

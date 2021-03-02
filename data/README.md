@@ -523,6 +523,19 @@ Source of downloaded file: File was sent to me by Justin Zhen <jzhen@thinknum.co
 
 ---
 
+Data file:
+- `us_covid_full.csv`
+- `us_covid.csv`
+
+Date downloaded: March 2, 2021
+
+Source of downloaded file: The full data set are from the Hopkins data hosted on datahub.io:
+https://datahub.io/core/covid-19#resource-us_simplified
+
+The `us_covid.csv` file is the same as the full one but aggregated by state
+
+---
+
 Data file: uspto_clean_energy_patents.xlsx
 
 Date downloaded: January 24, 2020
