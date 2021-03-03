@@ -2,8 +2,8 @@ lesson <- strsplit(here::here(), "/")[[1]]
 lesson <- lesson[length(lesson)]
 
 # Build the slides
-xaringanBuilder::build_html("index.Rmd")
-xaringanBuilder::build_pdf("index.Rmd", paste0(lesson, ".pdf"))
+xaringanBuilder::build_html("index.Rmd", "index.html")
+xaringanBuilder::build_pdf("index.html", paste0(lesson, ".pdf"))
 
 # Create zip files of class notes
 zip::zip(
