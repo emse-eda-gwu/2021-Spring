@@ -71,6 +71,16 @@ us_diseases      <- read_csv(here::here('data', 'us_contagious_diseases.csv'))
 
 ---
 
+## New packages: 
+
+```{r, eval=FALSE}
+install.packages('viridis')
+install.packages('gganimate')
+install.packages('magick')
+```
+
+---
+
 ```{r child="topics/0.Rmd"}
 ```
 
@@ -506,6 +516,8 @@ Now animate it
 **Note the pause at the end!**
 
 ```{r, eval=FALSE}
+library(gganimate) #<<
+
 milk_region_anim <- milk_region_anim_plot +
     transition_reveal(year) #<<
 
@@ -513,7 +525,8 @@ milk_region_anim <- milk_region_anim_plot +
 animate(milk_region_anim,  #<<
         end_pause = 15,  #<<
         duration = 10, #<<
-        width = 1100, height = 650, res = 150) #<<
+        width = 1100, height = 650, res = 150, #<<
+        renderer = magick_renderer()) #<<
 
 # Save last animation
 anim_save(here::here(
@@ -576,7 +589,8 @@ gapminder_anim <- gapminder_anim_plot +
 # Render the animation
 animate(gapminder_anim, end_pause = 10,
         width = 800, height = 600,
-        res = 150)
+        res = 150,
+        renderer = magick_renderer())
 ```
 ]]
 
@@ -648,7 +662,8 @@ milk_race_anim <- milk_production %>%
 .code60[
 ```{r, eval=FALSE}
 animate(milk_race_anim, duration = 17, end_pause = 15,
-        width = 800, height = 700, res = 150)
+        width = 800, height = 700, res = 150,
+        renderer = magick_renderer())
 ```
 ]
 

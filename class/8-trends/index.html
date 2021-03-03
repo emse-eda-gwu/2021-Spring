@@ -67,6 +67,17 @@ us_diseases      &lt;- read_csv(here::here('data', 'us_contagious_diseases.csv')
 
 ---
 
+## New packages: 
+
+
+```r
+install.packages('viridis')
+install.packages('gganimate')
+install.packages('magick')
+```
+
+---
+
 
 
 class: inverse, middle
@@ -206,7 +217,7 @@ ggplot(milk_ca,
 ]]
 
 .rightcol45[
-&lt;img src="figs/unnamed-chunk-6-1.png" width="432" style="display: block; margin: auto;" /&gt;
+&lt;img src="figs/unnamed-chunk-7-1.png" width="432" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -231,7 +242,7 @@ ggplot(milk_ca,
 ]]
 
 .rightcol45[
-&lt;img src="figs/unnamed-chunk-8-1.png" width="432" style="display: block; margin: auto;" /&gt;
+&lt;img src="figs/unnamed-chunk-9-1.png" width="432" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -257,13 +268,13 @@ ggplot(milk_ca,
 ]]
 
 .rightcol[
-&lt;img src="figs/unnamed-chunk-10-1.png" width="432" style="display: block; margin: auto;" /&gt;
+&lt;img src="figs/unnamed-chunk-11-1.png" width="432" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
 class: inverse
 
-<div class="countdown" id="timer_603e955d" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<div class="countdown" id="timer_60400cc2" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">20</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -334,7 +345,7 @@ class: center
 
 # Static chart
 
-&lt;img src="figs/unnamed-chunk-14-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="figs/unnamed-chunk-15-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 class: center
@@ -424,7 +435,7 @@ milk_region_anim_plot
 ]]
 
 .rightcol[
-&lt;img src="figs/unnamed-chunk-15-1.png" width="504" style="display: block; margin: auto;" /&gt;
+&lt;img src="figs/unnamed-chunk-16-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -439,6 +450,8 @@ Now animate it
 
 
 ```r
+*library(gganimate)
+
 milk_region_anim &lt;- milk_region_anim_plot +
 *   transition_reveal(year)
 
@@ -446,7 +459,8 @@ milk_region_anim &lt;- milk_region_anim_plot +
 *animate(milk_region_anim,
 *       end_pause = 15,
 *       duration = 10,
-*       width = 1100, height = 650, res = 150)
+*       width = 1100, height = 650, res = 150,
+*       renderer = magick_renderer())
 
 # Save last animation
 anim_save(here::here(
@@ -488,7 +502,7 @@ gapminder_anim_plot
 ]]
 
 .rightcol45[
-&lt;img src="figs/unnamed-chunk-17-1.png" width="504" style="display: block; margin: auto;" /&gt;
+&lt;img src="figs/unnamed-chunk-18-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -510,7 +524,8 @@ gapminder_anim &lt;- gapminder_anim_plot +
 # Render the animation
 animate(gapminder_anim, end_pause = 10,
         width = 800, height = 600,
-        res = 150)
+        res = 150,
+        renderer = magick_renderer())
 ```
 ]]
 
@@ -584,7 +599,8 @@ milk_race_anim &lt;- milk_production %&gt;%
 
 ```r
 animate(milk_race_anim, duration = 17, end_pause = 15,
-        width = 800, height = 700, res = 150)
+        width = 800, height = 700, res = 150,
+        renderer = magick_renderer())
 ```
 ]
 
@@ -605,7 +621,7 @@ animate(milk_race_anim, duration = 17, end_pause = 15,
 ---
 class: inverse
 
-<div class="countdown" id="timer_603e9363" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<div class="countdown" id="timer_60400d67" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">20</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -632,7 +648,7 @@ Consider using:
 ---
 class: inverse, center
 
-<div class="countdown" id="timer_603e9388" style="top:1;right:0;bottom:0;left:0;margin:5%;font-size:8em;" data-warnwhen="30">
+<div class="countdown" id="timer_60400d56" style="top:1;right:0;bottom:0;left:0;margin:5%;font-size:8em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -788,7 +804,7 @@ ggplot(milk_region,
 
 &lt;br&gt;
 
-&lt;img src="figs/unnamed-chunk-25-1.png" width="504" style="display: block; margin: auto;" /&gt;
+&lt;img src="figs/unnamed-chunk-26-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -836,7 +852,7 @@ ggplot(milk_region,
 
 &lt;br&gt;
 
-&lt;img src="figs/unnamed-chunk-27-1.png" width="540" style="display: block; margin: auto;" /&gt;
+&lt;img src="figs/unnamed-chunk-28-1.png" width="540" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -867,7 +883,7 @@ internet_region %&gt;%
 ]]
 
 .rightcol45[
-&lt;img src="figs/unnamed-chunk-29-1.png" width="576" style="display: block; margin: auto;" /&gt;
+&lt;img src="figs/unnamed-chunk-30-1.png" width="576" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -912,7 +928,7 @@ ggplot(measles) +
 .rightcol[
 ## How to:&lt;br&gt;**Average line overlay**
 
-&lt;img src="figs/unnamed-chunk-31-1.png" width="432" style="display: block; margin: auto;" /&gt;
+&lt;img src="figs/unnamed-chunk-32-1.png" width="432" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -947,7 +963,7 @@ ggplot(measles) +
 .rightcol45[
 ## How to:&lt;br&gt;**Average line overlay**
 
-&lt;img src="figs/unnamed-chunk-33-1.png" width="432" style="display: block; margin: auto;" /&gt;
+&lt;img src="figs/unnamed-chunk-34-1.png" width="432" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -975,7 +991,7 @@ ggplot(measles) +
 .rightcol[
 ## How to: **Heat map**
 
-&lt;img src="figs/unnamed-chunk-34-1.png" width="576" style="display: block; margin: auto;" /&gt;
+&lt;img src="figs/unnamed-chunk-35-1.png" width="576" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -1016,7 +1032,7 @@ ggplot(measles) +
 .rightcol[
 #### .center[Color scale is linear in this chart]
 
-&lt;img src="figs/unnamed-chunk-35-1.png" width="576" style="display: block; margin: auto;" /&gt;
+&lt;img src="figs/unnamed-chunk-36-1.png" width="576" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -1061,13 +1077,13 @@ ggplot(measles) +
 .rightcol[
 #### .center[Non-linear color scale&lt;br&gt;helps with large variations]
 
-&lt;img src="figs/unnamed-chunk-37-1.png" width="576" style="display: block; margin: auto;" /&gt;
+&lt;img src="figs/unnamed-chunk-38-1.png" width="576" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
 class: inverse
 
-<div class="countdown" id="timer_603e9345" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<div class="countdown" id="timer_60400a55" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">20</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
