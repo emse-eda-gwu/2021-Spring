@@ -7,8 +7,14 @@ output: html_document
 ---
 
 ```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+# # Install new packages (only do this once!)
 # install.packages('viridis')
 # install.packages('gganimate')
+# install.packages('gifski')
+# install.packages('png')
+# install.packages('magick')
+# install.packages('av')
+
 library(knitr)
 library(cowplot)
 library(tidyverse)
@@ -80,7 +86,7 @@ Use the `global_temps` data frame to animate one of the charts we did in the fir
 
 ## Line
 
-```{r global-temps-line, fig.height=5, fig.width=6}
+```{r global-temps-line-anim, fig.height=5, fig.width=6}
 # Write code here
 ```
 

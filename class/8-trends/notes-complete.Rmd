@@ -7,8 +7,14 @@ output: html_document
 ---
 
 ```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+# # Install new packages (only do this once!)
 # install.packages('viridis')
 # install.packages('gganimate')
+# install.packages('gifski')
+# install.packages('png')
+# install.packages('magick')
+# install.packages('av')
+
 library(knitr)
 library(cowplot)
 library(tidyverse)
@@ -118,7 +124,7 @@ animate(plot_anim, end_pause = 10, duration = 8,
 
 ## Line
 
-```{r global-temps-line, fig.height=5, fig.width=6}
+```{r global-temps-line-anim, fig.height=5, fig.width=6}
 plot <- ggplot(global_temps, aes(x = year, y = meanTemp)) +
     geom_line(color = 'steelblue', size = 1) +
     # Add a reference line at 0
@@ -167,13 +173,13 @@ us_covid_ca_ny <- us_covid %>%
   filter(state %in% c("California", "New York"))
 
 ggplot(us_covid_ca_ny,
-       aes(x = day, y = cases_daily)) +
+       aes(x = day, y = cases_daily, color = state)) +
   geom_line(
-    aes(group = state, color = state)) +
+    aes(group = state)) +
   geom_text_repel(
     data = us_covid_ca_ny %>% 
       filter(day == max(day)),
-    aes(label = state, color = state),
+    aes(label = state),
     size = 5, direction = "y", hjust = 0, nudge_x = 5,
     segment.color = NA
   ) +
@@ -233,6 +239,44 @@ us_covid %>%
     title = 'Number of daily U.S. COVID19 deaths')
 ```
 
+```{r covid_area_labeled, fig.height=4, fig.width=12}
+covid_summary <- us_covid %>% 
+  mutate(
+    state = fct_other(state, keep = c(
+      "California", "New York")),
+    state = fct_relevel(state, c(
+      "Other", "California", "New York"
+    ))) %>% 
+  group_by(day, state) %>% 
+  summarise(deaths_daily = sum(deaths_daily)) %>% 
+  ungroup
+
+ggplot(covid_summary, 
+       aes(x = day, y = deaths_daily)) +
+  geom_area(aes(fill = state), alpha = 0.5) +
+  geom_text_repel(
+    data = covid_summary %>% 
+      filter(day == max(day)),
+    aes(label = state, color = state),
+    size = 6, direction = "y", hjust = 0, nudge_x = 3,
+    segment.color = NA
+  ) +
+  scale_x_continuous(
+    breaks = seq(0, 400, 100),
+    expand = expansion(add = c(0, 40))) +
+  scale_fill_manual(values = c("grey", "red", "blue")) +
+  scale_color_manual(values = c("grey", "red", "blue")) +
+  scale_y_continuous(
+    expand = expansion(mult = c(0, 0.05))) +
+  theme_half_open(font_size = 18) +
+  theme(legend.position = "none") +
+  labs(
+    x = "Number of days into pandemic", 
+    y = 'Number of daily deaths',
+    fill = "State",
+    title = 'Number of daily U.S. COVID19 deaths')
+```
+
 ## Heat map
 
 ```{r covid_heatmap, fig.height=7, fig.width=10}
@@ -248,7 +292,7 @@ us_covid %>%
       trans = 'sqrt') +
     guides(fill = guide_colorbar(
       title.position = 'top', 
-      barwidth = 15)) +
+      barwidth = 20)) +
     theme_minimal() +
     theme(
       panel.grid = element_blank(),
