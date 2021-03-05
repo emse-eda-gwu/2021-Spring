@@ -36,6 +36,11 @@ params:
 - [Tips for Cleaning Messy Data in R](https://rfortherestofus.com/2019/12/how-to-clean-messy-data-in-r/)
 - [This case study](https://www.rpubs.com/justinhtet/cleaning-messy-weather-dataset-with-tidyverse) of cleaning up some terribly messy weather data.
 
+# Optional Practice
+
+If you want some extra practice working with data in R, check out Alison Hill's course on DataCamp: [Working with Data in the Tidyverse](https://learn.datacamp.com/courses/working-with-data-in-the-tidyverse). In particular, I suggest going through parts 2 ("Tame your data") and 4 ("Transform your data")
+
+
 # Bonus Points*
 
 In your reflection this week, share a story about or link to the messiest data you've ever come across.
