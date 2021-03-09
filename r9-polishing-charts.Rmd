@@ -3,10 +3,50 @@ title: "Polishing Charts"
 output:
   html_document:
     number_sections: false
-    toc: no
+    toc: yes
+params:
+  due: "23 March, 11:59 pm"
+  purpose: 'The purpose of this assignment is to learn some techniques for adding "polish" to your charts. We will start choosing colors and fonts more carefully, and we will also annotate our charts with informative text.'
 ---
 
 ```{r child = "knitr_setup.Rmd"}
 ```
 
-Coming Soon!
+```{r child = "_rheader.Rmd"}
+```
+
+# Tasks
+
+1. **Read**: Open up a notebook (physical, digital...whatever you take notes in best), and **take notes** while you go through the readings below.
+
+2. **Reflection**: When you have completed all of the readings, download and edit [this template](https://eda.seas.gwu.edu/2021-Spring/templates/reflection9.zip) to write a ~150 word (or more) reflection about on what you've read (be sure to edit the YAML at the top). That's fairly short - there are ~250 words on a typical double-spaced page in Microsoft Word (500 when single-spaced). You can do a lot of different things with this memo, for example:
+
+    - Discuss something you learned from the course content
+    - Write about the best or worst data visualization you saw recently
+    - Connect the course content to your own work
+    - Discuss some of the key insights or things you found interesting in the readings
+
+3. **Submit Everything**: Knit your document to a html page, then create a zip file of everything in your R Project folder. Go to the "Assignment Submission" page on Blackboard and submit your zip file.
+
+---
+
+# Readings
+
+- How to polish ggplot charts: [R4DS Chapter 28 - Graphics for communication](https://r4ds.had.co.nz/graphics-for-communication.html)
+- Wilke: [4 - Color scales](https://clauswilke.com/dataviz/color-basics.html)
+- Wilke: [21 - Multi-panel figures](https://serialmentor.com/dataviz/multi-panel-figures.html)
+- Check out the [patchwork package](https://patchwork.data-imaginist.com/articles/patchwork.html) for merging multiple charts together
+
+# Optional
+
+- How to make a multi-panel [figure with a shared legend](https://wilkelab.org/cowplot/articles/shared_legends.html).
+- Check out this [tool](https://github.com/clauswilke/colorblindr) for simulating color blindness.
+- Check out these tools for customizing your Rmd file: [PIMP my Rmd](https://holtzy.github.io/Pimp-my-rmd/)
+
+# Bonus Points*
+
+Do you have a favorite font / color / color palette? Share it in your reflection this week!
+
+---
+
+*By "bonus" I mean more like you get a thumbs up from me.

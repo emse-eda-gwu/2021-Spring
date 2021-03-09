@@ -40,7 +40,6 @@ params:
 
 If you want some extra practice working with data in R, check out Alison Hill's course on DataCamp: [Working with Data in the Tidyverse](https://learn.datacamp.com/courses/working-with-data-in-the-tidyverse). In particular, I suggest going through parts 2 ("Tame your data") and 4 ("Transform your data")
 
-
 # Bonus Points*
 
 In your reflection this week, share a story about or link to the messiest data you've ever come across.
