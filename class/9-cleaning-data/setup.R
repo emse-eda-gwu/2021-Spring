@@ -142,6 +142,11 @@ state_abbs <- tibble::tribble(
         "Armed Forces Pacific",             "AP"
 )
 
+bad_abbs <- c("MH", "AE", "AA", "AE", "AP")
+
+state_abbs_50 <- state_abbs %>% 
+  filter(!state_abb %in% bad_abbs)
+
 # # scraping version:
 # library(rvest)
 # html <- read_html('https://www.50states.com/abbreviations.htm')

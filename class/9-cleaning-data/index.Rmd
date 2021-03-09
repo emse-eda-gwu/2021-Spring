@@ -158,6 +158,42 @@ install.packages('janitor')
 
 ---
 
+.leftcol[
+<center>
+<img src="images/join_fail.jpg" height=600>
+</center>
+]
+
+.rightcol[
+## .center[What's wrong with this map?]
+]
+
+---
+
+### Likely culprit: Merging two columns
+
+.leftcol[
+```{r, echo=FALSE}
+names <- data.frame(state_name = sort(state_abbs_50$state_name))
+abbs  <- data.frame(state_abb = sort(state_abbs_50$state_abb))
+```
+```{r}
+head(names)
+head(abbs)
+```
+]
+
+--
+
+.rightcol[
+```{r}
+result <- bind_cols(names, abbs)
+head(result)
+```
+]
+
+---
+
 ## Joins
 
 1. `inner_join()`
