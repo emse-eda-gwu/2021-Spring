@@ -205,7 +205,9 @@ gdpPercap | per-capita GDP
 
 ---
 
-Data file: hot_dog_winners.csv
+Data file:
+- hot_dog_winners.csv
+- hot_dog_winners.xlsx
 
 Date downloaded: February 13, 2020
 
@@ -215,7 +217,7 @@ Source of downloaded file:
 - Plot of this data is from flowingdata.com: https://flowingdata.com/2009/07/02/whos-going-to-win-nathans-hot-dog-eating-contest/
 - Original data source is wikipedia: https://en.wikipedia.org/wiki/Nathan%27s_Hot_Dog_Eating_Contest
 
-Dictionary:
+Dictionary for the "tidy" version: hot_dog_winners.csv
 
 Variable           | Description
 -------------------|-----------------------------------------
@@ -573,6 +575,32 @@ year            | year
 weeks_reporting | Number of weeks counts were reported that year.
 count           | Total number of reported cases.
 population      | State population, interpolated for non-census years.
+
+---
+
+Data file: US_State_Wind_Energy_Facts_2018.xlsx
+
+Date downloaded: January 28, 2020
+
+Description: Data on which US states produce the most wind energy
+
+Source of downloaded file:
+- The formatted Excel spreadsheet was downloaded from data.world: https://data.world/makeovermonday/2019w8
+- Source of the associated redesign chart: https://howmuch.net/articles/wind-power-in-the-united-states-2018
+
+Original source:
+- The primary source is the American Wind Energy Association (https://www.awea.org/), but the source for this particular data was found on this article, which cites the AWEA: https://www.chooseenergy.com/news/article/best-worst-ranked-states-wind-power/
+
+Dictionary:
+
+variable                        | description
+Ranking                         | Rank order of state by installed capacity
+State                           | U.S. state
+`Installed Capacity (MW)`       | Installed capacity in MW
+`Equivalent Homes Powered`      | Number of homes powered by wind power
+`Total Investment ($ Millions)` | Total Investment in $ millions
+`Wind Projects Online`          | Number of projects currently online
+`# of Wind Turbines`            | Number of wind turbines in state
 
 ---
 
