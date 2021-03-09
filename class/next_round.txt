@@ -1,10 +1,11 @@
-3:
+3-centrality-variability:
 - Drop lotr_words from first main practice (just use milk data)
 - Improve the last exercise of wildlife state vs operator
 
-4:
+4-correlation:
 - Entire linear modeling part is unnecessary - we won't use it in exploring data, and there are too many unaddressed questions (e.g. error). Instead, drop this whole section and fill it in with a detailed discussion on bias in data.
 So first 2 classes on EDA are centrality, variability, and correlation + bias in data.
+- Add a discussion of log scales. Look at example of correlation between transit cost and length from mini project 1 last year. Many students said no correlation, but it's just because it's a log correlation.
 
 6:
 - switch reading on "facets" to the next week (I moved it out of "amounts" and put in in "comparisons")
