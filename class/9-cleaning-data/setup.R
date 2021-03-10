@@ -27,10 +27,8 @@ knitr::opts_chunk$set(
 )
 
 # Setup xaringanExtra options 
-xaringanExtra::use_tile_view()
-xaringanExtra::use_panelset()
-xaringanExtra::use_clipboard()
-xaringanExtra::use_share_again()
+xaringanExtra::use_xaringan_extra(c(
+  "tile_view", "panelset", "clipboard", "share_again"))
 xaringanExtra::style_share_again(share_buttons = "none")
 xaringanExtra::use_extra_styles(
   hover_code_line = TRUE,
