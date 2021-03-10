@@ -63,6 +63,18 @@ bodywt       | body weight in kilograms
 
 ---
 
+Data file: pc_sales_2018.xlsx
+
+Date downloaded: January 5, 2020
+
+Description: Annual passenger car sales by country, 2005-2018
+
+Source of downloaded file:
+- International Organization of Motor Vehicle Manufacturers
+- http://www.oica.net/category/sales-statistics/
+
+---
+
 Data file: US_State_Wind_Energy_Facts_2018.xlsx
 
 Date downloaded: January 28, 2020

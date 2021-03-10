@@ -11,4 +11,4 @@ class: inverse, middle
 
 ### 4. Re-coding variables
 ### 5. Dates
-### 6. Dealing with messy Excel files
+### 6. .orange[Dealing with messy Excel files]
