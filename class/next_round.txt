@@ -1,3 +1,10 @@
+General:
+- Consider moving data cleaning up earlier.
+- Consider adding an intro to ggplot with scales, etc. from the polishing lesson.
+
+2- EDA:
+- consider adding skim() from skimr package
+
 3-centrality-variability:
 - Drop lotr_words from first main practice (just use milk data)
 - Improve the last exercise of wildlife state vs operator
@@ -7,12 +14,23 @@
 So first 2 classes on EDA are centrality, variability, and correlation + bias in data.
 - Add a discussion of log scales. Look at example of correlation between transit cost and length from mini project 1 last year. Many students said no correlation, but it's just because it's a log correlation.
 
-6:
+5 - visualizing information:
+- Swap this one in somewhere badvis: https://twitter.com/CalEndow/status/1367973471523835904
+- Consider actually including the wind graphic in here as an example, then they will have seen it before the MP2.
+
+6 - Amounts and proportions:
 - switch reading on "facets" to the next week (I moved it out of "amounts" and put in in "comparisons")
-- consider dropping waffles if geom_waffle() still not working...look carefully at install options, sometimes not on CRAN or github but elsewhere
+- consider dropping waffles if geom_waffle() still not working...look carefully at install options, sometimes not on CRAN or github but elsewhere.
 
 8 - trends:
 - Log scales - use them to show doubling rate? penny doubling example?
 - Index chart (Financial times log chart of COVID cases - all start at days after 100 cases)
 
+9 - data cleaning:
+- Remove content about reading in and setting column types directly - this can lead to NAs. Instead, show how as.numeric() and parse_number() are different, and state that re-typing things is generally better after reading everything in.
 
+MP2:
+- Introduce janitor::clean_names() here instead of rename()
+
+Projects:
+- Rename project pages to start with "project-" instead of "a-"
