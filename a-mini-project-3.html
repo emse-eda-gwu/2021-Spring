@@ -11,7 +11,7 @@
 
 
 
-<title>Mini Project 3</title>
+<title>Mini Project 3: Exploring Global Crop Yields</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -721,12 +721,90 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Mini Project 3</h1>
+<h1 class="title toc-ignore">Mini Project 3: Exploring Global Crop Yields</h1>
 
 </div>
 
 
-<p>Coming Soon!</p>
+<blockquote>
+<p><strong>Due</strong>: 06 April, 11:59 pm</p>
+<p><strong>Weight</strong>: This assignment is worth 9% of your final grade.</p>
+<p><strong>Purpose</strong>: We have spent a lot of time exploring data, but most of the time that has only involved a single data frame. This project will give you a chance to practice exploring and joining together multiple data files.</p>
+<p><strong>Assessment</strong>: I will use <a href="projects/mini-project-3/rubric.pdf">this rubric</a> to grade your submissions.</p>
+</blockquote>
+<div id="background" class="section level1">
+<h1>Background</h1>
+<center>
+<img src="images/harvester.jpeg" width=500>
+</center>
+<p>For this assignment, you’ll be exploring data on global crop yields from <a href="https://ourworldindata.org/crop-yields">Our World in Data</a>. The data have already been pre-processed and are available on <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2020/2020-09-01">this</a> GitHub repository - take a look at the data dictionaries on that page to get familiar with the five data sets we’ll be working with and their variables.</p>
+</div>
+<div id="tasks" class="section level1">
+<h1>Tasks</h1>
+<div id="get-organized" class="section level2">
+<h2>1. Get organized</h2>
+<p>Download and unzip <a href="templates/project_template_mp3.zip">this template</a> for your project, then open the <code>project.Rproj</code> file. Run the setup chunk in your <code>report.Rmd</code> file to load all of the five data frames:</p>
+<ul>
+<li><code>key_crop_yields</code></li>
+<li><code>fertilizer</code></li>
+<li><code>tractors</code></li>
+<li><code>land_use</code></li>
+<li><code>arable_land</code></li>
+</ul>
+<p><strong>Note</strong>: The template folders are just there as suggested names in case you want to use them.</p>
+</div>
+<div id="document-the-source" class="section level2">
+<h2>2. Document the source</h2>
+<p>In your report, note that the original data came from the <a href="https://ourworldindata.org/crop-yields">Our World in Data page</a> on crop yields and also that the formatted data you used came from the Tidy Tuesday <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2020/2020-09-01">GitHub page</a>. You don’t need to include the detailed data dictionaries.</p>
+</div>
+<div id="explore-the-source-and-preview-the-data" class="section level2">
+<h2>3. Explore the source and preview the data</h2>
+<p>Go to the <a href="https://ourworldindata.org/crop-yields">Our World in Data page</a> and view some of the charts. At the very top of the page you can click through all of the charts, or you can also scroll down and view charts that are related to key research questions on the page. Seeing the different questions and charts will help you get a sense for key trends and research questions related to the data.</p>
+<p>Then in RStudio preview the data sets (e.g. using <code>head()</code>, <code>glimpse()</code>, <code>View()</code>, and / or make some quick plots). Take note of what variables are available, their types, their units, and what they measure. Hint: Read the data dictionaries on the GitHub page!</p>
+</div>
+<div id="clean-the-data" class="section level2">
+<h2>4. Clean the data</h2>
+<p>Most of the data frames are relatively “clean”, but you may need to do some light cleaning before you dig into your analysis. Be careful to check the following:</p>
+<ul>
+<li>Are the column names easy to use?</li>
+<li>Are the units for common variables consistent across data frames?</li>
+<li>Are the data types correct?</li>
+<li>Do you need to reshape any of the data frames (i.e. using <code>gather()</code> or <code>spread()</code>)?</li>
+</ul>
+</div>
+<div id="identify-research-questions" class="section level2">
+<h2>5. Identify research questions</h2>
+<p>Once you have a sense for what is captured in the data, list <strong>at least three</strong> questions you think you may be able to answer with these data (you can list more if you want). You can use some of the research questions on the <a href="https://ourworldindata.org/crop-yields">Our World in Data page</a> page directly or for inspiration (for example, you could modify the question, “How have crop yields changed since 1960?” to be more specific about a single crop or a single region / country).</p>
+<p>Your three research questions must meet these criteria:</p>
+<ul>
+<li>Only one can be a “ranking” question (e.g. which country / crop was the highest / lowest, etc.).</li>
+<li>At least one must be about a change over time.</li>
+<li>At least one must involve variables that exist in different data frames. For example, the <code>tractors</code> and <code>fertilizer</code> data frames could be joined to compare how fertilizer use (from the <code>fertilizer</code> data frame) and total population (from the <code>tractors</code> data frame) changed over time.</li>
+</ul>
+</div>
+<div id="search-for-answers-and-make-charts" class="section level2">
+<h2>6. Search for answers and make charts</h2>
+<p>For <strong>each</strong> of your questions:</p>
+<ol style="list-style-type: decimal">
+<li>If necessary, modify and / or join together the data frames to address your question.</li>
+<li>Compute summary measures (e.g. counts, centrality, variability, correlation) and create some simple summary charts (e.g. histogram, boxplot, scatterplot, etc.) using the variables relevant to your question. These are not “polished” charts but rather charts to help you see and understand key trends or relationships related to your research question.</li>
+<li>Create a “polished” chart that highlights a key point related to your research question. It can be any chart type you wish, but it should be carefully chosen to convey a clear message.</li>
+<li>Write a paragraph describing what you found. Describe the key message you intended to convey with your chart and note some of the design choices you made to emphasize that point.</li>
+</ol>
+<p>Important points to consider in your charts:</p>
+<ul>
+<li>Did you modify the theme to avoid distracting elements?</li>
+<li>Have you annotated your chart effectively? (title, subtitle, axis labels, chart annotations, etc.)</li>
+<li>Have you chosen colors carefully?</li>
+<li>Do the chart dimensions need to be adjusted?</li>
+<li>Is the font family and size clear and easy to read?</li>
+</ul>
+</div>
+<div id="knit-and-submit" class="section level2">
+<h2>7. Knit and submit</h2>
+<p>Click the “knit” button to compile your <code>.Rmd</code> file into a html web page, then create a zip file of everything in your R Project folder. Go to the “Assignment Submission” page on Blackboard and submit your zip file under “Mini Project 3.”</p>
+</div>
+</div>
 
 
 <hr>
