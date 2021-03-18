@@ -34,11 +34,12 @@ params:
 
 - How to polish ggplot charts: [R4DS Chapter 28 - Graphics for communication](https://r4ds.had.co.nz/graphics-for-communication.html)
 - Wilke: [4 - Color scales](https://clauswilke.com/dataviz/color-basics.html)
-- Wilke: [21 - Multi-panel figures](https://serialmentor.com/dataviz/multi-panel-figures.html)
-- Check out the [patchwork package](https://patchwork.data-imaginist.com/articles/patchwork.html) for merging multiple charts together
+- Rost: [Which color scale to use when visualizing data](https://blog.datawrapper.de/which-color-scale-to-use-in-data-vis/)
 
 # Optional
 
+- Wilke: [21 - Multi-panel figures](https://serialmentor.com/dataviz/multi-panel-figures.html)
+- Check out the [patchwork package](https://patchwork.data-imaginist.com/articles/patchwork.html) for merging multiple charts together
 - How to make a multi-panel [figure with a shared legend](https://wilkelab.org/cowplot/articles/shared_legends.html).
 - Check out this [tool](https://github.com/clauswilke/colorblindr) for simulating color blindness.
 - Check out these tools for customizing your Rmd file: [PIMP my Rmd](https://holtzy.github.io/Pimp-my-rmd/)
