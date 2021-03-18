@@ -1,6 +1,6 @@
 General:
 - Consider moving data cleaning up earlier.
-- Consider adding an intro to ggplot with scales, etc. from the polishing lesson.
+- Add an intro to ggplot lecture earlier after fundamentals of EDA are done. Include "scales" from the polishing lesson + basic annotations + multi-panel plots. Then the "polish" lessons is mostly about colors & fonts + anything else
 
 2- EDA:
 - consider adding skim() from skimr package
