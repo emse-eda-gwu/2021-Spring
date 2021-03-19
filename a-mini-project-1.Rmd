@@ -15,7 +15,7 @@ output:
 >
 > **Purpose**: When you get a data file to analyze, one of the first things you'll want to do is _explore_ it. But that's often easier said than done. The purpose of this assignment is to give you a chance to practice some of the techniques we've discussed in class for exploring a data set.
 >
-> **Assessment**: I will use [this rubric](projects/mini-project-1/rubric.html) to grade your submissions.
+> **Assessment**: I will use [this rubric](projects/mini-project-1/rubric.html){target="_blank"} to grade your submissions.
 >
 > **Background**: For this assignment, you'll be exploring data on the costs of hundreds of transit projects around the world collected by the [Transit Costs Project](https://transitcosts.com/). The data span more than 50 countries and totals more than 11,000 km of urban rail built since the late 1990s.
 

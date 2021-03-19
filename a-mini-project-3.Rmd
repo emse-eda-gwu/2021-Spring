@@ -15,7 +15,7 @@ output:
 >
 > **Purpose**: We have spent a lot of time exploring data, but most of the time that has only involved a single data frame. This project will give you a chance to practice exploring and joining together multiple data files.
 >
-> **Assessment**: I will use [this rubric](projects/mini-project-3/rubric.pdf) to grade your submissions.
+> **Assessment**: I will use [this rubric](projects/mini-project-3/rubric.html){target="_blank"} to grade your submissions.
 
 # Background
 

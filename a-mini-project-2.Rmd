@@ -15,7 +15,7 @@ output:
 >
 > **Purpose**: At some point in your career, you will likely be involved in creating or revising a summary chart of some data. When that happens, you will also likely be the most knowledge person in the room about what to do to design the chart(s) to effectively communicate the information in the data. This assignment is a practice run for that day.
 >
-> **Assessment**: I will use [this rubric](projects/mini-project-2/rubric.html) to grade your submissions.
+> **Assessment**: I will use [this rubric](projects/mini-project-2/rubric.html){target="_blank"} to grade your submissions.
 
 
 ## Background

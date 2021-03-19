@@ -49,7 +49,7 @@ Interview       | 10 %  | Exam week
 >
 > **Weight**: This assignment is worth 10% of your final grade.
 >
-> **Assessment**: We will use [this rubric](/projects/final-project/proposal/rubric.html) to grade your proposal.
+> **Assessment**: We will use [this rubric](projects/final-project/proposal/rubric.html){target="_blank"} to grade your proposal.
 
 
 
@@ -99,7 +99,7 @@ Click the "knit" button to compile your `.Rmd` file into a html web page, then c
 >
 > **Weight**: This assignment is worth 10% of your final grade.
 >
-> **Assessment**: We will use [this rubric]() to grade your progress report.
+> **Assessment**: We will use [this rubric](){target="_blank"} to grade your progress report.
 
 Write a report summarizing progress you have made towards your project thus far, including summary statistics of your data and preliminary charts. You should have already identified data source(s) for your project and begun exploring the data. Your report should be written in a narrative format (i.e. using coherent pargraphs rather than a series of bullet points). You may use headings where appropriate to break up your report into sections. Below is a list of specific items your progress report should include.
 
@@ -165,7 +165,7 @@ Click the "knit" button to compile your `.Rmd` file into a html web page, then c
 >
 > **Weight**: This assignment is worth 15% of your final grade.
 >
-> **Assessment**: We will use [this rubric]() to grade your progress report.
+> **Assessment**: We will use [this rubric](){target="_blank"} to grade your progress report.
 
 Your final report should be a fully reproducible product and available online as a html webpage. It should include text, data, code, and plots. Your report should be written in a narrative format (i.e. using coherent paragraphs rather than a series of bullet points). You may use headings where appropriate to break up your report into sections. There is no length requirement - your report should be sufficiently detailed to address the requirements listed below and sufficiently concise such that it is expressed in the fewest necessary words. It is also perfectly acceptable for large portions of your final report to be identical to sections in your progress report, albeit perhaps more "polished." Below is a list of specific items your report should include.
 
@@ -225,7 +225,7 @@ Click the "knit" button to compile your `.Rmd` file into a html web page. Don't 
 >
 > **Weight**: This assignment is worth 10% of your final grade.
 >
-> **Assessment**: We will use [this rubric]() to grade your final presentation
+> **Assessment**: We will use [this rubric](){target="_blank"} to grade your final presentation
 
 Create a video recording of a slideshow presentation of your findings in your final report and publish it on the web (e.g. via Youtube, Vimeo, etc.). We will watch all the videos together during the period scheduled for the exam (May 05, 2021). Below is a list of specific items your presentation should include.
 
@@ -265,7 +265,7 @@ Once your video is posted, go to the "Assignment Submission" page on Blackboard 
 >
 > **Weight**: This assignment is worth 10% of your final grade.
 >
-> **Assessment**: We will use [this rubric]() to assess your interview.
+> **Assessment**: We will use [this rubric](){target="_blank"} to assess your interview.
 
 The instructor will hold a 10-minute one-on-one interview with each student. The interview will be focused on your final project and will contain questions related to concepts covered during the course. Students will be provided a list of questions and the grading rubric ahead of the interview.
 
