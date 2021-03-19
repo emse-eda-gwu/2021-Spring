@@ -34,3 +34,4 @@ MP2:
 
 Projects:
 - Rename project pages to start with "project-" instead of "a-"
+- Reduce weight of proposal, move it up earlier so more time to do preliminary work. Maybe even by 3 weeks earlier and move MP2 back.
