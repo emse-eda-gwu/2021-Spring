@@ -22,7 +22,7 @@ Imports:
     janitor,
     kableExtra,
     knitr,
-    remotes,
+    remotes (>= 2.2.0),
     rmarkdown,
     roxygen2,
     tidyverse,
