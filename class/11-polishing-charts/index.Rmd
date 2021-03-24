@@ -1146,17 +1146,18 @@ class: center
 
 ```{r fed_spending_legend, echo=FALSE, fig.height=5, fig.width=7, fig.align='center'}
 ggplot(federal_spending_summary) +
-    geom_area(aes(x = year, y = rd_budget,
-                  fill = department)) +
-    scale_y_continuous(
-        expand = expand_scale(mult = c(0, 0.05))) +
-    scale_fill_manual(values = c('grey', 'sienna')) +
-    theme_minimal_hgrid() +
-    labs(x = NULL,
-         y = 'R&D Budget ($ Billions)',
-         fill = 'Department',
-         title = 'Federal R&D spending, 1976 - 2017',
-         subtitle = 'Source: AAAS Historical Trends')
+  geom_area(
+    aes(x = year, y = rd_budget, fill = department)) +
+  scale_y_continuous(
+    expand = expand_scale(mult = c(0, 0.05))) +
+  scale_fill_manual(values = c('grey', 'sienna')) +
+  theme_minimal_hgrid() +
+  labs(
+    x = NULL,
+    y = 'R&D Budget ($ Billions)',
+    fill = 'Department',
+    title = 'Federal R&D spending, 1976 - 2017',
+    subtitle = 'Source: AAAS Historical Trends')
 ```
 ]
 
@@ -1305,14 +1306,15 @@ federal R&D spending"
 
 dod_spending +
   geom_curve( #<<
-    aes(x = 1981, xend = 1987, #<<
-        y = 160, yend = 25),#<<
-    size = 0.5, curvature = 0.1, #<<
+    data = data.frame( #<<
+      x = 1981, xend = 1987, y = 160, yend = 25), #<<
+    mapping = aes(x = x, xend = xend, y = y, yend = yend), #<<
+    color = 'grey75', size = 0.5, curvature = 0.1, #<<
     arrow = arrow(length = unit(0.01, "npc"), #<<
                   type = "closed")) + #<<
   geom_label(
     data = data.frame(x = 1977, y = 160, label = label),
-    aes(x = x, y = y, label = label),
+    mapping = aes(x = x, y = y, label = label),
     hjust = 0, lineheight = 0.8)
 ```
 ]]
