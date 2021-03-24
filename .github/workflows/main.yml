@@ -14,6 +14,7 @@ jobs:
       - name: Query dependencies
         run: |
           options(download.file.method = "libcurl")
+          options(repos = "https://cran.rstudio.com")
           install.packages('remotes')
           saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
         shell: Rscript {0}
