@@ -13,6 +13,7 @@ jobs:
       - uses: r-lib/actions/setup-pandoc@master
       - name: Query dependencies
         run: |
+          options(download.file.method = "libcurl")
           install.packages('remotes')
           saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
         shell: Rscript {0}
