@@ -13,6 +13,7 @@ License: CC-BY-SA
 Encoding: UTF-8
 Imports:
     cowplot,
+    emo,
     fontawesome,
     ggrepel,
     gsheet,
@@ -28,6 +29,7 @@ Imports:
     xaringanExtra,
     yaml
 Remotes:
+    hadley/emo,
     rstudio/fontawesome,
     haozhu233/kableExtra,
     rstudio/rmarkdown,
