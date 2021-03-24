@@ -22,7 +22,7 @@ Imports:
     janitor,
     kableExtra,
     knitr,
-    remotes (>= 2.2.0),
+    remotes,
     rmarkdown,
     roxygen2,
     tidyverse,
@@ -33,5 +33,6 @@ Remotes:
     hadley/emo,
     rstudio/fontawesome,
     haozhu233/kableExtra,
+    r-lib/remotes,
     rstudio/rmarkdown,
     gadenbuie/xaringanExtra
