@@ -36,6 +36,7 @@ knitr::opts_chunk$set(
 wildlife_impacts <- read_csv(here::here('data', 'wildlife_impacts.csv'))
 lotr_words       <- read_csv(here::here('data', 'lotr_words.csv'))
 milk_production  <- read_csv(here::here('data', 'milk_production.csv'))
+federal_spending <- read_csv(here::here('data', 'federal_spending_long.csv'))
 
 # Create some summary data frames
 lotr_summary <- lotr_words %>%
@@ -370,3 +371,77 @@ output:
 
 - **Pimp my RMD**: https://holtzy.github.io/Pimp-my-rmd/
 
+# Annotation examples of the Federal Spending data from class
+
+Create the summary data frame first: 
+
+```{r}
+federal_spending_summary <- federal_spending %>%
+    mutate(department = fct_other(
+        department, keep = 'DOD')) %>%
+    group_by(department, year) %>%
+    summarise(rd_budget = sum(rd_budget) / 10^3) %>%
+    ungroup() %>%
+    mutate(department = fct_relevel(
+        department, c('Other', 'DOD')))
+```
+
+Baseline chart:
+
+```{r fed_spending, fig.height=5, fig.width=7, fig.align='center'}
+dod_spending <- ggplot(federal_spending_summary) +
+  geom_area(
+    aes(x = year, y = rd_budget, fill = department)) +
+  scale_y_continuous(
+    expand = expand_scale(mult = c(0, 0.05))) +
+  scale_fill_manual(values = c('grey', 'sienna')) +
+  theme_minimal_hgrid() +
+  labs(
+    x = NULL,
+    y = 'R&D Budget ($ Billions)',
+    title = 'Federal R&D spending, 1976 - 2017',
+    subtitle = 'Source: AAAS Historical Trends')
+
+dod_spending
+```
+
+Annotations with `annotate()`:
+
+```{r fed_spending_annotate, fig.height=5, fig.width=7, fig.align='center'}
+dod_spending +
+    annotate(geom = 'text', x = 1995, y = 85, 
+             label = 'Other', size = 6, color = 'black') + 
+    annotate(geom = 'text', x = 1995, y = 25, 
+             label = 'DOD', size = 6, color = 'white') + 
+    theme(legend.position = 'none') 
+```
+
+Annotations with `geom_text()`:
+
+```{r fed_spending_geom_text, fig.height=5, fig.width=7, fig.align='center'}
+dod_spending +
+    geom_text( 
+      data = data.frame(x = 1995, y = 85, label = 'Other'), 
+      aes(x = x, y = y, label = label), 
+      size = 6, color = 'black') + 
+    geom_text( 
+      data = data.frame(x = 1995, y = 25, label = 'DOD'), 
+      aes(x = x, y = y, label = label), 
+      size = 6, color = 'white') + 
+    theme(legend.position = 'none') 
+```
+
+Annotations with `geom_label()`:
+
+```{r fed_spending_geom_label, fig.height=5, fig.width=7, fig.align='center'}
+dod_spending +
+    geom_label( 
+      data = data.frame(x = 1995, y = 85, label = 'Other'), 
+      aes(x = x, y = y, label = label), 
+      size = 6, color = 'black') + 
+    geom_label( 
+      data = data.frame(x = 1995, y = 25, label = 'DOD'), 
+      aes(x = x, y = y, label = label), 
+      size = 6, color = 'black') + 
+    theme(legend.position = 'none') 
+```
