@@ -87,9 +87,7 @@ milk_summary_dumbbell <- milk_production %>%
 
 # 1. Scales
 
-Use the `wildlife_costs` data frame to create the chart on the slides.
-
-Note the x and y axis labels!
+Adjust the scales in the code chunk provided to match the chart on the slides.
 
 ```{r, fig.height=5, fig.width=7, fig.align='center'}
 ggplot(wildlife_costs) +
@@ -133,7 +131,7 @@ ggplot(lotr_summary) +
   geom_col(
     aes(x = Race, y = wordCount, fill = gender),
     width = 0.7, color = 'white') +
-  facet_wrap(~gender) +
+  facet_wrap(vars(gender)) +
   geom_curve(
     data = data.frame(
       x = 1.2, xend = 1, y = 1300, yend = 200, gender = 'Female'),
@@ -165,13 +163,13 @@ Make 3 different versions of this chart:
 2. Change the colors to the `"inferno"` palette from the **viridis** library.
 3. Change the colors to your custom triadic palette:
 
-    - Use the ["eye dropper"](https://chrome.google.com/webstore/detail/eye-dropper/hmdcmlfkchdmnmnmheododdhjedfccka?hl=en) tool in Google Chrome to select a color from a website, then 
+    - Use the ["eye dropper"](https://chrome.google.com/webstore/detail/eye-dropper/hmdcmlfkchdmnmnmheododdhjedfccka?hl=en) tool in Google Chrome to select a color from a website, then
     - Use your color and the [color wheel tool](https://www.sessions.edu/color-calculator/) to find a triadic color palette.
 
-Make the base chart:
+Base chart:
 
 ```{r, fig.width=7, fig.height=5, fig.align='center'}
-myplot <- ggplot(wildlife_impacts_2016) +
+base_plot <- ggplot(wildlife_impacts_2016) +
   geom_point(
     aes(x = speed, y = height, color = phase_of_flt),
     alpha = 0.7, size = 2) +
@@ -181,36 +179,36 @@ myplot <- ggplot(wildlife_impacts_2016) +
        y = 'Height (ft)',
        color = 'Phase of flight',
        title = 'Wildlife impacts in 2016')
+
+base_plot
 ```
 
-Here's the chart with the `"RdYlBu"` ColorBrewer palette:
+Same chart but with the `"RdYlBu"` ColorBrewer palette:
 
 ```{r, fig.width=7, fig.height=5, fig.align='center'}
-myplot +
+base_plot +
     scale_color_brewer(palette = 'RdYlBu')
 ```
 
-Here's the chart with the `"inferno"` palette from the **viridis** library:
+Same chart but with the `"inferno"` palette from the **viridis** library:
 
 ```{r, fig.width=7, fig.height=5, fig.align='center'}
-myplot +
+base_plot +
     scale_color_viridis(discrete = TRUE, option = 'inferno')
 ```
 
-Finally, here's the chart with a custom color palette: 
+Same chart but with a custom color palette:
 
 ```{r, fig.width=7, fig.height=5, fig.align='center'}
-colorPalette <- c('#a0522d', '#522da0', '#2da052')
+colorPalette <- c('#288ecd', '#cdb428', '#cd285c')
 
-myplot +
+base_plot +
     scale_color_manual(values = colorPalette)
 ```
 
 # 4. Fonts
 
-Use the `milk_summary_dumbbell` data frame to create the following chart.
-
-The main font is `'Roboto Condensed'`.
+Modify the fonts and annotations in the dumbbell chart to match the chart shown here. The main font is `'Roboto Condensed'`.
 
 Once you've recreated the plot, try other fonts and themes, such as:
 
@@ -218,13 +216,13 @@ Once you've recreated the plot, try other fonts and themes, such as:
 - The `'Lato'` font.
 - The `theme_ipsum()` theme from the `hrbrthemes` library.
 
-Hint: Use `geom_text()` or `annotate()` to insert the year labels:
+Hint: Use `annotate()` to insert the year labels at the top:
 
   - 1970: `x = 9`, `y = 10.5`
   - 2017: `x = 40`, `y = 10.5`
 
 ```{r, fig.height=6, fig.width=7, fig.align='center'}
-milk_summary_dumbbell %>% 
+milk_summary_dumbbell %>%
   ggplot(aes(x = milk_produced, y = state)) +
   geom_line(
     aes(group = state),

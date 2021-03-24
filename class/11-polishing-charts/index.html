@@ -75,12 +75,20 @@ class: center
 
 ---
 
-class: center
+class: center, middle
 
-# Mini Project 2
+## Highlighting Texas leadership in installed capacity
 
 &lt;center&gt;
-&lt;img src="images/installedCapacity.png" width=600&gt;
+&lt;img src="images/mp2_installedCapacity.png" width=600&gt;
+&lt;/center&gt;
+
+---
+
+class: center
+
+&lt;center&gt;
+&lt;img src="images/mp2_homesPerDollar.png" width=600&gt;
 &lt;/center&gt;
 
 ---
@@ -782,16 +790,14 @@ class: middle, center
 ---
 class: inverse
 
-<div class="countdown" id="timer_605a482c" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<div class="countdown" id="timer_605b3b02" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">20</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
 ## Your turn
 
 .leftcol40[
-Use the `wildlife_costs` data frame to create the following chart.
-
-Note the x and y axis labels!
+Adjust the scales in the code chunk provided to match the chart on the slides.
 ]
 
 .rightcol60[
@@ -1157,7 +1163,7 @@ plot &lt;- ggplot(mpg) +
 ---
 class: inverse
 
-<div class="countdown" id="timer_605a480f" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<div class="countdown" id="timer_605b39b5" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">20</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1184,7 +1190,7 @@ Hints:
 ---
 class: inverse, center
 
-<div class="countdown" id="timer_605a48a2" style="top:1;right:0;bottom:0;left:0;margin:5%;font-size:8em;" data-warnwhen="30">
+<div class="countdown" id="timer_605b3ac8" style="top:1;right:0;bottom:0;left:0;margin:5%;font-size:8em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1739,7 +1745,7 @@ dod_spending_plot +
 ---
 class: inverse
 
-<div class="countdown" id="timer_605a462b" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<div class="countdown" id="timer_605b3992" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">20</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -2203,16 +2209,14 @@ mpg_plot +
 ---
 class: inverse
 
-<div class="countdown blink-colon noupdate-15" id="timer_605a487d" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<div class="countdown blink-colon noupdate-15" id="timer_605b37a2" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
 ## Your turn
 
 .leftcol[.font80[
-Use the `milk_summary_dumbbell` data frame to create the following chart.
-
-The main font is `'Roboto Condensed'`.
+Modify the fonts and annotations in the dumbbell chart to match the chart shown here. The main font is `'Roboto Condensed'`.
 
 Once you've recreated the plot, try other fonts and themes, such as:
 
@@ -2220,7 +2224,7 @@ Once you've recreated the plot, try other fonts and themes, such as:
 - The `'Lato'` font.
 - The `theme_ipsum()` theme from the `hrbrthemes` library.
 
-Hint: Use `geom_text()` or `annotate()` to insert the year labels:
+Hint: Use `annotate()` to insert the year labels at the top:
 
   - 1970: `x = 9`, `y = 10.5`
   - 2017: `x = 40`, `y = 10.5`
