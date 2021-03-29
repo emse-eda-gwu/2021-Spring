@@ -68,7 +68,7 @@ class: inverse
 
 # Quiz 4
 
-<div class="countdown" id="timer_6061e5a3" style="bottom:0;left:0;font-size:4em;" data-warnwhen="30">
+<div class="countdown" id="timer_6062030d" style="bottom:0;left:0;font-size:4em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -250,7 +250,7 @@ Library data from [Natural Earth](http://www.naturalearthdata.com/downloads/50m-
 
 
 ```r
-library(rnaturalearth) 
+library(rnaturalearth)
 library(rnaturalearthdata)
 
 *world &lt;- ne_countries(
@@ -294,12 +294,12 @@ Get the "World" shape file
 
 
 ```r
-library(rnaturalearth) 
+library(rnaturalearth)
 library(rnaturalearthdata)
 
 world &lt;- ne_countries(
-  scale = "medium", 
-  returnclass = "sf") 
+  scale = "medium",
+  returnclass = "sf")
 ```
 
 Make the plot with `geom_sf()`
@@ -458,7 +458,7 @@ library(sf)
 ```
 
 ```
-#&gt; Reading layer `ne_50m_admin_0_countries' from data source `/Users/jhelvy/gh/0gw/EDA/class_prep/12-maps/data/natural_earth_countries/ne_50m_admin_0_countries.shp' using driver `ESRI Shapefile'
+#&gt; Reading layer `ne_50m_admin_0_countries' from data source `/Users/jhelvy/gh/0gw/EDA/2021-Spring/class/12-maps/data/natural_earth_countries/ne_50m_admin_0_countries.shp' using driver `ESRI Shapefile'
 #&gt; Simple feature collection with 241 features and 94 fields
 #&gt; Geometry type: MULTIPOLYGON
 #&gt; Dimension:     XY
@@ -484,7 +484,7 @@ library(sf)
 ```
 
 ```
-#&gt; Reading layer `ne_50m_admin_0_countries' from data source `/Users/jhelvy/gh/0gw/EDA/class_prep/12-maps/data/natural_earth_countries/ne_50m_admin_0_countries.shp' using driver `ESRI Shapefile'
+#&gt; Reading layer `ne_50m_admin_0_countries' from data source `/Users/jhelvy/gh/0gw/EDA/2021-Spring/class/12-maps/data/natural_earth_countries/ne_50m_admin_0_countries.shp' using driver `ESRI Shapefile'
 #&gt; Simple feature collection with 241 features and 94 fields
 #&gt; Geometry type: MULTIPOLYGON
 #&gt; Dimension:     XY
@@ -521,7 +521,7 @@ central_park &lt;- st_read(here::here(
 ```
 
 ```
-#&gt; Reading layer `CentralPark' from data source `/Users/jhelvy/gh/0gw/EDA/class_prep/12-maps/data/central_park/CentralPark.shp' using driver `ESRI Shapefile'
+#&gt; Reading layer `CentralPark' from data source `/Users/jhelvy/gh/0gw/EDA/2021-Spring/class/12-maps/data/central_park/CentralPark.shp' using driver `ESRI Shapefile'
 #&gt; Simple feature collection with 2550 features and 6 fields
 #&gt; Geometry type: LINESTRING
 #&gt; Dimension:     XY
@@ -546,7 +546,7 @@ ggplot(data = central_park) +
 ---
 class: inverse
 
-<div class="countdown blink-colon noupdate-15" id="timer_6061e5b1" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<div class="countdown blink-colon noupdate-15" id="timer_60620041" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -597,27 +597,55 @@ Hexmaps:
 
 class: inverse, center, middle
 
-### Choropleth maps
+# First rule of adding data to maps:
 
-&lt;center&gt;
-&lt;img src="images/state_abbreviations.png" width=750&gt;
-&lt;/center&gt;
+# .red[Do you need to make a map?]
 
 ---
 
 class: center, middle
+background-color: #FFF
 
 &lt;center&gt;
-&lt;img src="images/xkcd_heatmap.png" width=600&gt;
+&lt;img src="images/xkcd_heatmap.png" width=550&gt;
 &lt;/center&gt;
+
+.left[https://xkcd.com/1138/]
 
 ---
 
-class: center, middle
+class: inverse, center, middle
+
+# 1. .orange[Choropleth maps]
+# 2. Point maps
+
+---
+
+background-color: #f7fcfd
+
+[Choropleth](https://en.wikipedia.org/wiki/Choropleth_map) - from Greek:
+
+- χῶρος "choros" (area/region)
+- πλῆθος "plethos" (multitude)
+
+&lt;center&gt;
+&lt;img src="images/state_abbreviations.png" width=880&gt;
+&lt;/center&gt;
+
+.font70[From reddit: [r/dataisbeautiful by u/GaudyAudi](https://www.reddit.com/r/dataisbeautiful/comments/fgq3d3/oc_us_state_abbreviation_conventions/)]
+
+---
+
+class: inverse, center, middle
 
 # Choropleth maps are easily misleading
 
-### Number of events != Number of events **per capita**
+---
+
+class: center, middle
+background-color: #fff
+
+## Number of events != Number of events **per capita**
 
 &lt;center&gt;
 &lt;img src="images/choropleth_ca.png" width=800&gt;
@@ -626,8 +654,9 @@ class: center, middle
 ---
 
 class: center
+background-color: #fff
 
-# Choropleth maps are easily misleading
+## Manipulating fill scale produces wildly different maps
 
 &lt;center&gt;
 &lt;img src="images/choropleth_hispanic.png"&gt;
@@ -636,8 +665,46 @@ class: center
 ---
 
 class: center
+background-color: #fff
 
-# Choropleth maps are easily misleading
+## Manipulating fill scale produces wildly different maps
+
+&lt;br&gt;
+
+.leftcol[
+&lt;center&gt;
+&lt;img src="images/nyt_covid_travel1.jpeg" width=500&gt;
+&lt;/center&gt;
+
+&lt;br&gt;&lt;br&gt;
+.left[.font70[Source: [New York Times](https://www.nytimes.com/interactive/2020/04/02/us/coronavirus-social-distancing.html)]]
+]
+
+.rightcol[
+&lt;center&gt;
+&lt;img src="images/nyt_covid_travel2.jpeg" width=500&gt;
+&lt;/center&gt;
+]
+
+---
+
+class: center
+background-color: #fff
+
+### Land doesn't vote - people vote
+
+&lt;center&gt;
+&lt;img src="images/eu_vote.gif" width=600&gt;
+&lt;/center&gt;
+
+By [David Zumbach](https://twitter.com/DavidZumbach/status/1344547411985911808?s=19)
+
+---
+
+class: center
+background-color: #fff
+
+# Land doesn't vote - people vote
 
 Election maps from: http://www-personal.umich.edu/~mejn/election/2016/
 
@@ -662,8 +729,9 @@ Election maps from: http://www-personal.umich.edu/~mejn/election/2016/
 ---
 
 class: center
+background-color: #fff
 
-## Actual fakenews in dumb memes
+## Easy to lie with fake news
 
 &lt;center&gt;
 &lt;img src="images/election_map_fakenews.png" width=450&gt;
@@ -676,6 +744,7 @@ Bottom map is actually [this map](http://www-personal.umich.edu/~mejn/election/2
 ---
 
 class: center, middle
+background-color: #fff
 
 ## (here is what actual crime rates look like)
 
@@ -698,6 +767,7 @@ class: center, middle
 ---
 
 class: center
+background-color: #fff
 
 # A choropleth alternative: hex maps
 
@@ -721,12 +791,12 @@ https://fivethirtyeight.com/
 
 ---
 
-class: center
+class: center 
 
-# Another alternative: hex maps
+## How to make a choropleth map
 
 &lt;center&gt;
-&lt;img src="images/map_obamacare.png" width=750&gt;
+&lt;img src="images/plots/sf_us_milk_2017.png" width=780&gt;
 &lt;center&gt;
 
 ---
@@ -836,7 +906,8 @@ Non-linear scale:
 
 class: inverse, center, middle
 
-# Points
+# 1. Choropleth maps
+# 2. .orange[Point maps]
 
 ---
 
@@ -895,6 +966,16 @@ class: center
 &lt;img src="images/plots/uk_pop_area.png" width=500&gt;
 &lt;/center&gt;
 ]
+
+---
+
+class: center 
+
+## How to add points to a map
+
+&lt;center&gt;
+&lt;img src="images/plots/sf_us_coffee.png" width=750&gt;
+&lt;center&gt;
 
 ---
 
@@ -959,13 +1040,18 @@ Plot coffee shop locations over map
 ```r
 ggplot() +
   geom_sf(data = us_states_cont) +
-  geom_point(
+* geom_point(
 *   data = us_coffee_shops,
-*   aes(x = long, y = lat, color = name)) +
+*   aes(x = long, y = lat, color = name),
+*   size = 0.3) +
   theme_void(base_size = 15) +
   theme(legend.position = 'bottom') +
-  guides(color = guide_legend(title.position = "top")) +
-  labs(color = 'Coffee shop',
+  guides(color = guide_legend(
+    # Move legend title to top
+    title.position = "top",
+    # Increase legend point size
+    override.aes = list(size = 3))) +
+  labs(color = 'Coffee shop', 
        title = 'Coffee Shops in the US')
 ```
 ]]
@@ -981,7 +1067,7 @@ ggplot() +
 
 class: inverse
 
-<div class="countdown blink-colon noupdate-15" id="timer_6061e874" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<div class="countdown blink-colon noupdate-15" id="timer_60620238" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1004,7 +1090,7 @@ Hint: The color is mapped to the `primary_fur_color` variable
 
 class: inverse, center
 
-<div class="countdown" id="timer_6061e8f6" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<div class="countdown" id="timer_606202a0" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1136,10 +1222,10 @@ coord_sf(crs = "ESRI:XXXX")
 Code  | Projection
 ------|---------------------------------------------------
 **`"ESRI:54030"`** | **Robinson**
-`"ESRI:54002"` | Equidistant cylindrical 
-`"ESRI:54004"` | Mercator 
-`"ESRI:54008"` | Sinusoidal 
-`"ESRI:54009"` | Mollweide 
+`"ESRI:54002"` | Equidistant cylindrical
+`"ESRI:54004"` | Mercator
+`"ESRI:54008"` | Sinusoidal
+`"ESRI:54009"` | Mollweide
 ]
 
 .rightcol[
@@ -1193,7 +1279,7 @@ ggplot(data = world) +
 ]]
 
 .cols3[.code70[
-Albers 
+Albers
 
 
 ```r
@@ -1215,25 +1301,25 @@ ggplot(data = us_states_cont) +
 
 ```r
 milk_2017 &lt;- milk_production %&gt;%
-    filter(year == 2017) %&gt;%
-    select(name = state, milk_produced) %&gt;%
-    mutate(milk_produced = milk_produced / 10^9)
+  filter(year == 2017) %&gt;%
+  select(name = state, milk_produced) %&gt;%
+  mutate(milk_produced = milk_produced / 10^9)
 
 us_states &lt;- ne_states(
-    country = 'united states of america',
-    returnclass = 'sf') %&gt;%
-    filter(! name %in% c('Alaska', 'Hawaii')) %&gt;%
-*   left_join(milk_2017, by = 'name')
+  country = 'united states of america',
+  returnclass = 'sf') %&gt;%
+  filter(! name %in% c('Alaska', 'Hawaii')) %&gt;%
+* left_join(milk_2017, by = 'name')
 
 ggplot(us_states) +
-*   geom_sf(aes(fill = milk_produced)) +
-    scale_fill_viridis(
-        option = "plasma",
-        limits = c(0, 40)) +
-    theme_void(base_size = 15) +
-    theme(legend.position = 'bottom') +
-    labs(fill = 'Milk produced\n(billions lbs)',
-         title = 'Milk Production by State in 2017')
+* geom_sf(aes(fill = milk_produced)) +
+  scale_fill_viridis(
+    option = "plasma",
+    limits = c(0, 40)) +
+  theme_void(base_size = 15) +
+  theme(legend.position = 'bottom') +
+  labs(fill = 'Milk produced\n(billions lbs)',
+       title = 'Milk Production by State in 2017')
 ```
 ]]
 
@@ -1264,30 +1350,30 @@ us_states &lt;- ne_states(
 
 ggplot(us_states) +
   geom_sf(aes(fill = milk_produced)) +
-* coord_sf(crs = "ESRI:102003") +
   scale_fill_viridis(
     option = "plasma",
     limits = c(0, 40)) +
   theme_void(base_size = 15) +
   theme(legend.position = 'bottom') +
   labs(fill = 'Milk produced\n(billions lbs)',
-       title = 'Milk Production by State in 2017')
+       title = 'Milk Production by State in 2017') +
+* coord_sf(crs = "ESRI:102003")
 ```
 ]]
 
 .rightcol40[
-&lt;br&gt;
 &lt;center&gt;
+Albers Projection
+
 &lt;img src="images/plots/sf_us_milk_2017_albers.png"&gt;
 &lt;center&gt;
 ]
 
 ---
 
-## Mapping data to projections - points
+**Mapping data to projections - points**
 
-.leftcol60[.code70[
-
+.leftcol60[.code60[
 
 ```r
 us_states_cont &lt;- ne_states(
@@ -1301,18 +1387,23 @@ us_coffee_shops &lt;- us_coffee_shops %&gt;%
 
 ggplot() +
   geom_sf(data = us_states_cont) +
-* geom_point(data = us_coffee_shops,
-*            aes(x = long, y = lat, color = name)) +
+* geom_point(
+*   data = us_coffee_shops,
+*   aes(x = long, y = lat, color = name),
+*   size = 0.3) +
   theme_void(base_size = 15) +
   theme(legend.position = 'bottom') +
-  guides(color = guide_legend(title.position = "top")) +
+  guides(color = guide_legend(
+    # Move legend title to top
+    title.position = "top",
+    # Increase legend point size
+    override.aes = list(size = 3))) +
   labs(color = 'Coffee shop',
        title = 'Coffee Shops in the US')
 ```
 ]]
 
 .rightcol40[
-&lt;br&gt;
 &lt;center&gt;
 &lt;img src="images/plots/sf_us_coffee.png"&gt;
 &lt;center&gt;
@@ -1320,9 +1411,9 @@ ggplot() +
 
 ---
 
-## Mapping data to projections - points
+**Mapping data to projections - points**
 
-.leftcol60[.code70[
+.leftcol60[.code60[
 
 ```r
 us_states_cont &lt;- ne_states(
@@ -1336,14 +1427,20 @@ us_coffee_shops &lt;- us_coffee_shops %&gt;%
 
 ggplot() +
   geom_sf(data = us_states_cont) +
-  geom_point(data = us_coffee_shops,
-             aes(x = long, y = lat, color = name)) +
-* coord_sf(crs = "ESRI:102003") +
+  geom_point( 
+    data = us_coffee_shops, 
+    aes(x = long, y = lat, color = name),
+    size = 0.3) +
   theme_void(base_size = 15) +
   theme(legend.position = 'bottom') +
-  guides(color = guide_legend(title.position = "top")) +
+  guides(color = guide_legend(
+    # Move legend title to top
+    title.position = "top",
+    # Increase legend point size
+    override.aes = list(size = 3))) +
   labs(color = 'Coffee shop',
-       title = 'Coffee Shops in the US')
+       title = 'Coffee Shops in the US') +
+* coord_sf(crs = "ESRI:102003")
 ```
 ]]
 
@@ -1407,27 +1504,30 @@ head(us_coffee_shops_sf)
 
 ## Mapping data to projections - points
 
-.leftcol60[.code70[
 Plot coffee shop locations over map with `geom_sf()`
 
+.leftcol60[.code70[
 
 ```r
 ggplot() +
   geom_sf(data = us_states_cont) +
 * geom_sf(
 *   data = us_coffee_shops_sf,
-*   aes(fill = name),
-*   shape = 21, stroke = FALSE) +
+*   aes(color = name),
+*   size = 0.3) +
   theme_void(base_size = 15) +
   theme(legend.position = 'bottom') +
-  guides(fill = guide_legend(title.position = "top")) +
+  guides(color = guide_legend(
+    # Move legend title to top
+    title.position = "top",
+    # Increase legend point size
+    override.aes = list(size = 3))) +
   labs(fill = 'Coffee shop',
        title = 'Coffee Shops in the US')
 ```
 ]]
 
 .rightcol40[
-&lt;br&gt;
 &lt;center&gt;
 &lt;img src="images/plots/sf_us_coffee_base.png"&gt;
 &lt;center&gt;
@@ -1437,29 +1537,34 @@ ggplot() +
 
 ## Mapping data to projections - points
 
-.leftcol60[.code70[
 Plot coffee shop locations over map with `geom_sf()`
 
+.leftcol60[.code70[
 
 ```r
 ggplot() +
   geom_sf(data = us_states_cont) +
-  geom_sf(
-    data = us_coffee_shops_sf,
-    aes(fill = name),
-    shape = 21, stroke = FALSE) +
-* coord_sf(crs = "ESRI:102003") +
+  geom_sf( 
+    data = us_coffee_shops_sf, 
+    aes(color = name), 
+    size = 0.3) +
   theme_void(base_size = 15) +
   theme(legend.position = 'bottom') +
-  guides(fill = guide_legend(title.position = "top")) +
+  guides(color = guide_legend(
+    # Move legend title to top
+    title.position = "top",
+    # Increase legend point size
+    override.aes = list(size = 3))) +
   labs(fill = 'Coffee shop',
-       title = 'Coffee Shops in the US')
+       title = 'Coffee Shops in the US') + 
+* coord_sf(crs = "ESRI:102003")
 ```
 ]]
 
 .rightcol40[
-&lt;br&gt;
 &lt;center&gt;
+Albers Projection 
+
 &lt;img src="images/plots/sf_us_coffee_albers.png"&gt;
 &lt;center&gt;
 ]
@@ -1468,27 +1573,34 @@ ggplot() +
 
 ## Mapping data to projections - points
 
+Plot coffee shop locations over map with `geom_sf()`
+
 .leftcol60[.code70[
 
 ```r
 ggplot() +
   geom_sf(data = us_states_cont) +
-  geom_sf(
-    data = us_coffee_shops_sf,
-    aes(fill = name),
-    shape = 21, stroke = FALSE) +
-* coord_sf(crs = "ESRI:102004") +
+  geom_sf( 
+    data = us_coffee_shops_sf, 
+    aes(color = name), 
+    size = 0.3) +
   theme_void(base_size = 15) +
   theme(legend.position = 'bottom') +
-  guides(fill = guide_legend(title.position = "top")) +
+  guides(color = guide_legend(
+    # Move legend title to top
+    title.position = "top",
+    # Increase legend point size
+    override.aes = list(size = 3))) +
   labs(fill = 'Coffee shop',
-       title = 'Coffee Shops in the US')
+       title = 'Coffee Shops in the US') + 
+* coord_sf(crs = "ESRI:102004")
 ```
 ]]
 
 .rightcol40[
-&lt;br&gt;
 &lt;center&gt;
+LCC Projection
+
 &lt;img src="images/plots/sf_us_coffee_lcc.png"&gt;
 &lt;center&gt;
 ]
@@ -1497,7 +1609,7 @@ ggplot() +
 
 class: inverse
 
-<div class="countdown blink-colon noupdate-15" id="timer_6061ea72" style="top:0;left:0;font-size:2em;" data-warnwhen="30">
+<div class="countdown blink-colon noupdate-15" id="timer_606200e2" style="top:0;left:0;font-size:2em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">20</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1524,10 +1636,10 @@ scale_fill_gradient(
 
 .rightcol40[
 &lt;center&gt;
-**Robinson Projection**
+Robinson Projection
 &lt;img src="images/plots/sf_world_internet_robinson.png"&gt;
 
-**Mercator Projection**
+Mercator Projection
 &lt;img src="images/plots/sf_world_internet_mercator.png"&gt;
 &lt;center&gt;
 ]
@@ -1544,7 +1656,7 @@ class: inverse
 
 ## Your turn
 
-<div class="countdown blink-colon noupdate-15" id="timer_6061e6cf" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<div class="countdown blink-colon noupdate-15" id="timer_60620075" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 

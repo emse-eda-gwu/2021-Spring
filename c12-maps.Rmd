@@ -2,10 +2,16 @@
 title: "Maps"
 output:
   html_document:
+    number_sections: false
     toc: no
+params:
+  class: "12-maps"
 ---
 
 ```{r child = "knitr_setup.Rmd"}
 ```
 
-Coming Soon!
+# Class notes
+
+```{r child = "_slides.Rmd"}
+```

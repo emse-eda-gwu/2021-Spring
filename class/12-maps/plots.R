@@ -503,14 +503,19 @@ us_states_cont <- ne_states(
     filter(! name %in% c('Alaska', 'Hawaii'))
 
 # Directly plot points
-sf_us_coffee <- ggplot(us_states_cont) +
-    geom_sf() +
+sf_us_coffee <- ggplot() +
+    geom_sf(data = us_states_cont) +
     geom_point(
         data = us_coffee_shops,
-        aes(x = long, y = lat, color = name)) + 
+        aes(x = long, y = lat, color = name),
+        size = 0.3) + 
     theme_void(base_size = 15) +
     theme(legend.position = 'bottom') +
-    guides(color = guide_legend(title.position = "top")) +
+    guides(color = guide_legend(
+        # Move legend title to top
+        title.position = "top",
+        # Increase legend point size
+        override.aes = list(size = 3))) +
     labs(color = 'Coffee shop', 
          title = 'Coffee Shops in the US')
 
@@ -534,11 +539,15 @@ sf_us_coffee_base <- ggplot() +
     geom_sf(data = us_states_cont) +
     geom_sf(
         data = us_coffee_shops_sf,
-        aes(fill = name), 
-        shape = 21, stroke = FALSE) +
+        aes(color = name), 
+        size = 0.3) +
     theme_void(base_size = 15) +
     theme(legend.position = 'bottom') +
-    guides(fill = guide_legend(title.position = "top")) +
+    guides(color = guide_legend(
+        # Move legend title to top
+        title.position = "top",
+        # Increase legend point size
+        override.aes = list(size = 3))) +
     labs(fill = 'Coffee shop', 
          title = 'Coffee Shops in the US')
 
@@ -553,18 +562,8 @@ ggsave(here::here('images', 'plots', 'sf_us_coffee_albers.png'),
        sf_us_coffee_albers, width = 9, height = 6)
 
 # LCC projection
-sf_us_coffee_lcc <- ggplot() +
-    geom_sf(data = us_states_cont) +
-    geom_sf(
-        data = us_coffee_shops_sf,
-        aes(fill = name), 
-        shape = 21, stroke = FALSE) +
-    coord_sf(crs = "ESRI:102004") +
-    theme_void(base_size = 15) +
-    theme(legend.position = 'bottom') +
-    guides(fill = guide_legend(title.position = "top")) +
-    labs(fill = 'Coffee shop', 
-         title = 'Coffee Shops in the US')
+sf_us_coffee_lcc <- sf_us_coffee_base +
+    coord_sf(crs = "ESRI:102004") 
 
 ggsave(here::here('images', 'plots', 'sf_us_coffee_lcc.png'),
        sf_us_coffee_lcc, width = 9, height = 6)

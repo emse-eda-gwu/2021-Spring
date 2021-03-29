@@ -156,7 +156,7 @@ world_int <- world %>%
     filter(iso_a3 != "ATA")  # No internet in Antarctica...sorry penguins.
 ```
 
-Make the baseline map
+Make the baseline map (with no specific projection)
 
 ```{r, fig.width = 6, fig.height = 3.7}
 internet_map <- ggplot(world_int) +

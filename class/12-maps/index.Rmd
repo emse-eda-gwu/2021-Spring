@@ -249,7 +249,7 @@ ggplot(us_states) +
 Library data from [Natural Earth](http://www.naturalearthdata.com/downloads/50m-cultural-vectors/)
 
 ```{r, eval=FALSE}
-library(rnaturalearth) 
+library(rnaturalearth)
 library(rnaturalearthdata)
 
 world <- ne_countries( #<<
@@ -287,12 +287,12 @@ world %>%
 Get the "World" shape file
 
 ```{r}
-library(rnaturalearth) 
+library(rnaturalearth)
 library(rnaturalearthdata)
 
 world <- ne_countries(
-  scale = "medium", 
-  returnclass = "sf") 
+  scale = "medium",
+  returnclass = "sf")
 ```
 
 Make the plot with `geom_sf()`
@@ -545,27 +545,55 @@ Hexmaps:
 
 class: inverse, center, middle
 
-### Choropleth maps
+# First rule of adding data to maps:
 
-<center>
-<img src="images/state_abbreviations.png" width=750>
-</center>
+# .red[Do you need to make a map?]
 
 ---
 
 class: center, middle
+background-color: #FFF
 
 <center>
-<img src="images/xkcd_heatmap.png" width=600>
+<img src="images/xkcd_heatmap.png" width=550>
 </center>
+
+.left[https://xkcd.com/1138/]
 
 ---
 
-class: center, middle
+class: inverse, center, middle
+
+# 1. .orange[Choropleth maps]
+# 2. Point maps
+
+---
+
+background-color: #f7fcfd
+
+[Choropleth](https://en.wikipedia.org/wiki/Choropleth_map) - from Greek:
+
+- χῶρος "choros" (area/region)
+- πλῆθος "plethos" (multitude)
+
+<center>
+<img src="images/state_abbreviations.png" width=880>
+</center>
+
+.font70[From reddit: [r/dataisbeautiful by u/GaudyAudi](https://www.reddit.com/r/dataisbeautiful/comments/fgq3d3/oc_us_state_abbreviation_conventions/)]
+
+---
+
+class: inverse, center, middle
 
 # Choropleth maps are easily misleading
 
-### Number of events != Number of events **per capita**
+---
+
+class: center, middle
+background-color: #fff
+
+## Number of events != Number of events **per capita**
 
 <center>
 <img src="images/choropleth_ca.png" width=800>
@@ -574,8 +602,9 @@ class: center, middle
 ---
 
 class: center
+background-color: #fff
 
-# Choropleth maps are easily misleading
+## Manipulating fill scale produces wildly different maps
 
 <center>
 <img src="images/choropleth_hispanic.png">
@@ -584,8 +613,46 @@ class: center
 ---
 
 class: center
+background-color: #fff
 
-# Choropleth maps are easily misleading
+## Manipulating fill scale produces wildly different maps
+
+<br>
+
+.leftcol[
+<center>
+<img src="images/nyt_covid_travel1.jpeg" width=500>
+</center>
+
+<br><br>
+.left[.font70[Source: [New York Times](https://www.nytimes.com/interactive/2020/04/02/us/coronavirus-social-distancing.html)]]
+]
+
+.rightcol[
+<center>
+<img src="images/nyt_covid_travel2.jpeg" width=500>
+</center>
+]
+
+---
+
+class: center
+background-color: #fff
+
+### Land doesn't vote - people vote
+
+<center>
+<img src="images/eu_vote.gif" width=600>
+</center>
+
+By [David Zumbach](https://twitter.com/DavidZumbach/status/1344547411985911808?s=19)
+
+---
+
+class: center
+background-color: #fff
+
+# Land doesn't vote - people vote
 
 Election maps from: http://www-personal.umich.edu/~mejn/election/2016/
 
@@ -610,8 +677,9 @@ Election maps from: http://www-personal.umich.edu/~mejn/election/2016/
 ---
 
 class: center
+background-color: #fff
 
-## Actual fakenews in dumb memes
+## Easy to lie with fake news
 
 <center>
 <img src="images/election_map_fakenews.png" width=450>
@@ -624,6 +692,7 @@ Bottom map is actually [this map](http://www-personal.umich.edu/~mejn/election/2
 ---
 
 class: center, middle
+background-color: #fff
 
 ## (here is what actual crime rates look like)
 
@@ -646,6 +715,7 @@ class: center, middle
 ---
 
 class: center
+background-color: #fff
 
 # A choropleth alternative: hex maps
 
@@ -669,12 +739,12 @@ https://fivethirtyeight.com/
 
 ---
 
-class: center
+class: center 
 
-# Another alternative: hex maps
+## How to make a choropleth map
 
 <center>
-<img src="images/map_obamacare.png" width=750>
+<img src="images/plots/sf_us_milk_2017.png" width=780>
 <center>
 
 ---
@@ -764,7 +834,8 @@ Non-linear scale:
 
 class: inverse, center, middle
 
-# Points
+# 1. Choropleth maps
+# 2. .orange[Point maps]
 
 ---
 
@@ -826,6 +897,16 @@ class: center
 
 ---
 
+class: center 
+
+## How to add points to a map
+
+<center>
+<img src="images/plots/sf_us_coffee.png" width=750>
+<center>
+
+---
+
 ## How to add points to a map
 
 .leftcol[.code70[
@@ -871,13 +952,18 @@ Plot coffee shop locations over map
 ```{r, eval=FALSE}
 ggplot() +
   geom_sf(data = us_states_cont) +
-  geom_point(
+  geom_point( #<<
     data = us_coffee_shops, #<<
-    aes(x = long, y = lat, color = name)) + #<<
+    aes(x = long, y = lat, color = name), #<<
+    size = 0.3) +  #<<
   theme_void(base_size = 15) +
   theme(legend.position = 'bottom') +
-  guides(color = guide_legend(title.position = "top")) +
-  labs(color = 'Coffee shop',
+  guides(color = guide_legend(
+    # Move legend title to top
+    title.position = "top",
+    # Increase legend point size
+    override.aes = list(size = 3))) +
+  labs(color = 'Coffee shop', 
        title = 'Coffee Shops in the US')
 ```
 ]]
@@ -1042,10 +1128,10 @@ coord_sf(crs = "ESRI:XXXX")
 Code  | Projection
 ------|---------------------------------------------------
 **`"ESRI:54030"`** | **Robinson**
-`"ESRI:54002"` | Equidistant cylindrical 
-`"ESRI:54004"` | Mercator 
-`"ESRI:54008"` | Sinusoidal 
-`"ESRI:54009"` | Mollweide 
+`"ESRI:54002"` | Equidistant cylindrical
+`"ESRI:54004"` | Mercator
+`"ESRI:54008"` | Sinusoidal
+`"ESRI:54009"` | Mollweide
 ]
 
 .rightcol[
@@ -1096,7 +1182,7 @@ ggplot(data = world) +
 ]]
 
 .cols3[.code70[
-Albers 
+Albers
 
 ```{r, eval=FALSE}
 ggplot(data = us_states_cont) +
@@ -1116,25 +1202,25 @@ ggplot(data = us_states_cont) +
 .leftcol60[.code70[
 ```{r, eval=FALSE}
 milk_2017 <- milk_production %>%
-    filter(year == 2017) %>%
-    select(name = state, milk_produced) %>%
-    mutate(milk_produced = milk_produced / 10^9)
+  filter(year == 2017) %>%
+  select(name = state, milk_produced) %>%
+  mutate(milk_produced = milk_produced / 10^9)
 
 us_states <- ne_states(
-    country = 'united states of america',
-    returnclass = 'sf') %>%
-    filter(! name %in% c('Alaska', 'Hawaii')) %>%
-    left_join(milk_2017, by = 'name') #<<
+  country = 'united states of america',
+  returnclass = 'sf') %>%
+  filter(! name %in% c('Alaska', 'Hawaii')) %>%
+  left_join(milk_2017, by = 'name') #<<
 
 ggplot(us_states) +
-    geom_sf(aes(fill = milk_produced)) + #<<
-    scale_fill_viridis(
-        option = "plasma",
-        limits = c(0, 40)) +
-    theme_void(base_size = 15) +
-    theme(legend.position = 'bottom') +
-    labs(fill = 'Milk produced\n(billions lbs)',
-         title = 'Milk Production by State in 2017')
+  geom_sf(aes(fill = milk_produced)) + #<<
+  scale_fill_viridis(
+    option = "plasma",
+    limits = c(0, 40)) +
+  theme_void(base_size = 15) +
+  theme(legend.position = 'bottom') +
+  labs(fill = 'Milk produced\n(billions lbs)',
+       title = 'Milk Production by State in 2017')
 ```
 ]]
 
@@ -1164,30 +1250,30 @@ us_states <- ne_states(
 
 ggplot(us_states) +
   geom_sf(aes(fill = milk_produced)) +
-  coord_sf(crs = "ESRI:102003") + #<<
   scale_fill_viridis(
     option = "plasma",
     limits = c(0, 40)) +
   theme_void(base_size = 15) +
   theme(legend.position = 'bottom') +
   labs(fill = 'Milk produced\n(billions lbs)',
-       title = 'Milk Production by State in 2017')
+       title = 'Milk Production by State in 2017') +
+  coord_sf(crs = "ESRI:102003") #<<
 ```
 ]]
 
 .rightcol40[
-<br>
 <center>
+Albers Projection
+
 <img src="images/plots/sf_us_milk_2017_albers.png">
 <center>
 ]
 
 ---
 
-## Mapping data to projections - points
+**Mapping data to projections - points**
 
-.leftcol60[.code70[
-
+.leftcol60[.code60[
 ```{r, eval=FALSE}
 us_states_cont <- ne_states(
   country = 'united states of america',
@@ -1200,18 +1286,23 @@ us_coffee_shops <- us_coffee_shops %>%
 
 ggplot() +
   geom_sf(data = us_states_cont) +
-  geom_point(data = us_coffee_shops, #<<
-             aes(x = long, y = lat, color = name)) + #<<
+  geom_point( #<<
+    data = us_coffee_shops, #<<
+    aes(x = long, y = lat, color = name), #<<
+    size = 0.3) + #<<
   theme_void(base_size = 15) +
   theme(legend.position = 'bottom') +
-  guides(color = guide_legend(title.position = "top")) +
+  guides(color = guide_legend(
+    # Move legend title to top
+    title.position = "top",
+    # Increase legend point size
+    override.aes = list(size = 3))) +
   labs(color = 'Coffee shop',
        title = 'Coffee Shops in the US')
 ```
 ]]
 
 .rightcol40[
-<br>
 <center>
 <img src="images/plots/sf_us_coffee.png">
 <center>
@@ -1219,9 +1310,9 @@ ggplot() +
 
 ---
 
-## Mapping data to projections - points
+**Mapping data to projections - points**
 
-.leftcol60[.code70[
+.leftcol60[.code60[
 ```{r, eval=FALSE}
 us_states_cont <- ne_states(
   country = 'united states of america',
@@ -1234,14 +1325,20 @@ us_coffee_shops <- us_coffee_shops %>%
 
 ggplot() +
   geom_sf(data = us_states_cont) +
-  geom_point(data = us_coffee_shops,
-             aes(x = long, y = lat, color = name)) +
-  coord_sf(crs = "ESRI:102003") + #<<
+  geom_point( 
+    data = us_coffee_shops, 
+    aes(x = long, y = lat, color = name),
+    size = 0.3) +
   theme_void(base_size = 15) +
   theme(legend.position = 'bottom') +
-  guides(color = guide_legend(title.position = "top")) +
+  guides(color = guide_legend(
+    # Move legend title to top
+    title.position = "top",
+    # Increase legend point size
+    override.aes = list(size = 3))) +
   labs(color = 'Coffee shop',
-       title = 'Coffee Shops in the US')
+       title = 'Coffee Shops in the US') +
+  coord_sf(crs = "ESRI:102003") #<<
 ```
 ]]
 
@@ -1286,26 +1383,29 @@ head(us_coffee_shops_sf)
 
 ## Mapping data to projections - points
 
-.leftcol60[.code70[
 Plot coffee shop locations over map with `geom_sf()`
 
+.leftcol60[.code70[
 ```{r, eval=FALSE}
 ggplot() +
   geom_sf(data = us_states_cont) +
   geom_sf( #<<
     data = us_coffee_shops_sf, #<<
-    aes(fill = name), #<<
-    shape = 21, stroke = FALSE) + #<<
+    aes(color = name), #<<
+    size = 0.3) + #<<
   theme_void(base_size = 15) +
   theme(legend.position = 'bottom') +
-  guides(fill = guide_legend(title.position = "top")) +
+  guides(color = guide_legend(
+    # Move legend title to top
+    title.position = "top",
+    # Increase legend point size
+    override.aes = list(size = 3))) +
   labs(fill = 'Coffee shop',
        title = 'Coffee Shops in the US')
 ```
 ]]
 
 .rightcol40[
-<br>
 <center>
 <img src="images/plots/sf_us_coffee_base.png">
 <center>
@@ -1315,28 +1415,33 @@ ggplot() +
 
 ## Mapping data to projections - points
 
-.leftcol60[.code70[
 Plot coffee shop locations over map with `geom_sf()`
 
+.leftcol60[.code70[
 ```{r, eval=FALSE}
 ggplot() +
   geom_sf(data = us_states_cont) +
-  geom_sf(
-    data = us_coffee_shops_sf,
-    aes(fill = name),
-    shape = 21, stroke = FALSE) +
-  coord_sf(crs = "ESRI:102003") + #<<
+  geom_sf( 
+    data = us_coffee_shops_sf, 
+    aes(color = name), 
+    size = 0.3) +
   theme_void(base_size = 15) +
   theme(legend.position = 'bottom') +
-  guides(fill = guide_legend(title.position = "top")) +
+  guides(color = guide_legend(
+    # Move legend title to top
+    title.position = "top",
+    # Increase legend point size
+    override.aes = list(size = 3))) +
   labs(fill = 'Coffee shop',
-       title = 'Coffee Shops in the US')
+       title = 'Coffee Shops in the US') + 
+  coord_sf(crs = "ESRI:102003") #<<
 ```
 ]]
 
 .rightcol40[
-<br>
 <center>
+Albers Projection 
+
 <img src="images/plots/sf_us_coffee_albers.png">
 <center>
 ]
@@ -1345,26 +1450,33 @@ ggplot() +
 
 ## Mapping data to projections - points
 
+Plot coffee shop locations over map with `geom_sf()`
+
 .leftcol60[.code70[
 ```{r, eval=FALSE}
 ggplot() +
   geom_sf(data = us_states_cont) +
-  geom_sf(
-    data = us_coffee_shops_sf,
-    aes(fill = name),
-    shape = 21, stroke = FALSE) +
-  coord_sf(crs = "ESRI:102004") + #<<
+  geom_sf( 
+    data = us_coffee_shops_sf, 
+    aes(color = name), 
+    size = 0.3) +
   theme_void(base_size = 15) +
   theme(legend.position = 'bottom') +
-  guides(fill = guide_legend(title.position = "top")) +
+  guides(color = guide_legend(
+    # Move legend title to top
+    title.position = "top",
+    # Increase legend point size
+    override.aes = list(size = 3))) +
   labs(fill = 'Coffee shop',
-       title = 'Coffee Shops in the US')
+       title = 'Coffee Shops in the US') + 
+  coord_sf(crs = "ESRI:102004") #<<
 ```
 ]]
 
 .rightcol40[
-<br>
 <center>
+LCC Projection
+
 <img src="images/plots/sf_us_coffee_lcc.png">
 <center>
 ]
@@ -1404,10 +1516,10 @@ scale_fill_gradient(
 
 .rightcol40[
 <center>
-**Robinson Projection**
+Robinson Projection
 <img src="images/plots/sf_world_internet_robinson.png">
 
-**Mercator Projection**
+Mercator Projection
 <img src="images/plots/sf_world_internet_mercator.png">
 <center>
 ]
