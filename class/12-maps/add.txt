@@ -1,0 +1,15 @@
+9-maps:
+- NYT misleading coronavirus map comparison: https://twitter.com/oliviacpaschal/status/1245711609890320386?s=20
+
+
+Map with inset map
+https://aebou.rbind.io/posts/2020/11/create-a-map-of-a-country-with-the-neighbouring-countries-and-an-inset-map/
+
+
+Super effective animation on how chloropleth maps are misleading:
+https://twitter.com/DavidZumbach/status/1344547411985911808?s=19
+
+
+Look at Mike Mann's stuff:
+https://rpubs.com/mmann1123/Census1
+https://rpubs.com/mmann1123/Census2
