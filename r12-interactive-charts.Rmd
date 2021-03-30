@@ -3,28 +3,11 @@ title: "Interactive Charts"
 output:
   html_document:
     number_sections: false
-    toc: yes
-params:
-  due: "06 April, 11:59 pm"
-  purpose: 'The purpose of this assignment is to introduce you to the concept of allowing the reader to directly interact with your data. Interactive charts are an entirely different class of data visualizations made possible by advances in computing and other languages like html and javascript.'
+    toc: no
 ---
 
 ```{r child = "knitr_setup.Rmd"}
 ```
 
-```{r child = "_rheader.Rmd"}
-```
+Coming Soon!
 
-For this week's reflection, download and edit [this template](https://eda.seas.gwu.edu/2021-Spring/templates/reflection12.zip).
-
-# Read
-
-This week, I want you to experience some (good) interactive charts so you can get a sense for how different the user experience is between static and interactive charts. To do so, go to [The Pudding](https://pudding.cool/) and choose an article you find interesting. Read through the article carefully, and as you scroll take note of some of the key points you remember in your reflection. Were any of the visualizations particularly effective in grabbing your attention or making a key point? Note how
-
-# Make a chart
-
-
-
-# Knit and Submit
-
-Knit your document to a html page, then create a zip file of everything in your R Project folder. Go to the "Assignment Submission" page on Blackboard and submit your zip file.
