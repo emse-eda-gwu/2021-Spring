@@ -1,0 +1,44 @@
+---
+title: "title"
+author: "author"
+output:
+  html_document:
+    toc: no
+    toc_float: no
+    theme: flatly
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  echo = FALSE,
+  comment = "#>",
+  fig.retina = 3,
+  fig.path = "figs/"
+)
+```
+
+# Task 1: Reflection
+
+Put your reflection here
+
+
+# Task 2: Interactive plots
+
+```{r load-libraries-data, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(plotly)
+
+# Load data here
+```
+
+Do the following:
+
+1. Make a plot. Any kind of plot will do (though it might be easiest to work with `geom_point()`).
+
+2. Make the plot interactive with `ggplotly()`.
+
+3. Make sure the hovering tooltip is more informative than the default.
+
+Good luck and have fun!

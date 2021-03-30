@@ -1007,6 +1007,8 @@ Create the following map of squirrels in NYC's Central Park using the following 
 - The `nyc_squirrels.csv` file in the `data` folder.
 
 Hint: The color is mapped to the `primary_fur_color` variable
+
+(More about the Squirrel Census [here](https://www.nytimes.com/interactive/2020/01/08/nyregion/central-park-squirrel-census.html))
 ]
 
 <center>
