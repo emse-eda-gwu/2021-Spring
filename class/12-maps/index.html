@@ -68,7 +68,7 @@ class: inverse
 
 # Quiz 4
 
-<div class="countdown" id="timer_6062030d" style="bottom:0;left:0;font-size:4em;" data-warnwhen="30">
+<div class="countdown" id="timer_60630c89" style="bottom:0;left:0;font-size:4em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -546,7 +546,7 @@ ggplot(data = central_park) +
 ---
 class: inverse
 
-<div class="countdown blink-colon noupdate-15" id="timer_60620041" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<div class="countdown blink-colon noupdate-15" id="timer_60630bf1" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -694,7 +694,7 @@ background-color: #fff
 ### Land doesn't vote - people vote
 
 &lt;center&gt;
-&lt;img src="images/eu_vote.gif" width=600&gt;
+&lt;img src="images/swiss_vote.gif" width=600&gt;
 &lt;/center&gt;
 
 By [David Zumbach](https://twitter.com/DavidZumbach/status/1344547411985911808?s=19)
@@ -725,6 +725,16 @@ Election maps from: http://www-personal.umich.edu/~mejn/election/2016/
 &lt;img src="images/election_2016_proportion.png"&gt;
 &lt;/center&gt;
 ]
+
+---
+
+class: middle 
+
+&lt;center&gt;
+&lt;img src="https://imgs.xkcd.com/comics/solar_system_cartogram_2x.png" width=700&gt;
+&lt;/center&gt;
+
+.left[.font70[https://xkcd.com/2439/]]
 
 ---
 
@@ -791,7 +801,7 @@ https://fivethirtyeight.com/
 
 ---
 
-class: center 
+class: center
 
 ## How to make a choropleth map
 
@@ -969,7 +979,7 @@ class: center
 
 ---
 
-class: center 
+class: center
 
 ## How to add points to a map
 
@@ -1051,7 +1061,7 @@ ggplot() +
     title.position = "top",
     # Increase legend point size
     override.aes = list(size = 3))) +
-  labs(color = 'Coffee shop', 
+  labs(color = 'Coffee shop',
        title = 'Coffee Shops in the US')
 ```
 ]]
@@ -1067,7 +1077,7 @@ ggplot() +
 
 class: inverse
 
-<div class="countdown blink-colon noupdate-15" id="timer_60620238" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<div class="countdown blink-colon noupdate-15" id="timer_60630d79" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1090,7 +1100,7 @@ Hint: The color is mapped to the `primary_fur_color` variable
 
 class: inverse, center
 
-<div class="countdown" id="timer_606202a0" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<div class="countdown" id="timer_60630cb8" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1427,8 +1437,8 @@ us_coffee_shops &lt;- us_coffee_shops %&gt;%
 
 ggplot() +
   geom_sf(data = us_states_cont) +
-  geom_point( 
-    data = us_coffee_shops, 
+  geom_point(
+    data = us_coffee_shops,
     aes(x = long, y = lat, color = name),
     size = 0.3) +
   theme_void(base_size = 15) +
@@ -1544,9 +1554,9 @@ Plot coffee shop locations over map with `geom_sf()`
 ```r
 ggplot() +
   geom_sf(data = us_states_cont) +
-  geom_sf( 
-    data = us_coffee_shops_sf, 
-    aes(color = name), 
+  geom_sf(
+    data = us_coffee_shops_sf,
+    aes(color = name),
     size = 0.3) +
   theme_void(base_size = 15) +
   theme(legend.position = 'bottom') +
@@ -1556,14 +1566,14 @@ ggplot() +
     # Increase legend point size
     override.aes = list(size = 3))) +
   labs(fill = 'Coffee shop',
-       title = 'Coffee Shops in the US') + 
+       title = 'Coffee Shops in the US') +
 * coord_sf(crs = "ESRI:102003")
 ```
 ]]
 
 .rightcol40[
 &lt;center&gt;
-Albers Projection 
+Albers Projection
 
 &lt;img src="images/plots/sf_us_coffee_albers.png"&gt;
 &lt;center&gt;
@@ -1580,9 +1590,9 @@ Plot coffee shop locations over map with `geom_sf()`
 ```r
 ggplot() +
   geom_sf(data = us_states_cont) +
-  geom_sf( 
-    data = us_coffee_shops_sf, 
-    aes(color = name), 
+  geom_sf(
+    data = us_coffee_shops_sf,
+    aes(color = name),
     size = 0.3) +
   theme_void(base_size = 15) +
   theme(legend.position = 'bottom') +
@@ -1592,7 +1602,7 @@ ggplot() +
     # Increase legend point size
     override.aes = list(size = 3))) +
   labs(fill = 'Coffee shop',
-       title = 'Coffee Shops in the US') + 
+       title = 'Coffee Shops in the US') +
 * coord_sf(crs = "ESRI:102004")
 ```
 ]]
@@ -1609,7 +1619,7 @@ LCC Projection
 
 class: inverse
 
-<div class="countdown blink-colon noupdate-15" id="timer_606200e2" style="top:0;left:0;font-size:2em;" data-warnwhen="30">
+<div class="countdown blink-colon noupdate-15" id="timer_60630ac6" style="top:0;left:0;font-size:2em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">20</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1656,7 +1666,7 @@ class: inverse
 
 ## Your turn
 
-<div class="countdown blink-colon noupdate-15" id="timer_60620075" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<div class="countdown blink-colon noupdate-15" id="timer_60630a64" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
