@@ -32,6 +32,7 @@ So first 2 classes on EDA are centrality, variability, and correlation + bias in
 11 - polish:
 - On color, add a slide about conventions: red (hot, bad), blue (cold), green (good)
 - introduce font ninja Chrome plugin - just like eyedropper but for fonts
+- Add wes anderson palette: https://github.com/karthik/wesanderson
 
 MP2:
 - Introduce janitor::clean_names() here instead of rename()
