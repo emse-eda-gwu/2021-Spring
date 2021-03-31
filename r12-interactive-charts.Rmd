@@ -3,11 +3,43 @@ title: "Interactive Charts"
 output:
   html_document:
     number_sections: false
-    toc: no
+    toc: yes
+params:
+  due: "06 April, 11:59 pm"
+  purpose: 'The purpose of this assignment is to introduce you to the concept of allowing the reader to directly interact with your data. Interactive charts are an entirely different class of data visualizations made possible by advances in computing and other languages like html and javascript.'
 ---
 
 ```{r child = "knitr_setup.Rmd"}
 ```
 
-Coming Soon!
+```{r child = "_rheader.Rmd"}
+```
 
+### For this week's reflection, download and edit [this template](https://eda.seas.gwu.edu/2021-Spring/templates/reflection12.zip).
+
+# Read
+
+This week, I want you to experience some (good) interactive charts so you can get a sense for how different the user experience is between static and interactive charts.
+
+To get started, find an article online that has some interactive charts. I recommend going to [The Pudding](https://pudding.cool/) - almost all of their articles blend text, data, and (usually interactive) charts. Feel free to use an article on a different site if you wish though.
+
+Once you've found your article, read through it carefully. As you scroll though it, take note in your reflection this week of some of the key points you remember from the article. Answer these questions:
+
+- What was one main conclusion or point the author made?
+- Were any of the visualizations particularly effective in grabbing your attention and supporting that point?
+- Was there anything you could critique about the article or charts you saw?
+
+# Make a chart
+
+Now that you've seen some interactive charts, make a simple, static chart in the chunk provided in your reflection. Name the plot It can be any ggplot chart - feel free to copy-paste something we've made in class (don't forget to also copy-paste any data files you may need to create the chart).
+
+# Make it interactive
+
+If you  in the chunk provided to make it interactive! (Make sure you have the `plotly` library installed).
+
+# Knit and Submit
+
+- Knit your document to a html page.
+- Open the rendered html page in your web browser and check that your interactive plot is truly interactive.
+- Create a zip file of everything in your R Project folder.
+- Go to the "Assignment Submission" page on Blackboard and submit your zip file.
