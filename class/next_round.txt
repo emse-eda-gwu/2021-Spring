@@ -1,5 +1,6 @@
 General:
 - Add a long list of packages to install at the start of class on the prep page for installing R - include devtools, then go through every package we have. Plus include XQuartz if you're a mac user.
+- Add a link to an rstudio.seas.gwu.edu session for every class so students can immediately get back on track if they have install problems.
 - Consider moving data cleaning up earlier.
 - Add an intro to ggplot lecture earlier after fundamentals of EDA are done. Include "scales" from the polishing lesson + basic annotations + multi-panel plots. Then the "polish" lessons is mostly about colors & fonts + anything else. Other option: Break the polish lesson into 1) scales + colors, 2) annotations + fonts + maybe multi-panel plots and / or good examples of using a theme throughout the whole Rmd file - pick colors from the bootswatch theme?
 
