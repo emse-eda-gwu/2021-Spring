@@ -42,6 +42,8 @@ knitr::opts_chunk$set(
 library(tidyverse)
 library(here)
 library(knitr)
+library(viridis)
+library(cowplot)
 library(rnaturalearth)
 library(rnaturalearthhires)
 library(rnaturalearthdata)

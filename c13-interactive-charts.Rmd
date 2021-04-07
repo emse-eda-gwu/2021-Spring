@@ -13,7 +13,7 @@ params:
 
 # Class notes
 
-> **Note**: This week's slides might take a minute or two to fully load
+> **Note**: This week's slides might take a minute or two to fully load!
 
 ```{r child = "_slides.Rmd"}
 ```
