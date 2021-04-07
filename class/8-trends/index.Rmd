@@ -1356,7 +1356,7 @@ ggplot(measles) +
 
 Adjust scales and adjust theme
 
-```{r measles_heat_map_linear, fig.show='hide', }
+```{r measles_heat_map_linear, fig.show='hide'}
 ggplot(measles) +
   geom_tile(aes(x = year, y = state, fill = rate),
     color = 'grey80') +
