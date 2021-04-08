@@ -6,7 +6,7 @@ output:
     toc: yes
 params:
   due: "13 April, 11:59 pm"
-  purpose: 'The purpose of this assignment is...'
+  purpose: "The purpose of this assignment is to get a quick preview of shiny apps so that you'll be more familiar with the overall structure of shiny apps prior to class."
 ---
 
 ```{r child = "knitr_setup.Rmd"}
@@ -15,18 +15,30 @@ params:
 ```{r child = "_rheader.Rmd"}
 ```
 
-# Tasks
+### For this week's reflection, download and edit [this template](https://eda.seas.gwu.edu/2021-Spring/templates/reflection13.zip).
 
+# Watch
 
+First, watch this 2-minute intro video to get a quick sense for what Shiny apps are:
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HVa42mJYppE?start=25" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-This week we will learn about how to make interactive web applications using the [R Shiny package](https://shiny.rstudio.com/). Take a look at some examples of impressive apps built using Shiny:
+# View
 
-- [Shiny COVID-19 tracker](https://shiny.rstudio.com/gallery/covid19-tracker.html)
-- [A Dashboard for Conference Tweets](https://shiny.rstudio.com/gallery/conference-tweet-dashboard.html)
-- [Medcare spending map](https://tychobra.shinyapps.io/medicare-map/)
+Go to the [RStudio Shiny Gallery](https://shiny.rstudio.com/gallery/) and explore some of the Shiny apps to get a sense for what is possible with Shiny.
 
+# Build
 
-View more examples at the [RStudio Showcase](https://shiny.rstudio.com/gallery/) and on [Tychobra.com](https://www.tychobra.com/shiny/).
+Read through [this tutorial](https://towardsdatascience.com/beginners-guide-to-creating-an-r-shiny-app-1664387d95b3). In the template you downloaded for today's reflection, there are blank .R files that you can fill out to follow along and create the shiny app shown in the article on your own computer.
 
-Want to build your own Shiny app? The best place to start an learn more about how to build your own Shiny apps is the [RStudio documentation](https://shiny.rstudio.com/tutorial/).
+When you're done, you should be able to open the `app.R` file and click the "Run app" button. Your app should look the same as the final version of the app [here](https://yhejazi.shinyapps.io/tutorial/).
+
+# Write
+
+In your reflection, write about one of the Shiny apps you found most interesting in the RStudio Gallery and any other thoughts you might have about Shiny /  interactivity, or something else that's on your mind or something you've recently experienced related to class.
+
+# Knit and Submit
+
+- Knit your document to a html page.
+- Create a zip file of everything in your R Project folder.
+- Go to the "Assignment Submission" page on Blackboard and submit your zip file.
