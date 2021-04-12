@@ -36,6 +36,9 @@ So first 2 classes on EDA are centrality, variability, and correlation + bias in
 - introduce font ninja Chrome plugin - just like eyedropper but for fonts
 - Add wes anderson palette: https://github.com/karthik/wesanderson
 
+14 - shiny:
+- Use a different example in the reading for this week that keeps the ui and server in the same file app.R
+
 MP2:
 - Introduce janitor::clean_names() here instead of rename()
 
