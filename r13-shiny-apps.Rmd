@@ -31,6 +31,8 @@ Go to the [RStudio Shiny Gallery](https://shiny.rstudio.com/gallery/) and explor
 
 Read through [this tutorial](https://towardsdatascience.com/beginners-guide-to-creating-an-r-shiny-app-1664387d95b3) and follow along, filling out the code in the `server.R` and `ui.R` files to make the app shown in the article. When you're done, you should be able to open the `app.R` file and click the "Run app" button. Your app should look the same as the final version of the app [here](https://yhejazi.shinyapps.io/tutorial/).
 
+> **Note**: It's best to wait to run the `app.R` file until you have finished the code in the `ui.R` or `server.R` files, otherwise you might get an error or a window that says "No UI defined".
+
 # Write
 
 In your reflection, write about one of the Shiny apps you found most interesting in the RStudio Gallery and any other thoughts you might have about Shiny /  interactivity, or something else that's on your mind or something you've recently experienced related to class.
