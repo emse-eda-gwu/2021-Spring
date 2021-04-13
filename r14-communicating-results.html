@@ -28,6 +28,9 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -321,6 +324,75 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
 
 </head>
 
@@ -328,6 +400,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -644,7 +726,40 @@ $(document).ready(function () {
 </div>
 
 
-<p>Coming Soon!</p>
+<blockquote>
+<p><strong>Due</strong>: 27 April, 11:59 pm</p>
+<p><strong>Weight</strong>: This assignment is worth 0.5% of your final grade.</p>
+<p><strong>Purpose</strong>: The purpose of this assignment is to learn some tips for effectively communicating the results of your analyses to others. We will look at strategies for giving effective presentations / speeches as well as best practices for designing slides.</p>
+<p><strong>Assessment</strong>: This assignment is graded using a check system:</p>
+<ul>
+<li>✔+ (110%): Reflection shows phenomenal thought and engagement with the course content. I will not assign these often.</li>
+<li>✔ (100%): Reflection is thoughtful, well-written, and shows engagement with the course content. This is the expected level of performance.</li>
+<li>✔− (50%): Reflection is hastily composed, too short, and/or only cursorily engages with the course content. This grade signals that you need to improve next time. I will <em>hopefully</em> not assign these often.</li>
+</ul>
+<p>Notice that this is essentially a pass/fail or completion-based system. I’m not grading your writing ability, I’m not counting the exact number of words you write, and I’m not looking for encyclopedic citations of every single reading to prove that you did indeed read everything. I’m looking for thoughtful engagement, that’s all. Do good work and you’ll get a ✓. ### For this week’s reflection, download and edit <a href="https://eda.seas.gwu.edu/2021-Spring/templates/reflection13.zip">this template</a>.</p>
+</blockquote>
+<div id="watch" class="section level1">
+<h1>Watch</h1>
+<p>Watch this video on how to start a speech:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/w82a1FT5o88" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+<div id="read" class="section level1">
+<h1>Read</h1>
+<p>Read through <a href="https://serialmentor.com/dataviz/telling-a-story.html">Wilke Chapter 29 - Telling a story and making a point</a>.</p>
+</div>
+<div id="write" class="section level1">
+<h1>Write</h1>
+<p>For your final reflection, in addition to any thoughts that emerged when going through the above content, write about a talk or presentation you saw that you found particularly impactful. Was there anything memorable about it that made the presenter’s message stick? Do you remember how the speaker began or ended their talk?</p>
+</div>
+<div id="knit-and-submit" class="section level1">
+<h1>Knit and Submit</h1>
+<ul>
+<li>Knit your document to a html page.</li>
+<li>Create a zip file of everything in your R Project folder.</li>
+<li>Go to the “Assignment Submission” page on Blackboard and submit your zip file.</li>
+</ul>
+</div>
 
 
 <hr>
@@ -669,6 +784,8 @@ $(document).ready(function () {
 <script src="js/external-link.js"></script>
 
 
+</div>
+</div>
 
 </div>
 
@@ -701,6 +818,32 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = false;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
