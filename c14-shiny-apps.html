@@ -28,12 +28,10 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/fitvids-2.1.1/fitvids.min.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 <link rel="icon" href="images/favicon.ico">
@@ -324,75 +322,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-.tocify-subheader {
-  display: inline;
-}
-.tocify-subheader .tocify-item {
-  font-size: 0.95em;
-}
-
-</style>
-
-
 
 </head>
 
@@ -400,16 +329,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -726,47 +645,37 @@ div.tocify {
 </div>
 
 
-<blockquote>
-<p><strong>Due</strong>: 13 April, 11:59 pm</p>
-<p><strong>Weight</strong>: This assignment is worth 0.5% of your final grade.</p>
-<p><strong>Purpose</strong>: The purpose of this assignment is to get a quick preview of shiny apps so that you’ll be more familiar with the overall structure of shiny apps prior to class.</p>
-<p><strong>Assessment</strong>: This assignment is graded using a check system:</p>
+<div id="class-notes" class="section level1">
+<h1>Class notes</h1>
+<div class = "row">
+<div class="col-md-5">
+<p><strong>KEYBOARD SHORTCUTS FOR SLIDES:</strong></p>
 <ul>
-<li>✔+ (110%): Reflection shows phenomenal thought and engagement with the course content. I will not assign these often.</li>
-<li>✔ (100%): Reflection is thoughtful, well-written, and shows engagement with the course content. This is the expected level of performance.</li>
-<li>✔− (50%): Reflection is hastily composed, too short, and/or only cursorily engages with the course content. This grade signals that you need to improve next time. I will <em>hopefully</em> not assign these often.</li>
+<li>Use <kbd>←</kbd> and <kbd>→</kbd> to navigate through the slides.</li>
+<li>Use <kbd>f</kbd> to toggle full screen.</li>
+<li>Use <kbd>o</kbd> to view an overview of all slides.</li>
+<li>Use <kbd>h</kbd> to see a list of other shortcuts.</li>
 </ul>
-<p>Notice that this is essentially a pass/fail or completion-based system. I’m not grading your writing ability, I’m not counting the exact number of words you write, and I’m not looking for encyclopedic citations of every single reading to prove that you did indeed read everything. I’m looking for thoughtful engagement, that’s all. Do good work and you’ll get a ✓.</p>
-</blockquote>
-<div id="for-this-weeks-reflection-download-and-edit-this-template." class="section level3">
-<h3>For this week’s reflection, download and edit <a href="https://eda.seas.gwu.edu/2021-Spring/templates/reflection13.zip">this template</a>.</h3>
 </div>
-<div id="watch" class="section level1">
-<h1>Watch</h1>
-<p>First, watch this 2-minute intro video to get a quick sense for what Shiny apps are:</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/HVa42mJYppE?start=25" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
+<div class="row">
+<div class="col-md-3">
+<div class="class-buttons">
+<p><strong>SLIDES</strong></p>
+<p><a href=class/14-shiny-apps/index.html class="btn-slides" target="_blank"><i class="fas fa-external-link-alt"></i> View in new window</a></p>
+<p><a href=class/14-shiny-apps/14-shiny-apps.pdf class="btn-slides"><i class="fas fa-file-pdf"></i> Download as PDF</a></p>
 </div>
-<div id="view" class="section level1">
-<h1>View</h1>
-<p>Go to the <a href="https://shiny.rstudio.com/gallery/">RStudio Shiny Gallery</a> and explore some of the Shiny apps to get a sense for what is possible with Shiny.</p>
 </div>
-<div id="build" class="section level1">
-<h1>Build</h1>
-<p>Read through <a href="https://towardsdatascience.com/beginners-guide-to-creating-an-r-shiny-app-1664387d95b3">this tutorial</a> and use <a href="https://github.com/emse-eda-gwu/2021-Spring/raw/master/templates/shiny_tutorial.zip">this template</a> to follow along by creating the shiny app on your own computer.</p>
-<p>When you’re done, you should be able to open the <code>app.R</code> file and click the “Run app” button. Your app should look the same as the final version of the app <a href="https://yhejazi.shinyapps.io/tutorial/">here</a>.</p>
+<div class="col-md-3">
+<div class="class-buttons">
+<p><strong>PRACTICE PROBLEMS</strong></p>
+<p><a href=class/14-shiny-apps/14-shiny-apps.zip class="btn-notes"><i class="fas fa-download"></i> Download zip file</a></p>
 </div>
-<div id="write" class="section level1">
-<h1>Write</h1>
-<p>In your reflection, write about one of the Shiny apps you found most interesting in the RStudio Gallery and any other thoughts you might have about Shiny / interactivity, or something else that’s on your mind or something you’ve recently experienced related to class.</p>
 </div>
-<div id="knit-and-submit" class="section level1">
-<h1>Knit and Submit</h1>
-<ul>
-<li>Knit your document to a html page.</li>
-<li>Create a zip file of everything in your R Project folder.</li>
-<li>Go to the “Assignment Submission” page on Blackboard and submit your zip file.</li>
-</ul>
+</div>
+<div class="shareagain" style="min-width:300px;margin:1em auto;">
+<iframe src="class/14-shiny-apps/index.html" width="1600" height="900" style="border:2px solid currentColor;" loading="lazy" allowfullscreen></iframe>
+<script>fitvids('.shareagain', {players: 'iframe'});</script>
+</div>
 </div>
 
 
@@ -792,8 +701,6 @@ div.tocify {
 <script src="js/external-link.js"></script>
 
 
-</div>
-</div>
 
 </div>
 
@@ -826,32 +733,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3,h4",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = false;
-    options.smoothScroll = false;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
