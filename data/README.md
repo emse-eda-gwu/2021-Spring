@@ -538,11 +538,13 @@ The `us_covid.csv` file is the same as the full one but aggregated by state
 
 ---
 
-Data file: uspto_clean_energy_patents.xlsx
+Data files:
+- `uspto_clean_energy_patents.xlsx`
+- `patents_clean.csv`
 
 Date downloaded: January 24, 2020
 
-Description: USPTO patents in clean energy technologies.
+Description: USPTO patents in clean energy technologies. The `patents_clean.csv` file is a tidy version of the .xlsx file.
 
 Original source:
 Science-Metrix, PatentsView, and USPTO patent data. See Appendix Table 6-57.
