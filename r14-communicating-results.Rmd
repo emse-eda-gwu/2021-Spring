@@ -3,10 +3,35 @@ title: "Communicating Results"
 output:
   html_document:
     number_sections: false
-    toc: no
+    toc: yes
+params:
+  due: "27 April, 11:59 pm"
+  purpose: 'The purpose of this assignment is to learn some tips for effectively communicating the results of your analyses to others. We will look at strategies for giving effective presentations / speeches as well as best practices for designing slides.'
 ---
 
 ```{r child = "knitr_setup.Rmd"}
 ```
 
-Coming Soon!
+```{r child = "_rheader.Rmd"}
+```
+### For this week's reflection, download and edit [this template](https://eda.seas.gwu.edu/2021-Spring/templates/reflection13.zip).
+
+# Watch
+
+Watch this video on how to start a speech:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/w82a1FT5o88" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+# Read
+
+Read through [Wilke Chapter 29 - Telling a story and making a point](https://serialmentor.com/dataviz/telling-a-story.html).
+
+# Write
+
+For your final reflection, in addition to any thoughts that emerged when going through the above content, write about a talk or presentation you saw that you found particularly impactful. Was there anything memorable about it that made the presenter's message stick? Do you remember how the speaker began or ended their talk?
+
+# Knit and Submit
+
+- Knit your document to a html page.
+- Create a zip file of everything in your R Project folder.
+- Go to the "Assignment Submission" page on Blackboard and submit your zip file.
