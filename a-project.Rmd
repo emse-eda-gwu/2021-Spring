@@ -99,7 +99,7 @@ Click the "knit" button to compile your `.Rmd` file into a html web page, then c
 >
 > **Weight**: This assignment is worth 10% of your final grade.
 >
-> **Assessment**: We will use [this rubric](){target="_blank"} to grade your progress report.
+> **Assessment**: We will use [this rubric](projects/final-project/progress/rubric.html){target="_blank"} to grade your progress report.
 
 Write a report summarizing progress you have made towards your project thus far, including summary statistics of your data and preliminary charts. You should have already identified data source(s) for your project and begun exploring the data. Your report should be written in a narrative format (i.e. using coherent pargraphs rather than a series of bullet points). You may use headings where appropriate to break up your report into sections. Below is a list of specific items your progress report should include.
 
