@@ -9,7 +9,7 @@ output:
 ```{r child = "knitr_setup.Rmd"}
 ```
 
-```{r setup, message=FALSE, warning=FALSE, include=FALSE}
+```{r metadata, message=FALSE, warning=FALSE, include=FALSE}
 library(metathis)
 
 meta() %>%
