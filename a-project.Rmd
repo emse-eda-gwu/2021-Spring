@@ -36,7 +36,7 @@ Item            | Weight towards<br>final grade | Due Date<br>(by 11:59pm)
 ----------------|----------------------------|--------------------
 Proposal        | 10 %  | March 12
 Progress Report | 10 %  | April 16
-Final Report    | 15 %  | April 30
+Final Report    | 15 %  | May 02
 Presentation    | 10 %  | May 04
 Interview       | 10 %  | Exam week
 </div>
@@ -161,7 +161,7 @@ Click the "knit" button to compile your `.Rmd` file into a html web page, then c
 
 # Final Report
 
-> **Due**: April 30 by 11:59pm.
+> **Due**: May 02 by 11:59pm.
 >
 > **Weight**: This assignment is worth 15% of your final grade.
 >
