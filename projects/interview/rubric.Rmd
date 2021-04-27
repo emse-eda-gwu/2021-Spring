@@ -3,34 +3,22 @@ title: ""
 output: html_document
 ---
 
-```{r setup, include=FALSE, warning=FALSE, message=FALSE}
-# Load options and libraries
-library(tidyverse)
-library(knitr)
-library(kableExtra)
-knitr::opts_chunk$set(
-    comment = "#>",
-    warning = FALSE,
-    message = FALSE,
-    fig.path = "figs/"
-)
-rubric <- read_csv("rubric.csv") %>%
-  mutate(description = paste0("<b>", points, '</b><br>', description)) %>%
-  select(-points) %>%
-  spread(key = rating, value = description) %>%
-  select(-category) %>%
-  rename(Category = label) %>% 
-  arrange(order) %>% 
-  select(-order)
-```
-
-### Rubric: Final Project Report
+### Rubric: Final Interview
 #### EMSE 4575: Exploratory Data Analysis, Spring 2021
-#### `r sum(rubric$maxPoints)` Total Points
+#### 100 Total Points
 
-```{r, echo=FALSE}
-rubric %>%
-  select(-maxPoints) %>%
-  kable(format = 'html', escape = FALSE) %>%
-  kable_styling(bootstrap_options = "striped")
-```
+You will be asked 10 questions; for each question, you will be assigned points based on this scale:
+
+<div style="width:450px">
+
+Points | Description
+-------|---------------------------------------------------
+10     | Answers immediately and correctly without hesitation
+9      | Answers correctly after some initial struggles
+8      | Answers mostly correct after some time
+7      | Answers mostly correct after some time and some help
+6      | Answers mostly correctly after _considerable_ help
+5      | Poor or partial answer, even after considerable help
+0      | Cannot answer even with considerable help
+
+</div>
