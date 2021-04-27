@@ -165,7 +165,7 @@ Click the "knit" button to compile your `.Rmd` file into a html web page, then c
 >
 > **Weight**: This assignment is worth 15% of your final grade.
 >
-> **Assessment**: We will use [this rubric](){target="_blank"} to grade your progress report.
+> **Assessment**: We will use [this rubric](projects/final-project/report/rubric.html){target="_blank"} to grade your progress report.
 
 Your final report should be a fully reproducible product and available online as a html webpage. It should include text, data, code, and plots. Your report should be written in a narrative format (i.e. using coherent paragraphs rather than a series of bullet points). You may use headings where appropriate to break up your report into sections. There is no length requirement - your report should be sufficiently detailed to address the requirements listed below and sufficiently concise such that it is expressed in the fewest necessary words. It is also perfectly acceptable for large portions of your final report to be identical to sections in your progress report, albeit perhaps more "polished." Below is a list of specific items your report should include.
 
@@ -176,7 +176,7 @@ Your final report should be a fully reproducible product and available online as
     - Write your project title in the `title` field (and provide a subtitle if you wish, or delete the `subtitle` field).
     - In the `author` field, list the names of all teammates, e.g. `author: Luke Skywalker, Leia Organa, and Han Solo`.
 
-2. Put the data you are working with for your project in the appropriate folders. Even if you are reading in data directly from a website (e.g. `data <- read_csv("www.somewhere.com/data.csv)`), be sure to download a local copy of the data and put it in the appropriate data folder. 
+2. Put the data you are working with for your project in the appropriate folders. Even if you are reading in data directly from a website (e.g. `data <- read_csv("www.somewhere.com/data.csv)`), be sure to download a local copy of the data and put it in the appropriate data folder.
 
 3. At the bottom of your report, add an Appendix section that includes data dictionaries for the key data sets used in your analysis as well as a copy of all of the code used in your report, which can be automatically generated with a single chunk like this:
 
@@ -217,7 +217,7 @@ Discuss the data source(s) you are using for your analysis. For each data source
 
 ## 6. Knit, publish, and submit
 
-1. Click the "knit" button to compile your `.Rmd` file into a html web page. 
+1. Click the "knit" button to compile your `.Rmd` file into a html web page.
 2. Spell check your report by running: `spelling::spell_check_files("report.Rmd")`.
 3. Proofread your html webpage!
 4. Publish your compiled page online via RPubs (follow [these instructions](https://www.youtube.com/watch?v=GJ36zamYVLg)).
@@ -231,7 +231,7 @@ Discuss the data source(s) you are using for your analysis. For each data source
 >
 > **Weight**: This assignment is worth 10% of your final grade.
 >
-> **Assessment**: We will use [this rubric](){target="_blank"} to grade your final presentation
+> **Assessment**: We will use [this rubric](projects/final-project/presentation/rubric.html){target="_blank"} to grade your final presentation
 
 Create a video recording of a slideshow presentation of your findings in your final report and publish it on the web (e.g. via Youtube, Vimeo, etc.). We will watch all the videos together during the period scheduled for the exam (May 05, 2021). Below is a list of specific items your presentation should include.
 
@@ -271,7 +271,7 @@ Once your video is posted, go to the "Assignment Submission" page on Blackboard 
 >
 > **Weight**: This assignment is worth 10% of your final grade.
 >
-> **Assessment**: We will use [this rubric](){target="_blank"} to assess your interview.
+> **Assessment**: We will use [this rubric](projects/final-project/interview/rubric.html){target="_blank"} to assess your interview.
 
 The instructor will hold a 10-minute one-on-one interview with each student. The interview will be focused on your final project and will contain questions related to concepts covered during the course. Students will be provided a list of questions and the grading rubric ahead of the interview.
 
