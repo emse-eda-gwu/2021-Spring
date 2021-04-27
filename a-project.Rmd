@@ -171,18 +171,23 @@ Your final report should be a fully reproducible product and available online as
 
 ## 1. Get organized
 
-Download and unzip [this template](templates/project_template.zip) for your proposal report. Open the `project.Rproj` file and write your progress report in the `report.Rmd` file. The template comes with some text and code explaining how to use it - should should delete this code as it is only for explanatory purposes. Be sure to adjust the content in the YAML:
+1. Download and unzip [this template](templates/project_template.zip) for your proposal report. Open the `project.Rproj` file and write your progress report in the `report.Rmd` file. The template comes with some text and code explaining how to use it - **you should delete the template code and text as it is only for explanatory purposes**. Be sure to adjust the content in the YAML:
 
-- Write your project title in the `title` field (and provide a subtitle if you wish, or delete the `subtitle` field).
- - In the `author` field, list the names of all teammates, e.g. `author: Luke Skywalker, Leia Organa, and Han Solo`.
+    - Write your project title in the `title` field (and provide a subtitle if you wish, or delete the `subtitle` field).
+    - In the `author` field, list the names of all teammates, e.g. `author: Luke Skywalker, Leia Organa, and Han Solo`.
 
-**You should also put the data you are working with for your project in the appropriate folders**.
+2. Put the data you are working with for your project in the appropriate folders. Even if you are reading in data directly from a website (e.g. `data <- read_csv("www.somewhere.com/data.csv)`), be sure to download a local copy of the data and put it in the appropriate data folder. 
+
+3. At the bottom of your report, add an Appendix section that includes data dictionaries for the key data sets used in your analysis as well as a copy of all of the code used in your report, which can be automatically generated with a single chunk like this:
+
+````markdown
+`r ''````{r ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE}
+```
+````
 
 ## 2. State your research question
 
-Clearly state your research question and motivate why it is important / why the reader should care about it.
-
-Again, you should follow [these guidelines](https://writingcenter.gmu.edu/guides/how-to-write-a-research-question).
+Clearly state your research question and motivate why it is important / why the reader should care about it. You should follow [these guidelines](https://writingcenter.gmu.edu/guides/how-to-write-a-research-question).
 
 ## 3. Discuss your data sources
 
@@ -208,14 +213,15 @@ Discuss the data source(s) you are using for your analysis. For each data source
 
 ## 5. Review your teammates
 
-**For students working in teams**: On Blackboard under the assignment titled "Team Member Review: Final Report", submit a short description of the specific contributions of each team member in your team. These reviews will be kept confidential and compared to assess that the workload and grading for team members are equitable. Team members who do not make meaningful contributions to their projects will not receive the same grade as that of their team mates.
+**For students working in teams**: On Blackboard under the assignment titled "Team Member Review: Final Report", **each team member should submit** their own short description of the specific contributions of each team member in your team. These reviews will be kept confidential and compared to assess that the workload and grading for team members are equitable. Team members who do not make meaningful contributions to their projects will not receive the same grade as that of their team mates.
 
 ## 6. Knit, publish, and submit
 
-Click the "knit" button to compile your `.Rmd` file into a html web page. Don't forget to proofread your html webpage before you submit! Double check for spelling and formatting errors, especially rendered charts and tables! Then:
-
-1. Publish your compiled page online via RPubs (follow [these instructions](https://www.youtube.com/watch?v=GJ36zamYVLg)).
-2. Create a zip file of everything in your R Project folder. Go to the "Assignment Submission" page on Blackboard and submit your zip file under "Final Project: Final Report". Include a link to the published report page in your Blackboard submission. **Only one person from your team should submit the report.**
+1. Click the "knit" button to compile your `.Rmd` file into a html web page. 
+2. Spell check your report by running: `spelling::spell_check_files("report.Rmd")`.
+3. Proofread your html webpage!
+4. Publish your compiled page online via RPubs (follow [these instructions](https://www.youtube.com/watch?v=GJ36zamYVLg)).
+5. Create a zip file of everything in your R Project folder. Go to the "Assignment Submission" page on Blackboard and submit your zip file under "Final Project: Final Report". Include a link to the published report page in your Blackboard submission. **Only one person from your team should submit the report.**
 
 ---
 

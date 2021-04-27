@@ -150,7 +150,7 @@ class: center
 
 ---
 
-class: middle, center 
+class: middle, center
 
 # Download [this cheetsheet]() for today's content
 
@@ -774,6 +774,10 @@ Project teams:
 ---
 
 # Final Reports (Due May 02)
+
+### Read prompt carefully
+
+### When you're done, publish your report on RPubs
 
 Check for spelling errors:
 
