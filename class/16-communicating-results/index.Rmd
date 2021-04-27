@@ -152,7 +152,7 @@ class: center
 
 class: middle, center
 
-# Download [this cheetsheet]() for today's content
+# Download [this cheetsheet](https://github.com/emse-eda-gwu/2021-Spring/raw/master/content/presentation_cheatsheet.pdf) for today's content
 
 ---
 
@@ -780,8 +780,6 @@ Project teams:
 
 # .center[[Final Reports](https://eda.seas.gwu.edu/2021-Spring/a-project.html#Final_Report) (Due 05/02...you have 4 days!)]
 
-</br>
-
 --
 
 - ### Read prompt carefully
@@ -789,6 +787,10 @@ Project teams:
 --
 
 - ### Be sure to include a copy of the data you're using
+
+--
+
+- ### Use a theme ✨
 
 --
 
@@ -821,4 +823,5 @@ spelling::spell_check_files("report.Rmd")
 
 </br>
 
-- ### Schedule for a 10-minute window using [this link](https://jhelvy.appointlet.com/b/interview) (also posted in Slack)
+- ### Schedule for a 10-minute interview using [this link](https://jhelvy.appointlet.com/b/interview)</br>(also posted in Slack)
+- ### I'll be emailing you a list of questions
