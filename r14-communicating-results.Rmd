@@ -14,6 +14,7 @@ params:
 
 ```{r child = "_rheader.Rmd"}
 ```
+
 ### For this week's reflection, download and edit [this template](https://eda.seas.gwu.edu/2021-Spring/templates/reflection14.zip).
 
 # Watch
@@ -24,7 +25,8 @@ Watch this video on how to start a speech:
 
 # Read
 
-Read through [Wilke Chapter 29 - Telling a story and making a point](https://serialmentor.com/dataviz/telling-a-story.html).
+- [Wilke Chapter 29 - Telling a story and making a point](https://serialmentor.com/dataviz/telling-a-story.html).
+- Stephanie Evergreen's blog post ["So What?"](https://stephanieevergreen.com/so-what/)
 
 # Write
 

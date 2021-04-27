@@ -466,6 +466,11 @@ class: center
 
 # Put main point at top and use big font size!
 
+</br>
+</br>
+
+(see Stephanie Evergreen's blog post ["So What?"](https://stephanieevergreen.com/so-what/))
+
 ---
 
 class: center
