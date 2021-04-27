@@ -52,3 +52,10 @@ Projects:
 - Rename project pages to start with "project-" instead of "a-"
 - Reduce weight of proposal, move it up earlier so more time to do preliminary work. Maybe even by 3 weeks earlier and move MP2 back.
 - Revise team member "reviews" to be an "attribution" section just noting what each team member did on the project.
+- Merge presentation in with final project report score.
+Revise grading rubrics to look for effectiveness of design choices:
+    - chart communicates key message
+    - chart choice appropriate to show relationship / comparison
+    - design elements are clear and not confusing
+    - annotations are appropriate
+

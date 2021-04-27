@@ -908,17 +908,21 @@ div.tocify {
 <p>Your final report should be a fully reproducible product and available online as a html webpage. It should include text, data, code, and plots. Your report should be written in a narrative format (i.e. using coherent paragraphs rather than a series of bullet points). You may use headings where appropriate to break up your report into sections. There is no length requirement - your report should be sufficiently detailed to address the requirements listed below and sufficiently concise such that it is expressed in the fewest necessary words. It is also perfectly acceptable for large portions of your final report to be identical to sections in your progress report, albeit perhaps more “polished.” Below is a list of specific items your report should include.</p>
 <div id="get-organized-2" class="section level2">
 <h2>1. Get organized</h2>
-<p>Download and unzip <a href="templates/project_template.zip">this template</a> for your proposal report. Open the <code>project.Rproj</code> file and write your progress report in the <code>report.Rmd</code> file. The template comes with some text and code explaining how to use it - should should delete this code as it is only for explanatory purposes. Be sure to adjust the content in the YAML:</p>
+<ol style="list-style-type: decimal">
+<li><p>Download and unzip <a href="templates/project_template.zip">this template</a> for your proposal report. Open the <code>project.Rproj</code> file and write your progress report in the <code>report.Rmd</code> file. The template comes with some text and code explaining how to use it - <strong>you should delete the template code and text as it is only for explanatory purposes</strong>. Be sure to adjust the content in the YAML:</p>
 <ul>
 <li>Write your project title in the <code>title</code> field (and provide a subtitle if you wish, or delete the <code>subtitle</code> field).</li>
 <li>In the <code>author</code> field, list the names of all teammates, e.g. <code>author: Luke Skywalker, Leia Organa, and Han Solo</code>.</li>
-</ul>
-<p><strong>You should also put the data you are working with for your project in the appropriate folders</strong>.</p>
+</ul></li>
+<li><p>Put the data you are working with for your project in the appropriate folders. Even if you are reading in data directly from a website (e.g. <code>data &lt;- read_csv("www.somewhere.com/data.csv)</code>), be sure to download a local copy of the data and put it in the appropriate data folder.</p></li>
+<li><p>At the bottom of your report, add an Appendix section that includes data dictionaries for the key data sets used in your analysis as well as a copy of all of the code used in your report, which can be automatically generated with a single chunk like this:</p></li>
+</ol>
+<pre class="markdown"><code>```{r ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE}
+```</code></pre>
 </div>
 <div id="state-your-research-question" class="section level2">
 <h2>2. State your research question</h2>
-<p>Clearly state your research question and motivate why it is important / why the reader should care about it.</p>
-<p>Again, you should follow <a href="https://writingcenter.gmu.edu/guides/how-to-write-a-research-question">these guidelines</a>.</p>
+<p>Clearly state your research question and motivate why it is important / why the reader should care about it. You should follow <a href="https://writingcenter.gmu.edu/guides/how-to-write-a-research-question">these guidelines</a>.</p>
 </div>
 <div id="discuss-your-data-sources-2" class="section level2">
 <h2>3. Discuss your data sources</h2>
@@ -947,12 +951,14 @@ div.tocify {
 </div>
 <div id="review-your-teammates-1" class="section level2">
 <h2>5. Review your teammates</h2>
-<p><strong>For students working in teams</strong>: On Blackboard under the assignment titled “Team Member Review: Final Report”, submit a short description of the specific contributions of each team member in your team. These reviews will be kept confidential and compared to assess that the workload and grading for team members are equitable. Team members who do not make meaningful contributions to their projects will not receive the same grade as that of their team mates.</p>
+<p><strong>For students working in teams</strong>: On Blackboard under the assignment titled “Team Member Review: Final Report”, <strong>each team member should submit</strong> their own short description of the specific contributions of each team member in your team. These reviews will be kept confidential and compared to assess that the workload and grading for team members are equitable. Team members who do not make meaningful contributions to their projects will not receive the same grade as that of their team mates.</p>
 </div>
 <div id="knit-publish-and-submit" class="section level2">
 <h2>6. Knit, publish, and submit</h2>
-<p>Click the “knit” button to compile your <code>.Rmd</code> file into a html web page. Don’t forget to proofread your html webpage before you submit! Double check for spelling and formatting errors, especially rendered charts and tables! Then:</p>
 <ol style="list-style-type: decimal">
+<li>Click the “knit” button to compile your <code>.Rmd</code> file into a html web page.</li>
+<li>Spell check your report by running: <code>spelling::spell_check_files("report.Rmd")</code>.</li>
+<li>Proofread your html webpage!</li>
 <li>Publish your compiled page online via RPubs (follow <a href="https://www.youtube.com/watch?v=GJ36zamYVLg">these instructions</a>).</li>
 <li>Create a zip file of everything in your R Project folder. Go to the “Assignment Submission” page on Blackboard and submit your zip file under “Final Project: Final Report”. Include a link to the published report page in your Blackboard submission. <strong>Only one person from your team should submit the report.</strong></li>
 </ol>

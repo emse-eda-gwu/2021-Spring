@@ -1,0 +1,788 @@
+---
+title: "Communicating Results"
+subtitle: "EMSE 4575: Exploratory Data Analysis"
+date: April 28, 2021
+week: 16
+author: "John Paul Helveston"
+institute: "The George Washington University | Dept. of Engineering Management and Systems Engineering"
+output:
+  xaringan::moon_reader:
+    css:
+      - default
+      - css/lexis.css
+      - css/lexis-fonts.css
+    lib_dir: libs
+    seal: false
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+library(tidyverse)
+library(fontawesome)
+library(countdown)
+library(metathis)
+
+options(
+  htmltools.dir.version = FALSE,
+  knitr.table.format = "html",
+  knitr.kable.NA = '',
+  dplyr.width = Inf,
+  width = 250
+)
+
+knitr::opts_chunk$set(
+  cache = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  fig.path = "figs/",
+  fig.width = 7.252,
+  fig.height = 4,
+  comment = "#>",
+  fig.retina = 3
+)
+
+# Setup xaringanExtra options
+xaringanExtra::use_xaringan_extra(c(
+  "tile_view", "panelset", "clipboard", "share_again"))
+xaringanExtra::style_share_again(share_buttons = "none")
+xaringanExtra::use_extra_styles(
+  hover_code_line = TRUE,
+  mute_unhighlighted_code = FALSE
+)
+
+# Set up website metadata
+meta() %>%
+  meta_general(
+    description = rmarkdown::metadata$subtitle,
+    generator = "xaringan and remark.js"
+  ) %>%
+  meta_name("github-repo" = "emse-eda-gwu/2021-Spring") %>%
+  meta_social(
+    title = rmarkdown::metadata$title,
+    url = "https://eda.seas.gwu.edu/2021-Spring/",
+    og_type = "website",
+    og_author = "John Paul Helveston",
+    twitter_card_type = "summary_large_image",
+    twitter_creator = "@johnhelveston"
+  )
+
+# Setup class-specific paths
+class <- "16-communicating-results"
+root <- paste0("https://eda.seas.gwu.edu/2021-Spring/class/", class, "/")
+path_slides <- file.path("class", class, "index.html")
+path_pdf <- paste0(root, class, ".pdf")
+path_notes <- paste0(root, class, ".zip")
+
+# Read in data sets for class
+```
+
+class: middle, inverse
+
+.leftcol30[
+<center>
+<img src="https://raw.githubusercontent.com/emse-eda-gwu/2021-Spring/master/images/eda_hex_sticker.png" width=250>
+</center>
+]
+
+.rightcol70[
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+### `r fontawesome::fa(name = "university", fill = "white")` `r rmarkdown::metadata$subtitle`
+### `r fontawesome::fa(name = "user", fill = "white")` `r rmarkdown::metadata$author`
+### `r fontawesome::fa(name = "calendar-alt", fill = "white")` `r rmarkdown::metadata$date`
+]
+
+---
+
+class: center, middle, inverse
+
+# Mini Project 3 Showcase!
+
+---
+
+class: center
+
+### Good use of annotations
+
+<center>
+<img src="images/mp3_1.png" width=650>
+</center>
+
+---
+
+class: center
+
+### Good use of annotations
+
+<center>
+<img src="images/mp3_2.png" width=850>
+</center>
+
+---
+
+class: center
+
+### Pretty themes ✨
+
+<center>
+<img src="images/mp3_3.png" width=750>
+</center>
+
+---
+
+class: center
+
+### Use of color
+
+<center>
+<img src="images/mp3_4.png" width=950>
+</center>
+
+---
+
+```{r child="topics/0.Rmd"}
+```
+
+---
+
+class: middle, center
+
+# Download [this cheetsheet]() for today's content
+
+---
+
+```{r child="topics/1.Rmd"}
+```
+
+---
+
+class: inverse, middle, center
+
+# What is a story?
+
+---
+
+class: middle
+
+> ### A story is a set of observations, facts, or events...that are presented in a specific order such that they create an</br>**emotional reaction** in the audience.</br></br>- Clause O. Wilke (2019), Chp. 29
+
+---
+
+background-color: #fff
+class: middle, center
+
+</br>
+<center>
+<img src="images/kv-01.png" width=800>
+</center>
+
+[source](https://sivers.org/drama)
+
+---
+
+background-color: #fff
+class: middle, center
+
+</br>
+<center>
+<img src="images/kv-02.png" width=750>
+</center>
+
+[source](https://sivers.org/drama)
+
+---
+
+background-color: #fff
+class: middle, center
+
+</br>
+<center>
+<img src="images/kv-03.png" width=800>
+</center>
+
+[source](https://sivers.org/drama)
+
+---
+
+background-color: #000
+class: inverse, middle, center
+
+## [Freytag's Pyramid](https://en.wikipedia.org/wiki/Gustav_Freytag)
+
+<center>
+<img src="images/freytag_pyramid.png" width=800>
+</center>
+
+---
+
+background-color: #fff
+class: center
+
+## Freytag's Pyramid: **[King Kong](https://en.wikipedia.org/wiki/King_Kong)**
+
+<center>
+<img src="images/freytag_pyramid_king_kong.jpg" width=900>
+</center>
+
+[source](http://writinghorrorfiction.blogspot.com/2011/03/putting-freytags-pyramid-to-use-in.html)
+
+---
+
+background-color: #fff
+class: center
+
+## Freytag's Pyramid: **Research Project**
+
+<center>
+<img src="images/freytag_pyramid_research.png" width=1000>
+</center>
+
+---
+
+background-color: #fff
+class: center
+
+## Freytag's Pyramid: **Research Project**
+
+<center>
+<img src="images/freytag_pyramid_research_labeled.png" width=1000>
+</center>
+
+---
+
+class: middle
+
+> ### "A single (static) visualization will rarely tell an entire story"</br></br>- Clause O. Wilke (2019), Chp. 29
+
+---
+
+background-color: #fff
+class: center
+
+## Freytag's Pyramid: **Research Project**
+
+<center>
+<img src="images/freytag_pyramid_research_charts.png" width=1000>
+</center>
+
+---
+
+class: center
+
+## Use **layers** to build tension / provide context
+
+--
+
+<center>
+<img src="images/pevSales1.png" width=900>
+</center>
+
+---
+
+class: center
+
+## Use **layers** to build tension / provide context
+
+<center>
+<img src="images/pevSales2.png" width=900>
+</center>
+
+---
+
+class: center
+
+## Use **layers** to build tension / provide context
+
+<center>
+<img src="images/pevSales3.png" width=900>
+</center>
+
+---
+
+class: center
+
+## Use **animation** to build tension / provide context
+
+<center>
+<img src="images/unemployment_chart_vox.jpg" width=900>
+</center>
+
+[source](https://www.vox.com/2020/4/2/21203850/unemployment-initial-claims-march-28)
+
+---
+
+class: center
+
+## Use **animation** to build tension / provide context
+
+<center>
+<img src="images/unemployment_chart.gif">
+</center>
+
+[source](https://twitter.com/maoam_guy/status/1245887052027232256)
+
+---
+
+class: center
+
+## Make charts for the generals
+### (i.e. keep it simple)
+
+--
+
+<center>
+<img src="images/wilke-generals-1.png" width=700>
+</center>
+
+[source](https://serialmentor.com/dataviz/telling-a-story.html#make-a-figure-for-the-generals)
+
+---
+
+class: center
+
+## Make charts for the generals
+### (i.e. keep it simple)
+
+.leftcol[
+<center>
+<img src="images/wilke-generals-2.png">
+</center>
+[source](https://serialmentor.com/dataviz/telling-a-story.html#make-a-figure-for-the-generals)
+]
+
+--
+
+.rightcol[
+<center>
+<img src="images/wilke-generals-3.png">
+</center>
+
+[source](https://serialmentor.com/dataviz/telling-a-story.html#make-a-figure-for-the-generals)
+]
+
+---
+
+class: center
+
+# Build up towards complex figures
+
+--
+
+<center>
+<img src="images/wilke-complex-1.png" width=400>
+</center>
+
+[source](https://serialmentor.com/dataviz/telling-a-story.html#build-up-towards-complex-figures)
+
+---
+
+class: center
+
+# Build up towards complex figures
+
+<center>
+<img src="images/wilke-complex-2.png" width=1100>
+</center>
+
+[source](https://serialmentor.com/dataviz/telling-a-story.html#build-up-towards-complex-figures)
+
+---
+
+class: center
+
+## Be consistent, but don't be repetitive
+
+--
+
+.leftcol[
+<center>
+<img src="images/wilke-repetitive-1.png" width=500>
+</center>
+
+[source](https://serialmentor.com/dataviz/telling-a-story.html#be-consistent-but-dont-be-repetitive)
+]
+
+--
+
+.rightcol[
+<center>
+<img src="images/wilke-repetitive-2.png" width=500>
+</center>
+
+[source](https://serialmentor.com/dataviz/telling-a-story.html#be-consistent-but-dont-be-repetitive)
+]
+
+---
+
+```{r child="topics/2.Rmd"}
+```
+
+---
+
+class: inverse, middle, center
+
+# Hitchcock's rule
+
+<center>
+<img src="images/Visual-Storytelling-Rules-The-Hitchcock-Rule-1.png" width=900>
+</center>
+
+---
+
+class: middle
+
+## .center[Hitchcock's rule]
+
+> # The size of any object in your frame should be proportional to its importance to the story at that moment
+
+## .center[[Watch this example](https://youtu.be/E1LzhiCcOY0?t=174)]
+
+---
+
+class: middle
+
+## .center[Hitchcock's rule]
+
+> # The size of any object in your ~~frame~~ **slide** should be proportional to its importance to the story at that moment
+
+---
+
+...and finally you will read this
+
+<br><br>
+<div style='font-size: 70pt; text-align: center;'>You will read this first</div>
+
+<br><br>
+<div style='font-size: 40pt; text-align: center;'>and then you will read this</div>
+
+---
+
+class: center
+
+# Put main point at top and use big font size!
+
+---
+
+class: center
+
+# Except for Tesla, EV adoption in the U.S. is **flat**
+
+<center>
+<img src="images/pevSales3.png" width=900>
+</center>
+
+---
+
+class: center
+
+# Tesla's Model 3 is a Game Changer for EVs
+
+<center>
+<img src="images/pevSales3.png" width=900>
+</center>
+
+---
+
+class: center
+
+<p style="font-size:40pt;">> 40pt font for titles</p>
+<p style="font-size:24pt;">> 24pt font for all other text</p>
+
+(Exception: footer text can be small)
+
+<div class="footer-small"><span>Footer text</span></div>
+
+---
+
+# .center[.red[_Think of fonts as pre-attentive attributes_]]
+
+</br></br>
+
+--
+
+.leftcol[
+<center>
+<div style="font-size: 24pt;">
+San-serif fonts for most text
+</div>
+</center>
+]
+
+.rightcol[
+<div style="font-size:24pt; font-style:italic; font-family: serif;">
+"Italic, serif fonts for quotes"
+</div>
+</br>- Prof. Helveston
+]
+
+---
+
+class: middle, center
+
+# Consider using a light-colored background<br>(tan / gray)
+
+---
+
+class: center
+
+# Use high contrast between font and background color
+
+</br>
+
+.leftcol[
+<center>
+<div style="background-color: #FFF; padding: 50px; margin: 0px; width: 300px; font-size: 28pt;">
+Dark text on a light background works well
+</div>
+</center>
+]
+
+.rightcol[
+<center>
+<div style="background-color: #000; color: #FFF; padding: 50px; margin: 0px; width: 300px; font-size: 28pt;">
+Light text on a dark background also works well
+</div>
+</center>
+]
+
+---
+
+class: center
+
+# Use high contrast between font and background color
+
+</br>
+
+.leftcol[
+<center>
+<div style="background-color: #FFF; color: #ffef01; padding: 50px; margin: 0px; width: 350px; font-size: 28pt;">
+Yellow text on a white background is horrible
+</center>
+]
+
+.rightcol[
+<center>
+<div style="background-color: #000; color: #0000ff; padding: 50px; margin: 0px; width: 350px; font-size: 28pt;">
+Blue text on a black background is horrible
+</center>
+]
+
+---
+
+class: center, middle
+
+# Use high contrast between font and background color
+
+.leftcol[
+<center>
+<img src="images/fives-1.png" width=500>
+</center>
+]
+
+.rightcol[
+<center>
+<img src="images/fives-2.png" width=500>
+</center>
+]
+
+
+---
+
+class: center, middle
+
+# Avoid fonts like
+
+</br>
+<div style='font-family: "Comic Sans MS"; font-size: 40pt'>Comic Sans</div>
+</br>
+<div style='font-family: "Papyrus"; font-size: 40pt'>Papyrus</div>
+</br>
+</br>
+
+# They make your work look amateurish
+
+---
+
+class: middle, center
+
+# 1 slide, 1 idea
+
+## Break up main points into multiple slides
+
+---
+
+class: middle, center
+
+# Number your slides!
+
+---
+
+class: middle, center
+
+.noborder[
+<center>
+<img src="images/slide_junk.png">
+</center>
+]
+
+---
+
+class: center
+
+</br></br></br></br></br></br>
+
+# Example of an acceptable slide footer
+
+# </br></br></br>&darr;
+
+<div class="footer-small"><span>Data source: http://somesourceofdata.com &emsp;&emsp; © John Paul Helveston, GWU, Apr. 2021</span></div>
+
+---
+
+class: middle, center
+
+# If you are in person, consider using handouts<br>(1-2 pages)
+
+???
+
+1. They can preview your results
+2. They're more likely to remember your main points
+
+---
+
+```{r child="topics/3.Rmd"}
+```
+
+---
+
+class: middle, inverse, center
+
+# What are the first words<br>you should say in a speech?
+
+--
+
+## Watch [this video](https://youtu.be/w82a1FT5o88) to find out
+
+```{r, echo=FALSE}
+countdown(minutes = 10,
+          warn_when = 30,
+          update_every = 15,
+          bottom = 0,
+          font_size = '2em')
+```
+
+---
+
+# How to start a speech
+
+--
+
+### 3. With a question that matters to the audience ("Have you ever...?")
+
+--
+
+### 2. With a shocking factoid ("There are more people alive today than have ever lived...").
+
+--
+
+### 1. Tell a story, talk about **people** ("Imagine...")
+
+---
+
+background-color: #000
+class: inverse, middle, center
+
+<center>
+<img src="images/helveston_talk.png">
+</center>
+
+---
+
+class: middle
+
+<center>
+<img src="images/helveston_talk.png" width=300>
+</center>
+
+--
+
+3) With a question that matters to the audience:
+
+**"What's the current federal subsidy for buying an electric car in the US?"**
+
+--
+
+2) With a shocking factoid
+
+**"50% of the world's EVs are made by Chinese automakers"**
+
+--
+
+1) Tell a story, talk about **people**
+
+**"Whenever I talk with people about electric cars, they usually ask about Tesla..."**
+
+---
+
+class: inverse
+
+## Your turn
+
+```{r, echo=FALSE}
+countdown(
+  minutes = 5,
+  warn_when = 30,
+  update_every = 15,
+  top = 0,
+  font_size = '2em'
+)
+```
+
+.leftcol[
+Brainstorm different strategies for how to start your presentation for your projects:
+
+1. Tell a story, talk about **people** ("Imagine...").
+2. With a shocking factoid ("There are more people alive today than have ever lived...").
+3. With a question that matters to the audience ("Have you...?").
+
+Afterwards, we will go around the "room" and one person from each team will practice giving their start to their presentation.
+]
+
+.rightcol[.font80[
+Project teams:
+1. Gender pay gap (Katie, Alexa, Gabriel)
+2. Poverty and sustainability (Eliese, Michael, Kazi)
+3. EIA EV sales forecasts (Helena, Bridget)
+4. Is Hamilton the fastest F1 driver? (Cooper, Matthew, Omar Al-za'atreh)
+5. National GDP & Olympic performance (Izzy, Alejandro, Omar Alkhadra)
+6. NFL player suspensions (Kareemot, Ebun, Kyara)
+7. National climate performance (David, Kaveena, Carolyne)
+8. Local protectionism in China's EV industry (Lujin)
+9. Public attitudes towards autonomous vehicles (Leah)
+]]
+
+---
+
+```{r child="topics/0.Rmd"}
+```
+
+---
+
+# Final Reports (Due May 02)
+
+### Read prompt carefully
+
+### When you're done, publish your report on RPubs
+
+Check for spelling errors:
+
+```{r, eval=FALSE}
+spelling::spell_check_files("report.Rmd")
+```
+
+
