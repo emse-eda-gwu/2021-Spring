@@ -778,16 +778,47 @@ Project teams:
 
 ---
 
-# Final Reports (Due May 02)
+# .center[[Final Reports](https://eda.seas.gwu.edu/2021-Spring/a-project.html#Final_Report) (Due 05/02...you have 4 days!)]
 
-### Read prompt carefully
+</br>
 
-### When you're done, publish your report on RPubs
+--
 
-Check for spelling errors:
+- ### Read prompt carefully
+
+--
+
+- ### Be sure to include a copy of the data you're using
+
+--
+
+- ### Don't forget to publish your report on RPubs
+
+--
+
+- ### Check for spelling errors:
 
 ```{r, eval=FALSE}
 spelling::spell_check_files("report.Rmd")
 ```
 
+---
 
+# .center[[Final Presentations](https://eda.seas.gwu.edu/2021-Spring/a-project.html#Presentation) (Due 05/04)]
+
+</br>
+
+- ### We'll watch these during class period on May 05
+- ### 9 projects x 10 mins each
+- ### At the end, we'll announce awards:
+
+  - ### 🗑️ **Janitor Award**: For most intense wrangling of messy data
+  - ### ✨ **Shiny Award**: For single most impressive visualization  
+
+---
+
+# .center[[Final Interviews](https://eda.seas.gwu.edu/2021-Spring/a-project.html#Final_Interview) (05/05 - 05/07)]
+
+</br>
+
+- ### Schedule for a 10-minute window using [this link](https://jhelvy.appointlet.com/b/interview) (also posted in Slack)
