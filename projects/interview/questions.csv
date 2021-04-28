@@ -1,8 +1,8 @@
 category,number,question
-,,
-,,
-,,
-,,
+tidy_data,1,"Looking at this data frame, would you say it is in a ""wide"" or ""long"" format or not? Why?"
+data_types,1,"When summarizing the centrality of a continuous, numeric variable, when might I want to use the median versus the mean? "
+data_types,2,"Let's say I summarizing the centrality of a continuous, numeric variable, and I find that the mean is substantially higher than the median. What does that tell me about how the variable is distributed?"
+chart_types,1,"If you have a continuous, numeric variable, what visualization might you use to preview the "
 ,,
 ,,
 ,,

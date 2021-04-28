@@ -10,11 +10,11 @@ General:
 3-centrality-variability:
 - Drop lotr_words from first main practice (just use milk data)
 - Improve the last exercise of wildlife state vs operator
+- Better examples of variability in _categorical_ data (bars of counts)
 
 4-correlation:
-- Entire linear modeling part is unnecessary - we won't use it in exploring data, and there are too many unaddressed questions (e.g. error). Instead, drop this whole section and fill it in with a detailed discussion on bias in data.
-So first 2 classes on EDA are centrality, variability, and correlation + bias in data.
-- Add a discussion of log scales. Look at example of correlation between transit cost and length from mini project 1 last year. Many students said no correlation, but it's just because it's a log correlation.
+- Entire linear modeling part is unnecessary - we won't use it in exploring data, and there are too many unaddressed questions (e.g. uncertainty). Instead, drop this whole section and fill it in with a more detailed discussion on bias in data with more examples than the plane chart. So make the first 2 classes on EDA about 1) centrality & variability based on data types, and correlation + bias in data.
+- Add a discussion of log scales. Look at example of correlation between transit cost and length from mini project 1 last year. Many students said no correlation, but it's just because it's a log correlation (these examples are in slides on polishing).
 
 5 - visualizing information:
 - Swap this one in somewhere badvis: https://twitter.com/CalEndow/status/1367973471523835904
@@ -46,6 +46,9 @@ So first 2 classes on EDA are centrality, variability, and correlation + bias in
 
 14 - shiny:
 - Use a different example in the reading for this week that keeps the ui and server in the same file app.R
+
+Reflections:
+- Add the template "I used to think ______, now I think ______ 🤔" in there.
 
 MP2:
 - Introduce janitor::clean_names() here instead of rename()
