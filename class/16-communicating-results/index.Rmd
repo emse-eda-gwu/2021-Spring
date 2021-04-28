@@ -773,7 +773,7 @@ Project teams:
 
 ---
 
-```{r child="topics/0.Rmd"}
+```{r child="topics/4.Rmd"}
 ```
 
 ---
@@ -815,13 +815,20 @@ spelling::spell_check_files("report.Rmd")
 - ### At the end, we'll announce awards:
 
   - ### 🗑️ **Janitor Award**: For most intense wrangling of messy data
-  - ### ✨ **Shiny Award**: For single most impressive visualization  
+  - ### ✨ **Shiny Award**: For single most impressive visualization
 
 ---
 
 # .center[[Final Interviews](https://eda.seas.gwu.edu/2021-Spring/a-project.html#Final_Interview) (05/05 - 05/07)]
 
-</br>
-
 - ### Schedule for a 10-minute interview using [this link](https://jhelvy.appointlet.com/b/interview)</br>(also posted in Slack)
 - ### I'll be emailing you a list of questions
+
+--
+
+- ### Suggestions from Prof. Mazzuchi:
+
+1. Bring water to drink - it will calm you when you are nervous and your mouth dries up. You can also pause and think while you drink.
+2. Don't answer right away - think a bit.
+3. Answer the question asked. Don't try to impress or I will ask more questions.
+4. Don't say "I don't know." Try and I will help you.

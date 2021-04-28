@@ -41,6 +41,8 @@ So first 2 classes on EDA are centrality, variability, and correlation + bias in
 
 12 - map:
 - Add monsters on sf: https://github.com/r-spatial/sf
+- Add "images/teamap.jpg" as an example of when a map is useful - the key
+  relationship is inherently spatial: https://twitter.com/pwang/status/1387228573896003585
 
 14 - shiny:
 - Use a different example in the reading for this week that keeps the ui and server in the same file app.R
