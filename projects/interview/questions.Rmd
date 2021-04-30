@@ -1,0 +1,33 @@
+---
+title: "Final Interview Questions"
+subtitle: "EMSE 4575: Exploratory Data Analysis"
+output: html_document
+
+---
+
+```{r setup, message=FALSE, warning=FALSE, echo=FALSE}
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+
+questions <- read_csv("questions.csv") %>% 
+    distinct(category, question) %>% 
+    rename(Question = question) %>% 
+    mutate(
+        category = str_replace(category, "_", " "),
+        category = str_to_title(category), 
+        category = ifelse(
+            str_detect(category, "Projects"), "Projects", category),
+        Number = row_number()) %>% 
+    select(Category = category, Number, Question)
+```
+
+You will be asked 10 questions from the list below.
+
+```{r, echo=FALSE, warning=FALSE}
+questions %>% 
+    kbl() %>% 
+    kable_paper(full_width = F) %>%
+    collapse_rows(1) %>% 
+    column_spec(1, width = "0.5em")
+```
