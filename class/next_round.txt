@@ -4,6 +4,7 @@ General:
 - Consider moving data cleaning up earlier.
 - Add an intro to ggplot lecture earlier after fundamentals of EDA are done. Include "scales" from the polishing lesson + basic annotations + multi-panel plots. Then the "polish" lessons is mostly about colors & fonts + anything else. Other option: Break the polish lesson into 1) scales + colors, 2) annotations + fonts + maybe multi-panel plots and / or good examples of using a theme throughout the whole Rmd file - pick colors from the bootswatch theme?
 - Add gif freeze on all slides
+- move interview out of the "final project" in the menu and to a separate page
 
 2- EDA:
 - consider adding skim() from skimr package
