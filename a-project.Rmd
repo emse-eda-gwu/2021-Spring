@@ -237,9 +237,9 @@ Create a video recording of a slideshow presentation of your findings in your fi
 
 ## 1. Format
 
-- Your presentation should be no longer than 10 minutes in length.
+- Your presentation should be no longer than 10 minutes in length (it can be shorter though).
 - Each team member must present at least one slide.
-- You should have between 6 and 10 slides total, including your title slide.
+- You may use as many slides as you feel helps you communicate your ideas, but keep the 10 minute limit in mind (<1 slide / min is probably a guideline).
 - Your title slide should include the project title, team member names, and the presentation date: May 05, 2021.
 - All slides should be numbered in the bottom-left or bottom-right corners.
 
