@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Communicating Results</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="John Paul Helveston" />
+    <meta name="date" content="2021-05-05" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <script src="libs/clipboard/clipboard.min.js"></script>
+    <link href="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
+    <link href="libs/shareon/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain/shareagain.js"></script>
+    <link href="libs/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <meta name="description" content="EMSE 4575: Exploratory Data Analysis"/>
+    <meta name="generator" content="xaringan and remark.js"/>
+    <meta name="github-repo" content="emse-eda-gwu/2021-Spring"/>
+    <meta name="twitter:title" content="Communicating Results"/>
+    <meta name="twitter:description" content="EMSE 4575: Exploratory Data Analysis"/>
+    <meta name="twitter:url" content="https://eda.seas.gwu.edu/2021-Spring/"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:creator" content="@johnhelveston"/>
+    <meta name="twitter:site" content="@johnhelveston"/>
+    <meta property="og:title" content="Communicating Results"/>
+    <meta property="og:description" content="EMSE 4575: Exploratory Data Analysis"/>
+    <meta property="og:url" content="https://eda.seas.gwu.edu/2021-Spring/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="article:author" content="John Paul Helveston"/>
+    <link rel="stylesheet" href="css/lexis.css" type="text/css" />
+    <link rel="stylesheet" href="css/lexis-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+class: middle, inverse
+
+.leftcol30[
+&lt;center&gt;
+&lt;img src="https://raw.githubusercontent.com/emse-eda-gwu/2021-Spring/master/images/eda_hex_sticker.png" width=250&gt;
+&lt;/center&gt;
+]
+
+.rightcol70[
+# Week 17: .fancy[Communicating Results]
+
+### &lt;svg style="height:0.8em;top:.04em;position:relative;fill:white;" viewBox="0 0 512 512"&gt;&lt;path d="M496 128v16a8 8 0 0 1-8 8h-24v12c0 6.627-5.373 12-12 12H60c-6.627 0-12-5.373-12-12v-12H24a8 8 0 0 1-8-8v-16a8 8 0 0 1 4.941-7.392l232-88a7.996 7.996 0 0 1 6.118 0l232 88A8 8 0 0 1 496 128zm-24 304H40c-13.255 0-24 10.745-24 24v16a8 8 0 0 0 8 8h464a8 8 0 0 0 8-8v-16c0-13.255-10.745-24-24-24zM96 192v192H60c-6.627 0-12 5.373-12 12v20h416v-20c0-6.627-5.373-12-12-12h-36V192h-64v192h-64V192h-64v192h-64V192H96z"/&gt;&lt;/svg&gt; EMSE 4575: Exploratory Data Analysis
+### &lt;svg style="height:0.8em;top:.04em;position:relative;fill:white;" viewBox="0 0 448 512"&gt;&lt;path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"/&gt;&lt;/svg&gt; John Paul Helveston
+### &lt;svg style="height:0.8em;top:.04em;position:relative;fill:white;" viewBox="0 0 448 512"&gt;&lt;path d="M0 464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V192H0v272zm320-196c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zM192 268c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zM64 268c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zM400 64h-48V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H160V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H48C21.5 64 0 85.5 0 112v48h448v-48c0-26.5-21.5-48-48-48z"/&gt;&lt;/svg&gt; May 05, 2021
+]
+
+---
+
+class: center, middle
+
+# [Lewis Hamilton: The Car or the Driver?](https://youtu.be/90cFriv_65I)
+
+## by Matthew Perlow, Omar Al-za’atreh, and Cooper May
+
+---
+
+class: center, middle
+
+# [Poverty and its Implications on Energy Use and  Carbon Emissions](https://drive.google.com/file/d/1_mUYCkuEL8iRvjuTYqVKXFRCPlafy180/view)
+
+---
+
+class: center, middle
+
+# [Would you get into an autonomous vehicle?](https://vimeo.com/544759088)
+
+## by Leah Kaplan
+
+---
+
+class: center, middle
+
+# [EV Market Protectionism in China](https://youtu.be/IcTFEs17CBs)
+
+## by Lujin Zhao
+
+---
+
+class: center, middle
+
+# [Electric Vehicle Forecasts in the US](https://youtu.be/TeEiivtRvM4)
+
+## by Helena Rowe and Bridget Carl
+
+---
+
+class: center, middle
+
+# [Should Money be able to buy Olympic Medals?](https://youtu.be/BVmaDMFchNU)
+
+## by Izzy Doran, Omar Alkhadra, and Alejandro Medina~
+
+---
+
+class: center, middle
+
+# [Genders in the Workforce](https://youtu.be/EYlvVw14ovA)
+
+## by Alexa Rosdahl, Katie Fagan, and Gabriel Bahia De Sousa
+
+---
+
+class: center, middle
+
+# [Global Climate Impact: An Exploration of Nations’ Contributions to Climate Change](https://youtu.be/9c761LfbvYM)
+
+## by Carolyne Im, Kaveena Patel, and David Rosenberg
+
+---
+
+class: center, middle
+
+# [NFL Suspensions](https://www.youtube.com/watch?v=7bMQfF2nLAU)
+
+## by Ebunoluwa Akinbode, Kyara McDowell, and Kareemot Siyanbola
+
+---
+
+class: center, middle, inverse 
+
+# 🎉 Awards Ceremony 🎉
+
+---
+
+# 🗑️ The janitor award goes to...🥁
+
+&lt;br&gt;
+
+--
+
+# 🎉🎉🎉
+
+# Would you get into an autonomous vehicle?
+
+## by Leah Kaplan
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

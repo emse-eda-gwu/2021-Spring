@@ -1,0 +1,190 @@
+---
+title: "Communicating Results"
+subtitle: "EMSE 4575: Exploratory Data Analysis"
+date: May 05, 2021
+week: 17
+author: "John Paul Helveston"
+institute: "The George Washington University | Dept. of Engineering Management and Systems Engineering"
+output:
+  xaringan::moon_reader:
+    css:
+      - default
+      - css/lexis.css
+      - css/lexis-fonts.css
+    lib_dir: libs
+    seal: false
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+library(tidyverse)
+library(fontawesome)
+library(countdown)
+library(metathis)
+
+options(
+  htmltools.dir.version = FALSE,
+  knitr.table.format = "html",
+  knitr.kable.NA = '',
+  dplyr.width = Inf,
+  width = 250
+)
+
+knitr::opts_chunk$set(
+  cache = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  fig.path = "figs/",
+  fig.width = 7.252,
+  fig.height = 4,
+  comment = "#>",
+  fig.retina = 3
+)
+
+# Setup xaringanExtra options
+xaringanExtra::use_xaringan_extra(c(
+  "tile_view", "panelset", "clipboard", "share_again"))
+xaringanExtra::style_share_again(share_buttons = "none")
+xaringanExtra::use_extra_styles(
+  hover_code_line = TRUE,
+  mute_unhighlighted_code = FALSE
+)
+
+# Set up website metadata
+meta() %>%
+  meta_general(
+    description = rmarkdown::metadata$subtitle,
+    generator = "xaringan and remark.js"
+  ) %>%
+  meta_name("github-repo" = "emse-eda-gwu/2021-Spring") %>%
+  meta_social(
+    title = rmarkdown::metadata$title,
+    url = "https://eda.seas.gwu.edu/2021-Spring/",
+    og_type = "website",
+    og_author = "John Paul Helveston",
+    twitter_card_type = "summary_large_image",
+    twitter_creator = "@johnhelveston"
+  )
+
+# Setup class-specific paths
+class <- "17-final-presentations"
+root <- paste0("https://eda.seas.gwu.edu/2021-Spring/class/", class, "/")
+path_slides <- file.path("class", class, "index.html")
+path_pdf <- paste0(root, class, ".pdf")
+path_notes <- paste0(root, class, ".zip")
+
+# Read in data sets for class
+```
+
+class: middle, inverse
+
+.leftcol30[
+<center>
+<img src="https://raw.githubusercontent.com/emse-eda-gwu/2021-Spring/master/images/eda_hex_sticker.png" width=250>
+</center>
+]
+
+.rightcol70[
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+### `r fontawesome::fa(name = "university", fill = "white")` `r rmarkdown::metadata$subtitle`
+### `r fontawesome::fa(name = "user", fill = "white")` `r rmarkdown::metadata$author`
+### `r fontawesome::fa(name = "calendar-alt", fill = "white")` `r rmarkdown::metadata$date`
+]
+
+---
+
+class: center, middle
+
+# [Lewis Hamilton: The Car or the Driver?](https://youtu.be/90cFriv_65I)
+
+## by Matthew Perlow, Omar Al-za’atreh, and Cooper May
+
+---
+
+class: center, middle
+
+# [Poverty and its Implications on Energy Use and  Carbon Emissions](https://drive.google.com/file/d/1_mUYCkuEL8iRvjuTYqVKXFRCPlafy180/view)
+
+---
+
+class: center, middle
+
+# [Would you get into an autonomous vehicle?](https://vimeo.com/544759088)
+
+## by Leah Kaplan
+
+---
+
+class: center, middle
+
+# [EV Market Protectionism in China](https://youtu.be/IcTFEs17CBs)
+
+## by Lujin Zhao
+
+---
+
+class: center, middle
+
+# [Electric Vehicle Forecasts in the US](https://youtu.be/TeEiivtRvM4)
+
+## by Helena Rowe and Bridget Carl
+
+---
+
+class: center, middle
+
+# [Should Money be able to buy Olympic Medals?](https://youtu.be/BVmaDMFchNU)
+
+## by Izzy Doran, Omar Alkhadra, and Alejandro Medina~
+
+---
+
+class: center, middle
+
+# [Genders in the Workforce](https://youtu.be/EYlvVw14ovA)
+
+## by Alexa Rosdahl, Katie Fagan, and Gabriel Bahia De Sousa
+
+---
+
+class: center, middle
+
+# [Global Climate Impact: An Exploration of Nations’ Contributions to Climate Change](https://youtu.be/9c761LfbvYM)
+
+## by Carolyne Im, Kaveena Patel, and David Rosenberg
+
+---
+
+class: center, middle
+
+# [NFL Suspensions](https://www.youtube.com/watch?v=7bMQfF2nLAU)
+
+## by Ebunoluwa Akinbode, Kyara McDowell, and Kareemot Siyanbola
+
+---
+
+class: center, middle, inverse 
+
+# 🎉 Awards Ceremony 🎉
+
+---
+
+# 🗑️ The janitor award goes to...🥁
+
+<br>
+
+--
+
+# 🎉🎉🎉
+
+# Would you get into an autonomous vehicle?
+
+## by Leah Kaplan
+
+
