@@ -20,7 +20,7 @@ Instructor | Course
 ---|---
 <i class="fas fa-user"></i> John Paul Helveston | <i class="far fa-calendar"></i> Wednesdays
 <i class="fas fa-university"></i> Science & Engineering Hall, Office 2830 | <i class="fa fa-map-marker-alt"></i> Anywhere!
-<i class="fas fa-phone"></i> +1 (202) 994-7173 | <i class="far fa-calendar-alt"></i> Jan. 12 - Apr. 27, 2020
+<i class="fas fa-phone"></i> +1 (202) 994-7173 | <i class="far fa-calendar-alt"></i> Jan. 12 - Apr. 27, 2021
 <i class="fas fa-envelope"></i> [jpg@gwu.edu](mailto:jph@gwu.edu) | <i class="far fa-clock"></i> 12:45PM - 03:15PM EST
 <i class="fab fa-twitter"></i> [\@JohnHelveston](https://twitter.com/JohnHelveston) | <i class="fab fa-slack"></i> [Slack](https://emse-eda-s21.slack.com)
 </div>
