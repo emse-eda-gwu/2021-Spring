@@ -53,13 +53,13 @@ Reflections:
 - Add the template "I used to think ______, now I think ______ 🤔" in there.
 
 MP2:
-- Introduce janitor::clean_names() here instead of rename()
+- Introduce janitor::clean_names() here and compare it to `rename()`
 
 Projects:
 - Rename project pages to start with "project-" instead of "a-"
-- Reduce weight of proposal, move it up earlier so more time to do preliminary work. Maybe even by 3 weeks earlier and move MP2 back.
-- Revise team member "reviews" to be an "attribution" section just noting what each team member did on the project.
-- Merge presentation in with final project report score.
+- Reduce weight of proposal, move it up earlier so more time to do preliminary work. Maybe even by 3 weeks earlier and move MP2 back? we'll have to see how it fits in the fall schedule
+- Revise team member "reviews" to be an "attribution" section just noting what each team member did on the project and include it in the report itself.
+- Merge presentation in with final project report score, make it ~15-20% weight.
 Revise grading rubrics to look for effectiveness of design choices:
     - chart communicates key message
     - chart choice appropriate to show relationship / comparison
