@@ -1,14 +1,13 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-## EMSE 4197: Exploratory Data Analysis - Spring 2021 <a href='https://github.com/emse-eda-gwu/2021-Spring'><img src='images/eda_hex_sticker.png' align="right" height="139"/></a>
+## EMSE 4575: Exploratory Data Analysis - Spring 2021 <a href='https://github.com/emse-eda-gwu/2021-Spring'><img src='images/eda_hex_sticker.png' align="right" height="139"/></a>
 
 <!-- badges: start -->
 
 ![Render & Deploy
 Site](https://github.com/emse-eda-gwu/2021-Spring/workflows/Render%20&%20Deploy%20Site/badge.svg)
-[![License: CC
-BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA-lightgrey)](https://creativecommons.org/licenses/by-sa/4.0/)
+\[\[CC BY-NC-SA 4.0\]\[cc-by-nc-sa-shield\]\]\[cc-by-nc-sa\]
 <!-- badges: end -->
 
 ### Description
@@ -23,11 +22,12 @@ analyses will be conducted to support reproducibility from raw data to
 results using [RMarkdown](https://bookdown.org/yihui/rmarkdown/).
 Teaching will involve interactive lectures with plenty of class time
 spent working on examples and coding. Students will be assessed through
-quizzes and exams. Throughout the semester, students will work on a
-research project of their own design to demonstrate mastery of the
-course’s topics. At the end of the semester, students will submit a
-final, reproducible report of their project and will give a 5-minute
-presentation of their findings.
+in-class quizzes, reading reflections, and exploratory projects.
+Throughout the semester, students will work on a research project of
+their own design to demonstrate mastery of the course’s topics. At the
+end of the semester, students will submit a final, reproducible report
+of their project along with a 10-minute video presentation of their
+findings.
 
 For more details, please see the [course
 website](http://eda.seas.gwu.edu/2021-Spring/).
