@@ -32,8 +32,5 @@ Imports:
     yaml
 Remotes:
     hadley/emo,
-    rstudio/fontawesome,
     haozhu233/kableExtra,
-    r-lib/remotes,
-    rstudio/rmarkdown,
-    gadenbuie/xaringanExtra
+    r-lib/remotes
