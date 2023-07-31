@@ -14,7 +14,7 @@ As inspiration for your final projects, check out these prior exploratory data a
 # Previous course showcases
 
 <div class = "row"><div class = "col-md-4">
-<img src="https://eda.seas.gwu.edu/showcase/2020-Spring/thumbnails/virginia_presidential_voting.png">
+<img src="https://eda.seas.gwu.edu/showcase/2020-Spring/virginia_presidential_voting.png">
 </div><div class = "col-md-8">
 ## [Spring 2020 Showcase](https://eda.seas.gwu.edu/showcase/2020-spring.html){target="_blank"}
 
