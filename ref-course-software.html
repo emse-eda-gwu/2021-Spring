@@ -13,7 +13,8 @@
 
 <title>Course Software</title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.23/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -31,8 +32,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet" />
 <link rel="icon" href="images/favicon.ico">
 <script src="https://kit.fontawesome.com/1392a7030f.js" crossorigin="anonymous"></script>
 <style type="text/css">
@@ -163,6 +164,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -183,6 +185,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -240,11 +245,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -273,8 +282,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -282,16 +291,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -335,7 +337,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -353,20 +355,20 @@ $(document).ready(function () {
 </li>
 <li>
   <a href="syllabus.html">
-    <span class="fa fa fa fa-map"></span>
+    <span class="fa fa-map"></span>
      
     Syllabus
   </a>
 </li>
 <li>
   <a href="schedule.html">
-    <span class="fa fa fa fa-calendar-alt"></span>
+    <span class="fa fa-calendar-alt"></span>
      
     Schedule
   </a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-laptop-code"></span>
      
     Class
@@ -419,7 +421,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-book-reader"></span>
      
     Readings
@@ -466,7 +468,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-pencil-ruler"></span>
      
     Projects
@@ -492,8 +494,8 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa fa fa-bookmark"></span>
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-bookmark"></span>
      
     References
      
@@ -523,7 +525,7 @@ $(document).ready(function () {
     </li>
     <li>
       <a href="ref-finding-data.html">
-        <span class="fas fa-database"></span>
+        <span class="fa fa-database"></span>
          
         Finding Data
       </a>
@@ -559,7 +561,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-tools"></span>
      
     Tools
@@ -591,12 +593,12 @@ $(document).ready(function () {
   </ul>
 </li>
 <li>
-  <a href="http://eda.seas.gwu.edu/showcase-2021-spring.html">Showcase</a>
+  <a href="http://eda.seas.gwu.edu/showcase/2021-spring.html">Showcase</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-bars"></span>
      
      
@@ -648,26 +650,48 @@ $(document).ready(function () {
 
 
 <p>This page lists all the software we’ll be using in class.</p>
-<p><strong>You should install and set everything here <em>before</em> the first day of class.</strong></p>
+<p><strong>You should install and set everything here <em>before</em>
+the first day of class.</strong></p>
 <p>First, install / setup these tools:</p>
 <ul>
-<li><a href="https://emse-eda-s21.slack.com">Slack</a>: you should have received an email with a sign up link. You can also find this link on the Blackboard announcement.</li>
-<li>Install the Slack app on your phone and <strong>Turn notifications on!</strong></li>
-<li>Some tools we’ll use will require that you be on the GW network. You can do that by installing the “Cisco AnyConnect VPN Client” software and loggin in to GW’s VPN. Here’s how to do that:
+<li><a href="https://emse-eda-s21.slack.com">Slack</a>: you should have
+received an email with a sign up link. You can also find this link on
+the Blackboard announcement.</li>
+<li>Install the Slack app on your phone and <strong>Turn notifications
+on!</strong></li>
+<li>Some tools we’ll use will require that you be on the GW network. You
+can do that by installing the “Cisco AnyConnect VPN Client” software and
+loggin in to GW’s VPN. Here’s how to do that:
 <ul>
-<li>Install <a href="https://my.gwu.edu/mod/downloads/?category=VPN">Cisco AnyConnect VPN Client</a></li>
-<li>Follow <a href="https://gwu-myit.onbmc.com/dwp/app/#/knowledge/KBA00002611/rkm">these instructions</a> to log on to the VPN with your GW NetID</li>
+<li>Install <a
+href="https://my.gwu.edu/mod/downloads/?category=VPN">Cisco AnyConnect
+VPN Client</a></li>
+<li>Follow <a
+href="https://gwu-myit.onbmc.com/dwp/app/#/knowledge/KBA00002611/rkm">these
+instructions</a> to log on to the VPN with your GW NetID</li>
 </ul></li>
-<li><a href="https://www.datacamp.com">DataCamp</a>: This is a free resource being made available to you for extra practice. <strong>You must use your <span class="citation">@gwu.edu</span> email for this to work</strong> (not the <span class="citation">@email.gwu.edu</span> address). An invite link was also sent via email (and again can be found in the Blackboard announcement).</li>
+<li><a href="https://www.datacamp.com">DataCamp</a>: This is a free
+resource being made available to you for extra practice. <strong>You
+must use your <span class="citation">@gwu.edu</span> email for this to
+work</strong> (not the <span class="citation">@email.gwu.edu</span>
+address). An invite link was also sent via email (and again can be found
+in the Blackboard announcement).</li>
 </ul>
 <p>Next, install the latest version of R and RStudio:</p>
 <ul>
-<li><a href="https://cloud.r-project.org">Download and install R</a> (version 4.0.2 or higher)</li>
-<li><a href="https://rstudio.com/products/rstudio/download/">Download and install RStudio</a> (Desktop version)</li>
+<li><a href="https://cloud.r-project.org">Download and install R</a>
+(version 4.0.2 or higher)</li>
+<li><a href="https://rstudio.com/products/rstudio/download/">Download
+and install RStudio</a> (Desktop version)</li>
 </ul>
-<p><strong>We will always work in RStudio</strong>, so be careful to open RStudio and not the default R application that comes with R:</p>
+<p><strong>We will always work in RStudio</strong>, so be careful to
+open RStudio and not the default R application that comes with R:</p>
 <div style="width:200px">
 <table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="center">Open this</th>

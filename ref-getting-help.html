@@ -13,7 +13,8 @@
 
 <title>Getting Help</title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.23/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -28,14 +29,14 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet" />
 <link rel="icon" href="images/favicon.ico">
 <script src="https://kit.fontawesome.com/1392a7030f.js" crossorigin="anonymous"></script>
 <style type="text/css">
@@ -166,6 +167,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -186,6 +188,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -243,11 +248,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -276,8 +285,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -285,16 +294,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -417,7 +419,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -435,20 +437,20 @@ div.tocify {
 </li>
 <li>
   <a href="syllabus.html">
-    <span class="fa fa fa fa-map"></span>
+    <span class="fa fa-map"></span>
      
     Syllabus
   </a>
 </li>
 <li>
   <a href="schedule.html">
-    <span class="fa fa fa fa-calendar-alt"></span>
+    <span class="fa fa-calendar-alt"></span>
      
     Schedule
   </a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-laptop-code"></span>
      
     Class
@@ -501,7 +503,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-book-reader"></span>
      
     Readings
@@ -548,7 +550,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-pencil-ruler"></span>
      
     Projects
@@ -574,8 +576,8 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa fa fa-bookmark"></span>
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-bookmark"></span>
      
     References
      
@@ -605,7 +607,7 @@ div.tocify {
     </li>
     <li>
       <a href="ref-finding-data.html">
-        <span class="fas fa-database"></span>
+        <span class="fa fa-database"></span>
          
         Finding Data
       </a>
@@ -641,7 +643,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-tools"></span>
      
     Tools
@@ -673,12 +675,12 @@ div.tocify {
   </ul>
 </li>
 <li>
-  <a href="http://eda.seas.gwu.edu/showcase-2021-spring.html">Showcase</a>
+  <a href="http://eda.seas.gwu.edu/showcase/2021-spring.html">Showcase</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-bars"></span>
      
      
@@ -729,9 +731,12 @@ div.tocify {
 </div>
 
 
-<div id="slack" class="section level1">
+<div id="slack" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Slack</h1>
-<p>All course communication will be managed through <a href="https://emse-eda-s20.slack.com">Slack</a>. A link to sign up for the course slack page can be found on the one (and only) announcement on Blackboard.</p>
+<p>All course communication will be managed through <a
+href="https://emse-eda-s20.slack.com">Slack</a>. A link to sign up for
+the course slack page can be found on the one (and only) announcement on
+Blackboard.</p>
 <p>Watch this 2-minute video to see what Slack is all about:</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/9RJZMSsH7-g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
@@ -739,26 +744,43 @@ div.tocify {
 <ul>
 <li>Ask general questions.</li>
 <li>Ask for help with an assignment.</li>
-<li>Send direct, private messages to each other or the instructors (just like email…but better!)</li>
+<li>Send direct, private messages to each other or the instructors (just
+like email…but better!)</li>
 </ul>
 <p><strong>Asking for help on Slack</strong>:</p>
-<p>You can post questions on slack and receive quick responses. This also enables other students to see answers to common questions. Be specific - if your code has an error you don’t understand, <strong>include the code and the error message</strong> in your question.</p>
+<p>You can post questions on slack and receive quick responses. This
+also enables other students to see answers to common questions. Be
+specific - if your code has an error you don’t understand,
+<strong>include the code and the error message</strong> in your
+question.</p>
 </div>
-<div id="office-hours" class="section level1">
+<div id="office-hours" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Office hours</h1>
 <p>Please watch this video:</p>
 <iframe src="https://player.vimeo.com/video/270014784" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
 </iframe>
-<p>Office hours are set times dedicated to all of you. This means that I will be in my office (wistfully) waiting for you to come by with whatever questions you have. This is the best and easiest way to find me outside of class and the best chance for discussing class material and concerns (or anything really). Please come by!</p>
-<p>This can be a difficult class - <strong>do not suffer in silence!</strong> Come talk to me!</p>
+<p>Office hours are set times dedicated to all of you. This means that I
+will be in my office (wistfully) waiting for you to come by with
+whatever questions you have. This is the best and easiest way to find me
+outside of class and the best chance for discussing class material and
+concerns (or anything really). Please come by!</p>
+<p>This can be a difficult class - <strong>do not suffer in
+silence!</strong> Come talk to me!</p>
 </div>
-<div id="tutoring-hours" class="section level1">
+<div id="tutoring-hours" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> Tutoring hours</h1>
-<p>Similar to office hours, your class tutors will each hold a specific period of time each week dedicated to help you will course assignments. Please don’t make your tutors sit and do emails for two hours - come by and ask for help!</p>
+<p>Similar to office hours, your class tutors will each hold a specific
+period of time each week dedicated to help you will course assignments.
+Please don’t make your tutors sit and do emails for two hours - come by
+and ask for help!</p>
 </div>
-<div id="library-services" class="section level1">
+<div id="library-services" class="section level1" number="4">
 <h1><span class="header-section-number">4</span> Library Services</h1>
-<p>While the University Library is not a stand in for TAs, you can schedule a consultation for general help with Coding, Programming, Data, Statistical, and GIS. See more at <a href="https://academiccommons.gwu.edu/writing-research-help" class="uri">https://academiccommons.gwu.edu/writing-research-help</a></p>
+<p>While the University Library is not a stand in for TAs, you can
+schedule a consultation for general help with Coding, Programming, Data,
+Statistical, and GIS. See more at <a
+href="https://academiccommons.gwu.edu/writing-research-help"
+class="uri">https://academiccommons.gwu.edu/writing-research-help</a></p>
 </div>
 
 
@@ -820,6 +842,9 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
 
     // move toc-ignore selectors from section div to header
     $('div.section.toc-ignore')

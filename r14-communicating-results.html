@@ -13,7 +13,8 @@
 
 <title>Communicating Results</title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.23/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -28,14 +29,14 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet" />
 <link rel="icon" href="images/favicon.ico">
 <script src="https://kit.fontawesome.com/1392a7030f.js" crossorigin="anonymous"></script>
 <style type="text/css">
@@ -166,6 +167,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -186,6 +188,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -243,11 +248,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -276,8 +285,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -285,16 +294,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -417,7 +419,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -435,20 +437,20 @@ div.tocify {
 </li>
 <li>
   <a href="syllabus.html">
-    <span class="fa fa fa fa-map"></span>
+    <span class="fa fa-map"></span>
      
     Syllabus
   </a>
 </li>
 <li>
   <a href="schedule.html">
-    <span class="fa fa fa fa-calendar-alt"></span>
+    <span class="fa fa-calendar-alt"></span>
      
     Schedule
   </a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-laptop-code"></span>
      
     Class
@@ -501,7 +503,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-book-reader"></span>
      
     Readings
@@ -548,7 +550,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-pencil-ruler"></span>
      
     Projects
@@ -574,8 +576,8 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa fa fa-bookmark"></span>
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-bookmark"></span>
      
     References
      
@@ -605,7 +607,7 @@ div.tocify {
     </li>
     <li>
       <a href="ref-finding-data.html">
-        <span class="fas fa-database"></span>
+        <span class="fa fa-database"></span>
          
         Finding Data
       </a>
@@ -641,7 +643,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-tools"></span>
      
     Tools
@@ -673,12 +675,12 @@ div.tocify {
   </ul>
 </li>
 <li>
-  <a href="http://eda.seas.gwu.edu/showcase-2021-spring.html">Showcase</a>
+  <a href="http://eda.seas.gwu.edu/showcase/2021-spring.html">Showcase</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-bars"></span>
      
      
@@ -731,18 +733,37 @@ div.tocify {
 
 <blockquote>
 <p><strong>Due</strong>: 27 April, 11:59 pm</p>
-<p><strong>Weight</strong>: This assignment is worth 0.5% of your final grade.</p>
-<p><strong>Purpose</strong>: The purpose of this assignment is to learn some tips for effectively communicating the results of your analyses to others. We will look at strategies for giving effective presentations / speeches as well as best practices for designing slides.</p>
-<p><strong>Assessment</strong>: This assignment is graded using a check system:</p>
+<p><strong>Weight</strong>: This assignment is worth 0.5% of your final
+grade.</p>
+<p><strong>Purpose</strong>: The purpose of this assignment is to learn
+some tips for effectively communicating the results of your analyses to
+others. We will look at strategies for giving effective presentations /
+speeches as well as best practices for designing slides.</p>
+<p><strong>Assessment</strong>: This assignment is graded using a check
+system:</p>
 <ul>
-<li>✔+ (110%): Reflection shows phenomenal thought and engagement with the course content. I will not assign these often.</li>
-<li>✔ (100%): Reflection is thoughtful, well-written, and shows engagement with the course content. This is the expected level of performance.</li>
-<li>✔− (50%): Reflection is hastily composed, too short, and/or only cursorily engages with the course content. This grade signals that you need to improve next time. I will <em>hopefully</em> not assign these often.</li>
+<li>✔+ (110%): Reflection shows phenomenal thought and engagement with
+the course content. I will not assign these often.</li>
+<li>✔ (100%): Reflection is thoughtful, well-written, and shows
+engagement with the course content. This is the expected level of
+performance.</li>
+<li>✔− (50%): Reflection is hastily composed, too short, and/or only
+cursorily engages with the course content. This grade signals that you
+need to improve next time. I will <em>hopefully</em> not assign these
+often.</li>
 </ul>
-<p>Notice that this is essentially a pass/fail or completion-based system. I’m not grading your writing ability, I’m not counting the exact number of words you write, and I’m not looking for encyclopedic citations of every single reading to prove that you did indeed read everything. I’m looking for thoughtful engagement, that’s all. Do good work and you’ll get a ✓.</p>
+<p>Notice that this is essentially a pass/fail or completion-based
+system. I’m not grading your writing ability, I’m not counting the exact
+number of words you write, and I’m not looking for encyclopedic
+citations of every single reading to prove that you did indeed read
+everything. I’m looking for thoughtful engagement, that’s all. Do good
+work and you’ll get a ✓.</p>
 </blockquote>
-<div id="for-this-weeks-reflection-download-and-edit-this-template." class="section level3">
-<h3>For this week’s reflection, download and edit <a href="https://eda.seas.gwu.edu/2021-Spring/templates/reflection14.zip">this template</a>.</h3>
+<div id="for-this-weeks-reflection-download-and-edit-this-template."
+class="section level3">
+<h3>For this week’s reflection, download and edit <a
+href="https://eda.seas.gwu.edu/2021-Spring/templates/reflection14.zip">this
+template</a>.</h3>
 </div>
 <div id="watch" class="section level1">
 <h1>Watch</h1>
@@ -753,20 +774,28 @@ div.tocify {
 <div id="read" class="section level1">
 <h1>Read</h1>
 <ul>
-<li><a href="https://serialmentor.com/dataviz/telling-a-story.html">Wilke Chapter 29 - Telling a story and making a point</a>.</li>
-<li>Stephanie Evergreen’s blog post <a href="https://stephanieevergreen.com/so-what/">“So What?”</a></li>
+<li><a
+href="https://serialmentor.com/dataviz/telling-a-story.html">Wilke
+Chapter 29 - Telling a story and making a point</a>.</li>
+<li>Stephanie Evergreen’s blog post <a
+href="https://stephanieevergreen.com/so-what/">“So What?”</a></li>
 </ul>
 </div>
 <div id="write" class="section level1">
 <h1>Write</h1>
-<p>For your final reflection, in addition to any thoughts that emerged when going through the above content, write about a talk or presentation you saw that you found particularly impactful. Was there anything memorable about it that made the presenter’s message stick? Do you remember how the speaker began or ended their talk?</p>
+<p>For your final reflection, in addition to any thoughts that emerged
+when going through the above content, write about a talk or presentation
+you saw that you found particularly impactful. Was there anything
+memorable about it that made the presenter’s message stick? Do you
+remember how the speaker began or ended their talk?</p>
 </div>
 <div id="knit-and-submit" class="section level1">
 <h1>Knit and Submit</h1>
 <ul>
 <li>Knit your document to a html page.</li>
 <li>Create a zip file of everything in your R Project folder.</li>
-<li>Go to the “Assignment Submission” page on Blackboard and submit your zip file.</li>
+<li>Go to the “Assignment Submission” page on Blackboard and submit your
+zip file.</li>
 </ul>
 </div>
 
@@ -829,6 +858,9 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
 
     // move toc-ignore selectors from section div to header
     $('div.section.toc-ignore')

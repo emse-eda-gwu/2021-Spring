@@ -13,7 +13,8 @@
 
 <title>Course Schedule</title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.23/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -33,8 +34,8 @@
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet" />
 <link rel="icon" href="images/favicon.ico">
 <script src="https://kit.fontawesome.com/1392a7030f.js" crossorigin="anonymous"></script>
 <style type="text/css">
@@ -165,6 +166,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -185,6 +187,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -242,11 +247,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -275,8 +284,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -284,16 +293,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -337,7 +339,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -355,20 +357,20 @@ $(document).ready(function () {
 </li>
 <li>
   <a href="syllabus.html">
-    <span class="fa fa fa fa-map"></span>
+    <span class="fa fa-map"></span>
      
     Syllabus
   </a>
 </li>
 <li>
   <a href="schedule.html">
-    <span class="fa fa fa fa-calendar-alt"></span>
+    <span class="fa fa-calendar-alt"></span>
      
     Schedule
   </a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-laptop-code"></span>
      
     Class
@@ -421,7 +423,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-book-reader"></span>
      
     Readings
@@ -468,7 +470,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-pencil-ruler"></span>
      
     Projects
@@ -494,8 +496,8 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa fa fa-bookmark"></span>
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-bookmark"></span>
      
     References
      
@@ -525,7 +527,7 @@ $(document).ready(function () {
     </li>
     <li>
       <a href="ref-finding-data.html">
-        <span class="fas fa-database"></span>
+        <span class="fa fa-database"></span>
          
         Finding Data
       </a>
@@ -561,7 +563,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-tools"></span>
      
     Tools
@@ -593,12 +595,12 @@ $(document).ready(function () {
   </ul>
 </li>
 <li>
-  <a href="http://eda.seas.gwu.edu/showcase-2021-spring.html">Showcase</a>
+  <a href="http://eda.seas.gwu.edu/showcase/2021-spring.html">Showcase</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-bars"></span>
      
      
@@ -682,10 +684,14 @@ Jan 13
 <td style="text-align:center;">
 </td>
 <td style="text-align:left;width: 17em; ">
-<a href="c1-getting-started.html"><i class="fas fa-laptop-code"></i></a> <strong>Getting Started</strong><br>Class orientation; workflow; importing data; data provenance; tidy data; writing a research question
+<a href="c1-getting-started.html"><i class="fas fa-laptop-code"></i></a>
+<strong>Getting Started</strong><br>Class orientation; workflow;
+importing data; data provenance; tidy data; writing a research question
 </td>
 <td style="text-align:left;">
-<a href="r1-centrality-variability.html"><i class="fas fa-book-reader"></i></a> Centrality &amp; Variability<br>Due 01/26
+<a
+href="r1-centrality-variability.html"><i class="fas fa-book-reader"></i></a>
+Centrality &amp; Variability<br>Due 01/26
 </td>
 <td style="text-align:left;">
 </td>
@@ -717,10 +723,14 @@ Jan 27
 <td style="text-align:center;">
 </td>
 <td style="text-align:left;width: 17em; ">
-<a href="c3-centrality-variability.html"><i class="fas fa-laptop-code"></i></a> <strong>Centrality &amp; Variability</strong><br>Data types &amp; scales; centrality &amp; spread; variation &amp; covariation; plot types
+<a
+href="c3-centrality-variability.html"><i class="fas fa-laptop-code"></i></a>
+<strong>Centrality &amp; Variability</strong><br>Data types &amp;
+scales; centrality &amp; spread; variation &amp; covariation; plot types
 </td>
 <td style="text-align:left;">
-<a href="r3-correlation.html"><i class="fas fa-book-reader"></i></a> Correlation<br>Due 02/02
+<a href="r3-correlation.html"><i class="fas fa-book-reader"></i></a>
+Correlation<br>Due 02/02
 </td>
 <td style="text-align:left;">
 </td>
@@ -735,13 +745,18 @@ Feb 03
 <td style="text-align:center;">
 </td>
 <td style="text-align:left;width: 17em; ">
-<a href="c4-correlation.html"><i class="fas fa-laptop-code"></i></a> <strong>Correlation</strong><br>Correlation metrics; outliers; visualizing correlations; linear models
+<a href="c4-correlation.html"><i class="fas fa-laptop-code"></i></a>
+<strong>Correlation</strong><br>Correlation metrics; outliers;
+visualizing correlations; linear models
 </td>
 <td style="text-align:left;">
-<a href="r4-visualizing-information.html"><i class="fas fa-book-reader"></i></a> Visualizing Information<br>Due 02/09
+<a
+href="r4-visualizing-information.html"><i class="fas fa-book-reader"></i></a>
+Visualizing Information<br>Due 02/09
 </td>
 <td style="text-align:left;">
-<a href="a-mini-project-1.html"><i class="fas fa-pencil-ruler"></i></a> <strong>Mini Project 1</strong>: <br>Exploring Data<br>Due 02/16
+<a href="a-mini-project-1.html"><i class="fas fa-pencil-ruler"></i></a>
+<strong>Mini Project 1</strong>: <br>Exploring Data<br>Due 02/16
 </td>
 </tr>
 <tr>
@@ -755,10 +770,16 @@ Feb 10
 <a href="https://edas21quiz1.formr.org"><i class="fas fa-edit"></i></a>
 </td>
 <td style="text-align:left;width: 17em; ">
-<a href="c5-visualizing-information.html"><i class="fas fa-laptop-code"></i></a> <strong>Visualizing Information</strong><br>Psychology of graphical perception; preattentive attributes; ugly, bad, &amp; wrong charts; chart design best practices
+<a
+href="c5-visualizing-information.html"><i class="fas fa-laptop-code"></i></a>
+<strong>Visualizing Information</strong><br>Psychology of graphical
+perception; preattentive attributes; ugly, bad, &amp; wrong charts;
+chart design best practices
 </td>
 <td style="text-align:left;">
-<a href="r5-amounts-proportions.html"><i class="fas fa-book-reader"></i></a> Amounts &amp; Proportions<br>Due 02/16
+<a
+href="r5-amounts-proportions.html"><i class="fas fa-book-reader"></i></a>
+Amounts &amp; Proportions<br>Due 02/16
 </td>
 <td style="text-align:left;">
 </td>
@@ -773,13 +794,18 @@ Feb 17
 <td style="text-align:center;">
 </td>
 <td style="text-align:left;width: 17em; ">
-<a href="c6-amounts-proportions.html"><i class="fas fa-laptop-code"></i></a> <strong>Amounts &amp; Proportions</strong><br>Manipulating factors; plotting amounts with bars, dots, and lollipops; parts of whole
+<a
+href="c6-amounts-proportions.html"><i class="fas fa-laptop-code"></i></a>
+<strong>Amounts &amp; Proportions</strong><br>Manipulating factors;
+plotting amounts with bars, dots, and lollipops; parts of whole
 </td>
 <td style="text-align:left;">
-<a href="r6-comparisons.html"><i class="fas fa-book-reader"></i></a> Comparisons<br>Due 02/23
+<a href="r6-comparisons.html"><i class="fas fa-book-reader"></i></a>
+Comparisons<br>Due 02/23
 </td>
 <td style="text-align:left;">
-<a href="a-mini-project-2.html"><i class="fas fa-pencil-ruler"></i></a> <strong>Mini Project 2</strong>: <br>Re-design<br>Due 03/09
+<a href="a-mini-project-2.html"><i class="fas fa-pencil-ruler"></i></a>
+<strong>Mini Project 2</strong>: <br>Re-design<br>Due 03/09
 </td>
 </tr>
 <tr>
@@ -793,10 +819,13 @@ Feb 24
 <a href="https://edas21quiz2.formr.org"><i class="fas fa-edit"></i></a>
 </td>
 <td style="text-align:left;width: 17em; ">
-<a href="c7-comparisons.html"><i class="fas fa-laptop-code"></i></a> <strong>Comparisons</strong><br>Facets; reference lines; dumbbells; slopes; distributions
+<a href="c7-comparisons.html"><i class="fas fa-laptop-code"></i></a>
+<strong>Comparisons</strong><br>Facets; reference lines; dumbbells;
+slopes; distributions
 </td>
 <td style="text-align:left;">
-<a href="r7-trends.html"><i class="fas fa-book-reader"></i></a> Trends<br>Due 03/02
+<a href="r7-trends.html"><i class="fas fa-book-reader"></i></a>
+Trends<br>Due 03/02
 </td>
 <td style="text-align:left;">
 </td>
@@ -811,13 +840,17 @@ Mar 03
 <td style="text-align:center;">
 </td>
 <td style="text-align:left;width: 17em; ">
-<a href="c8-trends.html"><i class="fas fa-laptop-code"></i></a> <strong>Trends</strong><br>Line charts; heat maps; animation
+<a href="c8-trends.html"><i class="fas fa-laptop-code"></i></a>
+<strong>Trends</strong><br>Line charts; heat maps; animation
 </td>
 <td style="text-align:left;">
-<a href="r8-cleaning-data.html"><i class="fas fa-book-reader"></i></a> Cleaning Data<br>Due 03/09
+<a href="r8-cleaning-data.html"><i class="fas fa-book-reader"></i></a>
+Cleaning Data<br>Due 03/09
 </td>
 <td style="text-align:left;">
-<a href="a-project.html#Proposal"><i class="fas fa-pencil-ruler"></i></a> <strong>Final Project</strong>: <br>Proposal<br>Due 03/12
+<a
+href="a-project.html#Proposal"><i class="fas fa-pencil-ruler"></i></a>
+<strong>Final Project</strong>: <br>Proposal<br>Due 03/12
 </td>
 </tr>
 <tr>
@@ -831,13 +864,18 @@ Mar 10
 <a href="https://edas21quiz3.formr.org"><i class="fas fa-edit"></i></a>
 </td>
 <td style="text-align:left;width: 17em; ">
-<a href="c9-cleaning-data.html"><i class="fas fa-laptop-code"></i></a> <strong>Cleaning Data</strong><br>Joins; reshaping data; date type data; dealing with messy Excel files
+<a href="c9-cleaning-data.html"><i class="fas fa-laptop-code"></i></a>
+<strong>Cleaning Data</strong><br>Joins; reshaping data; date type data;
+dealing with messy Excel files
 </td>
 <td style="text-align:left;">
-<a href="r9-polishing-charts.html"><i class="fas fa-book-reader"></i></a> Polishing Charts<br>Due 03/23
+<a
+href="r9-polishing-charts.html"><i class="fas fa-book-reader"></i></a>
+Polishing Charts<br>Due 03/23
 </td>
 <td style="text-align:left;">
-<a href="a-mini-project-3.html"><i class="fas fa-pencil-ruler"></i></a> <strong>Mini Project 3</strong>: <br>Mini Analysis<br>Due 04/06
+<a href="a-mini-project-3.html"><i class="fas fa-pencil-ruler"></i></a>
+<strong>Mini Project 3</strong>: <br>Mini Analysis<br>Due 04/06
 </td>
 </tr>
 <tr>
@@ -867,10 +905,14 @@ Mar 24
 <td style="text-align:center;">
 </td>
 <td style="text-align:left;width: 17em; ">
-<a href="c11-polishing-charts.html"><i class="fas fa-laptop-code"></i></a> <strong>Polishing Charts</strong><br>Colors; annotations; scales; themes; multi-panel figures
+<a
+href="c11-polishing-charts.html"><i class="fas fa-laptop-code"></i></a>
+<strong>Polishing Charts</strong><br>Colors; annotations; scales;
+themes; multi-panel figures
 </td>
 <td style="text-align:left;">
-<a href="r11-maps.html"><i class="fas fa-book-reader"></i></a> Maps<br>Due 03/30
+<a href="r11-maps.html"><i class="fas fa-book-reader"></i></a>
+Maps<br>Due 03/30
 </td>
 <td style="text-align:left;">
 </td>
@@ -886,13 +928,19 @@ Mar 31
 <a href="https://edas21quiz4.formr.org"><i class="fas fa-edit"></i></a>
 </td>
 <td style="text-align:left;width: 17em; ">
-<a href="c12-maps.html"><i class="fas fa-laptop-code"></i></a> <strong>Maps</strong><br>Maps in ggplot; mapping data to maps; projections
+<a href="c12-maps.html"><i class="fas fa-laptop-code"></i></a>
+<strong>Maps</strong><br>Maps in ggplot; mapping data to maps;
+projections
 </td>
 <td style="text-align:left;">
-<a href="r12-interactive-charts.html"><i class="fas fa-book-reader"></i></a> Interactive Charts<br>Due 04/06
+<a
+href="r12-interactive-charts.html"><i class="fas fa-book-reader"></i></a>
+Interactive Charts<br>Due 04/06
 </td>
 <td style="text-align:left;">
-<a href="a-project.html#Progress_Report"><i class="fas fa-pencil-ruler"></i></a> <strong>Final Project</strong>: <br>Progress Report<br>Due 04/16
+<a
+href="a-project.html#Progress_Report"><i class="fas fa-pencil-ruler"></i></a>
+<strong>Final Project</strong>: <br>Progress Report<br>Due 04/16
 </td>
 </tr>
 <tr>
@@ -905,10 +953,13 @@ Apr 07
 <td style="text-align:center;">
 </td>
 <td style="text-align:left;width: 17em; ">
-<a href="c13-interactive-charts.html"><i class="fas fa-laptop-code"></i></a> <strong>Interactive Charts</strong><br>Plotly; leaflet
+<a
+href="c13-interactive-charts.html"><i class="fas fa-laptop-code"></i></a>
+<strong>Interactive Charts</strong><br>Plotly; leaflet
 </td>
 <td style="text-align:left;">
-<a href="r13-shiny-apps.html"><i class="fas fa-book-reader"></i></a> Shiny Apps<br>Due 04/13
+<a href="r13-shiny-apps.html"><i class="fas fa-book-reader"></i></a>
+Shiny Apps<br>Due 04/13
 </td>
 <td style="text-align:left;">
 </td>
@@ -924,10 +975,13 @@ Apr 14
 <a href="https://edas21quiz5.formr.org"><i class="fas fa-edit"></i></a>
 </td>
 <td style="text-align:left;width: 17em; ">
-<a href="c14-shiny-apps.html"><i class="fas fa-laptop-code"></i></a> <strong>Shiny Apps</strong><br>Interactive apps; dashboards
+<a href="c14-shiny-apps.html"><i class="fas fa-laptop-code"></i></a>
+<strong>Shiny Apps</strong><br>Interactive apps; dashboards
 </td>
 <td style="text-align:left;">
-<a href="r14-communicating-results.html"><i class="fas fa-book-reader"></i></a> Communicating Results<br>Due 04/27
+<a
+href="r14-communicating-results.html"><i class="fas fa-book-reader"></i></a>
+Communicating Results<br>Due 04/27
 </td>
 <td style="text-align:left;">
 </td>
@@ -942,12 +996,15 @@ Apr 21
 <td style="text-align:center;">
 </td>
 <td style="text-align:left;width: 17em; ">
-<strong>No Class - Project Time!</strong><br>Team meetings with Prof. Helveston
+<strong>No Class - Project Time!</strong><br>Team meetings with
+Prof. Helveston
 </td>
 <td style="text-align:left;">
 </td>
 <td style="text-align:left;">
-<a href="a-project.html#Final_Report"><i class="fas fa-pencil-ruler"></i></a> <strong>Final Project</strong>: <br>Final Report<br>Due 05/02
+<a
+href="a-project.html#Final_Report"><i class="fas fa-pencil-ruler"></i></a>
+<strong>Final Project</strong>: <br>Final Report<br>Due 05/02
 </td>
 </tr>
 <tr>
@@ -960,7 +1017,10 @@ Apr 28
 <td style="text-align:center;">
 </td>
 <td style="text-align:left;width: 17em; ">
-<a href="c16-communicating-results.html"><i class="fas fa-laptop-code"></i></a> <strong>Communicating Results</strong><br>Telling stories; slide design; giving a talk
+<a
+href="c16-communicating-results.html"><i class="fas fa-laptop-code"></i></a>
+<strong>Communicating Results</strong><br>Telling stories; slide design;
+giving a talk
 </td>
 <td style="text-align:left;">
 </td>

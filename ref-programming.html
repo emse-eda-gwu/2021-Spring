@@ -13,7 +13,8 @@
 
 <title>Programming in R</title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.23/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -31,8 +32,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet" />
 <link rel="icon" href="images/favicon.ico">
 <script src="https://kit.fontawesome.com/1392a7030f.js" crossorigin="anonymous"></script>
 <style type="text/css">
@@ -163,6 +164,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -183,6 +185,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -240,11 +245,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -273,8 +282,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -282,16 +291,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -335,7 +337,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -353,20 +355,20 @@ $(document).ready(function () {
 </li>
 <li>
   <a href="syllabus.html">
-    <span class="fa fa fa fa-map"></span>
+    <span class="fa fa-map"></span>
      
     Syllabus
   </a>
 </li>
 <li>
   <a href="schedule.html">
-    <span class="fa fa fa fa-calendar-alt"></span>
+    <span class="fa fa-calendar-alt"></span>
      
     Schedule
   </a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-laptop-code"></span>
      
     Class
@@ -419,7 +421,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-book-reader"></span>
      
     Readings
@@ -466,7 +468,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-pencil-ruler"></span>
      
     Projects
@@ -492,8 +494,8 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa fa fa-bookmark"></span>
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-bookmark"></span>
      
     References
      
@@ -523,7 +525,7 @@ $(document).ready(function () {
     </li>
     <li>
       <a href="ref-finding-data.html">
-        <span class="fas fa-database"></span>
+        <span class="fa fa-database"></span>
          
         Finding Data
       </a>
@@ -559,7 +561,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-tools"></span>
      
     Tools
@@ -591,12 +593,12 @@ $(document).ready(function () {
   </ul>
 </li>
 <li>
-  <a href="http://eda.seas.gwu.edu/showcase-2021-spring.html">Showcase</a>
+  <a href="http://eda.seas.gwu.edu/showcase/2021-spring.html">Showcase</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-bars"></span>
      
      
@@ -650,37 +652,61 @@ $(document).ready(function () {
 <div id="programming-in-r" class="section level1">
 <h1>Programming in R</h1>
 <ul>
-<li><a href="https://p4a.seas.gwu.edu/2020-Fall/">Last semester’s course website :)</a></li>
-<li>Grolemund, Garrett. “Hands-On Programming with R” [<a href="https://rstudio-education.github.io/hopr/">free online</a>], [<a href="https://www.amazon.com/gp/product/1449359019/">buy on amazon</a>]</li>
-<li>Peng, Roger D. “R Programming for Data Science” [<a href="https://leanpub.com/rprogramming">online - pay what you want</a>]</li>
+<li><a href="https://p4a.seas.gwu.edu/2020-Fall/">Last semester’s course
+website :)</a></li>
+<li>Grolemund, Garrett. “Hands-On Programming with R” [<a
+href="https://rstudio-education.github.io/hopr/">free online</a>], [<a
+href="https://www.amazon.com/gp/product/1449359019/">buy on
+amazon</a>]</li>
+<li>Peng, Roger D. “R Programming for Data Science” [<a
+href="https://leanpub.com/rprogramming">online - pay what you
+want</a>]</li>
 </ul>
 </div>
 <div id="data-analysis-in-r" class="section level1">
 <h1>Data Analysis in R</h1>
 <ul>
-<li>Grolemund, Garrett and Wickham, Hadley. “R for Data Science” [<a href="https://r4ds.had.co.nz/">free online</a>], [<a href="https://www.amazon.com/Data-Science-Transform-Visualize-Model/dp/1491910399">buy on amazon</a>]</li>
-<li>Peng, Roger D. “Exploratory Data Analysis with R” [<a href="https://leanpub.com/exdata">online - pay what you want</a>]</li>
-<li><a href="https://bookdown.org/lyzhang10/lzhang_r_tips_book/">16 HOWTO’s</a>, by Lingyun Zhang</li>
+<li>Grolemund, Garrett and Wickham, Hadley. “R for Data Science” [<a
+href="https://r4ds.had.co.nz/">free online</a>], [<a
+href="https://www.amazon.com/Data-Science-Transform-Visualize-Model/dp/1491910399">buy
+on amazon</a>]</li>
+<li>Peng, Roger D. “Exploratory Data Analysis with R” [<a
+href="https://leanpub.com/exdata">online - pay what you want</a>]</li>
+<li><a href="https://bookdown.org/lyzhang10/lzhang_r_tips_book/">16
+HOWTO’s</a>, by Lingyun Zhang</li>
 </ul>
 </div>
 <div id="rmarkdown" class="section level1">
 <h1>RMarkdown</h1>
 <ul>
-<li><a href="https://evalsp20.classes.andrewheiss.com/reference/markdown/">Andrew Heiss’s Markdown guide</a></li>
-<li><a href="https://commonmark.org/help/">60 second markdown guide</a></li>
-<li><a href="https://commonmark.org/help/tutorial/">10 minute markdown tutorial</a></li>
-<li><a href="https://markdown-it.github.io">Markdown It</a>: Quickly demo Markdown code.</li>
-<li><a href="http://www.tablesgenerator.com/">Table generator</a>: Create tables and get export code for multiple formats.</li>
-<li><a href="http://www.stat.cmu.edu/~cshalizi/rmarkdown/">CMU RMarkdown guide (very detailed)</a></li>
+<li><a
+href="https://evalsp20.classes.andrewheiss.com/reference/markdown/">Andrew
+Heiss’s Markdown guide</a></li>
+<li><a href="https://commonmark.org/help/">60 second markdown
+guide</a></li>
+<li><a href="https://commonmark.org/help/tutorial/">10 minute markdown
+tutorial</a></li>
+<li><a href="https://markdown-it.github.io">Markdown It</a>: Quickly
+demo Markdown code.</li>
+<li><a href="http://www.tablesgenerator.com/">Table generator</a>:
+Create tables and get export code for multiple formats.</li>
+<li><a href="http://www.stat.cmu.edu/~cshalizi/rmarkdown/">CMU RMarkdown
+guide (very detailed)</a></li>
 </ul>
 </div>
 <div id="rstudio-cheatsheets" class="section level1">
 <h1>RStudio “Cheatsheets”</h1>
 <ul>
-<li><a href="https://www.rstudio.com/resources/cheatsheets/">All cheatsheets</a></li>
-<li><a href="https://resources.rstudio.com/the-essentials-of-data-science/data-transformation">Data wrangling with the <code>dplyr</code> library</a></li>
-<li><a href="https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf">Data visualization with the <code>ggplot2</code> library</a></li>
-<li><a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">RMarkdown</a></li>
+<li><a href="https://www.rstudio.com/resources/cheatsheets/">All
+cheatsheets</a></li>
+<li><a
+href="https://resources.rstudio.com/the-essentials-of-data-science/data-transformation">Data
+wrangling with the <code>dplyr</code> library</a></li>
+<li><a
+href="https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf">Data
+visualization with the <code>ggplot2</code> library</a></li>
+<li><a
+href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">RMarkdown</a></li>
 </ul>
 </div>
 

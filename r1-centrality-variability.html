@@ -13,7 +13,8 @@
 
 <title>Centrality &amp; Variability</title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.23/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -28,14 +29,14 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet" />
 <link rel="icon" href="images/favicon.ico">
 <script src="https://kit.fontawesome.com/1392a7030f.js" crossorigin="anonymous"></script>
 <style type="text/css">
@@ -166,6 +167,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -186,6 +188,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -243,11 +248,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -276,8 +285,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -285,16 +294,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -417,7 +419,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -435,20 +437,20 @@ div.tocify {
 </li>
 <li>
   <a href="syllabus.html">
-    <span class="fa fa fa fa-map"></span>
+    <span class="fa fa-map"></span>
      
     Syllabus
   </a>
 </li>
 <li>
   <a href="schedule.html">
-    <span class="fa fa fa fa-calendar-alt"></span>
+    <span class="fa fa-calendar-alt"></span>
      
     Schedule
   </a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-laptop-code"></span>
      
     Class
@@ -501,7 +503,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-book-reader"></span>
      
     Readings
@@ -548,7 +550,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-pencil-ruler"></span>
      
     Projects
@@ -574,8 +576,8 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa fa fa-bookmark"></span>
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-bookmark"></span>
      
     References
      
@@ -605,7 +607,7 @@ div.tocify {
     </li>
     <li>
       <a href="ref-finding-data.html">
-        <span class="fas fa-database"></span>
+        <span class="fa fa-database"></span>
          
         Finding Data
       </a>
@@ -641,7 +643,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-tools"></span>
      
     Tools
@@ -673,12 +675,12 @@ div.tocify {
   </ul>
 </li>
 <li>
-  <a href="http://eda.seas.gwu.edu/showcase-2021-spring.html">Showcase</a>
+  <a href="http://eda.seas.gwu.edu/showcase/2021-spring.html">Showcase</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-bars"></span>
      
      
@@ -731,34 +733,77 @@ div.tocify {
 
 <blockquote>
 <p><strong>Due</strong>: 26 January, 11:59 pm</p>
-<p><strong>Weight</strong>: This assignment is worth 0.5% of your final grade.</p>
-<p><strong>Purpose</strong>: The purpose of this assignment is to develop some basic strategies for exploring data sets to gain a greater understanding of the variable types, their centrality, and their variability.</p>
-<p><strong>Assessment</strong>: This assignment is graded using a check system:</p>
+<p><strong>Weight</strong>: This assignment is worth 0.5% of your final
+grade.</p>
+<p><strong>Purpose</strong>: The purpose of this assignment is to
+develop some basic strategies for exploring data sets to gain a greater
+understanding of the variable types, their centrality, and their
+variability.</p>
+<p><strong>Assessment</strong>: This assignment is graded using a check
+system:</p>
 <ul>
-<li>✔+ (110%): Reflection shows phenomenal thought and engagement with the course content. I will not assign these often.</li>
-<li>✔ (100%): Reflection is thoughtful, well-written, and shows engagement with the course content. This is the expected level of performance.</li>
-<li>✔− (50%): Reflection is hastily composed, too short, and/or only cursorily engages with the course content. This grade signals that you need to improve next time. I will <em>hopefully</em> not assign these often.</li>
+<li>✔+ (110%): Reflection shows phenomenal thought and engagement with
+the course content. I will not assign these often.</li>
+<li>✔ (100%): Reflection is thoughtful, well-written, and shows
+engagement with the course content. This is the expected level of
+performance.</li>
+<li>✔− (50%): Reflection is hastily composed, too short, and/or only
+cursorily engages with the course content. This grade signals that you
+need to improve next time. I will <em>hopefully</em> not assign these
+often.</li>
 </ul>
-<p>Notice that this is essentially a pass/fail or completion-based system. I’m not grading your writing ability, I’m not counting the exact number of words you write, and I’m not looking for encyclopedic citations of every single reading to prove that you did indeed read everything. I’m looking for thoughtful engagement, that’s all. Do good work and you’ll get a ✓.</p>
+<p>Notice that this is essentially a pass/fail or completion-based
+system. I’m not grading your writing ability, I’m not counting the exact
+number of words you write, and I’m not looking for encyclopedic
+citations of every single reading to prove that you did indeed read
+everything. I’m looking for thoughtful engagement, that’s all. Do good
+work and you’ll get a ✓.</p>
 </blockquote>
 <div id="tasks" class="section level1">
 <h1>Tasks</h1>
 <ol style="list-style-type: decimal">
-<li><p><strong>Register</strong>: If you haven’t already, register for <a href="https://www.datacamp.com/home">DataCamp</a>. <strong>You must use your <span class="citation">@gwu.edu</span> email for this to work</strong> (not the <span class="citation">@email.gwu.edu</span> address). This will give you access to lots of extra practice opportunities. None of these will be mandatory.</p></li>
-<li><p><strong>Read</strong>: Open up a notebook (physical, digital…whatever you take notes in best), and <strong>take notes</strong> while you go through the readings below.</p></li>
-<li><p><strong>Optional Exercises</strong>: You don’t <em>have</em> to do these, but they can be really helpful, especially if you are coming to this course without having taken EMSE 4574 Programming for Analytics:</p>
+<li><p><strong>Register</strong>: If you haven’t already, register for
+<a href="https://www.datacamp.com/home">DataCamp</a>. <strong>You must
+use your <span class="citation">@gwu.edu</span> email for this to
+work</strong> (not the <span class="citation">@email.gwu.edu</span>
+address). This will give you access to lots of extra practice
+opportunities. None of these will be mandatory.</p></li>
+<li><p><strong>Read</strong>: Open up a notebook (physical,
+digital…whatever you take notes in best), and <strong>take
+notes</strong> while you go through the readings below.</p></li>
+<li><p><strong>Optional Exercises</strong>: You don’t <em>have</em> to
+do these, but they can be really helpful, especially if you are coming
+to this course without having taken EMSE 4574 Programming for
+Analytics:</p>
 <ul>
-<li>Complete the following RStudio Primer lesson: <a href="https://rstudio.cloud/learn/primers/3.1">Exploratory Data Analysis</a></li>
-<li>Complete <a href="https://campus.datacamp.com/courses/exploratory-data-analysis/numerical-summaries?ex=1">Lesson 3: Numerical Summaries</a> from the DataCamp course “Exploratory Data Analysis in R”.</li>
+<li>Complete the following RStudio Primer lesson: <a
+href="https://rstudio.cloud/learn/primers/3.1">Exploratory Data
+Analysis</a></li>
+<li>Complete <a
+href="https://campus.datacamp.com/courses/exploratory-data-analysis/numerical-summaries?ex=1">Lesson
+3: Numerical Summaries</a> from the DataCamp course “Exploratory Data
+Analysis in R”.</li>
 </ul></li>
-<li><p><strong>Reflection</strong>: When you have completed all of the readings, download and edit <a href="https://eda.seas.gwu.edu/2021-Spring/templates/reflection1.zip">this template</a> to write a ~150 word reflection about on what you’ve read (be sure to edit the YAML at the top). That’s fairly short - there are ~250 words on a typical double-spaced page in Microsoft Word (500 when single-spaced). You can do a lot of different things with this memo, for example:</p>
+<li><p><strong>Reflection</strong>: When you have completed all of the
+readings, download and edit <a
+href="https://eda.seas.gwu.edu/2021-Spring/templates/reflection1.zip">this
+template</a> to write a ~150 word reflection about on what you’ve read
+(be sure to edit the YAML at the top). That’s fairly short - there are
+~250 words on a typical double-spaced page in Microsoft Word (500 when
+single-spaced). You can do a lot of different things with this memo, for
+example:</p>
 <ul>
 <li>Discuss something you learned from the course content</li>
-<li>Write about the best or worst data visualization you saw recently</li>
+<li>Write about the best or worst data visualization you saw
+recently</li>
 <li>Connect the course content to your own work</li>
-<li>Discuss some of the key insights or things you found interesting in the readings</li>
+<li>Discuss some of the key insights or things you found interesting in
+the readings</li>
 </ul></li>
-<li><p><strong>Submit Everything</strong>: Knit your document to a html page, then create a zip file of everything in your R Project folder. Go to the “Assignment Submission” page on Blackboard and submit your zip file.</p></li>
+<li><p><strong>Submit Everything</strong>: Knit your document to a html
+page, then create a zip file of everything in your R Project folder. Go
+to the “Assignment Submission” page on Blackboard and submit your zip
+file.</p></li>
 </ol>
 <hr />
 </div>
@@ -766,11 +811,24 @@ div.tocify {
 <h1>Readings</h1>
 <div id="get-familiar-with-the-course" class="section level2">
 <h2>1) Get Familiar with the Course</h2>
-<p>Follow <a href="https://twitter.com/ryancbriggs/status/1293543531496308736?s=20">Snoop’s advice</a> and read the entire <a href="syllabus.html">Course Syllabus</a> (actually read the whole thing). Then review the <a href="schedule.html">schedule</a> and make sure to note important upcoming deadlines, quizzes, etc.</p>
+<p>Follow <a
+href="https://twitter.com/ryancbriggs/status/1293543531496308736?s=20">Snoop’s
+advice</a> and read the entire <a href="syllabus.html">Course
+Syllabus</a> (actually read the whole thing). Then review the <a
+href="schedule.html">schedule</a> and make sure to note important
+upcoming deadlines, quizzes, etc.</p>
 </div>
-<div id="video-on-data-types-descriptive-statistics" class="section level2">
+<div id="video-on-data-types-descriptive-statistics"
+class="section level2">
 <h2>2) Video on Data types &amp; descriptive statistics</h2>
-<p>This week, we will learn some strategies for exploring data sets to gain a greater understanding of the variable types and their relationships. To get started, open up a notebook (physical, digital…whatever you take notes in best), and <strong>take notes</strong> while you watch <a href="https://www.youtube.com/watch?v=zHcQPKP6NpM">this 20 minute video</a> to learn about some basic data types and descriptive statistics:</p>
+<p>This week, we will learn some strategies for exploring data sets to
+gain a greater understanding of the variable types and their
+relationships. To get started, open up a notebook (physical,
+digital…whatever you take notes in best), and <strong>take
+notes</strong> while you watch <a
+href="https://www.youtube.com/watch?v=zHcQPKP6NpM">this 20 minute
+video</a> to learn about some basic data types and descriptive
+statistics:</p>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/zHcQPKP6NpM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
@@ -778,17 +836,29 @@ div.tocify {
 </div>
 <div id="chapters-on-eda" class="section level2">
 <h2>3) Chapters on EDA</h2>
-<p>Read through the following chapters and <strong>take notes</strong>.</p>
+<p>Read through the following chapters and <strong>take
+notes</strong>.</p>
 <ul>
-<li><a href="https://r4ds.had.co.nz/exploratory-data-analysis.html">R4DS - 7: Exploratory data analysis</a>: Provides some more “hands on” strategies for exploring data using R and the <strong>ggplot2</strong> library.</li>
-<li><a href="https://serialmentor.com/dataviz/directory-of-visualizations.html">Wilke - 5: Directory of visualizations</a>: Provides a quick overview of many common plot types.</li>
+<li><a href="https://r4ds.had.co.nz/exploratory-data-analysis.html">R4DS
+- 7: Exploratory data analysis</a>: Provides some more “hands on”
+strategies for exploring data using R and the <strong>ggplot2</strong>
+library.</li>
+<li><a
+href="https://serialmentor.com/dataviz/directory-of-visualizations.html">Wilke
+- 5: Directory of visualizations</a>: Provides a quick overview of many
+common plot types.</li>
 </ul>
 </div>
 <div id="choosing-the-right-chart" class="section level2">
 <h2>4) Choosing the right chart</h2>
-<p>You will want to choose different chart types depending on the relationship or message you want to convey. Fortunately, there are lots of great guides to help you make those choices. View them <a href="ref-visualizing-data.html#choosing-the-right-chart">here</a>.</p>
+<p>You will want to choose different chart types depending on the
+relationship or message you want to convey. Fortunately, there are lots
+of great guides to help you make those choices. View them <a
+href="ref-visualizing-data.html#choosing-the-right-chart">here</a>.</p>
 <hr />
-<p>Page sources: This assignment is inspired by Andrew Heiss’s <a href="https://datavizm20.classes.andrewheiss.com/assignment/#reflections-1">course</a> on Data Visualization.</p>
+<p>Page sources: This assignment is inspired by Andrew Heiss’s <a
+href="https://datavizm20.classes.andrewheiss.com/assignment/#reflections-1">course</a>
+on Data Visualization.</p>
 </div>
 </div>
 
@@ -851,6 +921,9 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
 
     // move toc-ignore selectors from section div to header
     $('div.section.toc-ignore')

@@ -13,7 +13,8 @@
 
 <title>EMSE 4575: Exploratory Data Analysis - Spring 2021</title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.23/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -37,7 +38,7 @@
 <meta name="twitter:title" content="EMSE 4575: Spring 2021"/>
 <meta name="twitter:description" content="Course website for Spring 2021 semester of the EMSE course &quot;Exploratory Data Analsis&quot; at GWU"/>
 <meta name="twitter:url" content="https://eda.seas.gwu.edu/2021-Spring/"/>
-<meta name="twitter:image:src" content="https://eda.seas.gwu.edu/images/eda_hex_sticker.png"/>
+<meta name="twitter:image" content="https://eda.seas.gwu.edu/images/eda_hex_sticker.png"/>
 <meta name="twitter:image:alt" content="Hex sticker for class logo showing Anscombe&#39;s quartet"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:creator" content="@JohnHelveston"/>
@@ -50,8 +51,8 @@
 <meta property="og:type" content="website"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="article:author" content="John Paul Helveston"/>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet" />
 <link rel="icon" href="images/favicon.ico">
 <script src="https://kit.fontawesome.com/1392a7030f.js" crossorigin="anonymous"></script>
 <style type="text/css">
@@ -182,6 +183,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -202,6 +204,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -259,11 +264,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -292,8 +301,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -301,16 +310,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -354,7 +356,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -372,20 +374,20 @@ $(document).ready(function () {
 </li>
 <li>
   <a href="syllabus.html">
-    <span class="fa fa fa fa-map"></span>
+    <span class="fa fa-map"></span>
      
     Syllabus
   </a>
 </li>
 <li>
   <a href="schedule.html">
-    <span class="fa fa fa fa-calendar-alt"></span>
+    <span class="fa fa-calendar-alt"></span>
      
     Schedule
   </a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-laptop-code"></span>
      
     Class
@@ -438,7 +440,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-book-reader"></span>
      
     Readings
@@ -485,7 +487,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-pencil-ruler"></span>
      
     Projects
@@ -511,8 +513,8 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa fa fa-bookmark"></span>
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-bookmark"></span>
      
     References
      
@@ -542,7 +544,7 @@ $(document).ready(function () {
     </li>
     <li>
       <a href="ref-finding-data.html">
-        <span class="fas fa-database"></span>
+        <span class="fa fa-database"></span>
          
         Finding Data
       </a>
@@ -578,7 +580,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-tools"></span>
      
     Tools
@@ -610,12 +612,12 @@ $(document).ready(function () {
   </ul>
 </li>
 <li>
-  <a href="http://eda.seas.gwu.edu/showcase-2021-spring.html">Showcase</a>
+  <a href="http://eda.seas.gwu.edu/showcase/2021-spring.html">Showcase</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-bars"></span>
      
      
@@ -661,7 +663,8 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">EMSE 4575: Exploratory Data Analysis - Spring 2021</h1>
+<h1 class="title toc-ignore">EMSE 4575: Exploratory Data Analysis -
+Spring 2021</h1>
 
 </div>
 
@@ -671,23 +674,55 @@ $(document).ready(function () {
 <p><img src="images/eda_hex_sticker.png" width="200"></p>
 </div>
 <div class="col-md-9">
-<p><strong>Department</strong>: <a href="https://www.emse.seas.gwu.edu/">Engineering Management and Systems Engineering</a> @ <a href="https://www.gwu.edu/">GWU</a></p>
+<p><strong>Department</strong>: <a
+href="https://www.emse.seas.gwu.edu/">Engineering Management and Systems
+Engineering</a> @ <a href="https://www.gwu.edu/">GWU</a></p>
 <p><strong>Credits</strong>: 3</p>
 <p><strong>Description</strong>:</p>
-<p>This course provides students with a foundation in exploring data using the <a href="https://www.r-project.org/">R programming language</a>. Students will learn how to source, manage, transform, and explore a wide variety of data types. Students will also master the fundamental concepts for visualizing and communicating information contained in raw data, including the human psychology of visual information processing. All analyses will be conducted to support reproducibility from raw data to results using <a href="https://bookdown.org/yihui/rmarkdown/">RMarkdown</a>. Teaching will involve interactive lectures with plenty of class time spent working on examples and coding. Students will be assessed through in-class quizzes, reading reflections, and exploratory projects. Throughout the semester, students will work on a research project of their own design to demonstrate mastery of the course’s topics. At the end of the semester, students will submit a final, reproducible report of their project along with a 10-minute video presentation of their findings.</p>
+<p>This course provides students with a foundation in exploring data
+using the <a href="https://www.r-project.org/">R programming
+language</a>. Students will learn how to source, manage, transform, and
+explore a wide variety of data types. Students will also master the
+fundamental concepts for visualizing and communicating information
+contained in raw data, including the human psychology of visual
+information processing. All analyses will be conducted to support
+reproducibility from raw data to results using <a
+href="https://bookdown.org/yihui/rmarkdown/">RMarkdown</a>. Teaching
+will involve interactive lectures with plenty of class time spent
+working on examples and coding. Students will be assessed through
+in-class quizzes, reading reflections, and exploratory projects.
+Throughout the semester, students will work on a research project of
+their own design to demonstrate mastery of the course’s topics. At the
+end of the semester, students will submit a final, reproducible report
+of their project along with a 10-minute video presentation of their
+findings.</p>
 <p><strong>Learning Objectives</strong>:</p>
-<p>Having successfully completed this course, students will be able to:</p>
+<p>Having successfully completed this course, students will be able
+to:</p>
 <ul>
-<li>Write a clear, focused, concise, complex, and arguable research question.</li>
+<li>Write a clear, focused, concise, complex, and arguable research
+question.</li>
 <li>Import, manipulate, clean, visualize, and export data in R.</li>
-<li>Wrangle data from its original format into a fit-for-purpose format.</li>
-<li>Conduct a systematic exploratory data analysis (EDA) of different types of data.</li>
-<li>Apply fundamental principles of visualizing information for exploratory analysis and communication.</li>
+<li>Wrangle data from its original format into a fit-for-purpose
+format.</li>
+<li>Conduct a systematic exploratory data analysis (EDA) of different
+types of data.</li>
+<li>Apply fundamental principles of visualizing information for
+exploratory analysis and communication.</li>
 <li>Get data off the web and expose data, code, results on the web.</li>
-<li>Generate fully reproducible reports that contain code, equations, visualizations, and narrative text.</li>
+<li>Generate fully reproducible reports that contain code, equations,
+visualizations, and narrative text.</li>
 </ul>
 <p><strong>Prerequisites</strong>:</p>
-<p>Students should have taken <a href="https://p4a.seas.gwu.edu/">EMSE 4574: Programming for Analytics</a> or have experience working with data in at least one programming language. If you’re not sure whether you have the necessary prerequisite skills, you can try and get up to speed by completing <a href="a0-course-prereqs.html">this optional course prerequisites</a> assignment <strong>before class starts</strong>. Once class starts, it may be difficult to keep up without this background, and it may be more beneficial to wait and take this course next year after taking Programming for Analytics.</p>
+<p>Students should have taken <a href="https://p4a.seas.gwu.edu/">EMSE
+4574: Programming for Analytics</a> or have experience working with data
+in at least one programming language. If you’re not sure whether you
+have the necessary prerequisite skills, you can try and get up to speed
+by completing <a href="a0-course-prereqs.html">this optional course
+prerequisites</a> assignment <strong>before class starts</strong>. Once
+class starts, it may be difficult to keep up without this background,
+and it may be more beneficial to wait and take this course next year
+after taking Programming for Analytics.</p>
 </div>
 </div>
 
