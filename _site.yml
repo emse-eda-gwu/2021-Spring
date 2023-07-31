@@ -128,7 +128,7 @@ navbar:
           icon: fas fa-user-clock
           href: https://jhelvy.appointlet.com/b/professor-helveston
     - text: "Showcase"
-      href: http://eda.seas.gwu.edu/showcase-2021-spring.html
+      href: http://eda.seas.gwu.edu/showcase/2021-spring.html
 
   right:
   - icon: fas fa-bars
