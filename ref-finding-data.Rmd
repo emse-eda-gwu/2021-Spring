@@ -30,7 +30,7 @@ A collection of various websites that have lots of interesting datasets:
 
 # Packages
 
-Many packages contain interesting datasets. If you can find a package with data, it will usually be nicely-formatted `r emo::ji("smile")`
+Many packages contain interesting datasets. If you can find a package with data, it will usually be nicely-formatted 😊
 
 [Here](https://vincentarelbundock.github.io/Rdatasets/datasets.html) is a table of lots of packages that contain multiple dataset. Some of my favorites are:
 
