@@ -31,5 +31,4 @@ Imports:
     xaringanExtra,
     yaml
 Remotes:
-    haozhu233/kableExtra,
     r-lib/remotes
